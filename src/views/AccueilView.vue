@@ -3,7 +3,7 @@
 		<section class="section-video">
 			<div class="video-container">
 				<video
-					src="src/assets/video/presentation_desfees.mp4"
+					src="src/assets/video/presentation des fées raccourcie.mp4"
 					muted
 					autoplay
 					loop
@@ -14,7 +14,7 @@
 				<h3
 					class="gt-sm absolute-bottom q-pb-lg text-h3 text-white text-center bg-transparent cursive"
 				>
-					Le Domaine des Fées vous souhaite la bienvenue. test
+					Le Domaine des Fées vous souhaite la bienvenue.
 				</h3>
 			</div>
 		</section>
@@ -51,11 +51,11 @@
 			<div class="wrapper row items-center">
 				<q-parallax
 					:speed="1"
-					class="col-sm-7 col-lg-6"
+					class="col-sm-7 col-lg-6 appear-left"
 					src="src/assets/Salon_(10).jpg"
 				>
 				</q-parallax>
-				<div class="col-sm-5 col-lg-6 q-pa-xl brand-3">
+				<div class="col-sm-5 col-lg-6 q-pa-xl brand-3 appear-right">
 					<p>
 						Un écrin de nature ou l’hiver s’installe afin de permettre à la
 						nature de se ressourcer en compagnie des fées. La féerie vous
@@ -72,11 +72,11 @@
 			<div class="wrapper row reverse items-center">
 				<q-parallax
 					:speed="1"
-					class="col-sm-7 col-lg-8"
+					class="col-sm-7 col-lg-8 appear-right"
 					src="src/assets/Salon_(6).jpg"
 				></q-parallax>
 
-				<div class="col-sm-5 col-lg-4 q-pa-xl brand-2">
+				<div class="col-sm-5 col-lg-4 q-pa-xl brand-2 appear-left">
 					<p>
 						Les fées ont profitées pour s’embellir et leur permettre de
 						réellement prendre possession des lieux avec un
@@ -89,18 +89,15 @@
 
 		<h4 class="wrapper q-pa-lg q-py-xl text-uppercase">Nos chambres</h4>
 		<section class="chambres wrapper">
-			<q-card
+			<div
 				class="chambre q-pb-lg"
-				square
-				flat
-				:bordered="false"
 				v-for="chambre in chambres"
 				:key="chambre.name"
 				:class="[chambre.index % 2 === 0 ? 'q-pl-lg' : 'q-pr-lg']"
 			>
-				<q-img :src="chambre.image">
-					<div
-						class="text-h3 bg-transparent cursive"
+				<q-parallax :src="chambre.image" :height="167">
+					<h3
+						class="q-pa-md bg-transparent text-white cursive"
 						:class="[
 							chambre.index % 2 === 0
 								? 'absolute-bottom-right'
@@ -108,9 +105,9 @@
 						]"
 					>
 						{{ chambre.name }}
-					</div>
-				</q-img>
-			</q-card>
+					</h3>
+				</q-parallax>
+			</div>
 		</section>
 
 		<section>
@@ -163,6 +160,32 @@ const autoplay = ref(true);
 </script>
 
 <style lang="scss" scoped>
+.appear-left {
+	animation: appearLeftAnim 1000ms ease;
+}
+
+@keyframes appearLeftAnim {
+	0% {
+		opacity: 0;
+		transform: translateX(-100px);
+	}
+	100% {
+		opacity: 1;
+	}
+}
+.appear-right {
+	animation: appearRightAnim 1000ms ease;
+}
+
+@keyframes appearRightAnim {
+	0% {
+		opacity: 0;
+		transform: translateX(100px);
+	}
+	100% {
+		opacity: 1;
+	}
+}
 .chambres {
 	display: flex;
 	flex-wrap: wrap;

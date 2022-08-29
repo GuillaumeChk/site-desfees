@@ -25,8 +25,8 @@
 				<q-img
 					width="45px"
 					height="45px"
-					fit="contain"
-					src="nv_logo_fee_40.png"
+					fit="fill"
+					src="src/components/icons/logoGitedes.svg"
 				>
 				</q-img>
 			</q-btn>
@@ -111,7 +111,7 @@
 	color: orange;
 }
 .navbar-solid {
-	color: #9e9e9e;
+	color: grey;
 	background-color: white;
 }
 .navbar-transparent {
