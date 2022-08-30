@@ -126,6 +126,7 @@
 <script>
 import { ref } from "vue";
 
+// Navbar — trantparent to solid
 window.onscroll = function () {
 	scrollFunction();
 };
@@ -140,6 +141,7 @@ function scrollFunction() {
 	}
 }
 
+// Quasar Open drawer menu
 export default {
 	setup() {
 		const leftDrawerOpen = ref(false);

@@ -93,7 +93,11 @@
 				class="chambre q-pb-lg"
 				v-for="chambre in chambres"
 				:key="chambre.name"
-				:class="[chambre.index % 2 === 0 ? 'q-pl-lg' : 'q-pr-lg']"
+				:class="[
+					chambre.index % 2 === 0
+						? 'q-pl-lg appear-left'
+						: 'q-pr-lg appear-right',
+				]"
 			>
 				<q-parallax :src="chambre.image" :height="167">
 					<h3
@@ -117,7 +121,11 @@
 				flat
 				v-for="equipment in equipments"
 				:key="equipment.name"
-				:class="[equipment.index % 2 === 0 ? 'brand' : 'brand-4']"
+				:class="[
+					equipment.index % 2 === 0
+						? 'brand appear-left'
+						: 'brand-4 appear-right',
+				]"
 			>
 				<div
 					class="wrapper row items-center"
@@ -151,41 +159,54 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import chambres from "../data/chambres.json";
 import equipments from "../data/equipments.json";
 
 const slide = ref(1);
 const autoplay = ref(true);
+
+// Animate on scroll (when visible)
+onMounted(() => {
+	const inViewport = (entries, observer) => {
+		entries.forEach((entry) => {
+			entry.target.classList.toggle("show", entry.isIntersecting);
+		});
+	};
+
+	const Observer = new IntersectionObserver(inViewport);
+	let options = {
+		root: null,
+		rootMargin: "0px",
+		threshold: 1,
+	};
+
+	// Attach observer to every [data-inviewport] element:
+	const Elements_inViewport = document.querySelectorAll(
+		".appear-left, .appear-right"
+	);
+	Elements_inViewport.forEach((element) => {
+		Observer.observe(element, options);
+	});
+});
 </script>
 
 <style lang="scss" scoped>
 .appear-left {
-	animation: appearLeftAnim 1000ms ease;
-}
-
-@keyframes appearLeftAnim {
-	0% {
-		opacity: 0;
-		transform: translateX(-100px);
-	}
-	100% {
-		opacity: 1;
-	}
+	opacity: 0;
+	transform: translateX(-100%);
+	transition: transform 1s ease, opacity 1s ease;
 }
 .appear-right {
-	animation: appearRightAnim 1000ms ease;
+	opacity: 0;
+	transform: translateX(100%);
+	transition: transform 1s ease, opacity 1s ease;
+}
+.show {
+	transform: translateX(0);
+	opacity: 1;
 }
 
-@keyframes appearRightAnim {
-	0% {
-		opacity: 0;
-		transform: translateX(100px);
-	}
-	100% {
-		opacity: 1;
-	}
-}
 .chambres {
 	display: flex;
 	flex-wrap: wrap;
