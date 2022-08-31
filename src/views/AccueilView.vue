@@ -88,7 +88,7 @@
 		</section>
 
 		<h4 class="wrapper q-pa-lg q-py-xl text-uppercase">Nos chambres</h4>
-		<section class="chambres wrapper">
+		<section class="wrapper chambres">
 			<div
 				class="chambre q-pb-lg"
 				v-for="chambre in chambres"
@@ -99,18 +99,22 @@
 						: 'q-pr-lg appear-left',
 				]"
 			>
-				<q-parallax :src="chambre.image" :height="167">
-					<h3
-						class="q-pa-md bg-transparent text-white cursive"
-						:class="[
-							chambre.index % 2 === 0
-								? 'absolute-bottom-right'
-								: 'absolute-bottom-left',
-						]"
-					>
-						{{ chambre.name }}
-					</h3>
-				</q-parallax>
+				<router-link
+					:to="{ name: 'chambre', params: { roomName: chambre.pathName } }"
+				>
+					<q-parallax :src="chambre.image" :height="167">
+						<h3
+							class="q-pa-md bg-transparent text-white cursive"
+							:class="[
+								chambre.index % 2 === 0
+									? 'absolute-bottom-right'
+									: 'absolute-bottom-left',
+							]"
+						>
+							{{ chambre.name }}
+						</h3>
+					</q-parallax>
+				</router-link>
 			</div>
 		</section>
 
@@ -194,6 +198,12 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+.zoom-in {
+	transition: 100ms;
+	&:hover {
+		transform: scale(1.5);
+	}
+}
 .appear-left {
 	opacity: 0;
 	transform: translateX(-100%);
