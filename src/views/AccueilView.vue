@@ -141,7 +141,9 @@
 
 					<q-card-section class="col-sm-6 col-md-8">
 						<h5 class="text-uppercase">{{ equipment.name }}</h5>
-						<p>{{ equipment.description }}</p>
+						<p class="q-pl-lg">
+							{{ equipment.description }}
+						</p>
 
 						<p>Équipé dans :</p>
 						<q-list dense class="text-italic">

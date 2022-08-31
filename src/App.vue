@@ -52,7 +52,7 @@ import NavBar from "./components/NavBar.vue";
 <style>
 .brand {
 	/* color: white !important; */
-	background: #f8961e !important;
+	background: #faad4f !important;
 }
 .brand-2 {
 	/* color: white !important; */
@@ -63,8 +63,8 @@ import NavBar from "./components/NavBar.vue";
 	background: #c9e3ac !important;
 }
 .brand-4 {
-	color: white !important;
-	background: #faad4f !important;
+	/* color: white !important; */
+	background: #fbc481 !important;
 }
 .text-brand {
 	color: #f8961e;
