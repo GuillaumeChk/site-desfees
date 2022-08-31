@@ -86,34 +86,6 @@ import NavBar from "./components/NavBar.vue";
 }
 
 @media (min-width: 1024px) {
-	.brand {
-		/* color: white !important; */
-		background: #f8961e !important;
-	}
-	.brand-2 {
-		/* color: white !important; */
-		background: #90be6d !important;
-	}
-	.brand-3 {
-		/* color: white !important; */
-		background: #c9e3ac !important;
-	}
-	.text-brand {
-		color: #f8961e;
-	}
-	.text-brand-2 {
-		color: #90be6d;
-	}
-	.text-brand-3 {
-		color: #c9e3ac;
-	}
-	.brand-4 {
-		color: white !important;
-		background: #faad4f !important;
-	}
-	.cursive {
-		font-family: "Mea Culpa", cursive;
-	}
 	.wrapper {
 		max-width: 1300px;
 		margin: 0 auto;

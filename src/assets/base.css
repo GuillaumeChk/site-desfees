@@ -76,7 +76,11 @@
 	/* color: #181818; */
 }
 
+html {
+	overflow-x: hidden;
+}
 body {
+	overflow-x: hidden;
 	min-height: 100vh;
 	/* color: var(--color-text);
   background: var(--color-background); */

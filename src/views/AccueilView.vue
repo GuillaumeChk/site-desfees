@@ -95,8 +95,8 @@
 				:key="chambre.name"
 				:class="[
 					chambre.index % 2 === 0
-						? 'q-pl-lg appear-left'
-						: 'q-pr-lg appear-right',
+						? 'q-pl-lg appear-right'
+						: 'q-pr-lg appear-left',
 				]"
 			>
 				<q-parallax :src="chambre.image" :height="167">
@@ -256,10 +256,6 @@ li {
 }
 
 @media (min-width: 1024px) {
-	.chambres {
-		display: flex;
-		flex-wrap: wrap;
-	}
 	.chambre {
 		flex: auto;
 		// width: 425px;
@@ -271,44 +267,10 @@ li {
 	.image-chambre {
 		margin: 25px;
 		// max-height: 200px;
-	}
-	.video-container {
-		background-color: black;
-		overflow: hidden;
-		height: 100%;
-		position: absolute;
-		width: 100%;
-		z-index: 0;
-	}
-	.video-container > video {
-		height: 100%;
-		left: 0;
-		object-fit: cover;
-		position: absolute;
-		top: 0;
-		width: 100%;
-	}
-	.section-video {
-		overflow: hidden;
-		position: relative;
-		width: 100%;
-		z-index: 1;
-
-		background-color: black;
-		display: flex;
-		flex-direction: column;
-		min-height: 500px;
-		justify-content: flex-end;
-
-		margin-top: -66px;
 	}
 }
 
 @media (min-width: 1440px) {
-	.chambres {
-		display: flex;
-		flex-wrap: wrap;
-	}
 	.chambre {
 		flex: auto;
 		// width: 425px;
@@ -321,22 +283,7 @@ li {
 		margin: 25px;
 		// max-height: 200px;
 	}
-	.video-container {
-		background-color: black;
-		overflow: hidden;
-		height: 100%;
-		position: absolute;
-		width: 100%;
-		z-index: 0;
-	}
-	.video-container > video {
-		height: 100%;
-		left: 0;
-		object-fit: cover;
-		position: absolute;
-		top: 0;
-		width: 100%;
-	}
+
 	.section-video {
 		overflow: hidden;
 		position: relative;
