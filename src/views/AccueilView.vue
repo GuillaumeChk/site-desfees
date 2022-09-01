@@ -93,11 +93,7 @@
 				class="chambre q-pb-lg"
 				v-for="chambre in chambres"
 				:key="chambre.name"
-				:class="[
-					chambre.index % 2 === 0
-						? 'q-pl-lg appear-right'
-						: 'q-pr-lg appear-left',
-				]"
+				:class="[chambre.index % 2 === 0 ? 'appear-left' : 'appear-right']"
 			>
 				<router-link
 					:to="{ name: 'chambre', params: { roomName: chambre.pathName } }"
@@ -118,48 +114,60 @@
 			</div>
 		</section>
 
-		<section>
-			<h4 class="wrapper q-pa-lg q-py-xl text-uppercase">Nos équipements</h4>
+		<section class="brand q-mt-xl">
+			<div class="wrapper items-center">
+				<h4 class="q-py-xl q-pl-lg text-uppercase">Nos équipements</h4>
 
-			<q-card
-				flat
-				v-for="equipment in equipments"
-				:key="equipment.name"
-				:class="[
-					equipment.index % 2 === 0
-						? 'brand appear-left'
-						: 'brand-4 appear-right',
-				]"
-			>
-				<div
-					class="wrapper row items-center"
-					:class="[equipment.index % 2 === 0 ? '' : 'reverse']"
-				>
-					<q-img
-						loading="eager"
-						no-spinner
-						:src="equipment.image"
-						class="col-sm-6 col-md-4"
-						img-class="image-chambre"
-					/>
+				<div class="q-gutter-lg q-px-lg">
+					<q-card
+						flat
+						v-for="equipment in equipments"
+						:key="equipment.name"
+						class="rounded appear-left brand-4"
+					>
+						<q-card-section horizontal class="justify-center">
+							<h5 class="q-pa-md q-pl-lg text-uppercase">
+								{{ equipment.name }}
+							</h5>
+						</q-card-section>
 
-					<q-card-section class="col-sm-6 col-md-8">
-						<h5 class="text-uppercase">{{ equipment.name }}</h5>
-						<p class="q-pl-lg">
-							{{ equipment.description }}
-						</p>
+						<q-separator />
 
-						<p>Équipé dans :</p>
-						<q-list dense class="text-italic">
-							<q-item clickable v-ripple v-for="chambre in equipment.chambres">
-								<q-item-section>
-									<q-item-label> ✓ {{ chambres[chambre].name }} </q-item-label>
-								</q-item-section>
-							</q-item>
-						</q-list>
-					</q-card-section>
+						<q-card-section class="row">
+							<q-img
+								loading="eager"
+								no-spinner
+								:src="equipment.image"
+								class="image-equipement col-sm-4 self-center"
+								fit="contain"
+							/>
+
+							<q-card-section class="col-sm-8">
+								<p>
+									{{ equipment.description }}
+								</p>
+
+								<p class="text-bold">Équipé dans :</p>
+								<q-list dense class="text-italic">
+									<q-item
+										clickable
+										v-ripple
+										v-for="chambre in equipment.chambres"
+										:to="'/chambre/' + chambres[chambre].pathName"
+										exact
+									>
+										<q-item-section>
+											<q-item-label>
+												✓ {{ chambres[chambre].name }}
+											</q-item-label>
+										</q-item-section>
+									</q-item>
+								</q-list>
+							</q-card-section>
+						</q-card-section>
+					</q-card>
 				</div>
-			</q-card>
+			</div>
 		</section>
 	</q-page>
 </template>
@@ -198,6 +206,9 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+.rounded {
+	border-radius: 25px;
+}
 .zoom-in {
 	transition: 100ms;
 	&:hover {
@@ -207,12 +218,12 @@ onMounted(() => {
 .appear-left {
 	opacity: 0;
 	transform: translateX(-100%);
-	transition: transform 1s ease, opacity 1s ease;
+	transition: transform 1s ease, opacity 1.6s ease;
 }
 .appear-right {
 	opacity: 0;
 	transform: translateX(100%);
-	transition: transform 1s ease, opacity 1s ease;
+	transition: transform 1s ease, opacity 1.6s ease;
 }
 .show {
 	transform: translateX(0);
@@ -233,6 +244,9 @@ li {
 }
 .image-chambre {
 	margin: 25px;
+	max-height: 200px;
+}
+.image-equipement {
 	max-height: 200px;
 }
 .video-container {

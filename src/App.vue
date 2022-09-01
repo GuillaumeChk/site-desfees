@@ -81,7 +81,6 @@ import NavBar from "./components/NavBar.vue";
 .wrapper {
 	max-width: 1300px;
 	margin: 0 auto;
-	overflow: hidden;
 	position: relative;
 }
 
@@ -90,7 +89,6 @@ import NavBar from "./components/NavBar.vue";
 		max-width: 1300px;
 		margin: 0 auto;
 		position: relative;
-		overflow: hidden;
 		width: calc(100% - 60px);
 	}
 }
