@@ -1,7 +1,11 @@
 <template>
 	<div class="chambre">
-		<p>Current route name: {{ $route.name }}</p>
-		<h1>chambre{{ chambre.name }}</h1>
+		Page chambre
+		<h1>{{ chambre.name }}</h1>
+
+		<div>{{ chambre.description }}</div>
+
+		<img :src="chambre.image" />
 	</div>
 </template>
 
@@ -22,8 +26,6 @@ import chambres from "../data/chambres.json";
 
 const route = useRoute();
 
-console.log(route);
-
-// let chambreName = route.params.pathName;
-// let chambre = chambres.chambreName;
+let chambreName = route.params.roomName;
+let chambre = chambres[chambreName];
 </script>

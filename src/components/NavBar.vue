@@ -43,7 +43,7 @@
 		v-model="leftDrawerOpen"
 		side="left"
 		elevated
-		class="column justify-center items-center text-uppercase brand"
+		class="column justify-center items-center text-uppercase brand text-white"
 	>
 		<q-btn
 			flat

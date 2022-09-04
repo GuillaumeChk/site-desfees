@@ -40,26 +40,37 @@
 
 			<q-separator class="q-px-xl" inset spaced="xl" />
 
-			<p>
+			<p style="width: 75%; margin: 0 auto">
 				Les Fées ont pris possession des lieux,
 				<strong>au pied des monts du Jura</strong> et au bord d’une petite
 				rivière appelée... « La Vache ».
 			</p>
 		</section>
 
-		<section class="q-py-lg text-center">
+		<section class="q-py-xl text-center brand-3">
 			<div class="wrapper row items-center">
 				<q-parallax
 					:speed="1"
-					class="col-sm-7 col-lg-6 appear-left"
+					class="col-sm-5 col-lg-6 appear-left"
 					src="src/assets/Salon_(10).jpg"
 				>
 				</q-parallax>
-				<div class="col-sm-5 col-lg-6 q-pa-xl brand-3 appear-right">
+				<div class="col-sm-7 col-lg-6 q-pa-xl appear-right">
+					<h5 class="text-uppercase text-brand-2 q-pb-lg">
+						Bienvenue dans cet écrin de nature, véritable havre de paix !
+					</h5>
+					<p>
+						Les fées ont profitées pour s’embellir et leur permettre de
+						réellement prendre possession des lieux avec un
+						<strong>parc zen</strong> où la magie de l’eau et de la lumière
+						sauront vous charmer dans ce <strong>cadre idyllique</strong>.
+					</p>
 					<p>
 						Un écrin de nature ou l’hiver s’installe afin de permettre à la
-						nature de se ressourcer en compagnie des fées. La féerie vous
-						accompagnera durant votre séjour dans un
+						nature de se ressourcer en compagnie des fées.
+					</p>
+					<p>
+						La féerie vous accompagnera durant votre séjour dans un
 						<strong>cadre de bien-être et cocooning</strong> pour vous relaxer
 						dans ce monde magique. Alors prenez la clef de ces voies
 						enchanteuses…
@@ -72,40 +83,43 @@
 			<div class="wrapper row reverse items-center">
 				<q-parallax
 					:speed="1"
-					class="col-sm-7 col-lg-8 appear-right"
+					class="col-sm-6 col-lg-8 appear-right"
 					src="src/assets/Salon_(6).jpg"
 				></q-parallax>
 
-				<div class="col-sm-5 col-lg-4 q-pa-xl brand-2 appear-left">
+				<div class="col-sm-6 col-lg-4 q-pa-xl appear-left">
+					<h5 class="text-uppercase q-pb-lg">Titre</h5>
 					<p>
-						Les fées ont profitées pour s’embellir et leur permettre de
-						réellement prendre possession des lieux avec un
-						<strong>parc zen</strong> où la magie de l’eau et de la lumière
-						sauront vous charmer dans ce <strong>cadre idyllique</strong>.
+						Au Domaine des Fées, quand le soleil rayonne et que le ciel devient
+						bleu, vous pouvez accéder à un monde merveilleux.
+					</p>
+					<p>
+						La piscine chauffée plongeant sur la vallée, avec son eau
+						cristalline réputée magique dans le Jura, ornée de reflets argentés
+						et d’une superbe cascade scintillante, vous offrira une possibilité
+						de nage à contre-courant, un soin de réflexologie Kneippwalk qui
+						saura parfaire votre instant de détente et de bien-être…
 					</p>
 				</div>
 			</div>
 		</section>
 
-		<h4 class="wrapper q-pa-lg q-py-xl text-uppercase">Nos chambres</h4>
+		<h4 class="wrapper q-pa-lg q-py-xl text-weight-light text-uppercase">
+			Nos chambres
+		</h4>
 		<section class="wrapper chambres">
 			<div
-				class="chambre q-pb-lg"
+				class="chambre q-pb-lg appear-right"
 				v-for="chambre in chambres"
 				:key="chambre.name"
-				:class="[chambre.index % 2 === 0 ? 'appear-left' : 'appear-right']"
 			>
 				<router-link
 					:to="{ name: 'chambre', params: { roomName: chambre.pathName } }"
 				>
 					<q-parallax :src="chambre.image" :height="167">
 						<h3
-							class="q-pa-md bg-transparent text-white cursive"
-							:class="[
-								chambre.index % 2 === 0
-									? 'absolute-bottom-right'
-									: 'absolute-bottom-left',
-							]"
+							class="q-pa-md text-white cursive absolute-bottom-left"
+							style="background: linear-gradient(to right, black, transparent)"
 						>
 							{{ chambre.name }}
 						</h3>
@@ -114,32 +128,33 @@
 			</div>
 		</section>
 
-		<section class="brand q-mt-xl">
+		<section class="brand-4 q-mt-xl">
 			<div class="wrapper items-center">
-				<h4 class="q-py-xl q-pl-lg text-uppercase">Nos équipements</h4>
+				<h4 class="q-py-xl q-pl-lg text-uppercase text-weight-light">
+					Nos équipements
+				</h4>
 
-				<div class="q-gutter-lg q-px-lg">
+				<div class="q-gutter-lg q-px-lg row">
 					<q-card
 						flat
 						v-for="equipment in equipments"
 						:key="equipment.name"
-						class="rounded appear-left brand-4"
+						class="rounded appear-left card"
 					>
 						<q-card-section horizontal class="justify-center">
-							<h5 class="q-pa-md q-pl-lg text-uppercase">
+							<h5 class="q-pa-md q-pl-lg text-weight-light text-uppercase">
 								{{ equipment.name }}
 							</h5>
 						</q-card-section>
 
 						<q-separator />
 
-						<q-card-section class="row">
+						<q-card-section class="row bg-white q-pt-none">
 							<q-img
 								loading="eager"
 								no-spinner
 								:src="equipment.image"
 								class="image-equipement col-sm-4 self-center"
-								fit="contain"
 							/>
 
 							<q-card-section class="col-sm-8">
@@ -148,7 +163,7 @@
 								</p>
 
 								<p class="text-bold">Équipé dans :</p>
-								<q-list dense class="text-italic">
+								<q-list dense class="text-italic row warp justify-between">
 									<q-item
 										clickable
 										v-ripple
@@ -206,6 +221,9 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+.card {
+	width: 100%;
+}
 .rounded {
 	border-radius: 25px;
 }
@@ -248,6 +266,7 @@ li {
 }
 .image-equipement {
 	max-height: 200px;
+	min-width: 240px;
 }
 .video-container {
 	background-color: black;
