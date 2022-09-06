@@ -18,22 +18,6 @@
 				</h3>
 			</div>
 		</section>
-		<!-- <q-carousel
-      animated
-      v-model="slide"
-      infinite
-      :autoplay="autoplay"
-      transition-prev="fade"
-      transition-next="fade"
-      @mouseenter="autoplay = false"
-      @mouseleave="autoplay = true"
-      height="300px"
-    >
-      <q-carousel-slide :name="1" img-src="nv_logo_fee_40.png" />
-      <q-carousel-slide :name="2" img-src="nv_logo_fee_40.png" />
-      <q-carousel-slide :name="3" img-src="nv_logo_fee_40.png" />
-      <q-carousel-slide :name="4" img-src="nv_logo_fee_40.png" />
-    </q-carousel> -->
 
 		<section class="q-pa-lg q-py-xl q-my-lg text-grey-10 text-center">
 			<h2 class="cursive">Le Domaine des Fées vous souhaite la bienvenue.</h2>
@@ -94,11 +78,13 @@
 						bleu, vous pouvez accéder à un monde merveilleux.
 					</p>
 					<p>
-						La piscine chauffée plongeant sur la vallée, avec son eau
-						cristalline réputée magique dans le Jura, ornée de reflets argentés
-						et d’une superbe cascade scintillante, vous offrira une possibilité
-						de nage à contre-courant, un soin de réflexologie Kneippwalk qui
-						saura parfaire votre instant de détente et de bien-être…
+						La <strong>piscine chauffée</strong> plongeant sur la vallée, avec
+						son eau cristalline réputée magique dans le <strong>Jura</strong>,
+						ornée de reflets argentés et d’une superbe
+						<strong>cascade scintillante</strong>, vous offrira une possibilité
+						de <strong>nage à contre-courant</strong>, un
+						<strong>soin de réflexologie Kneippwalk</strong> qui saura parfaire
+						votre instant de détente et de bien-être…
 					</p>
 				</div>
 			</div>
@@ -135,52 +121,12 @@
 				</h4>
 
 				<div class="q-gutter-lg q-px-lg row">
-					<q-card
-						flat
+					<EquipmentCard
 						v-for="equipment in equipments"
-						:key="equipment.name"
-						class="rounded appear-left card"
-					>
-						<q-card-section horizontal class="justify-center">
-							<h5 class="q-pa-md q-pl-lg text-weight-light text-uppercase">
-								{{ equipment.name }}
-							</h5>
-						</q-card-section>
-
-						<q-separator />
-
-						<q-card-section class="row bg-white q-pt-none">
-							<q-img
-								loading="eager"
-								no-spinner
-								:src="equipment.image"
-								class="image-equipement col-sm-4 self-center"
-							/>
-
-							<q-card-section class="col-sm-8">
-								<p>
-									{{ equipment.description }}
-								</p>
-
-								<p class="text-bold">Équipé dans :</p>
-								<q-list dense class="text-italic row warp justify-between">
-									<q-item
-										clickable
-										v-ripple
-										v-for="chambre in equipment.chambres"
-										:to="'/chambre/' + chambres[chambre].pathName"
-										exact
-									>
-										<q-item-section>
-											<q-item-label>
-												✓ {{ chambres[chambre].name }}
-											</q-item-label>
-										</q-item-section>
-									</q-item>
-								</q-list>
-							</q-card-section>
-						</q-card-section>
-					</q-card>
+						:key="equipment.index"
+						:equipment="equipment"
+						:chambres="chambres"
+					/>
 				</div>
 			</div>
 		</section>
@@ -188,66 +134,12 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
 import chambres from "../data/chambres.json";
 import equipments from "../data/equipments.json";
-
-const slide = ref(1);
-const autoplay = ref(true);
-
-// Animate on scroll (when visible)
-onMounted(() => {
-	const inViewport = (entries, observer) => {
-		entries.forEach((entry) => {
-			entry.target.classList.toggle("show", entry.isIntersecting);
-		});
-	};
-
-	const Observer = new IntersectionObserver(inViewport);
-	let options = {
-		root: null,
-		rootMargin: "0px",
-		threshold: 1,
-	};
-
-	// Attach observer to every [data-inviewport] element:
-	const Elements_inViewport = document.querySelectorAll(
-		".appear-left, .appear-right"
-	);
-	Elements_inViewport.forEach((element) => {
-		Observer.observe(element, options);
-	});
-});
+import EquipmentCard from "../components/EquipmentCard.vue";
 </script>
 
 <style lang="scss" scoped>
-.card {
-	width: 100%;
-}
-.rounded {
-	border-radius: 25px;
-}
-.zoom-in {
-	transition: 100ms;
-	&:hover {
-		transform: scale(1.5);
-	}
-}
-.appear-left {
-	opacity: 0;
-	transform: translateX(-100%);
-	transition: transform 1s ease, opacity 1.6s ease;
-}
-.appear-right {
-	opacity: 0;
-	transform: translateX(100%);
-	transition: transform 1s ease, opacity 1.6s ease;
-}
-.show {
-	transform: translateX(0);
-	opacity: 1;
-}
-
 .chambres {
 	display: flex;
 	flex-wrap: wrap;

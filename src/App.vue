@@ -1,30 +1,34 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
 import NavBar from "./components/NavBar.vue";
+import { onMounted } from "vue";
+
+// Animate on scroll (when visible)
+onMounted(() => {
+	const inViewport = (entries, observer) => {
+		entries.forEach((entry) => {
+			entry.target.classList.toggle("show", entry.isIntersecting);
+		});
+	};
+
+	const Observer = new IntersectionObserver(inViewport);
+	let options = {
+		root: null,
+		rootMargin: "0px",
+		threshold: 1,
+	};
+
+	// Attach observer to every [data-inviewport] element:
+	const Elements_inViewport = document.querySelectorAll(
+		".appear-left, .appear-right"
+	);
+	Elements_inViewport.forEach((element) => {
+		Observer.observe(element, options);
+	});
+});
 </script>
 
 <template>
-	<!-- <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="@/assets/logo.svg"
-      width="125"
-      height="125"
-    />
-
-     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Acceuil</RouterLink>
-        <RouterLink to="/contact">Contact</RouterLink>
-      </nav>
-    </div>
-
-  </header> -->
-
 	<q-layout view="hHh lpr fff">
 		<NavBar />
 
@@ -45,11 +49,35 @@ import NavBar from "./components/NavBar.vue";
 			</q-toolbar>
 		</q-footer>
 	</q-layout>
-
-	<!-- <RouterView /> -->
 </template>
 
-<style>
+<style lang="scss">
+.card {
+	width: 100%;
+}
+.rounded {
+	border-radius: 25px;
+}
+.zoom-in {
+	transition: 100ms;
+	&:hover {
+		transform: scale(1.5);
+	}
+}
+.appear-left {
+	opacity: 0;
+	transform: translateX(-100%);
+	transition: transform 1s ease, opacity 1.6s ease;
+}
+.appear-right {
+	opacity: 0;
+	transform: translateX(100%);
+	transition: transform 1s ease, opacity 1.6s ease;
+}
+.show {
+	transform: translateX(0);
+	opacity: 1;
+}
 .brand {
 	/* color: white !important; */
 	background: #faad4f !important;
