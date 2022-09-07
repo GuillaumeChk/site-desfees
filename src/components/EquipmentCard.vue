@@ -1,5 +1,5 @@
 <template>
-	<q-card flat bordered class="rounded appear-left card">
+	<q-card flat bordered class="appear-left card" style="border-radius: 25px">
 		<q-card-section horizontal class="justify-center">
 			<h5 class="q-pa-md q-pl-lg text-weight-light text-uppercase">
 				{{ equipment.name }}
@@ -82,8 +82,5 @@ onMounted(() => {
 <style lang="scss">
 .card {
 	width: 100%;
-}
-.rounded {
-	border-radius: 25px;
 }
 </style>

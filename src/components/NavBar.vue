@@ -1,5 +1,9 @@
 <template>
-	<q-header id="navbar" class="navbar-transparent" height-hint="98">
+	<q-header
+		id="navbar"
+		:class="route.name === 'accueil' ? 'navbar-transparent' : 'navbar-solid'"
+		height-hint="98"
+	>
 		<q-toolbar class="q-pa-sm q-gutter-sm">
 			<div class="lt-md">
 				<q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
@@ -43,7 +47,7 @@
 		v-model="leftDrawerOpen"
 		side="left"
 		elevated
-		class="column justify-center items-center text-uppercase brand text-white"
+		class="column justify-center items-center text-uppercase text-brand"
 	>
 		<q-btn
 			flat
@@ -58,7 +62,7 @@
 			</q-item>
 			<q-expansion-item
 				:switch-toggle-side="right"
-				expand-icon-class="text-white"
+				expand-icon-class="text-orange"
 				:content-inset-level="1"
 				label="Chambres"
 			>
@@ -88,7 +92,7 @@
 			</q-item>
 			<q-expansion-item
 				:switch-toggle-side="right"
-				expand-icon-class="text-white"
+				expand-icon-class="text-orange"
 				:content-inset-level="1"
 				label="Explorer"
 			>
@@ -123,12 +127,25 @@
 }
 </style>
 
-<script>
-import { ref } from "vue";
+<script setup>
+import { ref, watch, computed } from "vue";
+import { useRoute } from "vue-router";
+
+let route = useRoute();
+let topTransparent = ref(false);
+watch(
+	() => route.name,
+	() => {
+		topTransparent = route.name === "accueil";
+	},
+	{ immediate: true }
+);
 
 // Navbar — trantparent to solid
 window.onscroll = function () {
-	scrollFunction();
+	if (topTransparent) {
+		scrollFunction();
+	}
 };
 
 function scrollFunction() {
@@ -142,16 +159,9 @@ function scrollFunction() {
 }
 
 // Quasar Open drawer menu
-export default {
-	setup() {
-		const leftDrawerOpen = ref(false);
+const leftDrawerOpen = ref(false);
 
-		return {
-			leftDrawerOpen,
-			toggleLeftDrawer() {
-				leftDrawerOpen.value = !leftDrawerOpen.value;
-			},
-		};
-	},
-};
+function toggleLeftDrawer() {
+	leftDrawerOpen.value = !leftDrawerOpen.value;
+}
 </script>

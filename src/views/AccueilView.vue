@@ -14,17 +14,19 @@
 				<h3
 					class="gt-sm absolute-bottom q-pb-lg text-h3 text-white text-center bg-transparent cursive"
 				>
-					Le Domaine des Fées vous souhaite la bienvenue.
+					Le Domaine des Fées vous souhaite la bienvenue
 				</h3>
 			</div>
 		</section>
 
-		<section class="q-pa-lg q-py-xl q-my-lg text-grey-10 text-center">
-			<h2 class="cursive">Le Domaine des Fées vous souhaite la bienvenue.</h2>
+		<section class="q-pa-lg q-py-xl q-my-lg text-grey-8 text-center">
+			<h2 class="cursive appear-left">
+				Le Domaine des Fées vous souhaite la bienvenue
+			</h2>
 
 			<q-separator class="q-px-xl" inset spaced="xl" />
 
-			<p style="width: 75%; margin: 0 auto">
+			<p class="appear-right" style="width: 75%; margin: 0 auto">
 				Les Fées ont pris possession des lieux,
 				<strong>au pied des monts du Jura</strong> et au bord d’une petite
 				rivière appelée... « La Vache ».
@@ -72,25 +74,29 @@
 				></q-parallax>
 
 				<div class="col-sm-6 col-lg-4 q-pa-xl appear-left">
-					<h5 class="text-uppercase q-pb-lg">Titre</h5>
+					<h5 class="text-uppercase text-brand q-pb-lg">Un monde féérique</h5>
 					<p>
 						Au Domaine des Fées, quand le soleil rayonne et que le ciel devient
 						bleu, vous pouvez accéder à un monde merveilleux.
 					</p>
 					<p>
-						La <strong>piscine chauffée</strong> plongeant sur la vallée, avec
-						son eau cristalline réputée magique dans le <strong>Jura</strong>,
-						ornée de reflets argentés et d’une superbe
-						<strong>cascade scintillante</strong>, vous offrira une possibilité
-						de <strong>nage à contre-courant</strong>, un
-						<strong>soin de réflexologie Kneippwalk</strong> qui saura parfaire
-						votre instant de détente et de bien-être…
+						La <strong class="text-brand">piscine chauffée</strong> plongeant
+						sur la vallée, avec son eau cristalline réputée magique dans le
+						<strong class="text-brand">Jura</strong>, ornée de reflets argentés
+						et d’une superbe
+						<strong class="text-brand">cascade scintillante</strong>, vous
+						offrira une possibilité de
+						<strong class="text-brand">nage à contre-courant</strong>, un
+						<strong class="text-brand">soin de réflexologie Kneippwalk</strong>
+						qui saura parfaire votre instant de détente et de bien-être…
 					</p>
 				</div>
 			</div>
 		</section>
 
-		<h4 class="wrapper q-pa-lg q-py-xl text-weight-light text-uppercase">
+		<h4
+			class="wrapper q-pa-lg q-py-xl text-weight-light text-uppercase appear-left"
+		>
 			Nos chambres
 		</h4>
 		<section class="wrapper chambres">
@@ -116,7 +122,9 @@
 
 		<section class="brand-4 q-mt-xl">
 			<div class="wrapper items-center">
-				<h4 class="q-py-xl q-pl-lg text-uppercase text-weight-light">
+				<h4
+					class="q-py-xl q-pl-lg text-uppercase text-weight-light appear-left"
+				>
 					Nos équipements
 				</h4>
 

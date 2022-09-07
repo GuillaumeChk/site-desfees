@@ -1,3 +1,26 @@
+<template>
+	<q-layout view="hHh lpr fff">
+		<NavBar />
+
+		<main>
+			<q-page-container>
+				<router-view />
+			</q-page-container>
+		</main>
+
+		<q-footer class="brand">
+			<q-toolbar>
+				<q-toolbar-title>
+					<q-avatar>
+						<img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
+					</q-avatar>
+					<div>Title</div>
+				</q-toolbar-title>
+			</q-toolbar>
+		</q-footer>
+	</q-layout>
+</template>
+
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
 import NavBar from "./components/NavBar.vue";
@@ -28,35 +51,9 @@ onMounted(() => {
 });
 </script>
 
-<template>
-	<q-layout view="hHh lpr fff">
-		<NavBar />
-
-		<main>
-			<q-page-container>
-				<router-view />
-			</q-page-container>
-		</main>
-
-		<q-footer class="brand">
-			<q-toolbar>
-				<q-toolbar-title>
-					<q-avatar>
-						<img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
-					</q-avatar>
-					<div>Title</div>
-				</q-toolbar-title>
-			</q-toolbar>
-		</q-footer>
-	</q-layout>
-</template>
-
 <style lang="scss">
 .card {
 	width: 100%;
-}
-.rounded {
-	border-radius: 25px;
 }
 .zoom-in {
 	transition: 100ms;

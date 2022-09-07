@@ -27,7 +27,7 @@
 
 		<section class="wrapper q-pa-lg q-gutter-md items-center">
 			<div>
-				<h5 class="text-uppercase">Équipements</h5>
+				<h5 class="text-uppercase">Équipements inclus</h5>
 				<div class="q-gutter-lg q-px-lg row">
 					<EquipmentCard
 						v-for="equipment in equipments"

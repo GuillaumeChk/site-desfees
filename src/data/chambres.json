@@ -5,7 +5,8 @@
 		"name": "Fée Salina",
 		"description": "La fée Salina vous attend dans une ambiance de velours ombragé, un lit baldaquin 180 x 200 cm avec une literie TEMPUR saura combler les plus exigeants en matière de sommeil. Un hammam doté d’aromathérapies, de chromothérapie le tout bercé par une musique zen sous un ciel étoilé vous y attend. La douche à l’Italienne et l’averse écossaise sauront vous revigorer… \n\n Vous aurez tout loisir de créer une atmosphère intime et relaxante dans ce havre de bien-être en compagnie de votre bien-aimé.",
 		"image": "/src/assets/chambres/princ_salina.jpg",
-		"equipments": ["garage", "hammam", "kneippwalk", "piscine"]
+		"equipments": ["garage", "hammam", "kneippwalk", "piscine"],
+		"tarifs": [190, 220]
 	},
 	"etoiles": {
 		"index": 2,
@@ -13,7 +14,8 @@
 		"name": "Fée des Étoiles",
 		"description": "Une chambre unique, exceptionnelle, un lit 180 x 200 cm en suspension, les étoiles a portées de main l’impression d’être en apesanteur vous gagnera… \n\n Et là ! Le jardin privatif avec son jacuzzi enrobé de gros cailloux vous fera redécouvrir le calme, la détente, le bien-être…",
 		"image": "/src/assets/chambres/princ_etoiles.jpg",
-		"equipments": ["ciel", "garage", "jacuzzi", "kneippwalk", "piscine"]
+		"equipments": ["ciel", "garage", "jacuzzi", "kneippwalk", "piscine"],
+		"tarifs": [240, 280]
 	},
 	"romantique": {
 		"index": 3,
@@ -21,7 +23,8 @@
 		"name": "Fée Romantique",
 		"description": "Une chaude ambiance sensuelle un lit de 180 x 200 cm, un cours d’eau passant devant la fenêtre, une baignoire en forme de cœur pour 2 personnes offrant la cascade, la chromothérapie et la balnéothérapie, le bien-être vous attend et que dire de la Fée… À vous de juger…",
 		"image": "/src/assets/chambres/princ_romantique.jpg",
-		"equipments": ["balneo", "garage", "kneippwalk", "piscine"]
+		"equipments": ["balneo", "garage", "kneippwalk", "piscine"],
+		"tarifs": [240, 280]
 	},
 	"melusine": {
 		"index": 4,
@@ -37,7 +40,8 @@
 			"kneippwalk",
 			"piscine",
 			"sauna"
-		]
+		],
+		"tarifs": [380, 420]
 	},
 	"reves": {
 		"index": 5,
@@ -52,7 +56,8 @@
 			"kneippwalk",
 			"piscine",
 			"sauna"
-		]
+		],
+		"tarifs": [320, 360]
 	},
 	"gite": {
 		"index": 6,
@@ -60,6 +65,14 @@
 		"name": "Gîte un Conte de Fées",
 		"description": "special, faire manuellement",
 		"image": "/src/assets/chambres/cuisine_2_0.jpg",
-		"equipments": ["garage", "kneippwalk", "piscine"]
+		"equipments": ["garage", "kneippwalk", "piscine"],
+		"tarifs": [
+			[
+				[150, 200, 250, 10],
+				[200, 250, 300, 10],
+				[250, 300, 350, 10]
+			],
+			[300, 450, 550, 50]
+		]
 	}
 }
