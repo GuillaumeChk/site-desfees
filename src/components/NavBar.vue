@@ -5,15 +5,42 @@
 		height-hint="98"
 	>
 		<q-toolbar class="q-pa-sm q-gutter-sm">
-			<div class="lt-md">
-				<q-btn dense flat round icon="menu" @click="toggleLeftDrawer" />
-			</div>
+			<q-btn flat class="lt-md" round icon="menu" @click="toggleLeftDrawer" />
 
 			<q-tabs class="gt-sm" align="left">
 				<q-route-tab class="tab" to="/" label="Acceuil" />
-				<q-route-tab class="tab" to="/chambres" label="Chambres" />
+				<q-btn stretch unelevated flat class="tab" label="Chambres">
+					<q-menu auto-close>
+						<q-list style="min-width: 100px">
+							<q-item
+								v-for="chambre in chambres"
+								:key="chambre.name"
+								clickable
+								v-close-popup
+								:to="{
+									name: 'chambre',
+									params: { roomName: chambre.pathName },
+								}"
+								exact
+							>
+								<q-item-section>{{ chambre.name }}</q-item-section>
+							</q-item>
+						</q-list>
+					</q-menu>
+				</q-btn>
 				<q-route-tab class="tab" to="/prestations" label="Prestations" />
-				<q-route-tab class="tab" to="/tourisme" label="Explorer" />
+				<q-btn stretch unelevated flat class="tab" label="Explorer">
+					<q-menu auto-close>
+						<q-list style="min-width: 100px">
+							<q-item clickable v-close-popup to="/tourisme" exact>
+								<q-item-section>Tourisme</q-item-section>
+							</q-item>
+							<q-item clickable v-close-popup to="/galeries" exact>
+								<q-item-section>Galeries</q-item-section>
+							</q-item>
+						</q-list>
+					</q-menu>
+				</q-btn>
 				<q-route-tab class="tab" to="/contact" label="Contact" />
 			</q-tabs>
 
@@ -66,25 +93,18 @@
 				:content-inset-level="1"
 				label="Chambres"
 			>
-				<q-item clickable to="/chambre/salina" exact :active="false">
-					<q-item-label class="text-center"> Fée Salina </q-item-label>
-				</q-item>
-				<q-item clickable to="/chambre/etoiles" exact :active="false">
-					<q-item-label class="text-center"> Fée des Étoiles </q-item-label>
-				</q-item>
-				<q-item clickable to="/chambre/romantique" exact :active="false">
-					<q-item-label class="text-center"> Fée Romantique </q-item-label>
-				</q-item>
-				<q-item clickable to="/chambre/melusine" exact :active="false">
-					<q-item-label class="text-center"> Fée Mélusine </q-item-label>
-				</q-item>
-				<q-item clickable to="/chambre/reves" exact :active="false">
-					<q-item-label class="text-center"> Fée des Rêves </q-item-label>
-				</q-item>
-				<q-item clickable to="/chambre/gite" exact :active="false">
-					<q-item-label class="text-center">
-						Gîte un Conte de Fées
-					</q-item-label>
+				<q-item
+					v-for="chambre in chambres"
+					:key="chambre.name"
+					clickable
+					:to="{
+						name: 'chambre',
+						params: { roomName: chambre.pathName },
+					}"
+					exact
+					:active="false"
+				>
+					<q-item-section>{{ chambre.name }}</q-item-section>
 				</q-item>
 			</q-expansion-item>
 			<q-item clickable to="/prestations" exact :active="false">
@@ -130,6 +150,7 @@
 <script setup>
 import { ref, watch, computed } from "vue";
 import { useRoute } from "vue-router";
+import chambres from "../data/chambres.json";
 
 let route = useRoute();
 let topTransparent = ref(false);

@@ -83,4 +83,8 @@ onMounted(() => {
 .card {
 	width: 100%;
 }
+.image-equipement {
+	max-height: 200px;
+	min-width: 240px;
+}
 </style>

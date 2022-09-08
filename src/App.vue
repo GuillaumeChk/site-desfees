@@ -64,12 +64,12 @@ onMounted(() => {
 .appear-left {
 	opacity: 0;
 	transform: translateX(-100%);
-	transition: transform 1s ease, opacity 1.6s ease;
+	transition: transform 1s ease 250ms, opacity 1.6s ease 250ms;
 }
 .appear-right {
 	opacity: 0;
 	transform: translateX(100%);
-	transition: transform 1s ease, opacity 1.6s ease;
+	transition: transform 1s ease 250ms, opacity 1.6s ease 250ms;
 }
 .show {
 	transform: translateX(0);

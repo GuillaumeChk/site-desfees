@@ -164,10 +164,7 @@ li {
 	margin: 25px;
 	max-height: 200px;
 }
-.image-equipement {
-	max-height: 200px;
-	min-width: 240px;
-}
+
 .video-container {
 	background-color: black;
 	overflow: hidden;
