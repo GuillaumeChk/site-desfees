@@ -1,7 +1,11 @@
 <template>
 	<q-header
 		id="navbar"
-		:class="route.name === 'accueil' ? 'navbar-transparent' : 'navbar-solid'"
+		:class="
+			route.name === 'accueil' || route.name === 'chambre'
+				? 'navbar-transparent'
+				: 'navbar-solid'
+		"
 		height-hint="98"
 	>
 		<q-toolbar class="q-pa-sm q-gutter-sm">
@@ -157,7 +161,7 @@ let topTransparent = ref(false);
 watch(
 	() => route.name,
 	() => {
-		topTransparent = route.name === "accueil";
+		topTransparent = route.name === "accueil" || route.name === "chambre";
 	},
 	{ immediate: true }
 );
