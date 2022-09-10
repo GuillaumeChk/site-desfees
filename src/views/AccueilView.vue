@@ -24,12 +24,11 @@
 				Le Domaine des Fées vous souhaite la bienvenue
 			</h2>
 
-			<q-separator class="q-px-xl" inset spaced="xl" />
+			<CustomDivider />
 
 			<p class="appear-right" style="width: 75%; margin: 0 auto">
-				Les Fées ont pris possession des lieux,
-				<strong>au pied des monts du Jura</strong> et au bord d’une petite
-				rivière appelée... « La Vache ».
+				Les Fées ont pris possession des lieux, au pied des monts du Jura et au
+				bord d’une petite rivière appelée... « La Vache ».
 			</p>
 		</section>
 
@@ -145,6 +144,7 @@
 import chambres from "../data/chambres.json";
 import equipments from "../data/equipments.json";
 import EquipmentCard from "../components/EquipmentCard.vue";
+import CustomDivider from "../components/CustomDivider.vue";
 </script>
 
 <style lang="scss" scoped>

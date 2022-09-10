@@ -24,20 +24,107 @@
 			</div>
 		</section>
 
-		<section class="q-pa-lg q-gutter-md brand-4">
-			<div class="wrapper">
-				<h3 class="cursive">{{ chambre.name }}</h3>
+		<section class="q-px-lg q-pt-lg">
+			<div class="wrapper q-gutter-y-xl">
+				<h3 class="cursive text-center appear-left">{{ chambre.name }}</h3>
 
-				<img :src="chambre.image" />
-
-				<div>{{ chambre.description }}</div>
+				<p class="appear-left">{{ chambre.description }}</p>
 			</div>
 		</section>
 
-		<section class="q-pa-lg q-gutter-md items-center">
-			<div class="wrapper">
-				<h5 class="text-uppercase">Équipements inclus</h5>
-				<div class="q-gutter-lg q-px-lg row">
+		<CustomDivider class="appear-left" />
+
+		<q-carousel
+			swipeable
+			animated
+			arrows
+			v-model="slide2"
+			v-model:fullscreen="fullscreen"
+			thumbnails
+			infinite
+			class="wrapper appear-right"
+		>
+			<q-carousel-slide
+				:name="1"
+				img-src="https://cdn.quasar.dev/img/mountains.jpg"
+			/>
+			<q-carousel-slide
+				:name="2"
+				img-src="https://cdn.quasar.dev/img/parallax1.jpg"
+			/>
+			<q-carousel-slide
+				:name="3"
+				img-src="https://cdn.quasar.dev/img/parallax2.jpg"
+			/>
+			<q-carousel-slide
+				:name="4"
+				img-src="https://cdn.quasar.dev/img/quasar.jpg"
+			/>
+
+			<template v-slot:control>
+				<q-carousel-control position="bottom-right" :offset="[18, 18]">
+					<q-btn
+						round
+						flat
+						color="black"
+						text-color="white"
+						:icon="fullscreen ? 'fullscreen_exit' : 'fullscreen'"
+						@click="fullscreen = !fullscreen"
+					/>
+				</q-carousel-control>
+			</template>
+		</q-carousel>
+
+		<section class="q-pa-lg q-gutter-y-lg wrapper">
+			<h5 class="text-uppercase appear-left">Tarifs</h5>
+
+			<p class="appear-left">
+				<strong> Prix : {{ chambre.tarifs[0] }}€/nuit</strong> avec petit
+				déjeuner régional pour 2 personnes.
+				<br />
+				Une <strong>remise de 10% sur la 2ème nuitée</strong> vous sera déduite
+				au paiement final.
+			</p>
+
+			<div class="q-pt-none q-pb-md appear-left">
+				<h6>Tarif des nuitées (à partir du 1 avril 2021)</h6>
+				<div class="q-pl-md">
+					<div class="row justify-between">
+						<span>Du dimanche au vendredi :</span>
+						<span> {{ chambre.tarifs[0] }}€ </span>
+					</div>
+					<div class="row justify-between">
+						<span>
+							Du vendredi au dimanche, Jours fériés, spéciaux, vacances scolaire
+							:
+						</span>
+						<span> {{ chambre.tarifs[1] }}€ </span>
+					</div>
+				</div>
+			</div>
+			<p class="appear-left">
+				<strong>
+					Avec petit déjeuner régional pour 2 personnes. <br />
+					La taxe de séjour est incluse avec un accès à la piscine, kneippwalk
+					et wifi. <br />
+					Amis à 4 pattes compris.</strong
+				>
+			</p>
+		</section>
+
+		<section class="wrapper text-center q-pb-lg">
+			<q-btn
+				class="brand text-white appear-right"
+				:unelevated="true"
+				size="lg"
+				label="Réserver cette chambre"
+			></q-btn>
+		</section>
+
+		<section class="q-pa-lg q-gutter-y-md items-center">
+			<div class="wrapper q-gutter-y-lg">
+				<h5 class="text-uppercase appear-left">Équipements inclus</h5>
+				<div class="q-gutter-y-lg row">
 					<EquipmentCard
 						v-for="equipment in equipments"
 						:key="equipment.name"
@@ -46,19 +133,14 @@
 					/>
 				</div>
 			</div>
-
-			<div>
-				<h5 class="text-uppercase">Tarifs</h5>
-			</div>
-
-			<div>
-				<h5 class="text-uppercase">Réserver</h5>
-			</div>
 		</section>
 	</q-page>
 </template>
 
 <style>
+.images-chambre img {
+	max-width: 30%;
+}
 .wrapper {
 	max-width: 1300px;
 	margin: 0 auto;
@@ -137,6 +219,7 @@ import { ref } from "vue";
 import chambres from "../data/chambres.json";
 import equipments from "../data/equipments.json";
 import EquipmentCard from "../components/EquipmentCard.vue";
+import CustomDivider from "../components/CustomDivider.vue";
 
 const route = useRoute();
 
@@ -144,5 +227,7 @@ let chambreName = route.params.roomName;
 let chambre = chambres[chambreName];
 
 const slide = ref(1);
+const slide2 = ref(1);
 const autoplay = ref(true);
+const fullscreen = ref(false);
 </script>

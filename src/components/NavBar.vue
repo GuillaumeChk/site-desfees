@@ -61,7 +61,7 @@
 					width="45px"
 					height="45px"
 					fit="fill"
-					src="src/components/icons/logoGitedes.svg"
+					src="/src/components/icons/logoGitedes.svg"
 				>
 				</q-img>
 			</q-btn>
