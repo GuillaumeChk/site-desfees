@@ -3,7 +3,7 @@
 		<section class="section-video">
 			<div class="video-container">
 				<video
-					src="src/assets/video/presentation des fées raccourcie.mp4"
+					src="/src/assets/video/presentation_des_fées_raccourcie.mp4"
 					muted
 					autoplay
 					loop
