@@ -98,23 +98,23 @@
 		>
 			Nos chambres
 		</h4>
-		<section class="wrapper chambres">
+		<section class="wrapper row chambres">
 			<div
-				class="chambre q-pb-lg appear-right"
+				class="chambre appear-right"
 				v-for="chambre in chambres"
 				:key="chambre.name"
 			>
 				<router-link
 					:to="{ name: 'chambre', params: { roomName: chambre.pathName } }"
 				>
-					<q-parallax :src="chambre.image" :height="167">
+					<q-img :src="chambre.image">
 						<h3
 							class="q-pa-md text-white cursive absolute-bottom-left"
 							style="background: linear-gradient(to right, black, transparent)"
 						>
 							{{ chambre.name }}
 						</h3>
-					</q-parallax>
+					</q-img>
 				</router-link>
 			</div>
 		</section>
@@ -151,18 +151,15 @@ import CustomDivider from "../components/CustomDivider.vue";
 .chambres {
 	display: flex;
 	flex-wrap: wrap;
+	gap: 20px;
 }
 .chambre {
 	flex: auto;
 	width: 425px;
-	margin: 0;
+	// margin: 0;
 }
 li {
 	list-style-type: "\2713";
-}
-.image-chambre {
-	margin: 25px;
-	max-height: 200px;
 }
 
 .video-container {
@@ -201,14 +198,10 @@ li {
 	.chambre {
 		flex: auto;
 		// width: 425px;
-		margin: 5px;
+		// margin: 5px;
 	}
 	li {
 		list-style-type: "\2713";
-	}
-	.image-chambre {
-		margin: 25px;
-		// max-height: 200px;
 	}
 }
 
@@ -216,14 +209,10 @@ li {
 	.chambre {
 		flex: auto;
 		// width: 425px;
-		margin: 5px;
+		// margin: 5px;
 	}
 	li {
 		list-style-type: "\2713";
-	}
-	.image-chambre {
-		margin: 25px;
-		// max-height: 200px;
 	}
 
 	.section-video {
