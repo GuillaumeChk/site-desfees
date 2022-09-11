@@ -3,8 +3,8 @@
 		<div class="divider divider-transparent">
 			<img
 				src="/src/components/icons/logoGitedes.svg"
-				height="60px"
-				width="60px"
+				height="54px"
+				width="54px"
 				class="divider-center"
 			/>
 		</div>
@@ -31,10 +31,10 @@
 	content: "";
 	position: absolute;
 	z-index: 1;
-	top: -30px;
-	left: calc(50% - 30px);
-	width: 60px;
-	height: 60px;
-	box-shadow: inset 0 0 0 30px white, 0 0 0 20px white;
+	top: -27px;
+	left: calc(50% - 27px);
+	width: 54px;
+	height: 54px;
+	box-shadow: inset 0 0 0 30px white, 0 0 0 25px white;
 }
 </style>
