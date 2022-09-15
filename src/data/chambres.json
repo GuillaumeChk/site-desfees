@@ -4,7 +4,7 @@
 		"pathName": "salina",
 		"name": "Fée Salina",
 		"description": "La fée Salina vous attend dans une ambiance de velours ombragé, un lit baldaquin 180 x 200 cm avec une literie TEMPUR saura combler les plus exigeants en matière de sommeil. Un hammam doté d’aromathérapies, de chromothérapie le tout bercé par une musique zen sous un ciel étoilé vous y attend. La douche à l’Italienne et l’averse écossaise sauront vous revigorer… \n\n Vous aurez tout loisir de créer une atmosphère intime et relaxante dans ce havre de bien-être en compagnie de votre bien-aimé.",
-		"image": "/src/assets/chambres/principale_melusine.jpg",
+		"image": "src/assets/chambres/principale_melusine.jpg",
 		"imagesFolder": "",
 		"equipments": ["garage", "hammam", "kneippwalk", "piscine"],
 		"tarifs": [190, 220]
