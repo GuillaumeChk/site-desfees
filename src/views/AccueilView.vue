@@ -37,7 +37,7 @@
 				<q-parallax
 					:speed="1"
 					class="col-sm-5 col-lg-6 appear-left"
-					src="src/assets/Salon_(10).jpg"
+					src="/src/assets/Salon_(10).jpg"
 				>
 				</q-parallax>
 				<div class="col-sm-7 col-lg-6 q-pa-xl appear-right">
@@ -69,7 +69,7 @@
 				<q-parallax
 					:speed="1"
 					class="col-sm-6 col-lg-8 appear-right"
-					src="src/assets/Salon_(6).jpg"
+					src="/src/assets/Salon_(6).jpg"
 				></q-parallax>
 
 				<div class="col-sm-6 col-lg-4 q-pa-xl appear-left">
