@@ -11,9 +11,9 @@ export default defineConfig({
 			template: { transformAssetUrls },
 		}),
 	],
-	// resolve: {
-	// 	alias: {
-	// 		"@": fileURLToPath(new URL("./src", import.meta.url)),
-	// 	},
-	// },
+	resolve: {
+		alias: {
+			"@": fileURLToPath(new URL("./src", import.meta.url)),
+		},
+	},
 });
