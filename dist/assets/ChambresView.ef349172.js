@@ -1,1 +1,0 @@
-import{_ as e,o as s,c as _,a as c}from"./index.1d7145b8.js";const t={},a={class:"chambres"},o=c("h1",null,"This is an chambres page",-1),n=[o];function r(i,h){return s(),_("div",a,n)}const l=e(t,[["render",r]]);export{l as default};
