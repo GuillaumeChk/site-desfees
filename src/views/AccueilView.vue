@@ -107,7 +107,7 @@
 				<router-link
 					:to="{ name: 'chambre', params: { roomName: chambre.pathName } }"
 				>
-					<q-img :src="chambre.imageUrl">
+					<q-img :src="getImageUrl(chambre.imageUrl)">
 						<h3
 							class="q-pa-md text-white cursive absolute-bottom-left"
 							style="background: linear-gradient(to right, black, transparent)"
@@ -150,7 +150,7 @@ let chambres = [];
 chambresData.forEach((chambre) =>
 	chambres.push({
 		...chambre,
-		imageUrl: new URL(chambre.imageUrl, import.meta.url).href,
+		// imageUrl: new URL(chambre.imageUrl, import.meta.url).href,
 	})
 );
 
@@ -158,9 +158,13 @@ let equipments = [];
 equipmentsData.forEach((equipment) =>
 	equipments.push({
 		...equipment,
-		imageUrl: new URL(equipment.imageUrl, import.meta.url).href,
+		// imageUrl: new URL(equipment.imageUrl, import.meta.url).href,
 	})
 );
+
+const getImageUrl = (urlPath) => {
+	return new URL(`../${urlPath}`, import.meta.url).href;
+};
 </script>
 
 <style lang="scss" scoped>
