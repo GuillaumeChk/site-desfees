@@ -12,7 +12,7 @@
 			<q-img
 				loading="eager"
 				no-spinner
-				:src="equipment.image"
+				:src="equipment.imageUrl"
 				class="image-equipement col-sm-4 self-center"
 			/>
 
@@ -26,12 +26,23 @@
 					<q-item
 						clickable
 						v-ripple
-						v-for="chambre in equipment.chambres"
-						:to="'/chambre/' + chambres[chambre].pathName"
+						v-for="chambreName in equipment.chambres"
+						:key="chambreName"
+						:to="
+							'/chambre/' +
+							chambres.find((chambre) => chambre.pathName === chambreName)
+								.pathName
+						"
 						exact
 					>
 						<q-item-section>
-							<q-item-label> ✓ {{ chambres[chambre].name }} </q-item-label>
+							<q-item-label>
+								✓
+								{{
+									chambres.find((chambre) => chambre.pathName === chambreName)
+										.name
+								}}
+							</q-item-label>
 						</q-item-section>
 					</q-item>
 				</q-list>

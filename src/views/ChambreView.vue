@@ -125,12 +125,12 @@
 			<div class="wrapper q-gutter-y-lg">
 				<h5 class="text-uppercase appear-left">Équipements inclus</h5>
 				<div class="q-gutter-y-lg row">
-					<!-- <EquipmentCard
-						v-for="equipment in equipmentsData"
+					<EquipmentCard
+						v-for="equipment in equipments"
 						:key="equipment.name"
 						:equipment="equipment"
 						:chambres="chambres"
-					/> -->
+					/>
 				</div>
 			</div>
 		</section>
@@ -149,7 +149,24 @@ const route = useRoute();
 
 let chambreName = route.params.roomName;
 let chambre = chambresData.find((chambre) => chambre.pathName === chambreName);
-console.log(chambre);
+
+let chambres = [];
+chambresData.forEach((chambre) =>
+	chambres.push({
+		...chambre,
+		imageUrl: new URL(chambre.imageUrl, import.meta.url).href,
+	})
+);
+
+let equipments = [];
+equipmentsData.forEach((equipment) => {
+	if (equipment.chambres.includes(chambreName)) {
+		equipments.push({
+			...equipment,
+			imageUrl: new URL(equipment.imageUrl, import.meta.url).href,
+		});
+	}
+});
 
 const slide = ref(1);
 const slide2 = ref(1);
@@ -157,7 +174,7 @@ const autoplay = ref(true);
 const fullscreen = ref(false);
 </script>
 
-<style>
+<style lang="scss">
 .images-chambre img {
 	max-width: 30%;
 }

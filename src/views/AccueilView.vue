@@ -107,7 +107,7 @@
 				<router-link
 					:to="{ name: 'chambre', params: { roomName: chambre.pathName } }"
 				>
-					<q-img :src="chambre.image">
+					<q-img :src="chambre.imageUrl">
 						<h3
 							class="q-pa-md text-white cursive absolute-bottom-left"
 							style="background: linear-gradient(to right, black, transparent)"
@@ -128,12 +128,12 @@
 				</h4>
 
 				<div class="q-gutter-lg q-px-lg row">
-					<!-- <EquipmentCard
-						v-for="equipment in equipmentsData"
+					<EquipmentCard
+						v-for="equipment in equipments"
 						:key="equipment.index"
 						:equipment="equipment"
 						:chambres="chambres"
-					/> -->
+					/>
 				</div>
 			</div>
 		</section>
@@ -150,10 +150,17 @@ let chambres = [];
 chambresData.forEach((chambre) =>
 	chambres.push({
 		...chambre,
-		imageUrl: new URL(chambre.imageUrl, import.meta.url),
+		imageUrl: new URL(chambre.imageUrl, import.meta.url).href,
 	})
 );
-console.log(chambres);
+
+let equipments = [];
+equipmentsData.forEach((equipment) =>
+	equipments.push({
+		...equipment,
+		imageUrl: new URL(equipment.imageUrl, import.meta.url).href,
+	})
+);
 </script>
 
 <style lang="scss" scoped>

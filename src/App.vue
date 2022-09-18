@@ -51,7 +51,7 @@ onMounted(() => {
 });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .card {
 	width: 100%;
 }
