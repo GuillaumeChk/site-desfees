@@ -17,7 +17,7 @@
 					<q-menu auto-close>
 						<q-list style="min-width: 100px">
 							<q-item
-								v-for="chambre in chambres"
+								v-for="chambre in chambresData"
 								:key="chambre.name"
 								clickable
 								v-close-popup
@@ -57,12 +57,7 @@
 			></q-btn>
 
 			<q-btn class="no-padding" to="/" size="md" unelevated>
-				<q-img
-					width="45px"
-					height="45px"
-					fit="fill"
-					src="/src/components/icons/logoGitedes.svg"
-				>
+				<q-img width="45px" height="45px" fit="fill" src="logoGitedes.svg">
 				</q-img>
 			</q-btn>
 
@@ -98,7 +93,7 @@
 				label="Chambres"
 			>
 				<q-item
-					v-for="chambre in chambres"
+					v-for="chambre in chambresData"
 					:key="chambre.name"
 					clickable
 					:to="{
@@ -134,27 +129,10 @@
 	</q-drawer>
 </template>
 
-<style lang="scss" scoped>
-.tab-active {
-	color: orange;
-}
-.navbar-solid {
-	color: grey;
-	background-color: white;
-}
-.navbar-transparent {
-	color: white;
-	background-color: transparent;
-}
-.navbar-transparent .tab:hover {
-	background-color: rgba($color: orange, $alpha: 0.98);
-}
-</style>
-
 <script setup>
 import { ref, watch, computed } from "vue";
 import { useRoute } from "vue-router";
-import chambres from "../data/chambres.json";
+import chambresData from "../data/chambresData.json";
 
 let route = useRoute();
 let topTransparent = ref(false);
@@ -190,3 +168,20 @@ function toggleLeftDrawer() {
 	leftDrawerOpen.value = !leftDrawerOpen.value;
 }
 </script>
+
+<style lang="scss" scoped>
+.tab-active {
+	color: orange;
+}
+.navbar-solid {
+	color: grey;
+	background-color: white;
+}
+.navbar-transparent {
+	color: white;
+	background-color: transparent;
+}
+.navbar-transparent .tab:hover {
+	background-color: rgba($color: orange, $alpha: 0.98);
+}
+</style>

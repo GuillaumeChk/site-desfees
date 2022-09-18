@@ -17,9 +17,9 @@
 						:name="1"
 						img-src="https://cdn.quasar.dev/img/mountains.jpg"
 					/>
-					<q-carousel-slide :name="2" :img-src="chambre.image" />
-					<q-carousel-slide :name="3" :img-src="chambre.image" />
-					<q-carousel-slide :name="4" :img-src="chambre.image" />
+					<!-- <q-carousel-slide :name="2" :img-src="chambre.imageUrl" />
+					<q-carousel-slide :name="3" :img-src="chambre.imageUrl" />
+					<q-carousel-slide :name="4" :img-src="chambre.imageUrl" /> -->
 				</q-carousel>
 			</div>
 		</section>
@@ -125,17 +125,37 @@
 			<div class="wrapper q-gutter-y-lg">
 				<h5 class="text-uppercase appear-left">Équipements inclus</h5>
 				<div class="q-gutter-y-lg row">
-					<EquipmentCard
-						v-for="equipment in equipments"
+					<!-- <EquipmentCard
+						v-for="equipment in equipmentsData"
 						:key="equipment.name"
 						:equipment="equipment"
 						:chambres="chambres"
-					/>
+					/> -->
 				</div>
 			</div>
 		</section>
 	</q-page>
 </template>
+
+<script setup>
+import { useRoute, useRouter } from "vue-router";
+import { ref } from "vue";
+import chambresData from "../data/chambresData.json";
+import equipmentsData from "../data/equipmentsData.json";
+import EquipmentCard from "../components/EquipmentCard.vue";
+import CustomDivider from "../components/CustomDivider.vue";
+
+const route = useRoute();
+
+let chambreName = route.params.roomName;
+let chambre = chambresData.find((chambre) => chambre.pathName === chambreName);
+console.log(chambre);
+
+const slide = ref(1);
+const slide2 = ref(1);
+const autoplay = ref(true);
+const fullscreen = ref(false);
+</script>
 
 <style>
 .images-chambre img {
@@ -212,22 +232,3 @@
 	}
 }
 </style>
-
-<script setup>
-import { useRoute, useRouter } from "vue-router";
-import { ref } from "vue";
-import chambres from "../data/chambres.json";
-import equipments from "../data/equipments.json";
-import EquipmentCard from "../components/EquipmentCard.vue";
-import CustomDivider from "../components/CustomDivider.vue";
-
-const route = useRoute();
-
-let chambreName = route.params.roomName;
-let chambre = chambres[chambreName];
-
-const slide = ref(1);
-const slide2 = ref(1);
-const autoplay = ref(true);
-const fullscreen = ref(false);
-</script>

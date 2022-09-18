@@ -3,7 +3,7 @@
 		<section class="section-video">
 			<div class="video-container">
 				<video
-					src="/src/assets/video/presentation_des_fées_raccourcie.mp4"
+					src="../assets/video/presentation_des_fées_raccourcie.mp4"
 					muted
 					autoplay
 					loop
@@ -37,7 +37,7 @@
 				<q-parallax
 					:speed="1"
 					class="col-sm-5 col-lg-6 appear-left"
-					src="/src/assets/Salon_(10).jpg"
+					src="../assets/Salon_(10).jpg"
 				>
 				</q-parallax>
 				<div class="col-sm-7 col-lg-6 q-pa-xl appear-right">
@@ -69,7 +69,7 @@
 				<q-parallax
 					:speed="1"
 					class="col-sm-6 col-lg-8 appear-right"
-					src="/src/assets/Salon_(6).jpg"
+					src="../assets/Salon_(6).jpg"
 				></q-parallax>
 
 				<div class="col-sm-6 col-lg-4 q-pa-xl appear-left">
@@ -128,12 +128,12 @@
 				</h4>
 
 				<div class="q-gutter-lg q-px-lg row">
-					<EquipmentCard
-						v-for="equipment in equipments"
+					<!-- <EquipmentCard
+						v-for="equipment in equipmentsData"
 						:key="equipment.index"
 						:equipment="equipment"
 						:chambres="chambres"
-					/>
+					/> -->
 				</div>
 			</div>
 		</section>
@@ -141,10 +141,19 @@
 </template>
 
 <script setup>
-import chambres from "../data/chambres.json";
-import equipments from "../data/equipments.json";
+import chambresData from "../data/chambresData.json";
+import equipmentsData from "../data/equipmentsData.json";
 import EquipmentCard from "../components/EquipmentCard.vue";
 import CustomDivider from "../components/CustomDivider.vue";
+
+let chambres = [];
+chambresData.forEach((chambre) =>
+	chambres.push({
+		...chambre,
+		imageUrl: new URL(chambre.imageUrl, import.meta.url),
+	})
+);
+console.log(chambres);
 </script>
 
 <style lang="scss" scoped>
