@@ -4,7 +4,7 @@
 		"pathName": "salina",
 		"name": "Fée Salina",
 		"description": "La fée Salina vous attend dans une ambiance de velours ombragé, un lit baldaquin 180 x 200 cm avec une literie TEMPUR saura combler les plus exigeants en matière de sommeil. Un hammam doté d’aromathérapies, de chromothérapie le tout bercé par une musique zen sous un ciel étoilé vous y attend. La douche à l’Italienne et l’averse écossaise sauront vous revigorer… \n\n Vous aurez tout loisir de créer une atmosphère intime et relaxante dans ce havre de bien-être en compagnie de votre bien-aimé.",
-		"imageUrl": "/src/assets/chambres/principale_melusine.JPG",
+		"imageUrl": "chambres/principale_melusine.jpg",
 		"imagesFolder": "",
 		"equipments": ["garage", "hammam", "kneippwalk", "piscine"],
 		"tarifs": [190, 220]
@@ -14,7 +14,7 @@
 		"pathName": "etoiles",
 		"name": "Fée des Étoiles",
 		"description": "Une chambre unique, exceptionnelle, un lit 180 x 200 cm en suspension, les étoiles a portées de main l’impression d’être en apesanteur vous gagnera… \n\n Et là ! Le jardin privatif avec son jacuzzi enrobé de gros cailloux vous fera redécouvrir le calme, la détente, le bien-être…",
-		"imageUrl": "/src/assets/chambres/principale_melusine.JPG",
+		"imageUrl": "chambres/principale_melusine.jpg",
 		"imagesFolder": "",
 		"equipments": ["ciel", "garage", "jacuzzi", "kneippwalk", "piscine"],
 		"tarifs": [240, 280]
@@ -24,7 +24,7 @@
 		"pathName": "romantique",
 		"name": "Fée Romantique",
 		"description": "Une chaude ambiance sensuelle un lit de 180 x 200 cm, un cours d’eau passant devant la fenêtre, une baignoire en forme de cœur pour 2 personnes offrant la cascade, la chromothérapie et la balnéothérapie, le bien-être vous attend et que dire de la Fée… À vous de juger…",
-		"imageUrl": "/src/assets/chambres/principale_melusine.JPG",
+		"imageUrl": "chambres/principale_melusine.jpg",
 		"imagesFolder": "",
 		"equipments": ["balneo", "garage", "kneippwalk", "piscine"],
 		"tarifs": [240, 280]
@@ -34,8 +34,8 @@
 		"pathName": "melusine",
 		"name": "Fée Mélusine",
 		"description": "La Fée des Fées, la Fée Mélusine vous tend les bras avec un lit rond de 250 cm, un ciel étoilé multicolore fera scintiller vos yeux, une grande douche hydromassante, une baignoire balnéo et chromothérapie pour 2 personnes, un sauna en pin de Norvège massif que pour vous avec une zone bien-être \"Loundge\" ses canapés \"méridienne\" en cuire, le tout sur 54 M² dans les combles avec sa charpente apparente dans un cadre de Feng-Shui à la jurassienne accompagnée d'un mini bar… \n\n À découvrir absolument, le tout climatisé.",
-		"imageUrl": "/src/assets/chambres/principale_melusine.JPG",
-		"imagesFolder": "/src/assets/chambres/melusine",
+		"imageUrl": "chambres/principale_melusine.jpg",
+		"imagesFolder": "chambres/melusine",
 		"equipments": [
 			"balneo",
 			"ciel",
@@ -52,7 +52,7 @@
 		"pathName": "reves",
 		"name": "Fée des Rêves",
 		"description": "Cette dernière vous plongera dans un univers de rêve… On y découvrira un ciel « coucher de soleil » scintillant. Son grand lit en suspension 180 x 200 cm vous transportera vers vos plus beaux rêves. Dotée d’un sauna et d’une douche « pluie tropicale ». Un accès privatif sur sa grande terrasse en véritable bois Made in Jura, vous fera apprécier son Jacuzzi avec un accès plein pied. Une Fée discrète et proche de vous… \n\n Le tout enveloppé dans une douce ambiance alliant l’eau et la nature au fil des saisons.",
-		"imageUrl": "/src/assets/chambres/principale_melusine.JPG",
+		"imageUrl": "chambres/principale_melusine.jpg",
 		"imagesFolder": "",
 		"equipments": [
 			"ciel",
@@ -69,7 +69,7 @@
 		"pathName": "gite",
 		"name": "Gîte un Conte de Fées",
 		"description": "special, faire manuellement",
-		"imageUrl": "/src/assets/chambres/principale_melusine.JPG",
+		"imageUrl": "chambres/principale_melusine.jpg",
 		"imagesFolder": "",
 		"equipments": ["garage", "kneippwalk", "piscine"],
 		"tarifs": [

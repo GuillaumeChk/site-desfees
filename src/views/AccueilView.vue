@@ -101,13 +101,13 @@
 		<section class="wrapper row chambres">
 			<div
 				class="chambre appear-right"
-				v-for="chambre in chambres"
+				v-for="chambre in chambresData"
 				:key="chambre.name"
 			>
 				<router-link
 					:to="{ name: 'chambre', params: { roomName: chambre.pathName } }"
 				>
-					<q-img :src="chambre.imageUrl">
+					<q-img :src="getImageUrl(chambre.imageUrl)">
 						<h3
 							class="q-pa-md text-white cursive absolute-bottom-left"
 							style="background: linear-gradient(to right, black, transparent)"
@@ -129,10 +129,10 @@
 
 				<div class="q-gutter-lg q-px-lg row">
 					<EquipmentCard
-						v-for="equipment in equipments"
+						v-for="equipment in equipmentsData"
 						:key="equipment.index"
 						:equipment="equipment"
-						:chambres="chambres"
+						:chambres="chambresData"
 					/>
 				</div>
 			</div>
@@ -146,21 +146,27 @@ import equipmentsData from "../data/equipmentsData.json";
 import EquipmentCard from "../components/EquipmentCard.vue";
 import CustomDivider from "../components/CustomDivider.vue";
 
-let chambres = [];
-chambresData.forEach((chambre) =>
-	chambres.push({
-		...chambre,
-		imageUrl: new URL(chambre.imageUrl, import.meta.url).href,
-	})
-);
+function getImageUrl(subPath) {
+	return new URL(`../assets/${subPath}`, import.meta.url).href;
+}
 
-let equipments = [];
-equipmentsData.forEach((equipment) =>
-	equipments.push({
-		...equipment,
-		imageUrl: new URL(equipment.imageUrl, import.meta.url).href,
-	})
-);
+console.log(getImageUrl(chambresData[0].imageUrl));
+
+// let chambres = [];
+// chambresData.forEach((chambre) =>
+// 	chambres.push({
+// 		...chambre,
+// 		imageUrl: new URL(chambre.imageUrl, import.meta.url).href,
+// 	})
+// );
+
+// let equipments = [];
+// equipmentsData.forEach((equipment) =>
+// 	equipments.push({
+// 		...equipment,
+// 		imageUrl: new URL(equipment.imageUrl, import.meta.url).href,
+// 	})
+// );
 </script>
 
 <style lang="scss" scoped>

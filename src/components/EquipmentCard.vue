@@ -12,7 +12,7 @@
 			<q-img
 				loading="eager"
 				no-spinner
-				:src="equipment.imageUrl"
+				:src="getImageUrl(equipment.imageUrl)"
 				class="image-equipement col-sm-4 self-center"
 			/>
 
@@ -54,7 +54,7 @@
 <script setup>
 import { onMounted } from "vue";
 
-defineProps({
+const props = defineProps({
 	equipment: {
 		// type: Object,
 		required: true,
@@ -64,6 +64,11 @@ defineProps({
 		required: true,
 	},
 });
+
+function getImageUrl(subPath) {
+	return new URL(`../assets/${subPath}`, import.meta.url).href;
+}
+console.log(getImageUrl(props.equipment.imageUrl));
 
 // Animate on scroll (when visible)
 onMounted(() => {

@@ -17,9 +17,18 @@
 						:name="1"
 						img-src="https://cdn.quasar.dev/img/mountains.jpg"
 					/>
-					<!-- <q-carousel-slide :name="2" :img-src="chambre.imageUrl" />
-					<q-carousel-slide :name="3" :img-src="chambre.imageUrl" />
-					<q-carousel-slide :name="4" :img-src="chambre.imageUrl" /> -->
+					<!-- <q-carousel-slide
+						:name="2"
+						:img-src="getImageUrl(chambre.imageUrl)"
+					/>
+					<q-carousel-slide
+						:name="3"
+						:img-src="getImageUrl(chambre.imageUrl)"
+					/>
+					<q-carousel-slide
+						:name="4"
+						:img-src="getImageUrl(chambre.imageUrl)"
+					/> -->
 				</q-carousel>
 			</div>
 		</section>
@@ -129,7 +138,7 @@
 						v-for="equipment in equipments"
 						:key="equipment.name"
 						:equipment="equipment"
-						:chambres="chambres"
+						:chambres="chambresData"
 					/>
 				</div>
 			</div>
@@ -150,20 +159,23 @@ const route = useRoute();
 let chambreName = route.params.roomName;
 let chambre = chambresData.find((chambre) => chambre.pathName === chambreName);
 
-let chambres = [];
-chambresData.forEach((chambre) =>
-	chambres.push({
-		...chambre,
-		imageUrl: new URL(chambre.imageUrl, import.meta.url).href,
-	})
-);
+function getImageUrl(subPath) {
+	return new URL(`../assets/${subPath}`, import.meta.url).href;
+}
+
+// let chambres = [];
+// chambresData.forEach((chambre) =>
+// 	chambres.push({
+// 		...chambre,
+// 		imageUrl: new URL(chambre.imageUrl, import.meta.url).href,
+// 	})
+// );
 
 let equipments = [];
 equipmentsData.forEach((equipment) => {
 	if (equipment.chambres.includes(chambreName)) {
 		equipments.push({
 			...equipment,
-			imageUrl: new URL(equipment.imageUrl, import.meta.url).href,
 		});
 	}
 });
