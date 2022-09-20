@@ -1,14 +1,14 @@
 <template>
-	<q-card flat bordered class="appear-left card" style="border-radius: 25px">
-		<q-card-section horizontal class="justify-center">
+	<q-card flat class="card">
+		<!-- <q-card-section horizontal class="justify-center">
 			<h5 class="q-pa-md q-pl-lg text-weight-light text-uppercase">
 				{{ equipment.name }}
 			</h5>
 		</q-card-section>
 
-		<q-separator />
+		<q-separator /> -->
 
-		<q-card-section class="row bg-white q-pt-none">
+		<q-card-section class="row q-pt-none">
 			<q-img
 				loading="eager"
 				no-spinner

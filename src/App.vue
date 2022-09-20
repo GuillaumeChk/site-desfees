@@ -9,13 +9,13 @@
 		</main>
 
 		<q-footer class="brand">
-			<q-toolbar>
+			<q-toolbar class="row">
 				<q-toolbar-title>
-					<q-avatar>
-						<img src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg" />
+					<q-avatar color="white">
+						<img src="/logoGitedes.svg" />
 					</q-avatar>
-					<div>Title</div>
 				</q-toolbar-title>
+				<div>Sponsors</div>
 			</q-toolbar>
 		</q-footer>
 	</q-layout>

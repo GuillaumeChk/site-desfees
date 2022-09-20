@@ -49,7 +49,6 @@
 			arrows
 			v-model="slide2"
 			v-model:fullscreen="fullscreen"
-			thumbnails
 			infinite
 			class="wrapper appear-right"
 		>
@@ -137,26 +136,33 @@
 			</p>
 		</section>
 
-		<section class="wrapper text-center q-pb-lg">
+		<section class="wrapper text-center q-py-lg">
 			<q-btn
 				class="brand text-white appear-right"
-				:unelevated="true"
+				unelevated
 				size="lg"
 				label="Réserver cette chambre"
 			></q-btn>
 		</section>
 
-		<section class="q-pa-lg q-gutter-y-md items-center">
+		<CustomDivider class="appear-left" />
+
+		<section class="q-px-lg q-pb-xl q-pt-xs q-gutter-y-md items-center">
 			<div class="wrapper q-gutter-y-lg">
 				<h5 class="text-uppercase appear-left">Équipements inclus</h5>
-				<div class="q-gutter-y-lg row">
-					<EquipmentCard
+
+				<q-list bordered separator class="appear-left">
+					<q-expansion-item
 						v-for="equipment in chambreEquipments"
 						:key="equipment.name"
-						:equipment="equipment"
-						:chambres="chambresData"
-					/>
-				</div>
+						group="somegroup"
+						:icon="equipment.icon"
+						:label="equipment.name"
+						header-class="text-primary"
+					>
+						<EquipmentCard :equipment="equipment" :chambres="chambresData" />
+					</q-expansion-item>
+				</q-list>
 			</div>
 		</section>
 	</q-page>

@@ -120,21 +120,25 @@
 		</section>
 
 		<section class="brand-4 q-mt-xl">
-			<div class="wrapper items-center">
+			<div class="wrapper items-center q-pb-xl">
 				<h4
 					class="q-py-xl q-pl-lg text-uppercase text-weight-light appear-left"
 				>
 					Nos équipements
 				</h4>
 
-				<div class="q-gutter-lg q-px-lg row">
-					<EquipmentCard
+				<q-list bordered separator class="appear-left bg-white">
+					<q-expansion-item
 						v-for="equipment in equipmentsData"
-						:key="equipment.index"
-						:equipment="equipment"
-						:chambres="chambresData"
-					/>
-				</div>
+						:key="equipment.name"
+						group="somegroup"
+						:icon="equipment.icon"
+						:label="equipment.name"
+						header-class="text-primary"
+					>
+						<EquipmentCard :equipment="equipment" :chambres="chambresData" />
+					</q-expansion-item>
+				</q-list>
 			</div>
 		</section>
 	</q-page>

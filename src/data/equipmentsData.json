@@ -3,6 +3,7 @@
 		"index": 0,
 		"name": "Baignoire balnéo",
 		"pathName": "balneo",
+		"icon": "hot_tub",
 		"description": "Installez vous confortablement à deux dans ce bain et laisser les jets et cascades s'occuper de vous relaxer.",
 		"imageUrl": "equipements/baignoire_balneo.png",
 		"chambres": ["romantique", "melusine"]
@@ -11,6 +12,7 @@
 		"index": 1,
 		"name": "Ciel étoilé",
 		"pathName": "ciel",
+		"icon": "auto_awesome",
 		"description": "Un regard dans les étoiles scintillantes accompagné d’une chromothérapie vous assurera un instant de détente unique.",
 		"imageUrl": "equipements/ciel_etoile.png",
 		"chambres": ["etoiles", "melusine", "reves"]
@@ -19,6 +21,7 @@
 		"index": 2,
 		"name": "Douche hydro-massante",
 		"pathName": "douche",
+		"icon": "bathtub",
 		"description": "Prenez le temps de vous détendre sous cette douche aux jets massants.",
 		"imageUrl": "equipements/douche_hydro_massante.png",
 		"chambres": ["melusine"]
@@ -27,6 +30,7 @@
 		"index": 3,
 		"name": "Garage",
 		"pathName": "garage",
+		"icon": "garage",
 		"description": "Si vous vous inquiètez pour votre véhicule, demandez votre garage privatisé et sécurisé !",
 		"imageUrl": "equipements/garage.png",
 		"chambres": ["salina", "etoiles", "romantique", "melusine", "reves", "gite"]
@@ -35,6 +39,7 @@
 		"index": 4,
 		"name": "Hammam",
 		"pathName": "hammam",
+		"icon": "water_drop",
 		"description": "Laissez vous envoûter par le charme de notre hammam et sa vapeur bienfaisante aux arômes d’eucalyptus, le ciel étoilé saura combler les plus exigeants.",
 		"imageUrl": "equipements/hammam_chromo.png",
 		"chambres": ["salina"]
@@ -43,6 +48,7 @@
 		"index": 5,
 		"name": "Jacuzzi",
 		"pathName": "jacuzzi",
+		"icon": "spa",
 		"description": "Laissez vous masser sous les flocons et le froid, la pluie ou sous un ciel bleu en profitant de ce jacuzzi à 35° équipé de chromothérapie.",
 		"imageUrl": "equipements/jacuzzi.png",
 		"chambres": ["etoiles", "reves"]
@@ -51,6 +57,7 @@
 		"index": 6,
 		"name": "Kneipwalk",
 		"pathName": "kneipwalk",
+		"icon": "solar_power",
 		"description": "special, faire manuellement",
 		"imageUrl": "equipements/kneippwalk.png",
 		"chambres": ["salina", "etoiles", "romantique", "melusine", "reves", "gite"]
@@ -59,6 +66,7 @@
 		"index": 7,
 		"name": "Piscine",
 		"pathName": "piscine",
+		"icon": "pool",
 		"description": "Quand le soleil rayonne et que le ciel devient bleu, vous pouvez accéder à un monde merveilleux.",
 		"imageUrl": "equipements/piscine.png",
 		"chambres": ["salina", "etoiles", "romantique", "melusine", "reves", "gite"]
@@ -67,6 +75,7 @@
 		"index": 8,
 		"name": "Sauna",
 		"pathName": "sauna",
+		"icon": "local_fire_department",
 		"description": "Laissez transpirer vos idées grâce à notre sauna relaxant et anti-oxydant allier à une douche bien revigorante et profitez des invention bien faisantes des peuples du Nord.",
 		"imageUrl": "equipements/sauna.png",
 		"chambres": ["melusine", "reves"]
