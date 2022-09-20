@@ -15,9 +15,9 @@
 				>
 					<q-carousel-slide
 						:name="1"
-						img-src="https://cdn.quasar.dev/img/mountains.jpg"
+						:img-src="getImageUrl(chambre.imageUrl)"
 					/>
-					<!-- <q-carousel-slide
+					<q-carousel-slide
 						:name="2"
 						:img-src="getImageUrl(chambre.imageUrl)"
 					/>
@@ -28,7 +28,7 @@
 					<q-carousel-slide
 						:name="4"
 						:img-src="getImageUrl(chambre.imageUrl)"
-					/> -->
+					/>
 				</q-carousel>
 			</div>
 		</section>
@@ -67,6 +67,22 @@
 			/>
 			<q-carousel-slide
 				:name="4"
+				img-src="https://cdn.quasar.dev/img/quasar.jpg"
+			/>
+			<q-carousel-slide
+				:name="5"
+				img-src="https://cdn.quasar.dev/img/mountains.jpg"
+			/>
+			<q-carousel-slide
+				:name="6"
+				img-src="https://cdn.quasar.dev/img/parallax1.jpg"
+			/>
+			<q-carousel-slide
+				:name="7"
+				img-src="https://cdn.quasar.dev/img/parallax2.jpg"
+			/>
+			<q-carousel-slide
+				:name="8"
 				img-src="https://cdn.quasar.dev/img/quasar.jpg"
 			/>
 
@@ -135,7 +151,7 @@
 				<h5 class="text-uppercase appear-left">Équipements inclus</h5>
 				<div class="q-gutter-y-lg row">
 					<EquipmentCard
-						v-for="equipment in equipments"
+						v-for="equipment in chambreEquipments"
 						:key="equipment.name"
 						:equipment="equipment"
 						:chambres="chambresData"
@@ -156,25 +172,17 @@ import CustomDivider from "../components/CustomDivider.vue";
 
 const route = useRoute();
 
-let chambreName = route.params.roomName;
-let chambre = chambresData.find((chambre) => chambre.pathName === chambreName);
-
 function getImageUrl(subPath) {
 	return new URL(`../assets/${subPath}`, import.meta.url).href;
 }
 
-// let chambres = [];
-// chambresData.forEach((chambre) =>
-// 	chambres.push({
-// 		...chambre,
-// 		imageUrl: new URL(chambre.imageUrl, import.meta.url).href,
-// 	})
-// );
+let chambreName = route.params.roomName;
+let chambre = chambresData.find((chambre) => chambre.pathName === chambreName);
 
-let equipments = [];
+let chambreEquipments = [];
 equipmentsData.forEach((equipment) => {
 	if (equipment.chambres.includes(chambreName)) {
-		equipments.push({
+		chambreEquipments.push({
 			...equipment,
 		});
 	}

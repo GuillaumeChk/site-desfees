@@ -43,6 +43,9 @@ const router = createRouter({
 			component: () => import("../views/GaleriesView.vue"),
 		},
 	],
+	scrollBehavior: (to, from, savedPosition) => {
+		return savedPosition || { top: 0, left: 0 };
+	},
 });
 
 export default router;

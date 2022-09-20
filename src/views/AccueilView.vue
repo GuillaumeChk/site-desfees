@@ -24,7 +24,7 @@
 				Le Domaine des Fées vous souhaite la bienvenue
 			</h2>
 
-			<CustomDivider />
+			<CustomDivider class="appear-left" />
 
 			<p class="appear-right" style="width: 75%; margin: 0 auto">
 				Les Fées ont pris possession des lieux, au pied des monts du Jura et au
@@ -149,24 +149,6 @@ import CustomDivider from "../components/CustomDivider.vue";
 function getImageUrl(subPath) {
 	return new URL(`../assets/${subPath}`, import.meta.url).href;
 }
-
-console.log(getImageUrl(chambresData[0].imageUrl));
-
-// let chambres = [];
-// chambresData.forEach((chambre) =>
-// 	chambres.push({
-// 		...chambre,
-// 		imageUrl: new URL(chambre.imageUrl, import.meta.url).href,
-// 	})
-// );
-
-// let equipments = [];
-// equipmentsData.forEach((equipment) =>
-// 	equipments.push({
-// 		...equipment,
-// 		imageUrl: new URL(equipment.imageUrl, import.meta.url).href,
-// 	})
-// );
 </script>
 
 <style lang="scss" scoped>

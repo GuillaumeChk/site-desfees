@@ -68,7 +68,6 @@ const props = defineProps({
 function getImageUrl(subPath) {
 	return new URL(`../assets/${subPath}`, import.meta.url).href;
 }
-console.log(getImageUrl(props.equipment.imageUrl));
 
 // Animate on scroll (when visible)
 onMounted(() => {
