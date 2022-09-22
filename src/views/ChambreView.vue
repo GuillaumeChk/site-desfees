@@ -43,62 +43,37 @@
 
 		<CustomDivider class="appear-left" />
 
-		<q-carousel
-			swipeable
-			animated
-			arrows
-			v-model="slide2"
-			v-model:fullscreen="fullscreen"
-			infinite
-			class="wrapper appear-right"
-		>
-			<q-carousel-slide
-				:name="1"
-				img-src="https://cdn.quasar.dev/img/mountains.jpg"
-			/>
-			<q-carousel-slide
-				:name="2"
-				img-src="https://cdn.quasar.dev/img/parallax1.jpg"
-			/>
-			<q-carousel-slide
-				:name="3"
-				img-src="https://cdn.quasar.dev/img/parallax2.jpg"
-			/>
-			<q-carousel-slide
-				:name="4"
-				img-src="https://cdn.quasar.dev/img/quasar.jpg"
-			/>
-			<q-carousel-slide
-				:name="5"
-				img-src="https://cdn.quasar.dev/img/mountains.jpg"
-			/>
-			<q-carousel-slide
-				:name="6"
-				img-src="https://cdn.quasar.dev/img/parallax1.jpg"
-			/>
-			<q-carousel-slide
-				:name="7"
-				img-src="https://cdn.quasar.dev/img/parallax2.jpg"
-			/>
-			<q-carousel-slide
-				:name="8"
-				img-src="https://cdn.quasar.dev/img/quasar.jpg"
-			/>
+		<section class="wrapper">
+			<q-carousel
+				swipeable
+				animated
+				arrows
+				v-model="slide2"
+				v-model:fullscreen="fullscreen"
+				infinite
+				class="carousel2"
+			>
+				<q-carousel-slide
+					v-for="(slide, key, index) in chambreImages"
+					:key="slide.name"
+					:name="index"
+					:img-src="getImageUrlFromAssets(slide)"
+				/>
 
-			<template v-slot:control>
-				<q-carousel-control position="bottom-right" :offset="[18, 18]">
-					<q-btn
-						round
-						flat
-						color="black"
-						text-color="white"
-						:icon="fullscreen ? 'fullscreen_exit' : 'fullscreen'"
-						@click="fullscreen = !fullscreen"
-					/>
-				</q-carousel-control>
-			</template>
-		</q-carousel>
-
+				<template v-slot:control>
+					<q-carousel-control position="bottom-right" :offset="[18, 18]">
+						<q-btn
+							round
+							flat
+							color="black"
+							text-color="white"
+							:icon="fullscreen ? 'fullscreen_exit' : 'fullscreen'"
+							@click="fullscreen = !fullscreen"
+						/>
+					</q-carousel-control>
+				</template>
+			</q-carousel>
+		</section>
 		<section class="q-pa-lg q-gutter-y-lg wrapper">
 			<h5 class="text-uppercase appear-left">Tarifs</h5>
 
@@ -158,7 +133,7 @@
 						group="somegroup"
 						:icon="equipment.icon"
 						:label="equipment.name"
-						header-class="text-primary"
+						header-class="text-uppercase"
 					>
 						<EquipmentCard :equipment="equipment" :chambres="chambresData" />
 					</q-expansion-item>
@@ -176,15 +151,39 @@ import equipmentsData from "../data/equipmentsData.json";
 import EquipmentCard from "../components/EquipmentCard.vue";
 import CustomDivider from "../components/CustomDivider.vue";
 
+// const chambreImagesSlides = [
+// 	{
+// 		id: 1,
+// 		url: "https://cdn.quasar.dev/img/mountains.jpg",
+// 	},
+// 	{
+// 		id: 2,
+// 		url: "https://cdn.quasar.dev/img/parallax1.jpg",
+// 	},
+// 	{
+// 		id: 3,
+// 		url: "https://cdn.quasar.dev/img/parallax2.jpg",
+// 	},
+// 	{
+// 		id: 4,
+// 		url: "https://cdn.quasar.dev/img/quasar.jpg",
+// 	},
+// ];
+
 const route = useRoute();
 
 function getImageUrl(subPath) {
 	return new URL(`../assets/${subPath}`, import.meta.url).href;
 }
+function getImageUrlFromAssets(subPath) {
+	console.log(new URL(`${subPath.name}`, import.meta.url).href);
+	return new URL(`${subPath.name}`, import.meta.url).href;
+}
 
 let chambreName = route.params.roomName;
 let chambre = chambresData.find((chambre) => chambre.pathName === chambreName);
 
+// filter only equiped equipments by the chambre
 let chambreEquipments = [];
 equipmentsData.forEach((equipment) => {
 	if (equipment.chambres.includes(chambreName)) {
@@ -193,6 +192,49 @@ equipmentsData.forEach((equipment) => {
 		});
 	}
 });
+
+// import all images from chambre folder
+let chambreImages = {};
+switch (chambre.index) {
+	case 1:
+		chambreImages = import.meta.glob(
+			"../assets/chambres/etoiles/*.(jpg|JPG|png|PNG)",
+			{ as: "url" }
+		);
+		break;
+	case 2:
+		chambreImages = import.meta.glob(
+			"../assets/chambres/melusine/*.(jpg|JPG|png|PNG)",
+			{ as: "url" }
+		);
+		break;
+
+	case 3:
+		chambreImages = import.meta.glob(
+			"../assets/chambres/reves/*.(jpg|JPG|png|PNG)",
+			{ as: "url" }
+		);
+		break;
+	case 4:
+		chambreImages = import.meta.glob(
+			"../assets/chambres/romantique/*.(jpg|JPG|png|PNG)",
+			{ as: "url" }
+		);
+		break;
+	case 5:
+		chambreImages = import.meta.glob(
+			"../assets/chambres/salina/*.(jpg|JPG|png|PNG)",
+			{ as: "url" }
+		);
+		break;
+	case 6:
+		chambreImages = import.meta.glob(
+			"../assets/chambres/gite/*.(jpg|JPG|png|PNG)",
+			{ as: "url" }
+		);
+		break;
+}
+// console.log(chambreImages);
 
 const slide = ref(1);
 const slide2 = ref(1);
@@ -234,6 +276,10 @@ const fullscreen = ref(false);
 	position: absolute;
 	top: 0;
 	width: 100%;
+}
+.carousel2 {
+	min-height: 63vh;
+	object-fit: contain;
 }
 .section-video {
 	overflow: hidden;

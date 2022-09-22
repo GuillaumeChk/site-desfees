@@ -42,7 +42,7 @@
 				</q-parallax>
 				<div class="col-sm-7 col-lg-6 q-pa-xl appear-right">
 					<h5 class="text-uppercase text-brand-2 q-pb-lg">
-						Bienvenue dans cet écrin de nature, véritable havre de paix !
+						Bienvenue dans cet écrin de nature
 					</h5>
 					<p>
 						Les fées ont profitées pour s’embellir et leur permettre de
@@ -73,7 +73,9 @@
 				></q-parallax>
 
 				<div class="col-sm-6 col-lg-4 q-pa-xl appear-left">
-					<h5 class="text-uppercase text-brand q-pb-lg">Un monde féérique</h5>
+					<h5 class="text-uppercase text-brand q-pb-lg">
+						Véritable havre de paix
+					</h5>
 					<p>
 						Au Domaine des Fées, quand le soleil rayonne et que le ciel devient
 						bleu, vous pouvez accéder à un monde merveilleux.
@@ -119,11 +121,9 @@
 			</div>
 		</section>
 
-		<section class="brand-4 q-mt-xl">
+		<section class="q-mt-xl q-px-lg">
 			<div class="wrapper items-center q-pb-xl">
-				<h4
-					class="q-py-xl q-pl-lg text-uppercase text-weight-light appear-left"
-				>
+				<h4 class="q-py-xl text-uppercase text-weight-light appear-left">
 					Nos équipements
 				</h4>
 
@@ -134,7 +134,7 @@
 						group="somegroup"
 						:icon="equipment.icon"
 						:label="equipment.name"
-						header-class="text-primary"
+						header-class=" text-uppercase"
 					>
 						<EquipmentCard :equipment="equipment" :chambres="chambresData" />
 					</q-expansion-item>
