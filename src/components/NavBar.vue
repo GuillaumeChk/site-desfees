@@ -2,7 +2,7 @@
 	<q-header
 		id="navbar"
 		:class="
-			route.name === 'accueil' || route.name === 'chambre'
+			route.name === 'accueil' || route.name === 'room'
 				? 'navbar-transparent'
 				: 'navbar-solid'
 		"
@@ -17,30 +17,30 @@
 					<q-menu auto-close>
 						<q-list style="min-width: 100px">
 							<q-item
-								v-for="chambre in chambresData"
-								:key="chambre.name"
+								v-for="room in roomsData"
+								:key="room.name"
 								clickable
 								v-close-popup
 								:to="{
-									name: 'chambre',
-									params: { roomName: chambre.pathName },
+									name: 'room',
+									params: { roomName: room.pathName },
 								}"
 								exact
 							>
-								<q-item-section>{{ chambre.name }}</q-item-section>
+								<q-item-section>{{ room.name }}</q-item-section>
 							</q-item>
 						</q-list>
 					</q-menu>
 				</q-btn>
-				<q-route-tab class="tab" to="/prestations" label="Prestations" />
+				<q-route-tab class="tab" to="/services" label="Prestations" />
 				<q-btn stretch unelevated flat class="tab" label="Explorer">
 					<q-menu auto-close>
 						<q-list style="min-width: 100px">
 							<q-item clickable v-close-popup to="/tourisme" exact>
 								<q-item-section>Tourisme</q-item-section>
 							</q-item>
-							<q-item clickable v-close-popup to="/galeries" exact>
-								<q-item-section>Galeries</q-item-section>
+							<q-item clickable v-close-popup to="/galerie" exact>
+								<q-item-section>Galerie </q-item-section>
 							</q-item>
 						</q-list>
 					</q-menu>
@@ -93,20 +93,20 @@
 				label="Chambres"
 			>
 				<q-item
-					v-for="chambre in chambresData"
-					:key="chambre.name"
+					v-for="room in roomsData"
+					:key="room.name"
 					clickable
 					:to="{
-						name: 'chambre',
-						params: { roomName: chambre.pathName },
+						name: 'room',
+						params: { roomName: room.pathName },
 					}"
 					exact
 					:active="false"
 				>
-					<q-item-section>{{ chambre.name }}</q-item-section>
+					<q-item-section>{{ room.name }}</q-item-section>
 				</q-item>
 			</q-expansion-item>
-			<q-item clickable to="/prestations" exact :active="false">
+			<q-item clickable to="/services" exact :active="false">
 				<q-item-label class="text-center"> Prestations </q-item-label>
 			</q-item>
 			<q-expansion-item
@@ -118,8 +118,8 @@
 				<q-item clickable to="/tourisme" exact :active="false">
 					<q-item-label class="text-center"> Tourisme </q-item-label>
 				</q-item>
-				<q-item clickable to="/galeries" exact :active="false">
-					<q-item-label class="text-center"> Galeries </q-item-label>
+				<q-item clickable to="/galerie" exact :active="false">
+					<q-item-label class="text-center"> Galerie </q-item-label>
 				</q-item>
 			</q-expansion-item>
 			<q-item clickable to="/contact" exact :active="false">
@@ -132,14 +132,14 @@
 <script setup>
 import { ref, watch, computed } from "vue";
 import { useRoute } from "vue-router";
-import chambresData from "../data/chambresData.json";
+import roomsData from "../data/roomsData.json";
 
 let route = useRoute();
 let topTransparent = ref(false);
 watch(
 	() => route.name,
 	() => {
-		topTransparent = route.name === "accueil" || route.name === "chambre";
+		topTransparent = route.name === "home" || route.name === "room";
 	},
 	{ immediate: true }
 );

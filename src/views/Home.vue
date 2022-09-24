@@ -98,23 +98,19 @@
 		<h4
 			class="wrapper q-pa-lg q-py-xl text-weight-light text-uppercase appear-left"
 		>
-			Nos chambres
+			Nos rooms
 		</h4>
-		<section class="wrapper row chambres">
-			<div
-				class="chambre appear-right"
-				v-for="chambre in chambresData"
-				:key="chambre.name"
-			>
+		<section class="wrapper row rooms">
+			<div class="room appear-right" v-for="room in roomsData" :key="room.name">
 				<router-link
-					:to="{ name: 'chambre', params: { roomName: chambre.pathName } }"
+					:to="{ name: 'room', params: { roomName: room.pathName } }"
 				>
-					<q-img :src="getImageUrl(chambre.imageUrl)">
+					<q-img :src="getImageUrl(room.imageUrl)">
 						<h3
 							class="q-pa-md text-white cursive absolute-bottom-left"
 							style="background: linear-gradient(to right, black, transparent)"
 						>
-							{{ chambre.name }}
+							{{ room.name }}
 						</h3>
 					</q-img>
 				</router-link>
@@ -136,7 +132,7 @@
 						:label="equipment.name"
 						header-class=" text-uppercase"
 					>
-						<EquipmentCard :equipment="equipment" :chambres="chambresData" />
+						<EquipmentCard :equipment="equipment" :rooms="roomsData" />
 					</q-expansion-item>
 				</q-list>
 			</div>
@@ -145,7 +141,7 @@
 </template>
 
 <script setup>
-import chambresData from "../data/chambresData.json";
+import roomsData from "../data/roomsData.json";
 import equipmentsData from "../data/equipmentsData.json";
 import EquipmentCard from "../components/EquipmentCard.vue";
 import CustomDivider from "../components/CustomDivider.vue";
@@ -156,12 +152,12 @@ function getImageUrl(subPath) {
 </script>
 
 <style lang="scss" scoped>
-.chambres {
+.rooms {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 20px;
 }
-.chambre {
+.room {
 	flex: auto;
 	width: 425px;
 	// margin: 0;
@@ -203,7 +199,7 @@ li {
 }
 
 @media (min-width: 1024px) {
-	.chambre {
+	.room {
 		flex: auto;
 		// width: 425px;
 		// margin: 5px;
@@ -214,7 +210,7 @@ li {
 }
 
 @media (min-width: 1440px) {
-	.chambre {
+	.room {
 		flex: auto;
 		// width: 425px;
 		// margin: 5px;

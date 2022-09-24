@@ -13,31 +13,19 @@
 					@mouseleave="autoplay = true"
 					class="carousel"
 				>
-					<q-carousel-slide
-						:name="1"
-						:img-src="getImageUrl(chambre.imageUrl)"
-					/>
-					<q-carousel-slide
-						:name="2"
-						:img-src="getImageUrl(chambre.imageUrl)"
-					/>
-					<q-carousel-slide
-						:name="3"
-						:img-src="getImageUrl(chambre.imageUrl)"
-					/>
-					<q-carousel-slide
-						:name="4"
-						:img-src="getImageUrl(chambre.imageUrl)"
-					/>
+					<q-carousel-slide :name="1" :img-src="getImageUrl(room.imageUrl)" />
+					<q-carousel-slide :name="2" :img-src="getImageUrl(room.imageUrl)" />
+					<q-carousel-slide :name="3" :img-src="getImageUrl(room.imageUrl)" />
+					<q-carousel-slide :name="4" :img-src="getImageUrl(room.imageUrl)" />
 				</q-carousel>
 			</div>
 		</section>
 
 		<section class="q-px-lg q-pt-lg">
 			<div class="wrapper q-gutter-y-xl">
-				<h3 class="cursive text-center appear-left">{{ chambre.name }}</h3>
+				<h3 class="cursive text-center appear-left">{{ room.name }}</h3>
 
-				<p class="appear-left">{{ chambre.description }}</p>
+				<p class="appear-left">{{ room.description }}</p>
 			</div>
 		</section>
 
@@ -48,16 +36,18 @@
 				swipeable
 				animated
 				arrows
+				infinite
+				thumbnails
 				v-model="slide2"
 				v-model:fullscreen="fullscreen"
-				infinite
 				class="carousel2"
 			>
 				<q-carousel-slide
-					v-for="(slide, key, index) in chambreImages"
+					v-for="(slide, key, index) in roomImages"
 					:key="slide.name"
 					:name="index"
 					:img-src="getImageUrlFromAssets(slide)"
+					class="carousel2_img"
 				/>
 
 				<template v-slot:control>
@@ -74,32 +64,42 @@
 				</template>
 			</q-carousel>
 		</section>
+
 		<section class="q-pa-lg q-gutter-y-lg wrapper">
 			<h5 class="text-uppercase appear-left">Tarifs</h5>
 
 			<p class="appear-left">
-				<strong> Prix : {{ chambre.tarifs[0] }}€/nuit</strong> avec petit
-				déjeuner régional pour 2 personnes.
+				Prix : <strong>{{ room.tarifs[0] }}€/nuit</strong> avec petit déjeuner
+				régional pour 2 personnes.
 				<br />
 				Une <strong>remise de 10% sur la 2ème nuitée</strong> vous sera déduite
 				au paiement final.
 			</p>
 
 			<div class="q-pt-none q-pb-md appear-left">
-				<h6>Tarif des nuitées (à partir du 1 avril 2021)</h6>
-				<div class="q-pl-md">
-					<div class="row justify-between">
-						<span>Du dimanche au vendredi :</span>
-						<span> {{ chambre.tarifs[0] }}€ </span>
-					</div>
-					<div class="row justify-between">
-						<span>
-							Du vendredi au dimanche, Jours fériés, spéciaux, vacances scolaire
-							:
-						</span>
-						<span> {{ chambre.tarifs[1] }}€ </span>
-					</div>
-				</div>
+				<h6>Tarif des nuitées (à partir du 1er avril 2021)</h6>
+
+				<q-markup-table flat separator="vertical" wrap-cells>
+					<thead>
+						<tr class="q-tr--no-hover">
+							<th class="text-left">Période</th>
+							<th class="text-right">Tarif</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="q-tr--no-hover">
+							<td class="text-left">Du dimanche au vendredi</td>
+							<td class="text-right text-no-wrap">{{ room.tarifs[0] }} €</td>
+						</tr>
+						<tr class="q-tr--no-hover">
+							<td class="text-left">
+								Du vendredi au dimanche, jours fériés, spéciaux, vacances
+								scolaire
+							</td>
+							<td class="text-right text-no-wrap">{{ room.tarifs[1] }} €</td>
+						</tr>
+					</tbody>
+				</q-markup-table>
 			</div>
 			<p class="appear-left">
 				<strong>
@@ -116,7 +116,7 @@
 				class="brand text-white appear-right"
 				unelevated
 				size="lg"
-				label="Réserver cette chambre"
+				label="Réserver cette room"
 			></q-btn>
 		</section>
 
@@ -128,14 +128,14 @@
 
 				<q-list bordered separator class="appear-left">
 					<q-expansion-item
-						v-for="equipment in chambreEquipments"
+						v-for="equipment in roomEquipments"
 						:key="equipment.name"
 						group="somegroup"
 						:icon="equipment.icon"
 						:label="equipment.name"
 						header-class="text-uppercase"
 					>
-						<EquipmentCard :equipment="equipment" :chambres="chambresData" />
+						<EquipmentCard :equipment="equipment" :rooms="roomsData" />
 					</q-expansion-item>
 				</q-list>
 			</div>
@@ -146,12 +146,12 @@
 <script setup>
 import { useRoute, useRouter } from "vue-router";
 import { ref } from "vue";
-import chambresData from "../data/chambresData.json";
+import roomsData from "../data/roomsData.json";
 import equipmentsData from "../data/equipmentsData.json";
 import EquipmentCard from "../components/EquipmentCard.vue";
 import CustomDivider from "../components/CustomDivider.vue";
 
-// const chambreImagesSlides = [
+// const roomImagesSlides = [
 // 	{
 // 		id: 1,
 // 		url: "https://cdn.quasar.dev/img/mountains.jpg",
@@ -180,61 +180,59 @@ function getImageUrlFromAssets(subPath) {
 	return new URL(`${subPath.name}`, import.meta.url).href;
 }
 
-let chambreName = route.params.roomName;
-let chambre = chambresData.find((chambre) => chambre.pathName === chambreName);
+let roomName = route.params.roomName;
+let room = roomsData.find((room) => room.pathName === roomName);
 
-// filter only equiped equipments by the chambre
-let chambreEquipments = [];
+// filter only equiped equipments by the room
+let roomEquipments = [];
 equipmentsData.forEach((equipment) => {
-	if (equipment.chambres.includes(chambreName)) {
-		chambreEquipments.push({
+	if (equipment.rooms.includes(roomName)) {
+		roomEquipments.push({
 			...equipment,
 		});
 	}
 });
 
-// import all images from chambre folder
-let chambreImages = {};
-switch (chambre.index) {
+// import all images from room folder
+let roomImages = {};
+switch (room.index) {
 	case 1:
-		chambreImages = import.meta.glob(
-			"../assets/chambres/etoiles/*.(jpg|JPG|png|PNG)",
+		roomImages = import.meta.glob(
+			"../assets/rooms/etoiles/*.(jpg|JPG|png|PNG)",
 			{ as: "url" }
 		);
 		break;
 	case 2:
-		chambreImages = import.meta.glob(
-			"../assets/chambres/melusine/*.(jpg|JPG|png|PNG)",
+		roomImages = import.meta.glob(
+			"../assets/rooms/melusine/*.(jpg|JPG|png|PNG)",
 			{ as: "url" }
 		);
 		break;
 
 	case 3:
-		chambreImages = import.meta.glob(
-			"../assets/chambres/reves/*.(jpg|JPG|png|PNG)",
-			{ as: "url" }
-		);
+		roomImages = import.meta.glob("../assets/rooms/reves/*.(jpg|JPG|png|PNG)", {
+			as: "url",
+		});
 		break;
 	case 4:
-		chambreImages = import.meta.glob(
-			"../assets/chambres/romantique/*.(jpg|JPG|png|PNG)",
+		roomImages = import.meta.glob(
+			"../assets/rooms/romantique/*.(jpg|JPG|png|PNG)",
 			{ as: "url" }
 		);
 		break;
 	case 5:
-		chambreImages = import.meta.glob(
-			"../assets/chambres/salina/*.(jpg|JPG|png|PNG)",
+		roomImages = import.meta.glob(
+			"../assets/rooms/salina/*.(jpg|JPG|png|PNG)",
 			{ as: "url" }
 		);
 		break;
 	case 6:
-		chambreImages = import.meta.glob(
-			"../assets/chambres/gite/*.(jpg|JPG|png|PNG)",
-			{ as: "url" }
-		);
+		roomImages = import.meta.glob("../assets/rooms/gite/*.(jpg|JPG|png|PNG)", {
+			as: "url",
+		});
 		break;
 }
-// console.log(chambreImages);
+// console.log(roomImages);
 
 const slide = ref(1);
 const slide2 = ref(1);
@@ -243,7 +241,7 @@ const fullscreen = ref(false);
 </script>
 
 <style lang="scss">
-.images-chambre img {
+.images-room img {
 	max-width: 30%;
 }
 .wrapper {
@@ -277,8 +275,10 @@ const fullscreen = ref(false);
 	top: 0;
 	width: 100%;
 }
-.carousel2 {
-	min-height: 63vh;
+// .carousel2 {
+// 	height: max-content;
+// }
+.carousel2_img {
 	object-fit: contain;
 }
 .section-video {
@@ -297,7 +297,7 @@ const fullscreen = ref(false);
 }
 
 @media (min-width: 1024px) {
-	.chambre {
+	.room {
 		min-height: 100vh;
 		display: flex;
 		align-items: center;

@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
-import AccueilView from "../views/AccueilView.vue";
+import Home from "../views/Home.vue";
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
 	routes: [
 		{
 			path: "/",
-			name: "accueil",
-			component: AccueilView,
+			name: "home",
+			component: Home,
 		},
 		{
 			path: "/contact",
@@ -15,32 +15,32 @@ const router = createRouter({
 			// route level code-splitting
 			// this generates a separate chunk (About.[hash].js) for this route
 			// which is lazy-loaded when the route is visited.
-			component: () => import("../views/ContactView.vue"),
+			component: () => import("../views/Contact.vue"),
 		},
 		{
 			path: "/chambres",
-			name: "chambres",
-			component: () => import("../views/ChambresView.vue"),
+			name: "rooms",
+			component: () => import("../views/Rooms.vue"),
 		},
 		{
-			name: "chambre",
+			name: "room",
 			path: "/chambre/:roomName",
-			component: () => import("../views/ChambreView.vue"),
+			component: () => import("../views/Room.vue"),
 		},
 		{
-			path: "/prestations",
+			path: "/services",
 			name: "prestations",
-			component: () => import("../views/PrestationsView.vue"),
+			component: () => import("../views/Services.vue"),
 		},
 		{
 			path: "/tourisme",
-			name: "tourisme",
-			component: () => import("../views/TourismeView.vue"),
+			name: "tourism",
+			component: () => import("../views/Tourism.vue"),
 		},
 		{
-			path: "/galeries",
-			name: "galeries",
-			component: () => import("../views/GaleriesView.vue"),
+			path: "/galerie",
+			name: "gallery",
+			component: () => import("../views/Gallery.vue"),
 		},
 	],
 	scrollBehavior: (to, from, savedPosition) => {
