@@ -151,25 +151,6 @@ import equipmentsData from "../data/equipmentsData.json";
 import EquipmentCard from "../components/EquipmentCard.vue";
 import CustomDivider from "../components/CustomDivider.vue";
 
-// const roomImagesSlides = [
-// 	{
-// 		id: 1,
-// 		url: "https://cdn.quasar.dev/img/mountains.jpg",
-// 	},
-// 	{
-// 		id: 2,
-// 		url: "https://cdn.quasar.dev/img/parallax1.jpg",
-// 	},
-// 	{
-// 		id: 3,
-// 		url: "https://cdn.quasar.dev/img/parallax2.jpg",
-// 	},
-// 	{
-// 		id: 4,
-// 		url: "https://cdn.quasar.dev/img/quasar.jpg",
-// 	},
-// ];
-
 const route = useRoute();
 
 function getImageUrl(subPath) {

@@ -26,22 +26,18 @@
 					<q-item
 						clickable
 						v-ripple
-						v-for="chambreName in equipment.chambres"
-						:key="chambreName"
+						v-for="roomName in equipment.rooms"
+						:key="roomName"
 						:to="
 							'/chambre/' +
-							chambres.find((chambre) => chambre.pathName === chambreName)
-								.pathName
+							rooms.find((room) => room.pathName === roomName).pathName
 						"
 						exact
 					>
 						<q-item-section>
 							<q-item-label>
 								✓
-								{{
-									chambres.find((chambre) => chambre.pathName === chambreName)
-										.name
-								}}
+								{{ rooms.find((room) => room.pathName === roomName).name }}
 							</q-item-label>
 						</q-item-section>
 					</q-item>
@@ -59,7 +55,7 @@ const props = defineProps({
 		// type: Object,
 		required: true,
 	},
-	chambres: {
+	rooms: {
 		// type: Object,
 		required: true,
 	},
