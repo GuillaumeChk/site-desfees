@@ -145,13 +145,13 @@
 
 <script setup>
 import { useRoute, useRouter } from "vue-router";
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import roomsData from "../data/roomsData.json";
 import equipmentsData from "../data/equipmentsData.json";
 import EquipmentCard from "../components/EquipmentCard.vue";
 import CustomDivider from "../components/CustomDivider.vue";
 
-const route = useRoute();
+let route = useRoute();
 
 function getImageUrl(subPath) {
 	return new URL(`../assets/${subPath}`, import.meta.url).href;
@@ -161,8 +161,16 @@ function getImageUrlFromAssets(subPath) {
 	return new URL(`${subPath.name}`, import.meta.url).href;
 }
 
-let roomName = route.params.roomName;
-let room = roomsData.find((room) => room.pathName === roomName);
+let roomName = ref("");
+let room;
+watch(
+	() => route.params.roomName,
+	(newRoomName) => {
+		roomName = newRoomName;
+		room = roomsData.find((room) => room.pathName === roomName);
+	},
+	{ immediate: true }
+);
 
 // filter only equiped equipments by the room
 let roomEquipments = [];
