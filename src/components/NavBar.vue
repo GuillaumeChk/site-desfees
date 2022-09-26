@@ -71,7 +71,6 @@
 
 	<q-drawer
 		v-model="leftDrawerOpen"
-		side="left"
 		elevated
 		class="column justify-center items-center text-uppercase text-brand"
 	>
@@ -87,7 +86,6 @@
 				<q-item-label class="text-center"> Acceuil </q-item-label>
 			</q-item>
 			<q-expansion-item
-				:switch-toggle-side="right"
 				expand-icon-class="text-orange"
 				:content-inset-level="1"
 				label="Chambres"
@@ -110,7 +108,6 @@
 				<q-item-label class="text-center"> Prestations </q-item-label>
 			</q-item>
 			<q-expansion-item
-				:switch-toggle-side="right"
 				expand-icon-class="text-orange"
 				:content-inset-level="1"
 				label="Explorer"
@@ -162,7 +159,7 @@ function scrollFunction() {
 }
 
 // Quasar Open drawer menu
-const leftDrawerOpen = ref(false);
+let leftDrawerOpen = ref(false);
 
 function toggleLeftDrawer() {
 	leftDrawerOpen.value = !leftDrawerOpen.value;
