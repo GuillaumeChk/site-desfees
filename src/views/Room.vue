@@ -153,6 +153,11 @@ import CustomDivider from "../components/CustomDivider.vue";
 
 let route = useRoute();
 
+const slide = ref(1);
+const slide2 = ref(1);
+const autoplay = ref(true);
+const fullscreen = ref(false);
+
 function getImageUrl(subPath) {
 	return new URL(`../assets/${subPath}`, import.meta.url).href;
 }
@@ -161,72 +166,72 @@ function getImageUrlFromAssets(subPath) {
 	return new URL(`${subPath.name}`, import.meta.url).href;
 }
 
-let roomName = ref("");
-let room;
+let room = ref();
+let roomEquipments = ref([]);
+let roomImages = ref({});
 watch(
 	() => route.params.roomName,
 	(newRoomName) => {
-		roomName = newRoomName;
-		room = roomsData.find((room) => room.pathName === roomName);
+		room.value = roomsData.find((room) => room.pathName === newRoomName);
+
+		// filter only equiped equipments by the room
+		roomEquipments.value = [];
+		equipmentsData.forEach((equipment) => {
+			if (equipment.rooms.includes(newRoomName)) {
+				roomEquipments.value.push({
+					...equipment,
+				});
+			}
+		});
+
+		// import all images from room folder
+		roomImages.value = {};
+		switch (room.index) {
+			case 1:
+				roomImages.value = import.meta.glob(
+					"../assets/rooms/etoiles/*.(jpg|JPG|png|PNG)",
+					{ as: "url" }
+				);
+				break;
+			case 2:
+				roomImages.value = import.meta.glob(
+					"../assets/rooms/melusine/*.(jpg|JPG|png|PNG)",
+					{ as: "url" }
+				);
+				break;
+
+			case 3:
+				roomImages.value = import.meta.glob(
+					"../assets/rooms/reves/*.(jpg|JPG|png|PNG)",
+					{
+						as: "url",
+					}
+				);
+				break;
+			case 4:
+				roomImages.value = import.meta.glob(
+					"../assets/rooms/romantique/*.(jpg|JPG|png|PNG)",
+					{ as: "url" }
+				);
+				break;
+			case 5:
+				roomImages.value = import.meta.glob(
+					"../assets/rooms/salina/*.(jpg|JPG|png|PNG)",
+					{ as: "url" }
+				);
+				break;
+			case 6:
+				roomImages.value = import.meta.glob(
+					"../assets/rooms/gite/*.(jpg|JPG|png|PNG)",
+					{
+						as: "url",
+					}
+				);
+				break;
+		}
 	},
 	{ immediate: true }
 );
-
-// filter only equiped equipments by the room
-let roomEquipments = [];
-equipmentsData.forEach((equipment) => {
-	if (equipment.rooms.includes(roomName)) {
-		roomEquipments.push({
-			...equipment,
-		});
-	}
-});
-
-// import all images from room folder
-let roomImages = {};
-switch (room.index) {
-	case 1:
-		roomImages = import.meta.glob(
-			"../assets/rooms/etoiles/*.(jpg|JPG|png|PNG)",
-			{ as: "url" }
-		);
-		break;
-	case 2:
-		roomImages = import.meta.glob(
-			"../assets/rooms/melusine/*.(jpg|JPG|png|PNG)",
-			{ as: "url" }
-		);
-		break;
-
-	case 3:
-		roomImages = import.meta.glob("../assets/rooms/reves/*.(jpg|JPG|png|PNG)", {
-			as: "url",
-		});
-		break;
-	case 4:
-		roomImages = import.meta.glob(
-			"../assets/rooms/romantique/*.(jpg|JPG|png|PNG)",
-			{ as: "url" }
-		);
-		break;
-	case 5:
-		roomImages = import.meta.glob(
-			"../assets/rooms/salina/*.(jpg|JPG|png|PNG)",
-			{ as: "url" }
-		);
-		break;
-	case 6:
-		roomImages = import.meta.glob("../assets/rooms/gite/*.(jpg|JPG|png|PNG)", {
-			as: "url",
-		});
-		break;
-}
-// console.log(roomImages);
-
-const slide = ref(1);
-const slide2 = ref(1);
-const autoplay = ref(true);
-const fullscreen = ref(false);
 </script>
 
 <style lang="scss">
