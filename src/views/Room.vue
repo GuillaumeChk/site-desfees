@@ -186,7 +186,7 @@ watch(
 
 		// import all images from room folder
 		roomImages.value = {};
-		switch (room.index) {
+		switch (room.value.index) {
 			case 1:
 				roomImages.value = import.meta.glob(
 					"../assets/rooms/etoiles/*.(jpg|JPG|png|PNG)",
@@ -229,6 +229,7 @@ watch(
 				);
 				break;
 		}
+		console.log(room.value.index);
 	},
 	{ immediate: true }
 );
