@@ -40,7 +40,7 @@
 				thumbnails
 				v-model="slide2"
 				v-model:fullscreen="fullscreen"
-				class="carousel2"
+				class="carousel2 appear-left"
 			>
 				<q-carousel-slide
 					v-for="(slide, key, index) in roomImages"
@@ -116,7 +116,7 @@
 				class="brand text-white appear-right"
 				unelevated
 				size="lg"
-				label="Réserver cette room"
+				label="Réserver cette chambre"
 			></q-btn>
 		</section>
 
@@ -229,7 +229,6 @@ watch(
 				);
 				break;
 		}
-		console.log(room.value.index);
 	},
 	{ immediate: true }
 );

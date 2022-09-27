@@ -42,6 +42,10 @@ const router = createRouter({
 			name: "gallery",
 			component: () => import("../views/Gallery.vue"),
 		},
+		{
+			path: "/:pathMatch(.*)*", // default
+			component: Home,
+		},
 	],
 	scrollBehavior: (to, from, savedPosition) => {
 		return savedPosition || { top: 0, left: 0 };
