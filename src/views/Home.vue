@@ -101,11 +101,7 @@
 			Nos chambres
 		</h4>
 		<section class="wrapper row rooms">
-			<div
-				class="room appear-bottom"
-				v-for="room in roomsData"
-				:key="room.name"
-			>
+			<div class="room" v-for="room in roomsData" :key="room.name">
 				<router-link
 					:to="{ name: 'room', params: { roomName: room.pathName } }"
 				>
@@ -127,7 +123,7 @@
 					Nos équipements
 				</h4>
 
-				<q-list bordered separator class="appear-left bg-white">
+				<q-list separator class="appear-left bg-white">
 					<q-expansion-item
 						v-for="equipment in equipmentsData"
 						:key="equipment.name"

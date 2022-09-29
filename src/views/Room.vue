@@ -118,7 +118,7 @@
 			<div class="wrapper q-gutter-y-lg">
 				<h5 class="text-uppercase appear-left">Équipements inclus</h5>
 
-				<q-list bordered separator class="appear-left">
+				<q-list separator class="appear-left">
 					<q-expansion-item
 						v-for="equipment in roomEquipments"
 						:key="equipment.name"
