@@ -19,6 +19,11 @@
 	transform: translateX(100%);
 	transition: transform 1s ease 50ms, opacity 1.6s ease 50ms;
 }
+.appear-bottom {
+	opacity: 0;
+	transform: translateY(30%);
+	transition: transform 1s ease 50ms, opacity 1.6s ease 50ms;
+}
 .show {
 	transform: translateX(0);
 	opacity: 1;

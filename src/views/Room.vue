@@ -51,7 +51,7 @@
 				/>
 
 				<template v-slot:control>
-					<q-carousel-control position="bottom-right" :offset="[18, 18]">
+					<q-carousel-control position="bottom-right" :offset="[18, 80]">
 						<q-btn
 							round
 							flat
@@ -269,9 +269,9 @@ watch(
 	top: 0;
 	width: 100%;
 }
-// .carousel2 {
-// 	height: max-content;
-// }
+.carousel2 {
+	height: 700px;
+}
 .carousel2_img {
 	object-fit: contain;
 }

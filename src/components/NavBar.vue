@@ -2,14 +2,25 @@
 	<q-header
 		id="navbar"
 		:class="
-			route.name === 'accueil' || route.name === 'room'
+			route.name === 'home' || route.name === 'room'
 				? 'navbar-transparent'
 				: 'navbar-solid'
 		"
 		height-hint="98"
 	>
-		<q-toolbar class="q-pa-sm q-gutter-sm">
-			<q-btn flat class="lt-md" round icon="menu" @click="toggleLeftDrawer" />
+		<q-toolbar
+			id="toolbar"
+			class="q-pa-sm q-gutter-sm"
+			:class="route.name === 'home' || route.name === 'room' ? 'gradient' : ''"
+		>
+			<q-btn
+				flat
+				class="lt-md"
+				round
+				icon="menu"
+				color="orange"
+				@click="toggleLeftDrawer"
+			/>
 
 			<q-tabs class="gt-sm" align="left">
 				<q-route-tab class="tab" to="/" label="Acceuil" />
@@ -152,9 +163,11 @@ function scrollFunction() {
 	if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
 		document.getElementById("navbar").classList.add("navbar-solid");
 		document.getElementById("navbar").classList.remove("navbar-transparent");
+		document.getElementById("toolbar").classList.remove("gradient");
 	} else {
 		document.getElementById("navbar").classList.add("navbar-transparent");
 		document.getElementById("navbar").classList.remove("navbar-solid");
+		document.getElementById("toolbar").classList.add("gradient");
 	}
 }
 
@@ -178,7 +191,7 @@ function toggleLeftDrawer() {
 	color: white;
 	background-color: transparent;
 }
-.navbar-transparent .tab:hover {
-	background-color: rgba($color: orange, $alpha: 0.98);
+.gradient {
+	background: linear-gradient(black, 30%, transparent);
 }
 </style>

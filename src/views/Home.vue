@@ -98,10 +98,14 @@
 		<h4
 			class="wrapper q-pa-lg q-py-xl text-weight-light text-uppercase appear-left"
 		>
-			Nos rooms
+			Nos chambres
 		</h4>
 		<section class="wrapper row rooms">
-			<div class="room appear-right" v-for="room in roomsData" :key="room.name">
+			<div
+				class="room appear-bottom"
+				v-for="room in roomsData"
+				:key="room.name"
+			>
 				<router-link
 					:to="{ name: 'room', params: { roomName: room.pathName } }"
 				>
