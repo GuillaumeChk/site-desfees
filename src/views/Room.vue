@@ -136,12 +136,13 @@
 </template>
 
 <script setup>
-import { useRoute, useRouter } from "vue-router";
+import { useRoute } from "vue-router";
 import { ref, watch } from "vue";
 import roomsData from "../data/roomsData.json";
 import equipmentsData from "../data/equipmentsData.json";
 import EquipmentCard from "../components/EquipmentCard.vue";
 import CustomDivider from "../components/CustomDivider.vue";
+import { computed } from "@vue/reactivity";
 
 let route = useRoute();
 
@@ -154,73 +155,89 @@ function getImageUrl(subPath) {
 	return new URL(`../assets/${subPath}`, import.meta.url).href;
 }
 function getImageUrlFromAssets(subPath) {
-	console.log(new URL(`${subPath.name}`, import.meta.url).href);
 	return new URL(`${subPath.name}`, import.meta.url).href;
 }
 
-let room = ref();
+function fillEquipments(roomName) {
+	// filter only equiped equipments by the room
+	roomEquipments.value = [];
+	equipmentsData.forEach((equipment) => {
+		if (equipment.rooms.includes(roomName)) {
+			roomEquipments.value.push({
+				...equipment,
+			});
+		}
+	});
+}
+
+function fillRoomImages(roomName) {
+	// import all images from room folder
+	roomImages.value = {};
+	switch (room.value.index) {
+		case 1:
+			roomImages.value = import.meta.glob(
+				"../assets/rooms/etoiles/*.(jpg|JPG|png|PNG)",
+				{ as: "url" }
+			);
+			break;
+		case 2:
+			roomImages.value = import.meta.glob(
+				"../assets/rooms/melusine/*.(jpg|JPG|png|PNG)",
+				{ as: "url" }
+			);
+			break;
+
+		case 3:
+			roomImages.value = import.meta.glob(
+				"../assets/rooms/reves/*.(jpg|JPG|png|PNG)",
+				{
+					as: "url",
+				}
+			);
+			break;
+		case 4:
+			roomImages.value = import.meta.glob(
+				"../assets/rooms/romantique/*.(jpg|JPG|png|PNG)",
+				{ as: "url" }
+			);
+			break;
+		case 5:
+			roomImages.value = import.meta.glob(
+				"../assets/rooms/salina/*.(jpg|JPG|png|PNG)",
+				{ as: "url" }
+			);
+			break;
+		case 6:
+			roomImages.value = import.meta.glob(
+				"../assets/rooms/gite/*.(jpg|JPG|png|PNG)",
+				{
+					as: "url",
+				}
+			);
+			break;
+	}
+}
+
+let roomName = computed(() => {
+	return route.params.roomName;
+});
+let room = ref(roomsData.find((room) => room.pathName === roomName));
 let roomEquipments = ref([]);
 let roomImages = ref({});
+
+//https://vueschool.io/lessons/reacting-to-param-changes
+// fillEquipments(roomName);
+// fillRoomImages(roomName);
 watch(
 	() => route.params.roomName,
 	(newRoomName) => {
+		if (newRoomName == undefined) {
+			return;
+		}
 		room.value = roomsData.find((room) => room.pathName === newRoomName);
 
-		// filter only equiped equipments by the room
-		roomEquipments.value = [];
-		equipmentsData.forEach((equipment) => {
-			if (equipment.rooms.includes(newRoomName)) {
-				roomEquipments.value.push({
-					...equipment,
-				});
-			}
-		});
-
-		// import all images from room folder
-		roomImages.value = {};
-		switch (room.value.index) {
-			case 1:
-				roomImages.value = import.meta.glob(
-					"../assets/rooms/etoiles/*.(jpg|JPG|png|PNG)",
-					{ as: "url" }
-				);
-				break;
-			case 2:
-				roomImages.value = import.meta.glob(
-					"../assets/rooms/melusine/*.(jpg|JPG|png|PNG)",
-					{ as: "url" }
-				);
-				break;
-
-			case 3:
-				roomImages.value = import.meta.glob(
-					"../assets/rooms/reves/*.(jpg|JPG|png|PNG)",
-					{
-						as: "url",
-					}
-				);
-				break;
-			case 4:
-				roomImages.value = import.meta.glob(
-					"../assets/rooms/romantique/*.(jpg|JPG|png|PNG)",
-					{ as: "url" }
-				);
-				break;
-			case 5:
-				roomImages.value = import.meta.glob(
-					"../assets/rooms/salina/*.(jpg|JPG|png|PNG)",
-					{ as: "url" }
-				);
-				break;
-			case 6:
-				roomImages.value = import.meta.glob(
-					"../assets/rooms/gite/*.(jpg|JPG|png|PNG)",
-					{
-						as: "url",
-					}
-				);
-				break;
-		}
+		fillEquipments(newRoomName);
+		fillRoomImages();
 	},
 	{ immediate: true }
 );
