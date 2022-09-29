@@ -1,5 +1,9 @@
 @import "./base.css";
 
+.q-item.q-router-link--active,
+.q-item--active {
+	color: #f8961e !important;
+}
 .card {
 	width: 100%;
 }

@@ -8,14 +8,14 @@
 			</q-page-container>
 		</main>
 
-		<q-footer class="brand">
+		<q-footer class="shadow-12" style="background: white">
 			<q-toolbar class="row">
 				<q-toolbar-title>
-					<q-avatar color="white">
+					<q-avatar>
 						<img src="/logoGitedes.svg" />
 					</q-avatar>
 				</q-toolbar-title>
-				<div>Sponsors</div>
+				<div class="text-brand">Sponsors</div>
 			</q-toolbar>
 		</q-footer>
 	</q-layout>

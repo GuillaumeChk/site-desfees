@@ -186,12 +186,13 @@ function toggleLeftDrawer() {
 .navbar-solid {
 	color: grey;
 	background-color: white;
+	box-shadow: 0px 2px 8px rgb(0 0 0 / 5%);
 }
 .navbar-transparent {
 	color: white;
 	background-color: transparent;
 }
 .gradient {
-	background: linear-gradient(black, 30%, transparent);
+	background: linear-gradient(rgba(0, 0, 0, 0.664), 30%, transparent);
 }
 </style>
