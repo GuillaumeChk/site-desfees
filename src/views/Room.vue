@@ -2,30 +2,22 @@
 	<q-page>
 		<section class="section-video">
 			<div class="video-container">
-				<q-carousel
-					animated
-					v-model="slide"
-					infinite
-					:autoplay="autoplay"
-					transition-prev="fade"
-					transition-next="fade"
-					@mouseenter="autoplay = false"
-					@mouseleave="autoplay = true"
-					class="carousel"
+				<q-img class="carousel" :src="getImageUrl(room.imageUrl)"> </q-img>
+				<h3
+					class="gt-sm absolute-bottom q-pb-lg text-h3 text-white text-center bg-transparent cursive"
 				>
-					<q-carousel-slide :name="1" :img-src="getImageUrl(room.imageUrl)" />
-					<q-carousel-slide :name="2" :img-src="getImageUrl(room.imageUrl)" />
-					<q-carousel-slide :name="3" :img-src="getImageUrl(room.imageUrl)" />
-					<q-carousel-slide :name="4" :img-src="getImageUrl(room.imageUrl)" />
-				</q-carousel>
+					{{ room.name }}
+				</h3>
 			</div>
 		</section>
 
 		<section class="q-px-lg q-pt-lg">
 			<div class="wrapper q-gutter-y-xl">
-				<h3 class="cursive text-center appear-left">{{ room.name }}</h3>
+				<h3 class="lt-md cursive text-center text-grey-8 appear-left">
+					{{ room.name }}
+				</h3>
 
-				<p class="appear-left">{{ room.description }}</p>
+				<p class="appear-left text-center">{{ room.description }}</p>
 			</div>
 		</section>
 
