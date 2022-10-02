@@ -1,0 +1,1 @@
+import{_ as e,o as s,c,a as _}from"./index.c923fa2d.js";const t={},o={class:"services"},n=_("h1",null,"This is an services page",-1),a=[n];function r(i,d){return s(),c("div",o,a)}const v=e(t,[["render",r]]);export{v as default};
