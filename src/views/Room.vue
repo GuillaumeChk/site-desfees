@@ -32,13 +32,13 @@
 				thumbnails
 				v-model="slide2"
 				v-model:fullscreen="fullscreen"
-				class="carousel2 appear-left"
+				class="carousel2"
 			>
 				<q-carousel-slide
 					v-for="(slide, key, index) in roomImages"
-					:key="slide.name"
+					:key="key"
 					:name="index"
-					:img-src="getImageUrlFromAssets(slide)"
+					:img-src="slide"
 					class="carousel2_img"
 				/>
 
@@ -154,9 +154,9 @@ const fullscreen = ref(false);
 function getImageUrl(subPath) {
 	return new URL(`../assets/${subPath}`, import.meta.url).href;
 }
-function getImageUrlFromAssets(subPath) {
-	return new URL(`${subPath.name}`, import.meta.url).href;
-}
+// function getImageUrlFromAssets(subPath) {
+// 	return new URL(`${subPath.name}`, import.meta.url).href;
+// }
 
 function fillEquipments(roomName) {
 	// filter only equiped equipments by the room
@@ -177,13 +177,13 @@ function fillRoomImages(roomName) {
 		case 1:
 			roomImages.value = import.meta.glob(
 				"../assets/rooms/etoiles/*.(jpg|JPG|png|PNG)",
-				{ as: "url" }
+				{ as: "url", eager: true }
 			);
 			break;
 		case 2:
 			roomImages.value = import.meta.glob(
 				"../assets/rooms/melusine/*.(jpg|JPG|png|PNG)",
-				{ as: "url" }
+				{ as: "url", eager: true }
 			);
 			break;
 
@@ -191,27 +191,27 @@ function fillRoomImages(roomName) {
 			roomImages.value = import.meta.glob(
 				"../assets/rooms/reves/*.(jpg|JPG|png|PNG)",
 				{
-					as: "url",
+					as: "url", eager: true
 				}
 			);
 			break;
 		case 4:
 			roomImages.value = import.meta.glob(
 				"../assets/rooms/romantique/*.(jpg|JPG|png|PNG)",
-				{ as: "url" }
+				{ as: "url", eager: true }
 			);
 			break;
 		case 5:
 			roomImages.value = import.meta.glob(
 				"../assets/rooms/salina/*.(jpg|JPG|png|PNG)",
-				{ as: "url" }
+				{ as: "url", eager: true }
 			);
 			break;
 		case 6:
 			roomImages.value = import.meta.glob(
 				"../assets/rooms/gite/*.(jpg|JPG|png|PNG)",
 				{
-					as: "url",
+					as: "url", eager: true
 				}
 			);
 			break;
