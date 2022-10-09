@@ -16,7 +16,7 @@
 			<q-btn flat class="lt-md" round icon="menu" @click="toggleLeftDrawer" />
 
 			<q-tabs class="gt-sm" align="left">
-				<q-route-tab class="tab" to="/" label="Acceuil" />
+				<q-route-tab class="tab" to="/" label="Accueil" />
 				<q-btn stretch unelevated flat class="tab" label="Chambres">
 					<q-menu auto-close>
 						<q-list style="min-width: 100px">
@@ -76,18 +76,18 @@
 	<q-drawer
 		v-model="leftDrawerOpen"
 		elevated
-		class="column justify-center items-center text-uppercase text-brand"
+		class="column items-center text-uppercase bg-grey-10 text-brand "
 	>
 		<q-btn
 			flat
 			icon="close"
-			class="fixed-top-left q-ma-lg"
+			class=" q-ma-lg"
 			@click="toggleLeftDrawer"
 		/>
 
 		<q-list>
 			<q-item clickable to="/" exact :active="false">
-				<q-item-label class="text-center"> Acceuil </q-item-label>
+				<q-item-label class="text-center"> Accueil </q-item-label>
 			</q-item>
 			<q-expansion-item
 				expand-icon-class="text-orange"

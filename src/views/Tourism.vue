@@ -1,28 +1,19 @@
 <template>
-	<q-carousel
-		animated
-		v-model="slide"
-		infinite
-		:autoplay="autoplay"
-		transition-prev="fade"
-		transition-next="fade"
-		@mouseenter="autoplay = false"
-		@mouseleave="autoplay = true"
-		height="300px"
-	>
-		<q-carousel-slide :name="1" img-src="nv_logo_fee_40.png" />
-		<q-carousel-slide :name="2" img-src="nv_logo_fee_40.png" />
-		<q-carousel-slide :name="3" img-src="nv_logo_fee_40.png" />
-		<q-carousel-slide :name="4" img-src="nv_logo_fee_40.png" />
-	</q-carousel>
 
 	<q-page>
-		<h3>Tourisme</h3>
+		<div class="wrapper">
+ <q-img
+      src="https://cdn.quasar.dev/img/parallax2.jpg"
+    >
+      <div class="absolute-bottom bg-transparent text-h3 text-uppercase text-center">
+		  Tourisme           
+      </div>
+    </q-img>
 
-		<h4>Les plaisirs de la table…</h4>
+		<h4 class="q-pa-md q-pt-xl  text-uppercase text-weight-light">Les plaisirs de la table…</h4>
 
-		<section class="brand-2 q-pa-md q-gutter-md">
-			<h5>… côté vignoble, nos coups de</h5>
+		<section class=" q-px-md q-pl-lg">
+			<h5 class="text-brand-2 q-py-lg">… côté vignoble, nos coups de ♥</h5>
 			<p>
 				Le Jura et ses célèbres cépages séduiront les amateurs par leur
 				diversité et leur typicité, n’oublier pas de déguster une des sept
@@ -47,8 +38,8 @@
 			<p>Arbois +33 (0)3 84 66 04 93</p>
 		</section>
 
-		<section class="q-pa-md q-gutter-md">
-			<h5>… côté table et palais, nos coups de</h5>
+		<section class="q-px-md q-pl-lg ">
+			<h5 class=" text-brand q-py-lg">… côté table et palais, nos coups de ♥</h5>
 			<p>
 				Le Jura et ses traditions culinaires reconnues séduiront les plus
 				exigeants épicuriens. La truite au Vin Jaune, les spécialités à base de
@@ -58,28 +49,32 @@
 				km des Fées…
 			</p>
 
-			<a href="https://www.restaurantlepetitblanc.com/"
-				>Restaurant Le Petit Blanc à Salins les Bains </a
-			><br />
-			<a href="https://www.le-sensso.fr/">Le Sensso à Salins les Bains</a><br />
-			<a href="https://www.le-relais-darc-et-senans.com/"
-				>http://www.le-relais-darc-et-senans.com/</a
-			><br />
-			<a href="httpss://www.bistrotdeportlesney.com/"
-				>Bistrot de Port Lesney à Port Lesney</a
-			><br />
-			<a href="https://www.lescaudalies.fr/">Les Caudalies à Arbois</a><br />
-			<a href="https://www.legrapiot.com/fr/index.php">Le Grapiot à Pupillin</a
-			><br />
-			<a href="https://www.chateaudegermigney.com/"
-				>Chateau de Germigney à Port Lesney</a
-			><br />
+			<div class="column q-py-md q-gutter-y-sm">
 
-			<p>A deux pas...</p>
+				<a class="text-h6" href="https://www.restaurantlepetitblanc.com/"
+				>Restaurant Le Petit Blanc à Salins les Bains </a
+				>
+				<a class="text-h6" href="https://www.le-sensso.fr/">Le Sensso à Salins les Bains</a>
+				<a class="text-h6" href="https://www.le-relais-darc-et-senans.com/"
+				>Le relais d'Arc-et-Senans</a
+				>
+				<a class="text-h6" href="https://www.bistrotdesportlesney.com/"
+				>Bistrot de Port Lesney à Port Lesney</a
+				>
+				<a class="text-h6" href="https://www.lescaudalies.fr/">Les Caudalies à Arbois</a>
+				<a class="text-h6" href="https://www.legrapiot.com/fr/index.php">Le Grapiot à Pupillin</a
+					>
+					<a class="text-h6" href="https://www.chateaudegermigney.com/"
+					>Chateau de Germigney à Port Lesney</a
+					>
+				</div>
+			<br />
+
+			<p class="text-italic">A deux pas...</p>
 		</section>
 
-		<section class="brand-2 q-pa-md q-gutter-md">
-			<h4>Un peu d’histoire...</h4>
+		<h4 class="q-pa-md  q-pt-xl text-uppercase text-weight-light text-brand-2">Un peu d’histoire...</h4>
+		<section class=" q-pa-md  q-gutter-y-md">
 
 			<p>
 				Comme toutes vacances ou week-end, une bonne préparation vous aidera à
@@ -87,7 +82,7 @@
 				lieux sont à visiter dans la région :
 			</p>
 
-			<h5>Découvrir les visites de Franche-Comté</h5>
+			<h5 class="text-brand-2">Découvrir les visites de Franche-Comté</h5>
 			<a href="https://www.salinesdesalins.com" target="_blank"
 				>Site officiel de la Grande Saline à Salins les Bains (39110) - Jura
 				(39) - Franche Comté</a
@@ -96,7 +91,7 @@
 				>Saline Royale à Arc-et-Senans</a
 			><br />
 
-			<h5>Office du tourisme Jura, Coeur du Jura, Besançon, Dole</h5>
+			<h5 class="text-brand-2">Office du tourisme Jura, Coeur du Jura, Besançon, Dole</h5>
 			<a href="https://www.jura-tourism.com/" target="_blank">Jura tourisme</a
 			><br />
 			<a href="https://www.coeurdujura-tourisme.com/" target="_blank"
@@ -105,7 +100,7 @@
 			<a href="https://www.besancon-tourisme.com/" target="_blank">Besançon</a
 			><br />
 
-			<h5>La route des vins et des lacs</h5>
+			<h5 class="text-brand-2">La route des vins et des lacs</h5>
 			<a href="https://www.montagnes-du-jura.fr" target="_blank"
 				>La route des vins du Jura | Montagnes de Jura</a
 			><br />
@@ -120,10 +115,10 @@
 			><br />
 		</section>
 
-		<section class="q-pa-md q-gutter-md">
-			<h4>Autour de chez nous...</h4>
+		<h4 class="q-pa-md q-pt-xl  text-uppercase text-weight-light text-brand">Autour de chez nous...</h4>
+		<section class="q-pa-md  q-gutter-y-md">
 
-			<h5>Activités annuelles</h5>
+			<h5 class="text-brand">Activités annuelles</h5>
 			<a href="https://www.cascades-du-herisson.fr/" target="_blank"
 				>Cascades du Hérisson</a
 			><br />
@@ -138,7 +133,7 @@
 				franco-suisse</a
 			><br />
 
-			<h5>Activités estivales</h5>
+			<h5 class="text-brand">Activités estivales</h5>
 			<a href="https://www.poupetvollibre.com/" target="_blank"
 				>Poupet vol libre</a
 			><br />
@@ -150,7 +145,7 @@
 				>Lac Jura, baignade et plages des Lacs du Jura - Jura Tourisme</a
 			><br />
 
-			<h5>Activités hivernales</h5>
+			<h5 class="text-brand">Activités hivernales</h5>
 			<a
 				href="https://www.jura-tourism.com/vivre-le-jura/pratiquer/ski-sports-hiver/domaines-skiables-du-jura/"
 				target="_blank"
@@ -177,6 +172,7 @@
 				>Balade en chiens de traineaux</a
 			><br />
 		</section>
+	</div>
 	</q-page>
 </template>
 
@@ -189,4 +185,5 @@ a {
 		text-decoration: underline;
 	}
 }
+
 </style>
