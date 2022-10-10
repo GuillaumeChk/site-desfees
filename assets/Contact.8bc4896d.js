@@ -1,1 +1,0 @@
-import{_ as t,o as e,c,a as o}from"./index.c923fa2d.js";const s={},n={class:"contact"},_=o("h1",null,"This is an contact page",-1),a=[_];function r(i,d){return e(),c("div",n,a)}const f=t(s,[["render",r]]);export{f as default};
