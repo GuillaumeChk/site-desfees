@@ -1,1 +1,0 @@
-import{_ as e,o as s,c as _,a as t}from"./index.c923fa2d.js";const a={},c={class:"gallery"},o=t("h1",null,"This is an gallery page",-1),n=[o];function l(r,i){return s(),_("div",c,n)}const f=e(a,[["render",l]]);export{f as default};

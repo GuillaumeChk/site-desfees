@@ -168,8 +168,9 @@ function getImageUrl(subPath) {
 .map-container {
   position: relative;
   width: 100%;
+  height: 60vh;
   overflow: hidden;
-  padding-top: 100%; /* Aspect Ratio */
+//   padding-top: 100%; /* Aspect Ratio */
 }
 .responsive-iframe {
   position: absolute;
