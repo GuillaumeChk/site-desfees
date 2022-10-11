@@ -76,21 +76,23 @@
 	<q-drawer
 		v-model="leftDrawerOpen"
 		elevated
-		class="column items-center text-uppercase bg-grey-10 text-brand "
+		class="column items-center text-uppercase text-orange-8"
 	>
 		<q-btn
 			flat
 			icon="close"
+			size="lg"
 			class=" q-ma-lg"
 			@click="toggleLeftDrawer"
 		/>
 
 		<q-list>
-			<q-item clickable to="/" exact :active="false">
-				<q-item-label class="text-center"> Accueil </q-item-label>
+			<q-item class=" items-center" clickable to="/" exact :active="false">
+				<q-item-label class="text-center "> Accueil </q-item-label>
 			</q-item>
 			<q-expansion-item
-				expand-icon-class="text-orange"
+				expand-icon-class="text-orange-2"
+				icon=""
 				:content-inset-level="1"
 				label="Chambres"
 			>
@@ -103,27 +105,28 @@
 						params: { roomName: room.pathName },
 					}"
 					exact
-					:active="false"
+					:active="false" class=" items-center" 
 				>
 					<q-item-section>{{ room.name }}</q-item-section>
 				</q-item>
 			</q-expansion-item>
-			<q-item clickable to="/services" exact :active="false">
+			<q-item class=" items-center"  clickable to="/services" exact :active="false">
 				<q-item-label class="text-center"> Prestations </q-item-label>
 			</q-item>
 			<q-expansion-item
-				expand-icon-class="text-orange"
+			expand-icon-class="text-orange-2"
+				 class=" items-center" 
 				:content-inset-level="1"
 				label="Explorer"
 			>
-				<q-item clickable to="/tourisme" exact :active="false">
+				<q-item class=" items-center"  clickable to="/tourisme" exact :active="false">
 					<q-item-label class="text-center"> Tourisme </q-item-label>
 				</q-item>
-				<q-item clickable to="/galerie" exact :active="false">
+				<q-item  class=" items-center" clickable to="/galerie" exact :active="false">
 					<q-item-label class="text-center"> Galerie </q-item-label>
 				</q-item>
 			</q-expansion-item>
-			<q-item clickable to="/contact" exact :active="false">
+			<q-item class=" items-center"  clickable to="/contact" exact :active="false">
 				<q-item-label class="text-center"> Contact </q-item-label>
 			</q-item>
 		</q-list>

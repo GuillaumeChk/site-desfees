@@ -101,11 +101,11 @@
 			Nos chambres
 		</h4>
 		<section class="wrapper row rooms">
-			<div class="room" v-for="room in roomsData" :key="room.name">
+			<div class="room appear-bottom" v-for="room in roomsData" :key="room.name">
 				<router-link
 					:to="{ name: 'room', params: { roomName: room.pathName } }"
 				>
-					<q-img :src="getImageUrl(room.imageUrl)">
+					<q-img class="" :src="getImageUrl(room.imageUrl)">
 						<h3
 							class="q-pa-md text-white cursive absolute-bottom-left"
 							style="background: linear-gradient(to right, black, transparent)"

@@ -44,7 +44,7 @@ onMounted(() => {
 
 	// Attach observer to every [data-inviewport] element:
 	const Elements_inViewport = document.querySelectorAll(
-		".appear-left, .appear-right"
+		".appear-left, .appear-right, .appear-bottom"
 	);
 	Elements_inViewport.forEach((element) => {
 		Observer.observe(element, options);
