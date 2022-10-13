@@ -109,6 +109,7 @@
 				unelevated
 				size="lg"
 				label="Réserver cette chambre"
+				to="/reservation"
 			></q-btn>
 		</section>
 

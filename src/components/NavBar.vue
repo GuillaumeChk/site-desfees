@@ -56,8 +56,9 @@
 
 			<q-btn
 				class="q-mr-md brand text-white"
-				:unelevated="true"
+				unelevated
 				label="Réserver"
+				to="/reservation"
 			></q-btn>
 
 			<q-btn class="no-padding" to="/" size="md" unelevated>
