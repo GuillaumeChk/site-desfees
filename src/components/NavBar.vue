@@ -36,7 +36,7 @@
 						</q-list>
 					</q-menu>
 				</q-btn>
-				<q-route-tab class="tab" to="/services" label="Prestations" />
+				<q-route-tab class="tab" to="/prestations" label="Prestations" />
 				<q-btn stretch unelevated flat class="tab" label="Explorer">
 					<q-menu auto-close>
 						<q-list style="min-width: 100px">
@@ -111,7 +111,7 @@
 					<q-item-section>{{ room.name }}</q-item-section>
 				</q-item>
 			</q-expansion-item>
-			<q-item class=" items-center"  clickable to="/services" exact :active="false">
+			<q-item class=" items-center"  clickable to="/prestations" exact :active="false">
 				<q-item-label class="text-center"> Prestations </q-item-label>
 			</q-item>
 			<q-expansion-item
