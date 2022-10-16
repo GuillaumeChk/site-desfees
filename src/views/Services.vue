@@ -10,24 +10,7 @@
 			contre-courant, un soin de réflexologie Kneippwalk qui saura parfaire
 			votre instant de détente et de bien-être…
 		</p>
-		<p>
-			<a
-				href="/sites/desfees.fr/files/medias/images/piscine_01.png"
-				class="colorbox init-colorbox-processed cboxElement"
-				><img
-					src="/sites/desfees.fr/files/medias/images/piscine_01.png"
-					style="
-						display: block;
-						margin-left: auto;
-						margin-right: auto;
-						width: 100%;
-						max-width: 200px;
-						height: auto;
-					"
-					width="200"
-					height="150"
-			/></a>
-		</p>
+
 		<p>
 			Dans ce cadre naturel et encore préservé, «la maîtresse de maison » a
 			souhaité conserver les valeurs des siècles passés tout en intégrant le
@@ -35,33 +18,13 @@
 			Isabelle travaille dans les métiers de l’hôtellerie. En créant ce lieu,
 			son rêve se réalise enfin d’accueillir et de choyer ses propres clients.
 		</p>
-		<p>
-			<a
-				href="/sites/desfees.fr/files/medias/images/desfees_02.png"
-				class="colorbox init-colorbox-processed cboxElement"
-				><img
-					src="/sites/desfees.fr/files/medias/images/desfees_02.png"
-					width="200"
-					height="150"
-					style="width: 100%; max-width: 200px; height: auto"
-			/></a>
-		</p>
+		<p></p>
 		<p>
 			Les chambres d’hôtes, la suite et le gîte vous proposent une climatisation
 			et le WiFi très haut débit dans toutes les pièces. Les intérieurs du
 			Domaine des Fées sont non-fumeur.
 		</p>
-		<p>
-			<a
-				href="/sites/desfees.fr/files/medias/images/accueil_new_800.jpg"
-				class="colorbox init-colorbox-processed cboxElement"
-				><img
-					src="/sites/desfees.fr/files/medias/images/accueil_new_800.jpg"
-					width="200"
-					height="150"
-					style="width: 100%; max-width: 200px; height: auto"
-			/></a>
-		</p>
+		<p></p>
 		<p>
 			<span lang="FR" xml:lang="FR"
 				>Le salon des Fées. Envie de bouquiner ou plutôt flâner dans un
@@ -74,24 +37,7 @@
 				>Un coin bibliothèque et TV sont à votre disposition.</span
 			>
 		</p>
-		<p>
-			<a
-				href="/sites/desfees.fr/files/medias/images/new_salon_nuit_800.jpg"
-				class="colorbox init-colorbox-processed cboxElement"
-				><img
-					src="/sites/desfees.fr/files/medias/images/new_salon_nuit_800.jpg"
-					style="
-						display: block;
-						margin-left: auto;
-						margin-right: auto;
-						width: 100%;
-						max-width: 200px;
-						height: auto;
-					"
-					width="200"
-					height="150"
-			/></a>
-		</p>
+		<p></p>
 		<p>
 			<span lang="FR" xml:lang="FR"
 				>Une douce ambiance et un environnement de zénitude vous attend à
@@ -107,36 +53,9 @@
 				patio…Les possibilités ne manque pas&nbsp;!</span
 			>
 		</p>
-		<p>
-			<a
-				href="/sites/desfees.fr/files/medias/images/new_salle_1_800.jpg"
-				class="colorbox init-colorbox-processed cboxElement"
-				><img
-					src="/sites/desfees.fr/files/medias/images/new_salle_1_800.jpg"
-					width="200"
-					height="150"
-					style="width: 100%; max-width: 200px; height: auto"
-			/></a>
-		</p>
+
 		<p>Une cave voûtée avec quelques flacons pour un apéritif entre amis.</p>
-		<p>
-			<a
-				href="/sites/desfees.fr/files/medias/images/cave.jpg"
-				class="colorbox init-colorbox-processed cboxElement"
-				><img
-					src="/sites/desfees.fr/files/medias/images/cave.jpg"
-					style="
-						margin-right: auto;
-						margin-left: auto;
-						display: block;
-						width: 100%;
-						max-width: 200px;
-						height: auto;
-					"
-					width="200"
-					height="150"
-			/></a>
-		</p>
+
 		<p>
 			La détente assurée sur le chemin du bien-être... Le Kneippwalk. La méthode
 			Kneipp est fondée sur cinq piliers: l'hydrothérapie, la phytothérapie,
@@ -148,52 +67,7 @@
 				>consultez le PDF</a
 			>.
 		</p>
-		<p>
-			<a
-				href="/sites/desfees.fr/files/medias/images/DSC6624-800.jpg"
-				class="colorbox init-colorbox-processed cboxElement"
-				><img
-					src="/sites/desfees.fr/files/medias/images/DSC6624-800.jpg"
-					width="200"
-					height="150"
-					style="width: 100%; max-width: 200px; height: auto" /></a
-			><a
-				href="/sites/desfees.fr/files/medias/images/kneippwalk_01.png"
-				class="colorbox init-colorbox-processed cboxElement"
-				><img
-					src="/sites/desfees.fr/files/medias/images/kneippwalk_01.png"
-					width="200"
-					height="150"
-					style="width: 100%; max-width: 200px; height: auto" /></a
-			><a
-				href="/sites/desfees.fr/files/medias/images/DSC6637-800.jpg"
-				class="colorbox init-colorbox-processed cboxElement"
-				><img
-					src="/sites/desfees.fr/files/medias/images/DSC6637-800.jpg"
-					width="200"
-					height="150"
-					style="width: 100%; max-width: 200px; height: auto"
-			/></a>
-		</p>
-		<p>
-			<a
-				href="/sites/desfees.fr/files/medias/images/petanque_01.png"
-				class="colorbox init-colorbox-processed cboxElement"
-				><img
-					src="/sites/desfees.fr/files/medias/images/petanque_01.png"
-					width="200"
-					height="150"
-					style="width: 100%; max-width: 200px; height: auto" /></a
-			><a
-				href="/sites/desfees.fr/files/medias/images/etang_01.png"
-				class="colorbox init-colorbox-processed cboxElement"
-				><img
-					src="/sites/desfees.fr/files/medias/images/etang_01.png"
-					width="200"
-					height="150"
-					style="width: 100%; max-width: 200px; height: auto"
-			/></a>
-		</p>
+
 		<p>
 			Des lits pour bébé peuvent être prêtés sur simple demande ainsi qu’un
 			parc, une chaise haute et des jouets. Pour les balades à pied, un circuit
@@ -206,110 +80,106 @@
 			nous engageons à vous faire vivre un moment unique !
 		</p>
 		<div>
-			<div>
-				<div>
-					<a
-						href="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres/public/medias/images/Couch%C3%A9_soleil_Th%C3%A9sy.jpg?itok=arpmA5CA"
-						title="Prestations"
-						class="colorbox init-colorbox-processed cboxElement"
-						data-colorbox-gallery="gallery-node-56-field_images_pages_autres-PCkV72M4ua0"
-						data-cbox-img-attrs='{"title": "", "alt": ""}'
-						><img
-							typeof="foaf:Image"
-							src="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres-princ/public/medias/images/Couch%C3%A9_soleil_Th%C3%A9sy.jpg?itok=9YZh_Sw2"
-							width="250"
-							height="167"
-							alt=""
-							title=""
-							style="width: 100%; max-width: 250px; height: auto"
-					/></a>
-				</div>
-				<div>
-					<a
-						href="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres/public/medias/images/Lacs_Haut_Jura_%289%29.jpg?itok=YzLPeZOR"
-						title="Prestations"
-						class="colorbox init-colorbox-processed cboxElement"
-						data-colorbox-gallery="gallery-node-56-field_images_pages_autres-PCkV72M4ua0"
-						data-cbox-img-attrs='{"title": "", "alt": ""}'
-						><img
-							typeof="foaf:Image"
-							src="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres-princ/public/medias/images/Lacs_Haut_Jura_%289%29.jpg?itok=T-XvuXiu"
-							width="250"
-							height="167"
-							alt=""
-							title=""
-							style="width: 100%; max-width: 250px; height: auto"
-					/></a>
-				</div>
-				<div>
-					<a
-						href="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres/public/medias/images/Paysage_du_Jura_%282%29.jpg?itok=Wzi9T0TN"
-						title="Prestations"
-						class="colorbox init-colorbox-processed cboxElement"
-						data-colorbox-gallery="gallery-node-56-field_images_pages_autres-PCkV72M4ua0"
-						data-cbox-img-attrs='{"title": "", "alt": ""}'
-						><img
-							typeof="foaf:Image"
-							src="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres-princ/public/medias/images/Paysage_du_Jura_%282%29.jpg?itok=tPGMvB7n"
-							width="250"
-							height="167"
-							alt=""
-							title=""
-							style="width: 100%; max-width: 250px; height: auto"
-					/></a>
-				</div>
-				<div>
-					<a
-						href="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres/public/medias/images/Paysage_du_Jura_%2817%29.jpg?itok=ykj0xBli"
-						title="Prestations"
-						class="colorbox init-colorbox-processed cboxElement"
-						data-colorbox-gallery="gallery-node-56-field_images_pages_autres-PCkV72M4ua0"
-						data-cbox-img-attrs='{"title": "", "alt": ""}'
-						><img
-							typeof="foaf:Image"
-							src="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres-princ/public/medias/images/Paysage_du_Jura_%2817%29.jpg?itok=bnDQCqGh"
-							width="250"
-							height="167"
-							alt=""
-							title=""
-							style="width: 100%; max-width: 250px; height: auto"
-					/></a>
-				</div>
-				<div>
-					<a
-						href="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres/public/medias/images/Buse_ciel.jpg?itok=NxUHon-W"
-						title="Prestations"
-						class="colorbox init-colorbox-processed cboxElement"
-						data-colorbox-gallery="gallery-node-56-field_images_pages_autres-PCkV72M4ua0"
-						data-cbox-img-attrs='{"title": "", "alt": ""}'
-						><img
-							typeof="foaf:Image"
-							src="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres-princ/public/medias/images/Buse_ciel.jpg?itok=1x3uMErS"
-							width="250"
-							height="167"
-							alt=""
-							title=""
-							style="width: 100%; max-width: 250px; height: auto"
-					/></a>
-				</div>
-				<div>
-					<a
-						href="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres/public/medias/images/Rocher_%282%29.jpg?itok=omGTSLEV"
-						title="Prestations"
-						class="colorbox init-colorbox-processed cboxElement"
-						data-colorbox-gallery="gallery-node-56-field_images_pages_autres-PCkV72M4ua0"
-						data-cbox-img-attrs='{"title": "", "alt": ""}'
-						><img
-							typeof="foaf:Image"
-							src="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres-princ/public/medias/images/Rocher_%282%29.jpg?itok=OSs02k6-"
-							width="250"
-							height="167"
-							alt=""
-							title=""
-							style="width: 100%; max-width: 250px; height: auto"
-					/></a>
-				</div>
-			</div>
+			<a
+				href="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres/public/medias/images/Couch%C3%A9_soleil_Th%C3%A9sy.jpg?itok=arpmA5CA"
+				title="Prestations"
+				class="colorbox init-colorbox-processed cboxElement"
+				data-colorbox-gallery="gallery-node-56-field_images_pages_autres-PCkV72M4ua0"
+				data-cbox-img-attrs='{"title": "", "alt": ""}'
+				><img
+					typeof="foaf:Image"
+					src="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres-princ/public/medias/images/Couch%C3%A9_soleil_Th%C3%A9sy.jpg?itok=9YZh_Sw2"
+					width="250"
+					height="167"
+					alt=""
+					title=""
+					style="width: 100%; max-width: 250px; height: auto"
+			/></a>
+		</div>
+		<div>
+			<a
+				href="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres/public/medias/images/Lacs_Haut_Jura_%289%29.jpg?itok=YzLPeZOR"
+				title="Prestations"
+				class="colorbox init-colorbox-processed cboxElement"
+				data-colorbox-gallery="gallery-node-56-field_images_pages_autres-PCkV72M4ua0"
+				data-cbox-img-attrs='{"title": "", "alt": ""}'
+				><img
+					typeof="foaf:Image"
+					src="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres-princ/public/medias/images/Lacs_Haut_Jura_%289%29.jpg?itok=T-XvuXiu"
+					width="250"
+					height="167"
+					alt=""
+					title=""
+					style="width: 100%; max-width: 250px; height: auto"
+			/></a>
+		</div>
+		<div>
+			<a
+				href="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres/public/medias/images/Paysage_du_Jura_%282%29.jpg?itok=Wzi9T0TN"
+				title="Prestations"
+				class="colorbox init-colorbox-processed cboxElement"
+				data-colorbox-gallery="gallery-node-56-field_images_pages_autres-PCkV72M4ua0"
+				data-cbox-img-attrs='{"title": "", "alt": ""}'
+				><img
+					typeof="foaf:Image"
+					src="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres-princ/public/medias/images/Paysage_du_Jura_%282%29.jpg?itok=tPGMvB7n"
+					width="250"
+					height="167"
+					alt=""
+					title=""
+					style="width: 100%; max-width: 250px; height: auto"
+			/></a>
+		</div>
+		<div>
+			<a
+				href="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres/public/medias/images/Paysage_du_Jura_%2817%29.jpg?itok=ykj0xBli"
+				title="Prestations"
+				class="colorbox init-colorbox-processed cboxElement"
+				data-colorbox-gallery="gallery-node-56-field_images_pages_autres-PCkV72M4ua0"
+				data-cbox-img-attrs='{"title": "", "alt": ""}'
+				><img
+					typeof="foaf:Image"
+					src="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres-princ/public/medias/images/Paysage_du_Jura_%2817%29.jpg?itok=bnDQCqGh"
+					width="250"
+					height="167"
+					alt=""
+					title=""
+					style="width: 100%; max-width: 250px; height: auto"
+			/></a>
+		</div>
+		<div>
+			<a
+				href="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres/public/medias/images/Buse_ciel.jpg?itok=NxUHon-W"
+				title="Prestations"
+				class="colorbox init-colorbox-processed cboxElement"
+				data-colorbox-gallery="gallery-node-56-field_images_pages_autres-PCkV72M4ua0"
+				data-cbox-img-attrs='{"title": "", "alt": ""}'
+				><img
+					typeof="foaf:Image"
+					src="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres-princ/public/medias/images/Buse_ciel.jpg?itok=1x3uMErS"
+					width="250"
+					height="167"
+					alt=""
+					title=""
+					style="width: 100%; max-width: 250px; height: auto"
+			/></a>
+		</div>
+		<div>
+			<a
+				href="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres/public/medias/images/Rocher_%282%29.jpg?itok=omGTSLEV"
+				title="Prestations"
+				class="colorbox init-colorbox-processed cboxElement"
+				data-colorbox-gallery="gallery-node-56-field_images_pages_autres-PCkV72M4ua0"
+				data-cbox-img-attrs='{"title": "", "alt": ""}'
+				><img
+					typeof="foaf:Image"
+					src="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres-princ/public/medias/images/Rocher_%282%29.jpg?itok=OSs02k6-"
+					width="250"
+					height="167"
+					alt=""
+					title=""
+					style="width: 100%; max-width: 250px; height: auto"
+			/></a>
 		</div>
 	</q-pages>
 </template>
