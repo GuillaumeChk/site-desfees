@@ -28,6 +28,7 @@
 							(val) =>
 								(val && val.length > 0) || 'Veuillez choisir une chambre',
 						]"
+						hide-bottom-space
 					/>
 
 					<q-select
@@ -41,33 +42,66 @@
 							(val) =>
 								(val && val > 0) || 'Veuillez saisir le nombre d’occupants',
 						]"
+						hide-bottom-space
 					/>
 
-					<q-field
-						filled
-						label="Durée"
-						stack-label
-						hint="2 clics pour une nuit ou une période"
-						color="orange"
-						v-model="date"
-						lazy-rules="ondemand"
-						:rules="[
-							(val) => val || 'Veuillez sélectionner une durée (2 clics)',
-						]"
-					>
-						<template v-slot:control>
-							<q-date
-								v-model="date"
-								color="orange"
-								class="q-mt-sm full-width"
-								minimal
-								range
-								multiple
-							/>
-						</template>
-					</q-field>
+					<div>
+						<q-field
+							filled
+							label="Durée"
+							stack-label
+							color="orange"
+							v-model="date"
+							lazy-rules="ondemand"
+							:rules="[
+								(val) => val.length > 0 || 'Veuillez sélectionner une durée',
+							]"
+							hide-bottom-space
+						>
+							<template v-slot:control>
+								<q-date
+									v-model="date"
+									flat
+									square
+									color="orange"
+									class="q-mt-sm full-width"
+									mask="DD/MM/YYYY"
+									minimal
+									range
+									multiple
+								/>
+							</template>
+						</q-field>
+						<div
+							class="q-pa-sm bg-orange-5 text-white"
+							v-if="date && date.length > 0"
+						>
+							<div v-for="day in date">
+								{{
+									day.from !== undefined ? `Du ${day.from} au ${day.to}` : day
+								}}
+							</div>
+						</div>
+						<q-expansion-item
+							icon="help"
+							label="Comment sélectionner une durée ?"
+							header-class="text-info"
+							dense-toggle
+						>
+							<q-card class="q-pa-md q-mx-md text-grey-8 bg-cyan-1">
+								<p>Une nuit : cliquez deux fois.</p>
+								<p>
+									Plusieurs nuits : cliquez sur la date de début, puis celle de
+									fin.
+								</p>
+								<p class="q-mb-none text-italic">
+									Vous pouvez accumuler plusieurs nuits et/ou périodes.
+								</p>
+							</q-card>
+						</q-expansion-item>
+					</div>
 
-					<q-field
+					<!-- <q-field
 						v-model="acceptConditions"
 						lazy-rules="ondemand"
 						:rules="[
@@ -75,15 +109,16 @@
 								(val && val === true) || 'Veuillez accepter les conditions',
 						]"
 						color="grey-8"
+						class="last-rounded q-mb-lg"
+						borderless
+						hide-bottom-space
 					>
 						<q-toggle
-							class="q-mt-xl q-mb-sm"
 							v-model="acceptConditions"
 							color="orange"
-						>
-							J'ai lu et accepté les <a href="">conditions</a>
-						</q-toggle>
-					</q-field>
+							label="J'ai lu et accepté les conditions"
+						/>
+					</q-field> -->
 
 					<div>
 						<q-btn
@@ -116,7 +151,7 @@ import roomsData from "../data/roomsData.json";
 let room = ref(null);
 let people = ref(null);
 let date = ref([]);
-let acceptConditions = ref(null);
+// let acceptConditions = ref(false);
 let reservation = computed(() => {
 	return {
 		room: room.value,
@@ -129,20 +164,20 @@ let roomNameOptions = Array.from(roomsData, (element) => element.name);
 let peopleQuantityOptions = [1, 2, 3];
 
 function onSubmit() {
-	if (acceptConditions.value !== true) {
-		console.log("invalide");
-		console.log(reservation);
-	} else {
-		console.log("valide");
-		console.log(reservation);
-	}
+	// if (acceptConditions.value !== true) {
+	// 	console.log("invalide");
+	// 	console.log(reservation);
+	// } else {
+	// 	console.log("valide");
+	// 	console.log(reservation);
+	// }
 }
 
 function onReset() {
 	room.value = null;
 	people.value = null;
 	date.value = null;
-	acceptConditions.value = false;
+	// acceptConditions.value = false;
 }
 </script>
 
@@ -150,5 +185,11 @@ function onReset() {
 .form {
 	max-width: 400px;
 	border-radius: 20px;
+}
+
+.last-rounded {
+	background-color: #eeeeee;
+	border-bottom-left-radius: 30px;
+	border-bottom-right-radius: 30px;
 }
 </style>
