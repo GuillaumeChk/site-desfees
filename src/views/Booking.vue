@@ -1,14 +1,18 @@
 <template>
 	<q-page class="q-mb-xl">
-		<div class="wrapper">
-			<q-img src="https://cdn.quasar.dev/img/parallax2.jpg">
-				<div
-					class="absolute-bottom bg-transparent text-h3 text-uppercase text-center"
-				>
-					Réservation
-				</div>
-			</q-img>
+		<section class="section-video">
+			<div class="video-container">
+				<q-img src="https://cdn.quasar.dev/img/parallax2.jpg" class="carousel">
+					<div
+						class="absolute-bottom bg-transparent text-h3 text-uppercase text-center"
+					>
+						Réservation
+					</div>
+				</q-img>
+			</div>
+		</section>
 
+		<div class="wrapper">
 			Résumé de la chambre selectionnée
 			<h4 class="q-pa-md q-pt-xl text-uppercase text-weight-light">
 				Réservation

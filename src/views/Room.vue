@@ -192,7 +192,8 @@ function fillRoomImages(roomName) {
 			roomImages.value = import.meta.glob(
 				"../assets/rooms/reves/*.(jpg|JPG|png|PNG)",
 				{
-					as: "url", eager: true
+					as: "url",
+					eager: true,
 				}
 			);
 			break;
@@ -212,7 +213,8 @@ function fillRoomImages(roomName) {
 			roomImages.value = import.meta.glob(
 				"../assets/rooms/gite/*.(jpg|JPG|png|PNG)",
 				{
-					as: "url", eager: true
+					as: "url",
+					eager: true,
 				}
 			);
 			break;
@@ -247,20 +249,6 @@ watch(
 <style lang="scss">
 .images-room img {
 	max-width: 30%;
-}
-.wrapper {
-	max-width: 1300px;
-	margin: 0 auto;
-	position: relative;
-}
-
-@media (min-width: 1024px) {
-	.wrapper {
-		max-width: 1300px;
-		margin: 0 auto;
-		position: relative;
-		width: calc(100% - 60px);
-	}
 }
 .video-container {
 	background-color: black;
