@@ -250,42 +250,12 @@ watch(
 .images-room img {
 	max-width: 30%;
 }
-.video-container {
-	background-color: black;
-	overflow: hidden;
-	height: 100%;
-	position: absolute;
-	width: 100%;
-	z-index: 0;
-}
 
-.video-container > .carousel {
-	height: 100%;
-	left: 0;
-	object-fit: cover;
-	position: absolute;
-	top: 0;
-	width: 100%;
-}
 .carousel2 {
 	height: 700px;
 }
 .carousel2_img {
 	object-fit: contain;
-}
-.section-video {
-	overflow: hidden;
-	position: relative;
-	width: 100%;
-	z-index: 1;
-
-	background-color: black;
-	display: flex;
-	flex-direction: column;
-	min-height: 350px;
-	justify-content: flex-end;
-
-	margin-top: -66px;
 }
 
 @media (min-width: 1024px) {
@@ -293,23 +263,6 @@ watch(
 		min-height: 100vh;
 		display: flex;
 		align-items: center;
-	}
-}
-
-@media (min-width: 1440px) {
-	.section-video {
-		overflow: hidden;
-		position: relative;
-		width: 100%;
-		z-index: 1;
-
-		background-color: black;
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-		justify-content: flex-end;
-
-		margin-top: -66px;
 	}
 }
 </style>

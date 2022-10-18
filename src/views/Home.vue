@@ -101,7 +101,11 @@
 			Nos chambres
 		</h4>
 		<section class="wrapper row rooms">
-			<div class="room appear-bottom" v-for="room in roomsData" :key="room.name">
+			<div
+				class="room appear-bottom"
+				v-for="room in roomsData"
+				:key="room.name"
+			>
 				<router-link
 					:to="{ name: 'room', params: { roomName: room.pathName } }"
 				>
@@ -143,13 +147,22 @@
 				<h4 class="q-py-xl text-uppercase text-weight-light appear-left">
 					Carte
 				</h4>
-				<div class="map-container"> 
-					<iframe class="responsive-iframe" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1081.122387923357!2d5.8343491898577735!3d46.93698126326741!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x55665e5241251587!2sChambres%20d&#39;h%C3%B4tes%20et%20G%C3%AEte%20des%20F%C3%A9es!5e0!3m2!1sfr!2sfr!4v1665318607302!5m2!1sfr!2sfr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+				<div class="map-container">
+					<iframe
+						class="responsive-iframe"
+						src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1081.122387923357!2d5.8343491898577735!3d46.93698126326741!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x55665e5241251587!2sChambres%20d&#39;h%C3%B4tes%20et%20G%C3%AEte%20des%20F%C3%A9es!5e0!3m2!1sfr!2sfr!4v1665318607302!5m2!1sfr!2sfr"
+						width="100%"
+						height="100%"
+						style="border: 0"
+						allowfullscreen=""
+						loading="lazy"
+						referrerpolicy="no-referrer-when-downgrade"
+					></iframe>
 				</div>
 			</div>
 		</section>
 
-		<div class=" q-py-lg"></div>
+		<div class="q-py-lg"></div>
 	</q-page>
 </template>
 
@@ -166,21 +179,21 @@ function getImageUrl(subPath) {
 
 <style lang="scss" scoped>
 .map-container {
-  position: relative;
-  width: 100%;
-  height: 60vh;
-  overflow: hidden;
-//   padding-top: 100%; /* Aspect Ratio */
+	position: relative;
+	width: 100%;
+	height: 60vh;
+	overflow: hidden;
+	//   padding-top: 100%; /* Aspect Ratio */
 }
 .responsive-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	border: none;
 }
 .rooms {
 	display: flex;
@@ -196,15 +209,6 @@ li {
 	list-style-type: "\2713";
 }
 
-.video-container {
-	background-color: black;
-	overflow: hidden;
-	height: 100%;
-	position: absolute;
-	width: 100%;
-	z-index: 0;
-}
-
 .video-container > video {
 	height: 100%;
 	left: 0;
@@ -212,20 +216,6 @@ li {
 	position: absolute;
 	top: 0;
 	width: 100%;
-}
-.section-video {
-	overflow: hidden;
-	position: relative;
-	width: 100%;
-	z-index: 1;
-
-	background-color: black;
-	display: flex;
-	flex-direction: column;
-	min-height: 350px;
-	justify-content: flex-end;
-
-	margin-top: -66px;
 }
 
 @media (min-width: 1024px) {
@@ -247,21 +237,6 @@ li {
 	}
 	li {
 		list-style-type: "\2713";
-	}
-
-	.section-video {
-		overflow: hidden;
-		position: relative;
-		width: 100%;
-		z-index: 1;
-
-		background-color: black;
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-		justify-content: flex-end;
-
-		margin-top: -66px;
 	}
 }
 </style>

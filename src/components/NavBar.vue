@@ -83,13 +83,13 @@
 			flat
 			icon="close"
 			size="lg"
-			class=" q-ma-lg"
+			class="q-ma-lg"
 			@click="toggleLeftDrawer"
 		/>
 
 		<q-list>
-			<q-item class=" items-center" clickable to="/" exact :active="false">
-				<q-item-label class="text-center "> Accueil </q-item-label>
+			<q-item class="items-center" clickable to="/" exact :active="false">
+				<q-item-label class="text-center"> Accueil </q-item-label>
 			</q-item>
 			<q-expansion-item
 				expand-icon-class="text-orange-2"
@@ -106,28 +106,53 @@
 						params: { roomName: room.pathName },
 					}"
 					exact
-					:active="false" class=" items-center" 
+					:active="false"
+					class="items-center"
 				>
 					<q-item-section>{{ room.name }}</q-item-section>
 				</q-item>
 			</q-expansion-item>
-			<q-item class=" items-center"  clickable to="/prestations" exact :active="false">
+			<q-item
+				class="items-center"
+				clickable
+				to="/prestations"
+				exact
+				:active="false"
+			>
 				<q-item-label class="text-center"> Prestations </q-item-label>
 			</q-item>
 			<q-expansion-item
-			expand-icon-class="text-orange-2"
-				 class=" items-center" 
+				expand-icon-class="text-orange-2"
+				class="items-center"
 				:content-inset-level="1"
 				label="Explorer"
 			>
-				<q-item class=" items-center"  clickable to="/tourisme" exact :active="false">
+				<q-item
+					class="items-center"
+					clickable
+					to="/tourisme"
+					exact
+					:active="false"
+				>
 					<q-item-label class="text-center"> Tourisme </q-item-label>
 				</q-item>
-				<q-item  class=" items-center" clickable to="/galerie" exact :active="false">
+				<q-item
+					class="items-center"
+					clickable
+					to="/galerie"
+					exact
+					:active="false"
+				>
 					<q-item-label class="text-center"> Galerie </q-item-label>
 				</q-item>
 			</q-expansion-item>
-			<q-item class=" items-center"  clickable to="/contact" exact :active="false">
+			<q-item
+				class="items-center"
+				clickable
+				to="/contact"
+				exact
+				:active="false"
+			>
 				<q-item-label class="text-center"> Contact </q-item-label>
 			</q-item>
 		</q-list>
@@ -140,16 +165,20 @@ import { useRoute } from "vue-router";
 import roomsData from "../data/roomsData.json";
 
 let route = useRoute();
-let topTransparent = ref(false);
-watch(
-	() => route.name,
-	() => {
-		topTransparent = route.name === "home" || route.name === "room";
-	},
-	{ immediate: true }
-);
 
 // Navbar — trantparent to solid
+let topTransparent = ref(true);
+
+/// uncomment below to enable on specific pages only
+// let topTransparent = ref(false);
+// watch(
+// 	() => route.name,
+// 	() => {
+// 		topTransparent = route.name === "home" || route.name === "room";
+// 	},
+// 	{ immediate: true }
+// );
+
 window.onscroll = function () {
 	if (topTransparent) {
 		scrollFunction();
