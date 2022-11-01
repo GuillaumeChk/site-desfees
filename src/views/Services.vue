@@ -42,8 +42,8 @@
 				<p></p>
 				<p>
 					Les chambres d’hôtes, la suite et le gîte vous proposent une
-					climatisation et le WiFi très haut débit dans toutes les pièces. Les
-					intérieurs du Domaine des Fées sont non-fumeur.
+					climatisation et le WiFi très haut débit (fibre optique) dans toutes
+					les pièces. Les intérieurs du Domaine des Fées sont non-fumeur.
 				</p>
 				<p></p>
 				<p>

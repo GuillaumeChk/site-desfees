@@ -32,7 +32,7 @@
 			</p>
 		</section>
 
-		<section class="q-py-xl text-center brand-3">
+		<section class="q-py-xl text-justify brand-3">
 			<div class="wrapper row items-center">
 				<q-parallax
 					:speed="1"
@@ -45,8 +45,8 @@
 						Bienvenue dans cet écrin de nature
 					</h5>
 					<p>
-						Les fées ont profitées pour s’embellir et leur permettre de
-						réellement prendre possession des lieux avec un
+						Les fées ont profité du temps consacré au travaux pour s’embellir et
+						permettre de réellement prendre possession des lieux avec un
 						<strong>parc zen</strong> où la magie de l’eau et de la lumière
 						sauront vous charmer dans ce <strong>cadre idyllique</strong>.
 					</p>
@@ -64,7 +64,7 @@
 			</div>
 		</section>
 
-		<section class="q-py-xl text-center">
+		<section class="q-py-xl text-justify">
 			<div class="wrapper row reverse items-center">
 				<q-parallax
 					:speed="1"
