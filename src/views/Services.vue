@@ -2,9 +2,10 @@
 	<q-pages>
 		<section class="section-video">
 			<div class="video-container">
-				<q-img src="https://cdn.quasar.dev/img/parallax2.jpg" class="carousel">
+				<q-img src="../assets/tables.jpg" class="carousel">
 					<div
-						class="absolute-bottom bg-transparent text-h3 text-uppercase text-center"
+						class="absolute-center bg-transparent text-h4 text-uppercase text-center text-weight-light"
+						style="letter-spacing: 4px"
 					>
 						Prestations
 					</div>
@@ -20,6 +21,10 @@
 			<section class="q-px-md q-pl-lg">
 				<h5 class="text-brand-2 q-py-lg">Des moments uniques...</h5>
 
+				<q-img
+					src="../assets/rooms/exterieur/Vue_drone_compressed60_026.jpg"
+				></q-img>
+
 				<p>
 					Au Domaine des Fées, quand le soleil rayonne et que le ciel devient
 					bleu, vous pouvez accéder à un monde merveilleux.<br />
@@ -30,6 +35,10 @@
 					Kneippwalk qui saura parfaire votre instant de détente et de
 					bien-être…
 				</p>
+
+				<q-img
+					src="../assets/rooms/exterieur/_DSC6067_compressed60_023.jpg"
+				></q-img>
 
 				<p>
 					Dans ce cadre naturel et encore préservé, «la maîtresse de maison » a
@@ -45,42 +54,40 @@
 					climatisation et le WiFi très haut débit (fibre optique) dans toutes
 					les pièces. Les intérieurs du Domaine des Fées sont non-fumeur.
 				</p>
-				<p></p>
+
 				<p>
-					<span lang="FR" xml:lang="FR"
-						>Le salon des Fées. Envie de bouquiner ou plutôt flâner dans un
-						environnement cocooning ou la cheminée crépite et la pierre de
-						taille conservera la fraîcheur du lieu, le salon des Fées vous
-						attend…</span
-					>
+					Le salon des Fées. Envie de bouquiner ou plutôt flâner dans un
+					environnement cocooning ou la cheminée crépite et la pierre de taille
+					conservera la fraîcheur du lieu, le salon des Fées vous attend…
 				</p>
+				<q-img
+					src="../assets/rooms/interieur/Salon_(9)_compressed60_093.jpg"
+				></q-img>
+				<p>Un coin bibliothèque et TV sont à votre disposition.</p>
+
 				<p>
-					<span lang="FR" xml:lang="FR"
-						>Un coin bibliothèque et TV sont à votre disposition.</span
-					>
-				</p>
-				<p></p>
-				<p>
-					<span lang="FR" xml:lang="FR"
-						>Une douce ambiance et un environnement de zénitude vous attend à
-						l’éveil du matin dans notre salle ou sur notre terrasse pour
-						apprécier un petit déjeuner bienfaisant ravec des produits régionaux
-						exclusifs sauront vous donner l’énergie à proximité de notre cascade
-						et son bassin ils sauront vous ressourcer et vous donner l’énergie
-						pour la découverte de notre magnifique Jura… A votre retour, un
-						choix de produits régionaux ou gourmets préparé avec soin par la fée
-						de la maison saura égaillé vos papilles gustatives, le tout dans un
-						panier pick nick prêt à l’emploi que vous aurez la possibilité de
-						découvrir soit dans notre parc ou plutôt au bord de l’eau ou sur la
-						terrasse ou encore àl’étage et son patio…Les possibilités ne manque
-						pas&nbsp;!</span
-					>
+					Une douce ambiance et un environnement de zénitude vous attend à
+					l’éveil du matin dans notre salle ou sur notre terrasse pour apprécier
+					un petit déjeuner bienfaisant ravec des produits régionaux exclusifs
+					sauront vous donner l’énergie à proximité de notre cascade et son
+					bassin ils sauront vous ressourcer et vous donner l’énergie pour la
+					découverte de notre magnifique Jura… A votre retour, un choix de
+					produits régionaux ou gourmets préparé avec soin par la fée de la
+					maison saura égaillé vos papilles gustatives, le tout dans un panier
+					pick nick prêt à l’emploi que vous aurez la possibilité de découvrir
+					soit dans notre parc ou plutôt au bord de l’eau ou sur la terrasse ou
+					encore àl’étage et son patio…Les possibilités ne manque pas&nbsp;!
 				</p>
 
+				<q-img
+					src="../assets/rooms/exterieur/_DSC6624-Modifier_compressed60_035.jpg"
+				></q-img>
 				<p>
 					Une cave voûtée avec quelques flacons pour un apéritif entre amis.
 				</p>
-
+				<q-img
+					src="../assets/rooms/exterieur/IMG_3072_compressed60_020.jpg"
+				></q-img>
 				<p>
 					La détente assurée sur le chemin du bien-être... Le Kneippwalk. La
 					méthode Kneipp est fondée sur cinq piliers: l'hydrothérapie, la
@@ -105,48 +112,10 @@
 					si d’autres envies vous saisissent parlez nous-en, nous, nous
 					engageons à vous faire vivre un moment unique !
 				</p>
-				<div>
-					<a
-						href="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres/public/medias/images/Couch%C3%A9_soleil_Th%C3%A9sy.jpg?itok=arpmA5CA"
-						><img
-							src="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres-princ/public/medias/images/Couch%C3%A9_soleil_Th%C3%A9sy.jpg?itok=9YZh_Sw2"
-					/></a>
-				</div>
-				<div>
-					<a
-						href="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres/public/medias/images/Lacs_Haut_Jura_%289%29.jpg?itok=YzLPeZOR"
-						><img
-							src="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres-princ/public/medias/images/Lacs_Haut_Jura_%289%29.jpg?itok=T-XvuXiu"
-					/></a>
-				</div>
-				<div>
-					<a
-						href="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres/public/medias/images/Paysage_du_Jura_%282%29.jpg?itok=Wzi9T0TN"
-						><img
-							src="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres-princ/public/medias/images/Paysage_du_Jura_%282%29.jpg?itok=tPGMvB7n"
-					/></a>
-				</div>
-				<div>
-					<a
-						href="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres/public/medias/images/Paysage_du_Jura_%2817%29.jpg?itok=ykj0xBli"
-						><img
-							src="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres-princ/public/medias/images/Paysage_du_Jura_%2817%29.jpg?itok=bnDQCqGh"
-					/></a>
-				</div>
-				<div>
-					<a
-						href="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres/public/medias/images/Buse_ciel.jpg?itok=NxUHon-W"
-						><img
-							src="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres-princ/public/medias/images/Buse_ciel.jpg?itok=1x3uMErS"
-					/></a>
-				</div>
-				<div>
-					<a
-						href="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres/public/medias/images/Rocher_%282%29.jpg?itok=omGTSLEV"
-						><img
-							src="https://www.desfees.fr/sites/desfees.fr/files/styles/img-chambres-princ/public/medias/images/Rocher_%282%29.jpg?itok=OSs02k6-"
-					/></a>
-				</div>
+
+				<q-img
+					src="../assets/rooms/exterieur/Avec_Rocher_terrasse_compressed60_001.jpg"
+				></q-img>
 			</section>
 		</div>
 	</q-pages>
