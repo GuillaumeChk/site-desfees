@@ -18,7 +18,7 @@
 				Des moments uniques...
 			</h4>
 
-			<section class="q-px-md q-pl-lg">
+			<section class="q-px-md q-pl-lg q-gutter-y-md">
 				<h5 class="text-brand-2 q-py-lg">Des moments uniques...</h5>
 
 				<q-img

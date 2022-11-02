@@ -4,7 +4,8 @@
 			<div class="video-container">
 				<q-img src="https://cdn.quasar.dev/img/parallax2.jpg" class="carousel">
 					<div
-						class="absolute-bottom bg-transparent text-h3 text-uppercase text-center"
+						class="absolute-center bg-transparent text-h4 text-uppercase text-center text-weight-light"
+						style="letter-spacing: 4px"
 					>
 						Gallerie
 					</div>

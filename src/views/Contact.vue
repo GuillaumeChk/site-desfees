@@ -2,9 +2,13 @@
 	<q-pages>
 		<section class="section-video">
 			<div class="video-container">
-				<q-img src="https://cdn.quasar.dev/img/parallax2.jpg" class="carousel">
+				<q-img
+					src="src/assets/rooms/exterieur/Terrasse_et_roseaux_1_compressed60_034.jpg"
+					class="carousel"
+				>
 					<div
-						class="absolute-bottom bg-transparent text-h3 text-uppercase text-center"
+						class="absolute-center bg-transparent text-h4 text-uppercase text-center text-weight-light"
+						style="letter-spacing: 4px"
 					>
 						Contact
 					</div>
@@ -13,19 +17,28 @@
 		</section>
 
 		<div class="wrapper">
-			<h4 class="q-pa-md q-pt-xl text-uppercase text-weight-light">Contact</h4>
+			<!-- <h4 class="q-pa-md q-pt-xl text-uppercase text-weight-light">Contact</h4> -->
 
-			<section class="q-px-md q-pl-lg">
+			<section class="q-pa-md q-pl-lg">
 				<p>
 					Domaine des Fées <br />
 					Chambres d'hôtes et Gîte<br />
 					Chez Isabelle<br />
-					39110 Pretin <br />
-					<br />
-					E-Mail : <a href="mailto:info@desfees.fr">info@desfees.fr</a><br />
-					Téléphone :+33 (0) 3 84 73 26 36<br />
-					Portable : +33 (0) 6 37 78 88 43, pensez à Whatsapp depuis l'étranger
-					🙂<br />
+					<address>
+						
+						<q-icon name="location_city" /> 2 Rue de la Chassignoles, 39110 Pretin 
+						<div class="q-pa-xs q-gutter-sm">
+							<q-btn round unelevated  color="orange-4" :icon="addressCopied ? 'assignment_turned_in' : 'content_copy' "  @click="copyAddress('2 Rue de la Chassignoles, 39110 Pretin, France')"   />
+							<q-btn round unelevated color="orange-4" icon="directions" href="https://goo.gl/maps/iQUQ581TETnRqAdb6"  target="_blank" />
+						</div>
+						<q-icon name="email" /> E-Mail :
+						<a href="mailto:info@desfees.fr">info@desfees.fr</a><br />
+						<q-icon name="phone" /> Téléphone :
+						<a href="tel:+33384732636">+33 (0) 3 84 73 26 36</a><br />
+						<q-icon name="smartphone" /> Portable :
+						<a href="tel:+33637788843">+33 (0) 6 37 78 88 43</a> (pensez à
+						Whatsapp depuis l'étranger 🙂)<br />
+					</address>
 				</p>
 			</section>
 		</div>
@@ -49,5 +62,26 @@
 		</section>
 	</q-pages>
 </template>
+
+<script setup>
+import { copyToClipboard } from 'quasar'
+import { ref } from 'vue';
+
+let addressCopied = ref(false);
+
+function copyAddress(text) {
+	copyToClipboard(text)
+	.then(() => {
+    // success!
+	console.log("copié !")
+	addressCopied.value = true;
+	})
+	.catch(() => {
+		// fail
+		console.log("fail !")
+		
+	})
+}
+</script>
 
 <style></style>
