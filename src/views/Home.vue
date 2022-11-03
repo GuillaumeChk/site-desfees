@@ -34,12 +34,11 @@
 
 		<section class="q-py-xl text-justify brand-3">
 			<div class="wrapper row items-center">
-				<q-parallax
-					:speed="1"
+				<q-img
 					class="col-sm-5 col-lg-6 appear-left"
 					src="../assets/Salon_(10).jpg"
 				>
-				</q-parallax>
+				</q-img>
 				<div class="col-sm-7 col-lg-6 q-pa-xl appear-right">
 					<h5 class="text-uppercase text-brand-2 q-pb-lg">
 						Bienvenue dans cet écrin de nature
@@ -66,13 +65,12 @@
 
 		<section class="q-py-xl text-justify">
 			<div class="wrapper row reverse items-center">
-				<q-parallax
-					:speed="1"
-					class="col-sm-6 col-lg-8 appear-right"
+				<q-img
+					class="col-sm-5 col-lg-4 appear-right"
 					src="../assets/couloir.jpg"
-				></q-parallax>
+				></q-img>
 
-				<div class="col-sm-6 col-lg-4 q-pa-xl appear-left">
+				<div class="col-sm-7 col-lg-8 q-pa-xl appear-left">
 					<h5 class="text-uppercase text-brand q-pb-lg">
 						Véritable havre de paix
 					</h5>
@@ -109,10 +107,12 @@
 				<router-link
 					:to="{ name: 'room', params: { roomName: room.pathName } }"
 				>
-					<q-img class="" :src="getImageUrl(room.imageUrl)">
+					<q-img class="" :ratio="16 / 9" :src="getImageUrl(room.imageUrl)">
 						<h3
 							class="q-pa-md text-white cursive absolute-bottom-left"
-							style="background: linear-gradient(to right, black, transparent)"
+							style="
+								background: linear-gradient(to right, #121212, transparent);
+							"
 						>
 							{{ room.name }}
 						</h3>
@@ -198,7 +198,7 @@ function getImageUrl(subPath) {
 .rooms {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 20px;
+	gap: 15px;
 }
 .room {
 	flex: auto;

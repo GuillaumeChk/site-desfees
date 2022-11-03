@@ -1,5 +1,5 @@
 <template>
-	<q-pages>
+	<q-page>
 		<section class="section-video">
 			<div class="video-container">
 				<q-img src="../assets/tables.jpg" class="carousel">
@@ -18,14 +18,14 @@
 				Des moments uniques...
 			</h4>
 
-			<section class="q-px-md q-pl-lg q-gutter-y-md">
-				<h5 class="text-brand-2 q-py-lg">Des moments uniques...</h5>
+			<section class="q-gutter-y-md">
+				<h5 class="q-px-md text-brand-2 q-py-lg">Des moments uniques...</h5>
 
 				<q-img
 					src="../assets/rooms/exterieur/Vue_drone_compressed60_026.jpg"
 				></q-img>
 
-				<p>
+				<p class="q-px-md">
 					Au Domaine des Fées, quand le soleil rayonne et que le ciel devient
 					bleu, vous pouvez accéder à un monde merveilleux.<br />
 					La piscine (profondeur : 1.50m.)chauffée plongeant sur la vallée, avec
@@ -40,7 +40,7 @@
 					src="../assets/rooms/exterieur/_DSC6067_compressed60_023.jpg"
 				></q-img>
 
-				<p>
+				<p class="q-px-md">
 					Dans ce cadre naturel et encore préservé, «la maîtresse de maison » a
 					souhaité conserver les valeurs des siècles passés tout en intégrant le
 					confort actuel pour satisfaire une attente des clients. Depuis 25 ans,
@@ -48,14 +48,14 @@
 					lieu, son rêve se réalise enfin d’accueillir et de choyer ses propres
 					clients.
 				</p>
-				<p></p>
-				<p>
+
+				<p class="q-px-md">
 					Les chambres d’hôtes, la suite et le gîte vous proposent une
 					climatisation et le WiFi très haut débit (fibre optique) dans toutes
 					les pièces. Les intérieurs du Domaine des Fées sont non-fumeur.
 				</p>
 
-				<p>
+				<p class="q-px-md">
 					Le salon des Fées. Envie de bouquiner ou plutôt flâner dans un
 					environnement cocooning ou la cheminée crépite et la pierre de taille
 					conservera la fraîcheur du lieu, le salon des Fées vous attend…
@@ -63,9 +63,11 @@
 				<q-img
 					src="../assets/rooms/interieur/Salon_(9)_compressed60_093.jpg"
 				></q-img>
-				<p>Un coin bibliothèque et TV sont à votre disposition.</p>
+				<p class="q-px-md">
+					Un coin bibliothèque et TV sont à votre disposition.
+				</p>
 
-				<p>
+				<p class="q-px-md">
 					Une douce ambiance et un environnement de zénitude vous attend à
 					l’éveil du matin dans notre salle ou sur notre terrasse pour apprécier
 					un petit déjeuner bienfaisant ravec des produits régionaux exclusifs
@@ -82,13 +84,13 @@
 				<q-img
 					src="../assets/rooms/exterieur/_DSC6624-Modifier_compressed60_035.jpg"
 				></q-img>
-				<p>
+				<p class="q-px-md">
 					Une cave voûtée avec quelques flacons pour un apéritif entre amis.
 				</p>
 				<q-img
 					src="../assets/rooms/exterieur/IMG_3072_compressed60_020.jpg"
 				></q-img>
-				<p>
+				<p class="q-px-md">
 					La détente assurée sur le chemin du bien-être... Le Kneippwalk. La
 					méthode Kneipp est fondée sur cinq piliers: l'hydrothérapie, la
 					phytothérapie, l'activité physique, la diététique et un style de vie
@@ -100,7 +102,7 @@
 					>.
 				</p>
 
-				<p>
+				<p class="q-px-md">
 					Des lits pour bébé peuvent être prêtés sur simple demande ainsi qu’un
 					parc, une chaise haute et des jouets. Pour les balades à pied, un
 					circuit de grandes randonnées passe devant la ferme. Des luges, boules
@@ -118,7 +120,7 @@
 				></q-img>
 			</section>
 		</div>
-	</q-pages>
+	</q-page>
 </template>
 
 <style></style>

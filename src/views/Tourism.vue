@@ -2,7 +2,10 @@
 	<q-page>
 		<section class="section-video">
 			<div class="video-container">
-				<q-img src="https://cdn.quasar.dev/img/parallax2.jpg" class="carousel">
+				<q-img
+					src="../assets/rooms/exterieur/Paysage_du_Jura_(8)_compressed60_029.jpg"
+					class="carousel"
+				>
 					<div
 						class="absolute-center bg-transparent text-h4 text-uppercase text-center text-weight-light"
 						style="letter-spacing: 4px"
@@ -18,37 +21,53 @@
 				Les plaisirs de la table…
 			</h4>
 
-			<section class="q-px-md q-pl-lg">
-				<h5 class="text-brand-2 q-py-lg">… côté vignoble, nos coups de ♥</h5>
-				<p>
-					Le Jura et ses célèbres cépages séduiront les amateurs par leur
-					diversité et leur typicité, n’oublier pas de déguster une des sept
-					merveilles bachiques de ce monde, le fameux Vin Jaune de préférence
-					avec un morceau de Comté en fin de repas. A visiter sans modération,
-					les vignobles d’Arbois, Pupillin, l’Etoile, Château-Chalon et Côtes du
-					Jura… Possibilités de dégustations.
-				</p>
+			<section class="q-gutter-y-md">
+				<h5 class="text-brand-2 q-px-md">… côté vignoble, nos coups de ♥</h5>
 
-				<h6>Domaine Raphaël Fumey et Adeline Chatelain</h6>
-				<p>Montigny Les Arsures +33 (0)3 84 66 27 84</p>
+				<q-img
+					src="../assets/rooms/exterieur/_DSC6673_compressed60_039.jpg"
+					:ratio="16 / 9"
+				>
+				</q-img>
 
-				<h6>Daniel et Monique Dugois</h6>
-				<p>Les Arsures +33 (0)3 84 66 03 41</p>
-				<a href="https://www.vins-danieldugois.com/">Visiter le site web</a>
+				<div class="q-px-md">
+					<p>
+						Le Jura et ses célèbres cépages séduiront les amateurs par leur
+						diversité et leur typicité, n’oublier pas de déguster une des sept
+						merveilles bachiques de ce monde, le fameux Vin Jaune de préférence
+						avec un morceau de Comté en fin de repas. A visiter sans modération,
+						les vignobles d’Arbois, Pupillin, l’Etoile, Château-Chalon et Côtes
+						du Jura… Possibilités de dégustations.
+					</p>
 
-				<h6>Fruitère vinicole Arbois</h6>
-				<p>Arbois +33 (0)3 84 66 21 84</p>
-				<a href="https://www.chateau-bethanie.com/">Visiter le site web</a>
+					<h6>Domaine Raphaël Fumey et Adeline Chatelain</h6>
+					<p>Montigny Les Arsures +33 (0)3 84 66 27 84</p>
 
-				<h6>Camille Loye (Millésime)</h6>
-				<p>Arbois +33 (0)3 84 66 04 93</p>
+					<h6>Daniel et Monique Dugois</h6>
+					<p>Les Arsures +33 (0)3 84 66 03 41</p>
+					<a href="https://www.vins-danieldugois.com/">Visiter le site web</a>
+
+					<h6>Fruitère vinicole Arbois</h6>
+					<p>Arbois +33 (0)3 84 66 21 84</p>
+					<a href="https://www.chateau-bethanie.com/">Visiter le site web</a>
+
+					<h6>Camille Loye (Millésime)</h6>
+					<p>Arbois +33 (0)3 84 66 04 93</p>
+				</div>
 			</section>
 
-			<section class="q-px-md q-pl-lg">
-				<h5 class="text-brand q-py-lg">
+			<section class="q-gutter-y-md">
+				<h5 class="text-brand q-pt-xl q-px-md">
 					… côté table et palais, nos coups de ♥
 				</h5>
-				<p>
+
+				<q-img
+					src="../assets/rooms/exterieur/_DSC6071_compressed60_030.jpg"
+					:ratio="16 / 9"
+				>
+				</q-img>
+
+				<p class="q-px-md">
 					Le Jura et ses traditions culinaires reconnues séduiront les plus
 					exigeants épicuriens. La truite au Vin Jaune, les spécialités à base
 					de Comté, le coq au Vin Jaune et morilles, la cancoillotte, la
@@ -57,7 +76,7 @@
 					trouvent entre 3-10 km des Fées…
 				</p>
 
-				<div class="column q-py-md q-gutter-y-sm">
+				<div class="column q-pa-md q-gutter-y-sm">
 					<a class="text-h6" href="https://www.restaurantlepetitblanc.com/"
 						>Restaurant Le Petit Blanc à Salins les Bains
 					</a>
@@ -82,112 +101,133 @@
 				</div>
 				<br />
 
-				<p class="text-italic">A deux pas...</p>
+				<p class="text-italic q-px-md">A deux pas...</p>
 			</section>
 
 			<h4 class="q-pa-md q-pt-xl text-uppercase text-weight-light text-brand-2">
 				Un peu d’histoire...
 			</h4>
-			<section class="q-pa-md q-gutter-y-md">
-				<p>
-					Comme toutes vacances ou week-end, une bonne préparation vous aidera à
-					planifier de façon optimale votre emploi du temps. Différents sites et
-					lieux sont à visiter dans la région :
-				</p>
+			<section class="q-gutter-y-md">
+				<q-img
+					src="../assets/rooms/exterieur/Paysage_du_Jura_(6)_compressed60_028.jpg"
+					:ratio="16 / 9"
+				>
+				</q-img>
 
-				<h5 class="text-brand-2">Découvrir les visites de Franche-Comté</h5>
-				<a href="https://www.salinesdesalins.com" target="_blank"
-					>Site officiel de la Grande Saline à Salins les Bains (39110) - Jura
-					(39) - Franche Comté</a
-				><br />
-				<a href="https://www.salineroyale.com/" target="_blank"
-					>Saline Royale à Arc-et-Senans</a
-				><br />
+				<div class="q-px-md">
+					<p>
+						Comme toutes vacances ou week-end, une bonne préparation vous aidera
+						à planifier de façon optimale votre emploi du temps. Différents
+						sites et lieux sont à visiter dans la région :
+					</p>
 
-				<h5 class="text-brand-2">
-					Office du tourisme Jura, Coeur du Jura, Besançon, Dole
-				</h5>
-				<a href="https://www.jura-tourism.com/" target="_blank">Jura tourisme</a
-				><br />
-				<a href="https://www.coeurdujura-tourisme.com/" target="_blank"
-					>Coeur du Jura</a
-				><br />
-				<a href="https://www.besancon-tourisme.com/" target="_blank">Besançon</a
-				><br />
+					<h5 class="text-brand-2">Découvrir les visites de Franche-Comté</h5>
+					<a href="https://www.salinesdesalins.com" target="_blank"
+						>Site officiel de la Grande Saline à Salins les Bains (39110) - Jura
+						(39) - Franche Comté</a
+					><br />
+					<a href="https://www.salineroyale.com/" target="_blank"
+						>Saline Royale à Arc-et-Senans</a
+					><br />
 
-				<h5 class="text-brand-2">La route des vins et des lacs</h5>
-				<a href="https://www.montagnes-du-jura.fr" target="_blank"
-					>La route des vins du Jura | Montagnes de Jura</a
-				><br />
-				<a href="https://www.montagnes-du-jura.fr" target="_blank"
-					>Le printemps dans les Montagnes du Jura | Montagnes du Jura</a
-				><br />
-				<a href="https://www.jura-vins.com/" target="_blank">Jura vins</a><br />
-				<a
-					href="https://www.les-plus-beaux-villages-de-france.org"
-					target="_blank"
-					>Château-Chalon (Jura), l'un des Plus Beaux Villages de France</a
-				><br />
+					<h5 class="text-brand-2">
+						Office du tourisme Jura, Coeur du Jura, Besançon, Dole
+					</h5>
+					<a href="https://www.jura-tourism.com/" target="_blank"
+						>Jura tourisme</a
+					><br />
+					<a href="https://www.coeurdujura-tourisme.com/" target="_blank"
+						>Coeur du Jura</a
+					><br />
+					<a href="https://www.besancon-tourisme.com/" target="_blank"
+						>Besançon</a
+					><br />
+
+					<h5 class="text-brand-2">La route des vins et des lacs</h5>
+					<a href="https://www.montagnes-du-jura.fr" target="_blank"
+						>La route des vins du Jura | Montagnes de Jura</a
+					><br />
+					<a href="https://www.montagnes-du-jura.fr" target="_blank"
+						>Le printemps dans les Montagnes du Jura | Montagnes du Jura</a
+					><br />
+					<a href="https://www.jura-vins.com/" target="_blank">Jura vins</a
+					><br />
+					<a
+						href="https://www.les-plus-beaux-villages-de-france.org"
+						target="_blank"
+						>Château-Chalon (Jura), l'un des Plus Beaux Villages de France</a
+					><br />
+				</div>
 			</section>
 
 			<h4 class="q-pa-md q-pt-xl text-uppercase text-weight-light text-brand">
 				Autour de chez nous...
 			</h4>
-			<section class="q-pa-md q-gutter-y-md">
-				<h5 class="text-brand">Activités annuelles</h5>
-				<a href="https://www.cascades-du-herisson.fr/" target="_blank"
-					>Cascades du Hérisson</a
-				><br />
-				<a href="https://www.juralacs.com/" target="_blank">Jura lacs</a><br />
-				<a href="https://www.baumelesmessieurs.fr/" target="_blank"
-					>Baume les Messieurs</a
-				><br />
-				<a href="https://www.juramusees.fr/" target="_blank">Jura musées</a
-				><br />
-				<a href="https://www.mouche-fr.com/" target="_blank">Mouche</a><br />
-				<a href="https://www.echappee-jurassienne.ch" target="_blank"
-					>L'échappée Jurassienne - Le grand itinéraire de randonnée
-					franco-suisse</a
-				><br />
+			<section class="q-gutter-y-md">
+				<q-img
+					src="../assets/rooms/exterieur/9_compressed60_009.jpg"
+					:ratio="16 / 9"
+				>
+				</q-img>
 
-				<h5 class="text-brand">Activités estivales</h5>
-				<a href="https://www.poupetvollibre.com/" target="_blank"
-					>Poupet vol libre</a
-				><br />
-				<a href="https://www.mouche-fr.com/" target="_blank">Mouche</a><br />
-				<a href="https://www.grottesdesmoidons.com/" target="_blank"
-					>Grottes des Moidons</a
-				><br />
-				<a href="https://www.jura-tourism.com/" target="_blank"
-					>Lac Jura, baignade et plages des Lacs du Jura - Jura Tourisme</a
-				><br />
+				<div class="q-px-md">
+					<h5 class="text-brand">Activités annuelles</h5>
+					<a href="https://www.cascades-du-herisson.fr/" target="_blank"
+						>Cascades du Hérisson</a
+					><br />
+					<a href="https://www.juralacs.com/" target="_blank">Jura lacs</a
+					><br />
+					<a href="https://www.baumelesmessieurs.fr/" target="_blank"
+						>Baume les Messieurs</a
+					><br />
+					<a href="https://www.juramusees.fr/" target="_blank">Jura musées</a
+					><br />
+					<a href="https://www.mouche-fr.com/" target="_blank">Mouche</a><br />
+					<a href="https://www.echappee-jurassienne.ch" target="_blank"
+						>L'échappée Jurassienne - Le grand itinéraire de randonnée
+						franco-suisse</a
+					><br />
 
-				<h5 class="text-brand">Activités hivernales</h5>
-				<a
-					href="https://www.jura-tourism.com/vivre-le-jura/pratiquer/ski-sports-hiver/domaines-skiables-du-jura/"
-					target="_blank"
-					>Les domaines skiables</a
-				><br />
-				<a
-					href="https://www.espacenordiquejurassien.com/home.html"
-					target="_blank"
-					>Les espaces nordiques jurassiens (webcam, enneigement,...)</a
-				><br />
-				<a
-					href="https://www.espacenordiquejurassien.com/infos-pratiques/cartographie-menu/plan-des-pistes-des-domaines-nordiques.html"
-					target="_blank"
-					>Plans des pistes (ski de fond, raquettes,...)</a
-				><br />
-				<a
-					href="https://www.jura-tourism.com/vivre-le-jura/pratiquer/ski-sports-hiver/raquettes-a-neige/#trouver"
-					target="_blank"
-					>Loueur, une école de ski ou un accompagnateur en raquettes à neige</a
-				><br />
-				<a
-					href="https://www.montagnes-du-jura.fr/sejourner/activites/chiens-de-traineaux/"
-					target="_blank"
-					>Balade en chiens de traineaux</a
-				><br />
+					<h5 class="text-brand">Activités estivales</h5>
+					<a href="https://www.poupetvollibre.com/" target="_blank"
+						>Poupet vol libre</a
+					><br />
+					<a href="https://www.mouche-fr.com/" target="_blank">Mouche</a><br />
+					<a href="https://www.grottesdesmoidons.com/" target="_blank"
+						>Grottes des Moidons</a
+					><br />
+					<a href="https://www.jura-tourism.com/" target="_blank"
+						>Lac Jura, baignade et plages des Lacs du Jura - Jura Tourisme</a
+					><br />
+
+					<h5 class="text-brand">Activités hivernales</h5>
+					<a
+						href="https://www.jura-tourism.com/vivre-le-jura/pratiquer/ski-sports-hiver/domaines-skiables-du-jura/"
+						target="_blank"
+						>Les domaines skiables</a
+					><br />
+					<a
+						href="https://www.espacenordiquejurassien.com/home.html"
+						target="_blank"
+						>Les espaces nordiques jurassiens (webcam, enneigement,...)</a
+					><br />
+					<a
+						href="https://www.espacenordiquejurassien.com/infos-pratiques/cartographie-menu/plan-des-pistes-des-domaines-nordiques.html"
+						target="_blank"
+						>Plans des pistes (ski de fond, raquettes,...)</a
+					><br />
+					<a
+						href="https://www.jura-tourism.com/vivre-le-jura/pratiquer/ski-sports-hiver/raquettes-a-neige/#trouver"
+						target="_blank"
+						>Loueur, une école de ski ou un accompagnateur en raquettes à
+						neige</a
+					><br />
+					<a
+						href="https://www.montagnes-du-jura.fr/sejourner/activites/chiens-de-traineaux/"
+						target="_blank"
+						>Balade en chiens de traineaux</a
+					><br />
+				</div>
 			</section>
 		</div>
 	</q-page>
