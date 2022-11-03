@@ -37,7 +37,7 @@
 				</p>
 
 				<q-img
-					src="../assets/rooms/exterieur/_DSC6067_compressed60_023.jpg"
+					src="../assets/rooms/exterieur/Mare_compressed60_013.jpg"
 				></q-img>
 
 				<p class="q-px-md">

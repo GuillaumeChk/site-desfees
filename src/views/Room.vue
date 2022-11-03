@@ -191,6 +191,7 @@
 			<q-btn
 				class="brand text-white appear-right"
 				unelevated
+				rounded
 				size="lg"
 				label="Réserver cette chambre"
 				to="/reservation"

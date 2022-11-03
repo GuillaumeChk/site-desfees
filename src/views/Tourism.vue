@@ -163,7 +163,7 @@
 			<h4 class="q-pa-md q-pt-xl text-uppercase text-weight-light text-brand">
 				Autour de chez nous...
 			</h4>
-			<section class="q-gutter-y-md">
+			<section class="q-gutter-y-md q-pb-lg">
 				<q-img
 					src="../assets/rooms/exterieur/9_compressed60_009.jpg"
 					:ratio="16 / 9"

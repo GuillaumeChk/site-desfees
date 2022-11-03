@@ -37,7 +37,7 @@
 					</q-menu>
 				</q-btn>
 				<q-route-tab class="tab" to="/prestations" label="Prestations" />
-				<q-btn stretch unelevated flat class="tab" label="Explorer">
+				<q-btn stretch unelevated flat rounded class="tab" label="Explorer">
 					<q-menu auto-close>
 						<q-list style="min-width: 100px">
 							<q-item clickable v-close-popup to="/tourisme" exact>
@@ -57,16 +57,17 @@
 			<q-btn
 				class="q-mr-md brand text-white"
 				unelevated
+				rounded
 				label="Réserver"
 				to="/reservation"
 			></q-btn>
 
-			<q-btn class="no-padding" to="/" size="md" unelevated>
+			<q-btn class="no-padding" to="/" size="md" unelevated rounded>
 				<q-img width="45px" height="45px" fit="fill" src="logoGitedes.svg">
 				</q-img>
 			</q-btn>
 
-			<q-btn class="gt-xs" no-caps to="/" unelevated>
+			<q-btn class="gt-xs" no-caps to="/" unelevated rounded>
 				<q-toolbar-title class="cursive text-h4">
 					Domaine des Fées
 				</q-toolbar-title>
@@ -81,6 +82,7 @@
 	>
 		<q-btn
 			flat
+			rounded
 			icon="close"
 			size="lg"
 			class="q-ma-lg"
