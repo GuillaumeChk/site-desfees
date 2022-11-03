@@ -13,7 +13,7 @@
 			class="q-pa-sm q-gutter-sm"
 			:class="route.name === 'home' || route.name === 'room' ? 'gradient' : ''"
 		>
-			<q-btn flat class="lt-md" round icon="menu" @click="toggleLeftDrawer" />
+			<q-btn flat round class="lt-md" icon="menu" @click="toggleLeftDrawer" />
 
 			<q-tabs class="gt-sm" align="left">
 				<q-route-tab class="tab" to="/" label="Accueil" />

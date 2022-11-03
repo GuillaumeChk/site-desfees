@@ -2,7 +2,10 @@
 	<q-page>
 		<section class="section-video">
 			<div class="video-container">
-				<q-img src="https://cdn.quasar.dev/img/parallax2.jpg" class="carousel">
+				<q-img
+					src="../assets/rooms/exterieur/_DSC5970_compressed60_019.jpg"
+					class="carousel"
+				>
 					<div
 						class="absolute-center bg-transparent text-h4 text-uppercase text-center text-weight-light"
 						style="letter-spacing: 4px"
@@ -18,7 +21,7 @@
 				On parle de nous
 			</h4>
 
-			<section class="q-px-md q-pl-lg">
+			<section class="q-px-md q-gutter-y-md">
 				<h5 class="text-brand q-py-lg">
 					Les chambres d'hôtes féériques reçoivent leur 5ème épis.
 				</h5>
@@ -33,7 +36,7 @@
 					d’accueillir et de choyer ses propres clients.
 				</p>
 
-				<q-img src="https://cdn.quasar.dev/img/parallax2.jpg"></q-img>
+				<q-img src="../assets/depeche_110619_compressed.jpg"></q-img>
 
 				<p>
 					Article du Pays Dolois du 25 mars 2021 (page 20 à 22)
@@ -45,30 +48,29 @@
 
 			<CustomDivider />
 
-			<section class="q-px-md q-pl-lg">
+			<section class="q-px-md q-gutter-y-md">
 				<h5 class="text-brand-2 q-py-lg">
 					Le Domaine des Fées... Une soixantaine de demandes en mariage en 13
 					ans...
 				</h5>
-				<a
-					href="https://www.leprogres.fr/insolite/2020/07/12/le-domaine-des-fees-theatre-d-une-soixantaine-de-demandes-en-mariage-en-13-ans"
-					>Voir l'article</a
-				>
+				<a href="">Voir l'article</a>
 			</section>
 
 			<CustomDivider />
 
-			<section class="q-px-md q-pl-lg">
-				<h5 class="text-brand q-py-lg">Titre</h5>
+			<section class="q-px-md q-gutter-y-md">
+				<h5 class="text-brand q-py-lg">
+					Une piscine, un arboretum et divers équipements de bien-être
+				</h5>
 
-				<q-img src="https://cdn.quasar.dev/img/parallax2.jpg"></q-img>
+				<q-img src="../assets/article_compressed.jpg"></q-img>
 
 				<p>Article du Progrès.fr du 29 août 2021</p>
 			</section>
 
 			<CustomDivider />
 
-			<section class="q-px-md q-pl-lg">
+			<section class="q-px-md q-gutter-y-md">
 				<h5 class="text-brand-2 q-py-lg">
 					Myriam Eckert redonne une seconde vie aux arbres touchés par la
 					maladie des frênes.
@@ -80,7 +82,12 @@
 					De notre correspondant, Jacques FAIVRE.
 				</p>
 
-				<q-img src="https://cdn.quasar.dev/img/parallax2.jpg"></q-img>
+				<div class="row justify-center">
+					<q-img
+						src="../assets/article2_compressed.jpg"
+						style="max-width: 374px"
+					></q-img>
+				</div>
 
 				<p>
 					« J’aime tant la nature. Je voulais rendre hommage à ces arbres, pour
@@ -125,12 +132,118 @@
 
 			<CustomDivider />
 
-			<section class="q-px-md q-pl-lg">
-				<h5 class="text-brand q-py-lg">Titre</h5>
+			<section class="q-px-md q-gutter-y-md">
+				<h5 class="text-brand q-py-lg">Saint Valentin</h5>
 
-				<q-img src="https://cdn.quasar.dev/img/parallax2.jpg"></q-img>
+				<q-img src="../assets/st-valentin_2022_compressed.jpg"></q-img>
 
 				<p>Aticle paru le 16.02.2022</p>
+			</section>
+
+			<h4 class="q-pa-md q-pt-xl text-uppercase text-weight-light">Photos</h4>
+
+			<section class="q-gutter-y-md">
+				<h5 class="q-px-md q-pt-md">Intérieur</h5>
+
+				<q-carousel
+					swipeable
+					animated
+					arrows
+					infinite
+					thumbnails
+					v-model="slide"
+					v-model:fullscreen="fullscreen"
+					class="carousel2"
+				>
+					<q-carousel-slide
+						v-for="(slide, key, index) in imagesInterieur"
+						:key="key"
+						:name="index"
+						:img-src="slide"
+						class="carousel2_img"
+					/>
+
+					<template v-slot:control>
+						<q-carousel-control position="bottom-right" :offset="[18, 18]">
+							<q-btn
+								round
+								flat
+								color="black"
+								text-color="white"
+								:icon="fullscreen ? 'fullscreen_exit' : 'fullscreen'"
+								@click="fullscreen = !fullscreen"
+							/>
+						</q-carousel-control>
+					</template>
+				</q-carousel>
+
+				<h5 class="q-px-md q-pt-md">Extérieur</h5>
+
+				<q-carousel
+					swipeable
+					animated
+					arrows
+					infinite
+					thumbnails
+					v-model="slide2"
+					v-model:fullscreen="fullscreen2"
+					class="carousel2"
+				>
+					<q-carousel-slide
+						v-for="(slide2, key, index) in imagesExterieur"
+						:key="key"
+						:name="index"
+						:img-src="slide2"
+						class="carousel2_img"
+					/>
+
+					<template v-slot:control>
+						<q-carousel-control position="bottom-right" :offset="[18, 18]">
+							<q-btn
+								round
+								flat
+								color="black"
+								text-color="white"
+								:icon="fullscreen2 ? 'fullscreen_exit' : 'fullscreen'"
+								@click="fullscreen2 = !fullscreen2"
+							/>
+						</q-carousel-control>
+					</template>
+				</q-carousel>
+
+				<h5 class="q-px-md q-pt-md">Jura</h5>
+
+				<q-carousel
+					swipeable
+					animated
+					arrows
+					infinite
+					thumbnails
+					v-model="slide3"
+					v-model:fullscreen="fullscreen3"
+					class="carousel2"
+				>
+					<q-carousel-slide
+						v-for="(slide3, key, index) in imagesJura"
+						:key="key"
+						:name="index"
+						:img-src="slide3"
+						class="carousel2_img"
+					/>
+
+					<template v-slot:control>
+						<q-carousel-control position="bottom-right" :offset="[18, 18]">
+							<q-btn
+								round
+								flat
+								color="black"
+								text-color="white"
+								:icon="fullscreen3 ? 'fullscreen_exit' : 'fullscreen'"
+								@click="fullscreen3 = !fullscreen3"
+							/>
+						</q-carousel-control>
+					</template>
+				</q-carousel>
 			</section>
 		</div>
 	</q-page>
@@ -138,4 +251,25 @@
 
 <script setup>
 import CustomDivider from "../components/CustomDivider.vue";
+import { ref } from "vue";
+
+const slide = ref(0);
+const slide2 = ref(0);
+const slide3 = ref(0);
+const fullscreen = ref(false);
+const fullscreen2 = ref(false);
+const fullscreen3 = ref(false);
+
+const imagesInterieur = import.meta.glob(
+	"../assets/rooms/interieur/*.(jpg|JPG|png|PNG)",
+	{ as: "url", eager: true }
+);
+const imagesExterieur = import.meta.glob(
+	"../assets/rooms/exterieur/*.(jpg|JPG|png|PNG)",
+	{ as: "url", eager: true }
+);
+const imagesJura = import.meta.glob(
+	"../assets/rooms/jura/*.(jpg|JPG|png|PNG)",
+	{ as: "url", eager: true }
+);
 </script>

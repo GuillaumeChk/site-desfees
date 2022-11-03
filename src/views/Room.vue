@@ -46,7 +46,7 @@
 				/>
 
 				<template v-slot:control>
-					<q-carousel-control position="bottom-right" :offset="[18, 80]">
+					<q-carousel-control position="bottom-right" :offset="[18, 18]">
 						<q-btn
 							round
 							flat
@@ -232,9 +232,7 @@ import { computed } from "@vue/reactivity";
 
 let route = useRoute();
 
-const slide = ref(1);
-const slide2 = ref(1);
-const autoplay = ref(true);
+const slide2 = ref(0);
 const fullscreen = ref(false);
 
 function getImageUrl(subPath) {

@@ -123,3 +123,12 @@
 		margin-top: -66px;
 	}
 }
+
+.q-carousel {
+	margin-bottom: 80px;
+	overflow: visible !important;
+}
+
+.q-carousel__control.q-carousel__navigation {
+	bottom: -80px !important;
+}
