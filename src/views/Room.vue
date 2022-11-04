@@ -27,37 +27,43 @@
 		<CustomDivider class="appear-left" />
 
 		<section class="wrapper">
-			<q-carousel
-				swipeable
-				animated
-				arrows
-				infinite
-				thumbnails
-				v-model="slide2"
-				v-model:fullscreen="fullscreen"
-				class="carousel2"
+			<q-responsive
+				:ratio="16 / 9"
+				style="height: 600px; max-width: 100%; margin-bottom: 100px"
 			>
-				<q-carousel-slide
-					v-for="(slide, key, index) in roomImages"
-					:key="key"
-					:name="index"
-					:img-src="slide"
-					class="carousel2_img"
-				/>
+				<q-carousel
+					swipeable
+					animated
+					arrows
+					infinite
+					thumbnails
+					v-model="slide2"
+					v-model:fullscreen="fullscreen"
+					class="uncropped-image"
+					control-color="black"
+				>
+					<q-carousel-slide
+						v-for="(slide, key, index) in roomImages"
+						:key="key"
+						:name="index"
+						:img-src="slide"
+						class="uncropped-image"
+					/>
 
-				<template v-slot:control>
-					<q-carousel-control position="bottom-right" :offset="[18, 18]">
-						<q-btn
-							round
-							flat
-							color="black"
-							text-color="white"
-							:icon="fullscreen ? 'fullscreen_exit' : 'fullscreen'"
-							@click="fullscreen = !fullscreen"
-						/>
-					</q-carousel-control>
-				</template>
-			</q-carousel>
+					<template v-slot:control>
+						<q-carousel-control position="bottom-right" :offset="[18, 18]">
+							<q-btn
+								round
+								flat
+								color="white"
+								text-color="black"
+								:icon="fullscreen ? 'fullscreen_exit' : 'fullscreen'"
+								@click="fullscreen = !fullscreen"
+							/>
+						</q-carousel-control>
+					</template>
+				</q-carousel>
+			</q-responsive>
 		</section>
 
 		<section class="q-pa-lg q-gutter-y-lg wrapper">
@@ -334,11 +340,10 @@ watch(
 	max-width: 30%;
 }
 
-.carousel2 {
-	height: 700px;
-}
-.carousel2_img {
-	object-fit: contain;
+.uncropped-image {
+	background-size: contain; /* don't crop the image  */
+	background-repeat: no-repeat; /* only show the image one time  */
+	background-color: #eeeeee; /* color to fill empty space with  */
 }
 
 @media (min-width: 1024px) {

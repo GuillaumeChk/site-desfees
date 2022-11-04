@@ -40,7 +40,9 @@
 
 				<p>
 					Article du Pays Dolois du 25 mars 2021 (page 20 à 22)
-					<a href="https://issuu.com/paoh/docs/pays-dolois-235_1bb8878d5d9e98"
+					<a
+						href="https://issuu.com/paoh/docs/pays-dolois-235_1bb8878d5d9e98"
+						target="_blank"
 						>Voir l'article</a
 					>
 				</p>
@@ -53,7 +55,7 @@
 					Le Domaine des Fées... Une soixantaine de demandes en mariage en 13
 					ans...
 				</h5>
-				<a href="">Voir l'article</a>
+				<a href="" target="_blank">Voir l'article</a>
 			</section>
 
 			<CustomDivider />
@@ -140,110 +142,126 @@
 				<p>Aticle paru le 16.02.2022</p>
 			</section>
 
-			<h4 class="q-pa-md q-pt-xl text-uppercase text-weight-light">Photos</h4>
+			<h4 class="q-pa-md q-pt-xl text-uppercase text-weight-light">
+				Gallerie photo
+			</h4>
 
 			<section class="q-gutter-y-md">
 				<h5 class="q-px-md q-pt-md">Intérieur</h5>
 
-				<q-carousel
-					swipeable
-					animated
-					arrows
-					infinite
-					thumbnails
-					v-model="slide"
-					v-model:fullscreen="fullscreen"
-					class="carousel2"
+				<q-responsive
+					:ratio="16 / 9"
+					style="height: 600px; max-width: 100%; margin-bottom: 100px"
 				>
-					<q-carousel-slide
-						v-for="(slide, key, index) in imagesInterieur"
-						:key="key"
-						:name="index"
-						:img-src="slide"
-						class="carousel2_img"
-					/>
+					<q-carousel
+						swipeable
+						animated
+						arrows
+						infinite
+						thumbnails
+						v-model="slide"
+						v-model:fullscreen="fullscreen"
+						class="uncropped-image"
+						control-color="black"
+					>
+						<q-carousel-slide
+							v-for="(slide, key, index) in imagesInterieur"
+							:key="key"
+							:name="index"
+							:img-src="slide"
+							class="uncropped-image"
+						/>
 
-					<template v-slot:control>
-						<q-carousel-control position="bottom-right" :offset="[18, 18]">
-							<q-btn
-								round
-								flat
-								color="black"
-								text-color="white"
-								:icon="fullscreen ? 'fullscreen_exit' : 'fullscreen'"
-								@click="fullscreen = !fullscreen"
-							/>
-						</q-carousel-control>
-					</template>
-				</q-carousel>
-
+						<template v-slot:control>
+							<q-carousel-control position="bottom-right" :offset="[18, 18]">
+								<q-btn
+									round
+									flat
+									color="white"
+									text-color="black"
+									:icon="fullscreen ? 'fullscreen_exit' : 'fullscreen'"
+									@click="fullscreen = !fullscreen"
+								/>
+							</q-carousel-control>
+						</template>
+					</q-carousel>
+				</q-responsive>
 				<h5 class="q-px-md q-pt-md">Extérieur</h5>
-
-				<q-carousel
-					swipeable
-					animated
-					arrows
-					infinite
-					thumbnails
-					v-model="slide2"
-					v-model:fullscreen="fullscreen2"
-					class="carousel2"
+				<q-responsive
+					:ratio="16 / 9"
+					style="height: 600px; max-width: 100%; margin-bottom: 100px"
 				>
-					<q-carousel-slide
-						v-for="(slide2, key, index) in imagesExterieur"
-						:key="key"
-						:name="index"
-						:img-src="slide2"
-						class="carousel2_img"
-					/>
+					<q-carousel
+						swipeable
+						animated
+						arrows
+						infinite
+						thumbnails
+						v-model="slide2"
+						v-model:fullscreen="fullscreen2"
+						class="uncropped-image"
+						control-color="black"
+					>
+						<q-carousel-slide
+							v-for="(slide2, key, index) in imagesExterieur"
+							:key="key"
+							:name="index"
+							:img-src="slide2"
+							class="uncropped-image"
+						/>
 
-					<template v-slot:control>
-						<q-carousel-control position="bottom-right" :offset="[18, 18]">
-							<q-btn
-								round
-								flat
-								color="black"
-								text-color="white"
-								:icon="fullscreen2 ? 'fullscreen_exit' : 'fullscreen'"
-								@click="fullscreen2 = !fullscreen2"
-							/>
-						</q-carousel-control>
-					</template>
-				</q-carousel>
-
+						<template v-slot:control>
+							<q-carousel-control position="bottom-right" :offset="[18, 18]">
+								<q-btn
+									round
+									flat
+									color="white"
+									text-color="black"
+									:icon="fullscreen2 ? 'fullscreen_exit' : 'fullscreen'"
+									@click="fullscreen2 = !fullscreen2"
+								/>
+							</q-carousel-control>
+						</template>
+					</q-carousel>
+				</q-responsive>
 				<h5 class="q-px-md q-pt-md">Jura</h5>
-
-				<q-carousel
-					swipeable
-					animated
-					arrows
-					infinite
-					thumbnails
-					v-model="slide3"
-					v-model:fullscreen="fullscreen3"
-					class="carousel2"
+				<q-responsive
+					:ratio="16 / 9"
+					style="height: 600px; max-width: 100%; margin-bottom: 100px"
 				>
-					<q-carousel-slide
-						v-for="(slide3, key, index) in imagesJura"
-						:key="key"
-						:name="index"
-						:img-src="slide3"
-						class="carousel2_img"
-					/>
+					<q-carousel
+						swipeable
+						animated
+						arrows
+						infinite
+						thumbnails
+						v-model="slide3"
+						v-model:fullscreen="fullscreen3"
+						class="uncropped-image"
+						control-color="black"
+					>
+						<q-carousel-slide
+							v-for="(slide3, key, index) in imagesJura"
+							:key="key"
+							:name="index"
+							:img-src="slide3"
+							class="uncropped-image"
+						/>
 
-					<template v-slot:control>
-						<q-carousel-control position="bottom-right" :offset="[18, 18]">
-							<q-btn
-								round
-								flat
-								color="black"
-								text-color="white"
-								:icon="fullscreen3 ? 'fullscreen_exit' : 'fullscreen'"
-								@click="fullscreen3 = !fullscreen3"
-							/>
-						</q-carousel-control>
-					</template>
-				</q-carousel>
+						<template v-slot:control>
+							<q-carousel-control position="bottom-right" :offset="[18, 18]">
+								<q-btn
+									round
+									flat
+									color="white"
+									text-color="black"
+									:icon="fullscreen3 ? 'fullscreen_exit' : 'fullscreen'"
+									@click="fullscreen3 = !fullscreen3"
+								/>
+							</q-carousel-control>
+						</template>
+					</q-carousel>
+				</q-responsive>
 			</section>
 		</div>
 	</q-page>
@@ -273,3 +291,11 @@ const imagesJura = import.meta.glob(
 	{ as: "url", eager: true }
 );
 </script>
+
+<style>
+.uncropped-image {
+	background-size: contain; /* don't crop the image  */
+	background-repeat: no-repeat; /* only show the image one time  */
+	background-color: #eeeeee; /* color to fill empty space with  */
+}
+</style>
