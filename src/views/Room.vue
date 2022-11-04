@@ -2,7 +2,8 @@
 	<q-page>
 		<section class="section-video">
 			<div class="video-container">
-				<q-img class="carousel" :src="getImageUrl(room.imageUrl)"> </q-img>
+				<q-img class="carousel bg-white" :src="getImageUrl(room.imageUrl)">
+				</q-img>
 				<h3
 					class="gt-sm absolute-bottom q-pb-lg text-h3 text-white text-center bg-transparent cursive"
 				>
@@ -12,15 +13,32 @@
 		</section>
 
 		<section class="q-px-lg q-pt-lg">
-			<div class="wrapper q-gutter-y-xl">
+			<div class="wrapper q-gutter-y-md">
 				<h3 class="lt-md cursive text-center text-grey-8 appear-left">
 					{{ room.name }}
 				</h3>
 
-				<p v-if="room.pathName !== 'gite'" class="appear-left text-center">
+				<div class="row justify-between appear-left">
+					<router-link
+						v-if="previousRoom != undefined"
+						:to="{ name: 'room', params: { roomName: previousRoom.pathName } }"
+						>🠔 Chambre précédente</router-link
+					>
+					<q-space v-else></q-space>
+					<router-link
+						v-if="nextRoom != undefined"
+						:to="{ name: 'room', params: { roomName: nextRoom.pathName } }"
+						>Chambre suivante 🠖</router-link
+					>
+				</div>
+
+				<p
+					v-if="room.pathName !== 'gite'"
+					class="q-pt-md appear-left text-center"
+				>
 					{{ room.description }}
 				</p>
-				<div v-else class="appear-left" v-html="room.description"></div>
+				<div v-else class="q-pt-md appear-left" v-html="room.description"></div>
 			</div>
 		</section>
 
@@ -313,7 +331,9 @@ function fillRoomImages(roomName) {
 let roomName = computed(() => {
 	return route.params.roomName;
 });
-let room = ref(roomsData.find((room) => room.pathName === roomName));
+let room = ref();
+let nextRoom = ref();
+let previousRoom = ref();
 let roomEquipments = ref([]);
 let roomImages = ref({});
 
@@ -327,6 +347,12 @@ watch(
 			return;
 		}
 		room.value = roomsData.find((room) => room.pathName === newRoomName);
+		nextRoom.value = roomsData.find(
+			(roomElement) => roomElement.index === room.value.index + 1
+		);
+		previousRoom.value = roomsData.find(
+			(roomElement) => roomElement.index === room.value.index - 1
+		);
 
 		fillEquipments(newRoomName);
 		fillRoomImages();
@@ -351,6 +377,17 @@ watch(
 		min-height: 100vh;
 		display: flex;
 		align-items: center;
+	}
+}
+</style>
+
+<style lang="scss" scoped>
+a {
+	color: orange;
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
 	}
 }
 </style>
