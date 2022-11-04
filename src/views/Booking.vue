@@ -2,9 +2,13 @@
 	<q-page class="q-mb-xl">
 		<section class="section-video">
 			<div class="video-container">
-				<q-img src="https://cdn.quasar.dev/img/parallax2.jpg" class="carousel">
+				<q-img
+					src="../assets/rooms/exterieur/Fée__gros_plan_hiver_compressed60_014.jpg"
+					class="carousel"
+				>
 					<div
-						class="absolute-bottom bg-transparent text-h3 text-uppercase text-center"
+						class="absolute-center bg-transparent text-h4 text-uppercase text-center text-weight-light"
+						style="letter-spacing: 4px"
 					>
 						Réservation
 					</div>
@@ -13,13 +17,14 @@
 		</section>
 
 		<div class="wrapper">
-			Résumé de la chambre selectionnée
-			<h4 class="q-pa-md q-pt-xl text-uppercase text-weight-light">
-				Réservation
-			</h4>
-
-			<div class="q-pa-md q-ma-md form">
-				<q-form @submit="onSubmit" @reset="onReset" class="q-gutter-md" greedy>
+			<div class="q-pa-sm form">
+				<h4 class="q-py-xl text-uppercase text-weight-light">Réserver</h4>
+				<q-form
+					@submit="onSubmit"
+					@reset="onReset"
+					class="q-gutter-y-md q-pb-xl"
+					greedy
+				>
 					<q-select
 						filled
 						rounded
@@ -110,17 +115,17 @@
 						lazy-rules="ondemand"
 						:rules="[
 							(val) =>
-								(val && val === true) || 'Veuillez accepter les conditions',
+							(val && val === true) || 'Veuillez accepter les conditions',
 						]"
 						color="grey-8"
 						class="last-rounded q-mb-lg"
 						borderless
 						hide-bottom-space
-					>
+						>
 						<q-toggle
-							v-model="acceptConditions"
-							color="orange"
-							label="J'ai lu et accepté les conditions"
+						v-model="acceptConditions"
+						color="orange"
+						label="J'ai lu et accepté les conditions"
 						/>
 					</q-field> -->
 
@@ -142,6 +147,8 @@
 						/>
 					</div>
 				</q-form>
+
+				<CustomDivider />
 			</div>
 		</div>
 	</q-page>
@@ -150,6 +157,7 @@
 <script setup>
 import { computed } from "@vue/reactivity";
 import { ref } from "vue";
+import CustomDivider from "../components/CustomDivider.vue";
 import roomsData from "../data/roomsData.json";
 
 let room = ref(null);
@@ -189,6 +197,7 @@ function onReset() {
 .form {
 	max-width: 400px;
 	border-radius: 20px;
+	margin: auto;
 }
 
 .last-rounded {

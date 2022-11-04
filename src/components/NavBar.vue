@@ -10,7 +10,7 @@
 	>
 		<q-toolbar
 			id="toolbar"
-			class="q-pa-sm q-gutter-sm"
+			class="q-pa-sm"
 			:class="route.name === 'home' || route.name === 'room' ? 'gradient' : ''"
 		>
 			<q-btn flat round class="lt-md" icon="menu" @click="toggleLeftDrawer" />
@@ -55,6 +55,7 @@
 			<q-space />
 
 			<q-btn
+				v-if="route.name !== 'booking'"
 				class="q-mr-md brand text-white"
 				unelevated
 				rounded
@@ -67,7 +68,7 @@
 				</q-img>
 			</q-btn>
 
-			<q-btn class="gt-xs" no-caps to="/" unelevated rounded>
+			<q-btn class="gt-xs q-ml-xs" no-caps to="/" unelevated rounded>
 				<q-toolbar-title class="cursive text-h4">
 					Domaine des Fées
 				</q-toolbar-title>

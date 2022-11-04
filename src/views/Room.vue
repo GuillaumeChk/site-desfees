@@ -87,16 +87,16 @@
 		<section class="q-pa-lg q-gutter-y-lg wrapper">
 			<h5 class="text-uppercase appear-left">Tarifs</h5>
 
-			<p class="appear-left">
-				Prix : <strong>{{ room.tarifs[0] }}€/nuit</strong> avec petit déjeuner
-				régional pour 2 personnes.
+			<p v-if="room.pathName !== 'gite'" class="appear-left">
+				Prix : à partir de <strong>{{ room.tarifs[0] }}€ / nuit</strong> avec
+				petit déjeuner régional pour 2 personnes.
 				<br />
 				Une <strong>remise de 10% sur la 2ème nuitée</strong> vous sera déduite
 				du paiement final.
 			</p>
 
 			<div class="q-pt-none q-pb-md appear-left">
-				<h6>Tarif des nuitées (à partir du 1er avril 2021)</h6>
+				<!-- <h6>Tarif des nuitées (à partir du 1er avril 2021)</h6> -->
 
 				<q-markup-table
 					v-if="room.pathName !== 'gite'"
@@ -124,35 +124,24 @@
 						</tr>
 					</tbody>
 				</q-markup-table>
+
 				<div v-else class="q-gutter-y-lg">
-					<q-markup-table flat separator="vertical" wrap-cells>
-						<thead class="text-uppercase">
-							<tr>
-								<td>Saison & période</td>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Basse saison</td>
-								<td>
-									Période ou calme plat, hors vacances, férié et animations
-									régionales, météo peu favorable
-								</td>
-							</tr>
-							<tr>
-								<td>Moyenne saison</td>
-								<td>
-									Période entre saison, mars-juin, sept.- octobre sauf férié !
-								</td>
-							</tr>
-							<tr>
-								<td>Haute saison</td>
-								<td>
-									Période de vacances scolaires, fériés et animations régionales
-								</td>
-							</tr>
-						</tbody>
-					</q-markup-table>
+					<p class="text-uppercase">Saison & période</p>
+
+					<p>
+						<strong>Baisse saison </strong>: Période ou calme plat, hors
+						vacances, férié et animations régionales, météo peu favorable.
+					</p>
+
+					<p>
+						<strong>Moyenne saison </strong>: Période entre saison, mars-juin,
+						septembre-octobre sauf férié !
+					</p>
+
+					<p>
+						<strong>Haute saison </strong>: Période de vacances scolaires,
+						fériés et animations régionales.
+					</p>
 
 					<q-markup-table
 						flat
@@ -163,7 +152,7 @@
 						<thead>
 							<tr class="text-uppercase">
 								<td>Saison</td>
-								<td colspan="4">Week-end</td>
+								<td colspan="4">Week-end*</td>
 							</tr>
 							<tr>
 								<td></td>
@@ -175,30 +164,61 @@
 						<tbody>
 							<tr>
 								<td>Basse saison</td>
-								<td>150 €</td>
-								<td>200 €</td>
-								<td>250 €</td>
+								<td>{{ room.tarifs[0][0][0] }} €</td>
+								<td>{{ room.tarifs[0][0][1] }} €</td>
+								<td>{{ room.tarifs[0][0][2] }} €</td>
 							</tr>
 							<tr>
 								<td>Moyenne saison</td>
-								<td>200 €</td>
-								<td>250 €</td>
-								<td>300 €</td>
+								<td>{{ room.tarifs[0][1][0] }} €</td>
+								<td>{{ room.tarifs[0][1][1] }} €</td>
+								<td>{{ room.tarifs[0][1][2] }} €</td>
 							</tr>
 							<tr>
 								<td>Haute saison</td>
-								<td>250 €</td>
-								<td>300 €</td>
-								<td>350 €</td>
+								<td>{{ room.tarifs[0][2][0] }} €</td>
+								<td>{{ room.tarifs[0][2][1] }} €</td>
+								<td>{{ room.tarifs[0][2][2] }} €</td>
+							</tr>
+						</tbody>
+						<thead>
+							<tr></tr>
+							<tr class="text-uppercase">
+								<td></td>
+								<td colspan="4">Semaine*</td>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Basse saison</td>
+								<td colspan="4">{{ room.tarifs[1][0] }} €</td>
+							</tr>
+							<tr>
+								<td>Moyenne saison</td>
+								<td colspan="4">{{ room.tarifs[1][1] }} €</td>
+							</tr>
+							<tr>
+								<td>Haute saison</td>
+								<td colspan="4">{{ room.tarifs[1][2] }} €</td>
+							</tr>
+							<tr>
+								<td>Spécial curiste</td>
+								<td colspan="4">Nous consulter</td>
 							</tr>
 						</tbody>
 					</q-markup-table>
 
 					<p>
-						Supplément de 10 € par personnes et par nuitées au-delà de 4
-						personnes (et jusqu'à 9).
+						*Le week-end : <strong>supplément de 10 €</strong> par personnes et
+						par nuitées au-delà de 4 personnes (et jusqu'à 9).
 					</p>
-					<p>taxe séjour ?</p>
+					<p>
+						*En semaine (du samedi 17h au samedi 10h) :
+						<strong>supplément de 50 €</strong> par personnes et par nuitées
+						au-delà de 4 personnes (et jusqu'à 9).
+					</p>
+					<p>Forfait nettoyage si souhaité : 80 €.</p>
+					<p>Une taxe de séjour 1,21 € par nuitée et par personne.</p>
 				</div>
 			</div>
 			<p class="appear-left">
@@ -346,7 +366,9 @@ watch(
 		if (newRoomName == undefined) {
 			return;
 		}
-		room.value = roomsData.find((room) => room.pathName === newRoomName);
+		room.value = roomsData.find(
+			(roomElement) => roomElement.pathName === newRoomName
+		);
 		nextRoom.value = roomsData.find(
 			(roomElement) => roomElement.index === room.value.index + 1
 		);
