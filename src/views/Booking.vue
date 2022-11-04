@@ -63,7 +63,8 @@
 							v-model="date"
 							lazy-rules="ondemand"
 							:rules="[
-								(val) => val.length > 0 || 'Veuillez sélectionner une durée',
+								(val) =>
+									(val && val.length > 0) || 'Veuillez sélectionner une durée',
 							]"
 							hide-bottom-space
 						>
@@ -110,26 +111,80 @@
 						</q-expansion-item>
 					</div>
 
-					<!-- <q-field
+					<q-field
 						v-model="acceptConditions"
 						lazy-rules="ondemand"
 						:rules="[
 							(val) =>
-							(val && val === true) || 'Veuillez accepter les conditions',
+								(val && val === true) || 'Veuillez accepter les conditions',
 						]"
 						color="grey-8"
 						class="last-rounded q-mb-lg"
 						borderless
 						hide-bottom-space
-						>
-						<q-toggle
-						v-model="acceptConditions"
-						color="orange"
-						label="J'ai lu et accepté les conditions"
-						/>
-					</q-field> -->
+					>
+						<q-checkbox v-model="acceptConditions" color="orange"
+							>J'ai lu et accepté les
+							<q-btn
+								label="conditions"
+								color="primary"
+								@click="displayConditions = true"
+						/></q-checkbox>
+					</q-field>
 
-					<div class="q-mt-xl">
+					<q-dialog v-model="displayConditions">
+						<q-card>
+							<q-card-section>
+								<div class="text-h6">Conditions de vente et d'annulation</div>
+							</q-card-section>
+
+							<q-card-section class="q-pt-none">
+								Pour toute réservation définitive, nous demandons au client un
+								acompte de 50 % ou de nous confier un numéro de carte bancaire
+								accompagné de sa date de validité… (aucun paiement ne sera
+								effectué avant le séjour, il ne s'agit là, que d'une empreinte
+								bancaire en cas d'annulation ou de détérioration de la chambre
+								durant le séjour) Toute annulation doit être notifiée par lettre
+								recommandée ou mail avec accusé de réception -> Domaine des
+								fées, 39110 Pretin a/ Le client bénéficie d'une assurance -
+								annulation : se reporter à la fiche assurance jointe au contrat.
+								b/ Le client ne bénéficie pas d’une assurance annulation : pour
+								toute annulation du fait du client, la somme remboursée à ce
+								dernier par l’Agence de Réservation Touristique, à l’exception
+								des frais de dossier (si ceux-ci ont été perçus lors de la
+								réservation) sera la suivante : Annulation plus de 30 jours
+								avant le début du séjour : il sera retenu 10% du montant du
+								séjour ; Annulation entre le 30è et le 21è jour inclus avant le
+								début du séjour : il sera retenu 25% du prix du séjour ;
+								Annulation entre le 20è et le 8è jour inclus avant le début du
+								séjour : il sera retenu 50% du prix du séjour ; Annulation entre
+								le 7è et le 2è jour inclus avant le début du séjour : il sera
+								retenu 75% du prix du séjour ; Annulation à moins de 2 jours
+								avant le début du séjour : il sera retenu 100% du prix du séjour
+								; En cas de non-présentation du client : il ne sera procédé à
+								aucun remboursement. Nos Hôtes sont accueillis le jour de leur
+								arrivée à partir de 17 heures. Les départs sont jusqu’à 11
+								heures. Afin de prolonger le séjour chez les Fées, il est
+								possible de venir plus tôt ou partir plus tard moyennant un
+								supplément, merci de vous renseigner. Les animaux sont bienvenus
+								sous certaines conditions: Education parfaite, propre et
+								toujours en compagnie de leur maître. Tarif des chambres avec
+								petits déjeuner régional : Dès la seconde nuitée en chambre
+								d'hôte, une remise de 10% est accordée. Fée Salina € 190.-- à
+								220.-- /nuit. Fée des étoiles € 240.-- à 280.-- /nuit. Fée
+								Romantique € 240.-- à 280.-- /nuit. Fée des Rêves € 320.-- à
+								360.-- /nuit. Fée des Fées Mélusine € 380.-- à 420.-- /nuit.
+								Gîte un Comte de Fées €140.-- / €170.-- /nuit. € 300.--/ €550.--
+								Semaine/curiste nous consulter.
+							</q-card-section>
+
+							<q-card-actions align="right">
+								<q-btn flat label="FERMER" color="black" v-close-popup />
+							</q-card-actions>
+						</q-card>
+					</q-dialog>
+
+					<div>
 						<q-btn
 							rounded
 							unelevated
@@ -163,7 +218,8 @@ import roomsData from "../data/roomsData.json";
 let room = ref(null);
 let people = ref(null);
 let date = ref([]);
-// let acceptConditions = ref(false);
+let acceptConditions = ref(false);
+let displayConditions = ref(false);
 let reservation = computed(() => {
 	return {
 		room: room.value,
@@ -173,23 +229,23 @@ let reservation = computed(() => {
 });
 
 let roomNameOptions = Array.from(roomsData, (element) => element.name);
-let peopleQuantityOptions = [1, 2, 3];
+let peopleQuantityOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 function onSubmit() {
-	// if (acceptConditions.value !== true) {
-	// 	console.log("invalide");
-	// 	console.log(reservation);
-	// } else {
-	// 	console.log("valide");
-	// 	console.log(reservation);
-	// }
+	if (acceptConditions.value !== true) {
+		console.log("invalide");
+		console.log(reservation);
+	} else {
+		console.log("valide");
+		console.log(reservation);
+	}
 }
 
 function onReset() {
 	room.value = null;
 	people.value = null;
 	date.value = null;
-	// acceptConditions.value = false;
+	acceptConditions.value = false;
 }
 </script>
 
