@@ -127,59 +127,69 @@
 							>J'ai lu et accepté les
 							<q-btn
 								label="conditions"
-								color="primary"
+								flat
 								@click="displayConditions = true"
 						/></q-checkbox>
 					</q-field>
 
 					<q-dialog v-model="displayConditions">
-						<q-card>
+						<q-card  class="q-px-lg q-py-md">
 							<q-card-section>
-								<div class="text-h6">Conditions de vente et d'annulation</div>
+								<div class="text-h6 text-uppercase">Conditions de vente et d'annulation</div>
 							</q-card-section>
 
 							<q-card-section class="q-pt-none">
-								Pour toute réservation définitive, nous demandons au client un
-								acompte de 50 % ou de nous confier un numéro de carte bancaire
-								accompagné de sa date de validité… (aucun paiement ne sera
-								effectué avant le séjour, il ne s'agit là, que d'une empreinte
-								bancaire en cas d'annulation ou de détérioration de la chambre
-								durant le séjour) Toute annulation doit être notifiée par lettre
-								recommandée ou mail avec accusé de réception -> Domaine des
-								fées, 39110 Pretin a/ Le client bénéficie d'une assurance -
-								annulation : se reporter à la fiche assurance jointe au contrat.
-								b/ Le client ne bénéficie pas d’une assurance annulation : pour
-								toute annulation du fait du client, la somme remboursée à ce
-								dernier par l’Agence de Réservation Touristique, à l’exception
-								des frais de dossier (si ceux-ci ont été perçus lors de la
-								réservation) sera la suivante : Annulation plus de 30 jours
-								avant le début du séjour : il sera retenu 10% du montant du
-								séjour ; Annulation entre le 30è et le 21è jour inclus avant le
-								début du séjour : il sera retenu 25% du prix du séjour ;
-								Annulation entre le 20è et le 8è jour inclus avant le début du
-								séjour : il sera retenu 50% du prix du séjour ; Annulation entre
-								le 7è et le 2è jour inclus avant le début du séjour : il sera
-								retenu 75% du prix du séjour ; Annulation à moins de 2 jours
-								avant le début du séjour : il sera retenu 100% du prix du séjour
-								; En cas de non-présentation du client : il ne sera procédé à
-								aucun remboursement. Nos Hôtes sont accueillis le jour de leur
-								arrivée à partir de 17 heures. Les départs sont jusqu’à 11
-								heures. Afin de prolonger le séjour chez les Fées, il est
-								possible de venir plus tôt ou partir plus tard moyennant un
-								supplément, merci de vous renseigner. Les animaux sont bienvenus
-								sous certaines conditions: Education parfaite, propre et
-								toujours en compagnie de leur maître. Tarif des chambres avec
-								petits déjeuner régional : Dès la seconde nuitée en chambre
-								d'hôte, une remise de 10% est accordée. Fée Salina € 190.-- à
-								220.-- /nuit. Fée des étoiles € 240.-- à 280.-- /nuit. Fée
-								Romantique € 240.-- à 280.-- /nuit. Fée des Rêves € 320.-- à
-								360.-- /nuit. Fée des Fées Mélusine € 380.-- à 420.-- /nuit.
-								Gîte un Comte de Fées €140.-- / €170.-- /nuit. € 300.--/ €550.--
-								Semaine/curiste nous consulter.
-							</q-card-section>
+								<p>Pour toute réservation définitive, nous demandons au client un acompte de 50 % ou de nous confier un numéro de carte bancaire
+								accompagné de sa date de validité… (aucun paiement ne sera effectué avant le séjour, il ne s'agit là, que d'une empreinte
+								bancaire en cas d'annulation ou de détérioration de la chambre durant le séjour).</p> 
+								
+								<p> Toute annulation doit être notifiée par lettre recommandée ou mail avec accusé de réception -> Domaine des fées, 39110 Pretin <br><br>
+
+								<strong>a)</strong> Le client bénéficie d'une assurance - annulation : se reporter à la fiche assurance jointe au contrat. <br><br>
+
+								<strong>b)</strong> Le client ne bénéficie pas d’une assurance annulation : pour toute annulation du fait du client, la somme remboursée à ce dernier par l’Agence de Réservation Touristique, à l’exception des frais de dossier (si ceux-ci ont été perçus lors de la réservation) sera la suivante : 
+								<ul>
+									<li>Annulation plus de 30 jours avant le début du séjour : il sera retenu 10% du montant du séjour ; </li>
+									<li>Annulation entre le 30<sup>e</sup> et le 21<sup>e</sup> jour inclus avant le début du séjour : il sera retenu 25% du prix du séjour ;</li>
+									<li>Annulation entre le 20<sup>e</sup> et le 8<sup>e</sup> jour inclus avant le début du séjour : il sera retenu 50% du prix du séjour ; </li>
+									<li>Annulation entre le 7<sup>e</sup> et le 2<sup>e</sup> jour inclus avant le début du séjour : il sera
+								retenu 75% du prix du séjour ; </li>
+									<li>Annulation à moins de 2 jours avant le début du séjour : il sera retenu 100% du prix du séjour ;</li>
+								</ul> 
+								
+								En cas de non-présentation du client : il ne sera procédé à aucun remboursement. </p>
+
+								<p> Nos hôtes sont accueillis le jour de leur
+								arrivée à partir de 17 heures. Les départs sont jusqu’à 11 heures. Afin de prolonger le séjour chez les Fées, il est possible de venir plus tôt ou partir plus tard moyennant un
+								supplément, merci de vous renseigner.</p> 
+
+								<p>
+									Les animaux sont bienvenus sous certaines conditions : Education parfaite, propre et toujours en compagnie de leur maître. 
+								</p>
+
+									Tarif des chambres avec petits déjeuner régional : 
+									<q-markup-table dense bordered flat class="q-my-sm">
+										<tbody>
+											<tr v-for="room in roomsData">
+												<td>{{room.name}}</td>
+												<td v-if="room.pathName !== 'gite'">de {{room.tarifs[0]}} € à {{room.tarifs[room.tarifs.length -1]}} €</td>
+												<td v-else>de {{room.tarifs[0][0][0]}} € à {{room.tarifs[room.tarifs.length -1][room.tarifs[room.tarifs.length -1].length -1]}} €</td>
+											</tr>
+											<tr>
+												<td>Semaine/curiste</td>
+											<td>nous consulter</td>
+										</tr>
+										</tbody>
+									</q-markup-table>
+
+								<p>
+
+									Dès la seconde nuitée en chambre d'hôte, une remise de 10% est accordée. 
+								</p>
+								</q-card-section>
 
 							<q-card-actions align="right">
-								<q-btn flat label="FERMER" color="black" v-close-popup />
+								<q-btn icon="close" flat  dense v-close-popup />
 							</q-card-actions>
 						</q-card>
 					</q-dialog>
