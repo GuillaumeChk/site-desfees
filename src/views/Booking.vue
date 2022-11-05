@@ -117,7 +117,7 @@
 						:rules="[
 							(val) =>
 								(val && val === true) || 'Veuillez accepter les conditions',
-						]"
+						]" 
 						color="grey-8"
 						class="last-rounded q-mb-lg"
 						borderless
@@ -125,11 +125,14 @@
 					>
 						<q-checkbox v-model="acceptConditions" color="orange"
 							>J'ai lu et accepté les
+							</q-checkbox>
 							<q-btn
 								label="conditions"
 								flat
+								class="text-lowercase q-pa-xs text-underline"
+								style="text-decoration: underline;"
 								@click="displayConditions = true"
-						/></q-checkbox>
+							/>
 					</q-field>
 
 					<q-dialog v-model="displayConditions">
