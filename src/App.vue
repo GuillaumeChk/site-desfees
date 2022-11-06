@@ -9,14 +9,78 @@
 		</main>
 
 		<q-footer class="shadow-12" style="background: white">
-			<q-toolbar class="row">
-				<q-toolbar-title>
-					<q-avatar>
-						<img src="/logoGitedes.svg" />
-					</q-avatar>
-				</q-toolbar-title>
-				<div class="text-brand">Sponsors</div>
-			</q-toolbar>
+			<div class="wrapper q-px-md q-py-md q-gutter-y-lg">
+				<div class="row justify-evenly items-center q-gutter-md">
+					<q-img
+						fit="contain"
+						height="50px"
+						width="50px"
+						src="src/assets/gites-de-france.svg"
+					>
+					</q-img>
+
+					<q-img
+						fit="contain"
+						height="50px"
+						width="50px"
+						src="src/assets/vignobles-et-decouvertes.svg"
+					>
+					</q-img>
+
+					<q-img
+						fit="contain"
+						height="50px"
+						width="50px"
+						src="src/assets/jura-tourisme_compressed.jpg"
+					>
+					</q-img>
+
+					<q-img
+						fit="contain"
+						height="50px"
+						width="50px"
+						src="src/assets/charme_compressed.jpg"
+					>
+					</q-img>
+
+					<q-img
+						fit="contain"
+						height="50px"
+						width="50px"
+						src="src/assets/tnb-accueil-bikers-2022.png"
+					>
+					</q-img>
+
+					<q-img
+						fit="contain"
+						height="50px"
+						width="50px"
+						src="src/assets/tnb-accueil-bikers-2022.png"
+					>
+					</q-img>
+
+					<q-img
+						fit="contain"
+						height="50px"
+						width="50px"
+						src="src/assets/tnb-accueil-bikers-2022.png"
+					>
+					</q-img>
+
+					<q-img
+						fit="contain"
+						height="50px"
+						width="50px"
+						src="src/assets/tnb-accueil-bikers-2022.png"
+					>
+					</q-img>
+				</div>
+				<div class="q-pa-xs text-brand text-center">
+					Copyright © 2022 <br />
+					desfees.fr <br />
+					All Rights Reserved.
+				</div>
+			</div>
 		</q-footer>
 	</q-layout>
 </template>
