@@ -58,7 +58,7 @@
 		"name": "Kneipwalk",
 		"pathName": "kneipwalk",
 		"icon": "solar_power",
-		"description": "special, faire manuellement",
+		"description": "La détente assurée sur le chemin du bien-être... Le Kneippwalk.",
 		"imageUrl": "equipments/kneippwalk.jpg",
 		"rooms": ["salina", "etoiles", "romantique", "melusine", "reves", "gite"]
 	},

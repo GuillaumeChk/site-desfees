@@ -8,40 +8,45 @@
 
 		<q-separator /> -->
 
-		<q-card-section class="row q-pt-none">
+		<q-card-section class="row q-px-sm q-pt-xs q-pb-sm">
 			<q-img
 				loading="eager"
 				no-spinner
 				:src="getImageUrl(equipment.imageUrl)"
-				class="image-equipement col-sm-4 self-center"
+				class="image-equipement col-sm-4"
 			/>
 
-			<q-card-section class="col-sm-8">
-				<p>
+			<q-card-section
+				class="col-sm-8 q-py-xs column justify-between q-gutter-y-md"
+			>
+				<h6>
 					{{ equipment.description }}
-				</p>
+				</h6>
 
-				<p class="text-bold">Équipé dans :</p>
-				<q-list dense class="text-italic row warp justify-between">
-					<q-item
-						clickable
-						v-ripple
-						v-for="roomName in equipment.rooms"
-						:key="roomName"
-						:to="
-							'/chambre/' +
-							rooms.find((room) => room.pathName === roomName).pathName
-						"
-						exact
-					>
-						<q-item-section>
-							<q-item-label>
-								✓
-								{{ rooms.find((room) => room.pathName === roomName).name }}
-							</q-item-label>
-						</q-item-section>
-					</q-item>
-				</q-list>
+				<div class="text-grey-9">
+					<span>Équipé dans :</span>
+
+					<q-list dense class="text-italic row warp justify-between">
+						<q-item
+							clickable
+							v-ripple
+							v-for="roomName in equipment.rooms"
+							:key="roomName"
+							:to="
+								'/chambre/' +
+								rooms.find((room) => room.pathName === roomName).pathName
+							"
+							exact
+						>
+							<q-item-section>
+								<q-item-label>
+									✓
+									{{ rooms.find((room) => room.pathName === roomName).name }}
+								</q-item-label>
+							</q-item-section>
+						</q-item>
+					</q-list>
+				</div>
 			</q-card-section>
 		</q-card-section>
 	</q-card>
@@ -97,5 +102,6 @@ onMounted(() => {
 .image-equipement {
 	max-height: 200px;
 	min-width: 240px;
+	border-radius: 16px;
 }
 </style>
