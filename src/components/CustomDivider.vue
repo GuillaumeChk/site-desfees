@@ -2,7 +2,7 @@
 	<div class="q-py-xs q-my-xl">
 		<div class="divider divider-transparent">
 			<img
-				src="../assets/logoGitedes.svg"
+				src="../assets/icons/logoGitedes.svg"
 				height="54px"
 				width="54px"
 				class="divider-center"

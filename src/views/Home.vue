@@ -93,12 +93,14 @@
 			</div>
 		</section>
 
+		<CustomDivider class="appear-left" />
+
 		<h4
 			class="wrapper q-pa-lg q-py-xl text-weight-light text-uppercase appear-left"
 		>
 			Nos chambres
 		</h4>
-		<section class="wrapper row rooms">
+		<section class="wrapper row rooms q-pb-lg">
 			<div
 				class="room appear-bottom"
 				v-for="room in roomsData"
@@ -121,6 +123,8 @@
 			</div>
 		</section>
 
+		<CustomDivider class="appear-left" />
+
 		<section class="q-mt-xl q-px-lg">
 			<div class="wrapper items-center q-pb-xl">
 				<h4 class="q-py-xl text-uppercase text-weight-light appear-left">
@@ -141,6 +145,8 @@
 				</q-list>
 			</div>
 		</section>
+
+		<CustomDivider class="appear-left" />
 
 		<section class="q-mt-lg q-px-lg">
 			<div class="wrapper items-center q-pb-xl">
