@@ -3,7 +3,7 @@
 		<section class="section-video">
 			<div class="video-container">
 				<q-img
-					src="src/assets/rooms/exterieur/Terrasse_et_roseaux_1_compressed60_034.jpg"
+					src="../assets/rooms/exterieur/Terrasse_et_roseaux_1_compressed60_034.jpg"
 					class="carousel"
 				>
 					<div
