@@ -98,7 +98,7 @@
 							header-class="text-info"
 							dense-toggle
 						>
-							<q-card class="q-pa-md q-mx-md text-grey-8 bg-cyan-1">
+							<q-card class="q-pa-md q-mx-md text-grey-8 ">
 								<p>Une nuit : cliquez deux fois.</p>
 								<p>
 									Plusieurs nuits : cliquez sur la date de début, puis celle de
