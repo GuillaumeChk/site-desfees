@@ -60,7 +60,7 @@
 							label="Durée"
 							stack-label
 							color="orange"
-							v-model="date"
+							v-model="reservationDate"
 							lazy-rules="ondemand"
 							:rules="[
 								(val) =>
@@ -70,23 +70,24 @@
 						>
 							<template v-slot:control>
 								<q-date
-									v-model="date"
+									v-model="reservationDate"
 									flat
 									square
 									color="orange"
 									class="q-mt-sm full-width"
-									mask="DD/MM/YYYY"
+									:mask=dateMask
 									minimal
 									range
 									multiple
+									:options="datesOptions"
 								/>
 							</template>
 						</q-field>
 						<div
 							class="q-pa-sm bg-orange-5 text-white"
-							v-if="date && date.length > 0"
+							v-if="reservationDate && reservationDate.length > 0"
 						>
-							<div v-for="day in date">
+							<div v-for="day in reservationDate">
 								{{
 									day.from !== undefined ? `Du ${day.from} au ${day.to}` : day
 								}}
@@ -105,7 +106,8 @@
 									fin.
 								</p>
 								<p class="q-mb-none text-italic">
-									Vous pouvez accumuler plusieurs nuits et/ou périodes.
+									Vous pouvez accumuler plusieurs nuits et/ou périodes. <br>
+									Si une date est désactivée, c'est qu'elle est déjà réservée.
 								</p>
 							</q-card>
 						</q-expansion-item>
@@ -224,25 +226,37 @@
 
 <script setup>
 import { computed } from "@vue/reactivity";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import CustomDivider from "../components/CustomDivider.vue";
 import roomsData from "../data/roomsData.json";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "@/firebase";
+import { date } from 'quasar';
+
+let calendar = ref([]);
+
+const dateMask = 'YYYY/MM/DD'; // warning : pay attention to the locale
 
 let room = ref(null);
 let people = ref(null);
-let date = ref([]);
+let reservationDate = ref([]);
 let acceptConditions = ref(false);
 let displayConditions = ref(false);
 let reservation = computed(() => {
 	return {
 		room: room.value,
 		people: people.value,
-		date: date.value,
+		date: reservationDate.value,
 	};
 });
 
 let roomNameOptions = Array.from(roomsData, (element) => element.name);
 let peopleQuantityOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+// Disable already reserved dates in DatePicker
+function datesOptions(dateElement) {
+	return !calendar.value.includes(dateElement);
+}
 
 function onSubmit() {
 	if (acceptConditions.value !== true) {
@@ -257,9 +271,29 @@ function onSubmit() {
 function onReset() {
 	room.value = null;
 	people.value = null;
-	date.value = null;
+	reservationDate.value = null;
 	acceptConditions.value = false;
 }
+
+// Get calendar data
+onMounted(async () => {
+	const querySnapshot = await getDocs(collection(db, "calendar"));
+	let calendarData = [];
+	querySnapshot.forEach((doc) => {
+		// doc.data() is never undefined for query doc snapshots
+		const reservation = {
+			id: doc.id,
+			clientName: doc.data().clientName,
+			startDate: doc.data().startDate,
+			endDate: doc.data().endDate,
+		};
+		if(reservation.startDate.seconds === reservation.endDate.seconds) {
+			calendarData.push(date.formatDate(reservation.startDate.toDate(), dateMask));
+		}
+	});
+	console.log(calendarData);
+	calendar.value = calendarData;
+})
 </script>
 
 <style>
