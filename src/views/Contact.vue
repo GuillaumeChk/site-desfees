@@ -20,9 +20,13 @@
 			<!-- <h4 class="q-pa-md q-pt-xl text-uppercase text-weight-light">Contact</h4> -->
 
 			<section class="q-pa-md q-pl-lg">
+				<h4>
+					Domaine des Fées 
+				</h4>
+				<h5>
+					Chambres d'hôtes et Gîte 
+				</h5>
 				<p>
-					Domaine des Fées <br />
-					Chambres d'hôtes et Gîte<br />
 					Chez Isabelle<br />
 					<address>
 						
@@ -83,5 +87,3 @@ function copyAddress(text) {
 	})
 }
 </script>
-
-<style></style>

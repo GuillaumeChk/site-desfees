@@ -75,7 +75,7 @@
 									square
 									color="orange"
 									class="q-mt-sm full-width"
-									:mask=dateMask
+									mask='DD/MM/YYYY'
 									minimal
 									range
 									multiple
@@ -235,8 +235,6 @@ import { date } from 'quasar';
 
 let calendar = ref([]);
 
-const dateMask = 'YYYY/MM/DD'; // warning : pay attention to the locale
-
 let room = ref(null);
 let people = ref(null);
 let reservationDate = ref([]);
@@ -288,7 +286,7 @@ onMounted(async () => {
 			endDate: doc.data().endDate,
 		};
 		if(reservation.startDate.seconds === reservation.endDate.seconds) {
-			calendarData.push(date.formatDate(reservation.startDate.toDate(), dateMask));
+			calendarData.push(date.formatDate(reservation.startDate.toDate(), 'YYYY/MM/DD')); // do not change mask 'YYYY/MM/DD'
 		}
 	});
 	console.log(calendarData);
