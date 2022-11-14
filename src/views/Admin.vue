@@ -55,6 +55,8 @@
 				</q-input>
 
 				<div v-if="password === 'mdp'"></div>
+
+				<FullCalendar :options="calendarOptions" />
 			</div>
 		</div>
 	</q-pages>
@@ -64,6 +66,16 @@
 import { ref } from "vue";
 import CustomDivider from "../components/CustomDivider.vue";
 
+import "@fullcalendar/core/vdom"; // solves problem with Vite
+import FullCalendar from "@fullcalendar/vue3";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import interactionPlugin from "@fullcalendar/interaction";
+
 let password = ref("");
 let isPwd = ref(true);
+
+let calendarOptions = {
+	plugins: [dayGridPlugin, interactionPlugin],
+	initialView: "dayGridMonth",
+};
 </script>
