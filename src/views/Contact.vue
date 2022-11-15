@@ -1,5 +1,5 @@
 <template>
-	<q-pages>
+	<q-page>
 		<section class="section-video">
 			<div class="video-container">
 				<q-img
@@ -64,7 +64,7 @@
 				</div>
 			</div>
 		</section>
-	</q-pages>
+	</q-page>
 </template>
 
 <script setup>
