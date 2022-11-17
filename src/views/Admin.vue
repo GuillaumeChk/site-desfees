@@ -107,7 +107,7 @@
 								<q-input
 									rounded
 									filled
-									v-model="newEventClient"
+									v-model="newEventData.title"
 									label="Nom du client"
 									lazy-rules="ondemand"
 									:rules="[
@@ -121,7 +121,7 @@
 								<q-select
 									filled
 									color="orange"
-									v-model="newEventRoom"
+									v-model="newEventData.room"
 									:options="roomNameOptions"
 									label="Chambre"
 									lazy-rules="ondemand"
@@ -135,7 +135,7 @@
 								<q-select
 									filled
 									color="orange"
-									v-model="newEventPeople"
+									v-model="newEventData.people"
 									:options="peopleQuantityOptions"
 									label="Occupants"
 									lazy-rules="ondemand"
@@ -176,7 +176,7 @@
 							<q-input
 								rounded
 								filled
-								v-model="eventData.name"
+								v-model="eventData.title"
 								label="Nom du client"
 								lazy-rules="ondemand"
 								:rules="[
@@ -268,43 +268,32 @@ let calendarOptions = computed(() => {
 let bookingSystemWorking = ref(true);
 
 let displayNewEvent = ref(false);
-let displayEventEdit = ref(false);
 let newEventData = ref();
-let eventData = ref();
-
-let newEventClient = ref("");
-let newEventRoom = ref("");
-let newEventPeople = ref();
 
 function handleDateClick(info) {
-	newEventData.value = info;
+	newEventData.value = {
+		title: "",
+		start: info.date,
+		end: info.date,
+		room: "",
+		people: 0,
+		allDay: true,
+	};
+
 	displayNewEvent.value = true;
 }
 
 function onSubmit() {}
 
+let displayEventEdit = ref(false);
+let eventData = ref();
+
 function handleEventClick(info) {
-	// alert(
-	// 	"Event: " +
-	// 		info.event.title +
-	// 		"Coordinates: " +
-	// 		info.jsEvent.pageX +
-	// 		"," +
-	// 		info.jsEvent.pageY +
-	// 		"View: " +
-	// 		info.view.type
-	// );
-
-	// // change the border color just for fun
-	// info.el.style.borderColor = "red";
-
 	eventData.value = {
 		title: info.event.title,
 		start: info.event.start,
 		end: info.event.end,
-		room: roomsData.find(
-			(object) => object.color === info.event.backgroundColor
-		).name,
+		room: info.event.extendedProps.room,
 		people: info.event.extendedProps.people,
 	};
 
@@ -314,9 +303,19 @@ function handleEventClick(info) {
 function addNewEvent() {
 	if (1) {
 		// valid?
-		calendar.value.push(eventData.value);
+		console.log(newEventData.value);
+		newEventData.value.room = roomsData.find(
+			(object) => object.name === newEventData.value.room
+		).pathName;
+		newEventData.value.backgroundColor = roomsData.find(
+			(object) => object.pathName === newEventData.value.room
+		).color;
+		calendar.value.push(newEventData.value);
+		calendarOptions.events = calendar.value;
+		newEventData.value = {};
+
 		console.log(calendar.value);
-		alert("Great. Now, update your database...");
+		// update DB
 	} else {
 		alert("Invalid date.");
 	}
@@ -339,6 +338,7 @@ onMounted(async () => {
 			).color,
 			borderColor: "white",
 			extendedProps: {
+				room: doc.data().room,
 				people: doc.data().people,
 			},
 		};
@@ -350,3 +350,10 @@ onMounted(async () => {
 	calendar.value = calendarData;
 });
 </script>
+
+<style>
+.fc td,
+.fc th {
+	border-style: none !important;
+}
+</style>

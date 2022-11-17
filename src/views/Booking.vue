@@ -293,6 +293,9 @@ onMounted(async () => {
 			clientName: doc.data().clientName,
 			startDate: doc.data().startDate,
 			endDate: doc.data().endDate,
+			room: roomsData.find(
+			(object) => object.pathName === doc.data().room
+		).name,
 		};
 		if(reservation.startDate.seconds === reservation.endDate.seconds) {
 			calendarData.push(date.formatDate(reservation.startDate.toDate(), 'YYYY/MM/DD')); // do not change mask 'YYYY/MM/DD'
