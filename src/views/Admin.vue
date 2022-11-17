@@ -102,8 +102,8 @@
 						<q-card-section>
 							<div class="text-h6 text-uppercase">Nouvelle réservation</div>
 						</q-card-section>
-						<q-form @submit="addNewEvent" class="q-gutter-y-md q-pb-xl" greedy>
-							<q-card-section>
+						<q-form @submit="addNewEvent" greedy>
+							<q-card-section class="q-gutter-y-md">
 								<q-input
 									rounded
 									filled
@@ -147,9 +147,24 @@
 									hide-bottom-space
 								/>
 
-								Pour modifier la date : simplement cliquer/glisser la
-								réservation. Pour modifier la durée : redimensionner la
-								réservation.
+								<p>
+									Le
+									{{
+										newEventData.start.toLocaleDateString("fr-FR", {
+											timeZone: "UTC",
+											weekday: "long",
+											year: "numeric",
+											month: "long",
+											day: "numeric",
+										})
+									}}.
+								</p>
+
+								<p class="text-italic">
+									Pour modifier la date : simplement cliquer/glisser la
+									réservation. <br />
+									Pour modifier la durée : redimensionner la réservation.
+								</p>
 							</q-card-section>
 
 							<q-card-actions align="right">
@@ -172,8 +187,8 @@
 							<div class="text-h6 text-uppercase">Modifier une réservation</div>
 						</q-card-section>
 
-						<q-form @submit="editEvent" class="q-gutter-y-md q-pb-xl" greedy>
-							<q-card-section class="q-pt-none">
+						<q-form @submit="editEvent" greedy>
+							<q-card-section class="q-gutter-y-md">
 								<q-input
 									rounded
 									filled
@@ -217,8 +232,30 @@
 									hide-bottom-space
 								/>
 
-								Du <br />{{ eventData.start }}<br />
-								au <br />{{ eventData.end }}<br />
+								<p>
+									Le
+									{{
+										eventData.start.toLocaleDateString("fr-FR", {
+											timeZone: "UTC",
+											weekday: "long",
+											year: "numeric",
+											month: "long",
+											day: "numeric",
+										})
+									}}
+									<span v-if="eventData.end"
+										><br />jusqu'au <br />
+										{{
+											eventData.end.toLocaleDateString("fr-FR", {
+												timeZone: "UTC",
+												weekday: "long",
+												year: "numeric",
+												month: "long",
+												day: "numeric",
+											})
+										}}. </span
+									><br />
+								</p>
 							</q-card-section>
 
 							<q-card-actions align="right">
@@ -294,6 +331,7 @@ function handleDateClick(info) {
 		room: "",
 		people: 0,
 		allDay: true,
+		borderColor: "white",
 	};
 
 	displayNewEvent.value = true;
@@ -358,6 +396,7 @@ function deleteEvent() {
 		calendar.value.findIndex((event) => event.id === eventData.value.id),
 		1
 	);
+	// bug : removing an event reset newly added events to their initial date (if moved after adding)
 	calendarOptions.events = calendar.value;
 
 	console.log(calendar.value);
@@ -396,10 +435,3 @@ onMounted(async () => {
 	calendar.value = calendarData;
 });
 </script>
-
-<style>
-.fc td,
-.fc th {
-	border-style: none !important;
-}
-</style>
