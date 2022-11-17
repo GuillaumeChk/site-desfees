@@ -172,58 +172,73 @@
 							<div class="text-h6 text-uppercase">Modifier une réservation</div>
 						</q-card-section>
 
-						<q-card-section class="q-pt-none">
-							<q-input
-								rounded
-								filled
-								v-model="eventData.title"
-								label="Nom du client"
-								lazy-rules="ondemand"
-								:rules="[
-									(val) =>
-										(val && val.length > 0) ||
-										'Veuillez entrer votre nom complet',
-								]"
-								hide-bottom-space
-							/>
+						<q-form @submit="editEvent" class="q-gutter-y-md q-pb-xl" greedy>
+							<q-card-section class="q-pt-none">
+								<q-input
+									rounded
+									filled
+									v-model="eventData.title"
+									label="Nom du client"
+									lazy-rules="ondemand"
+									:rules="[
+										(val) =>
+											(val && val.length > 0) ||
+											'Veuillez entrer votre nom complet',
+									]"
+									hide-bottom-space
+								/>
 
-							<q-select
-								filled
-								color="orange"
-								v-model="eventData.room"
-								:options="roomNameOptions"
-								label="Chambre"
-								lazy-rules="ondemand"
-								:rules="[
-									(val) =>
-										(val && val.length > 0) || 'Veuillez choisir une chambre',
-								]"
-								hide-bottom-space
-							/>
+								<q-select
+									filled
+									color="orange"
+									v-model="eventData.room"
+									:options="roomNameOptions"
+									label="Chambre"
+									lazy-rules="ondemand"
+									:rules="[
+										(val) =>
+											(val && val.length > 0) || 'Veuillez choisir une chambre',
+									]"
+									hide-bottom-space
+								/>
 
-							<q-select
-								filled
-								color="orange"
-								v-model="eventData.people"
-								:options="peopleQuantityOptions"
-								label="Occupants"
-								lazy-rules="ondemand"
-								:rules="[
-									(val) =>
-										(val && val > 0) || 'Veuillez saisir le nombre d’occupants',
-								]"
-								hide-bottom-space
-							/>
+								<q-select
+									filled
+									color="orange"
+									v-model="eventData.people"
+									:options="peopleQuantityOptions"
+									label="Occupants"
+									lazy-rules="ondemand"
+									:rules="[
+										(val) =>
+											(val && val > 0) ||
+											'Veuillez saisir le nombre d’occupants',
+									]"
+									hide-bottom-space
+								/>
 
-							Du <br />{{ eventData.start }}<br />
-							au <br />{{ eventData.end }}<br />
-						</q-card-section>
+								Du <br />{{ eventData.start }}<br />
+								au <br />{{ eventData.end }}<br />
+							</q-card-section>
 
-						<q-card-actions align="right">
-							<q-btn flat unelevated label="Annuler" v-close-popup />
-							<q-btn unelevated label="Modifier" color="blue" v-close-popup />
-							<q-btn unelevated label="Supprimer" color="red" v-close-popup />
-						</q-card-actions>
+							<q-card-actions align="right">
+								<q-btn flat unelevated label="Annuler" v-close-popup />
+								<q-btn
+									unelevated
+									label="Modifier"
+									type="submit"
+									color="blue"
+									v-close-popup
+								/>
+								<q-btn
+									unelevated
+									label="Supprimer"
+									@click="deleteEvent"
+									color="red"
+									v-close-popup
+								/>
+							</q-card-actions>
+						</q-form>
 					</q-card>
 				</q-dialog>
 			</div>
@@ -272,6 +287,7 @@ let newEventData = ref();
 
 function handleDateClick(info) {
 	newEventData.value = {
+		id: Date.now(),
 		title: "",
 		start: info.date,
 		end: info.date,
@@ -283,18 +299,19 @@ function handleDateClick(info) {
 	displayNewEvent.value = true;
 }
 
-function onSubmit() {}
-
 let displayEventEdit = ref(false);
 let eventData = ref();
 
 function handleEventClick(info) {
 	eventData.value = {
+		id: info.event.id,
 		title: info.event.title,
 		start: info.event.start,
 		end: info.event.end,
+		allDay: true,
 		room: info.event.extendedProps.room,
 		people: info.event.extendedProps.people,
+		borderColor: "white",
 	};
 
 	displayEventEdit.value = true;
@@ -321,8 +338,38 @@ function addNewEvent() {
 	}
 }
 
+function editEvent() {
+	eventData.value.room = roomsData.find(
+		(object) => object.name === eventData.value.room
+	).pathName;
+	eventData.value.backgroundColor = roomsData.find(
+		(object) => object.pathName === eventData.value.room
+	).color;
+	calendar.value.splice(
+		calendar.value.findIndex((event) => event.id === eventData.value.id),
+		1,
+		eventData.value
+	);
+	calendarOptions.events = calendar.value;
+}
+
+function deleteEvent() {
+	calendar.value.splice(
+		calendar.value.findIndex((event) => event.id === eventData.value.id),
+		1
+	);
+	calendarOptions.events = calendar.value;
+
+	console.log(calendar.value);
+}
+
 // Get calendar data
 onMounted(async () => {
+	const querySnapshot0 = await getDocs(collection(db, "settings"));
+	querySnapshot0.forEach((doc) => {
+		bookingSystemWorking.value = doc.data().bookingSystemActive;
+	});
+
 	const querySnapshot = await getDocs(collection(db, "calendar"));
 	let calendarData = [];
 	querySnapshot.forEach((doc) => {
@@ -342,7 +389,6 @@ onMounted(async () => {
 				people: doc.data().people,
 			},
 		};
-		console.log(reservationEvent);
 
 		calendarData.push(reservationEvent);
 	});
