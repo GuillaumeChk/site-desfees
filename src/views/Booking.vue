@@ -25,9 +25,16 @@
 					class="q-gutter-y-md q-pb-xl"
 					greedy
 				>
+					<q-input filled rounded v-model="client" label="Nom"
+							lazy-rules="ondemand"
+								:rules="[
+									(val) =>
+										(val && val.length > 0) || 'Veuillez entrer votre nom complet',
+								]"
+								hide-bottom-space />
+
 					<q-select
 						filled
-						rounded
 						color="orange"
 						v-model="room"
 						:options="roomNameOptions"
@@ -236,20 +243,22 @@ import { date } from 'quasar';
 let calendar = ref([]);
 
 let room = ref(null);
+let client = ref(null);
 let people = ref(null);
 let reservationDate = ref([]);
 let acceptConditions = ref(false);
 let displayConditions = ref(false);
 let reservation = computed(() => {
 	return {
+		client: client.value,
 		room: room.value,
 		people: people.value,
 		date: reservationDate.value,
 	};
 });
 
-let roomNameOptions = Array.from(roomsData, (element) => element.name);
-let peopleQuantityOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const roomNameOptions = Array.from(roomsData, (element) => element.name);
+const peopleQuantityOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 // Disable already reserved dates in DatePicker
 function datesOptions(dateElement) {
