@@ -122,7 +122,7 @@
 									filled
 									color="orange"
 									v-model="newEventData.room"
-									:options="roomNameOptions"
+									:options="roomPathNameOptions"
 									label="Chambre"
 									lazy-rules="ondemand"
 									:rules="[
@@ -147,7 +147,7 @@
 									hide-bottom-space
 								/>
 
-								<p>
+								<p v-if="newEventData.start">
 									Le
 									{{
 										newEventData.start.toLocaleDateString("fr-FR", {
@@ -207,7 +207,7 @@
 									filled
 									color="orange"
 									v-model="eventData.room"
-									:options="roomNameOptions"
+									:options="roomPathNameOptions"
 									label="Chambre"
 									lazy-rules="ondemand"
 									:rules="[
@@ -232,7 +232,7 @@
 									hide-bottom-space
 								/>
 
-								<p>
+								<p v-if="eventData.start">
 									Le
 									{{
 										eventData.start.toLocaleDateString("fr-FR", {
@@ -255,6 +255,12 @@
 											})
 										}}. </span
 									><br />
+								</p>
+
+								<p class="text-italic">
+									Pour modifier la date : simplement cliquer/glisser la
+									réservation. <br />
+									Pour modifier la durée : redimensionner la réservation.
 								</p>
 							</q-card-section>
 
@@ -300,12 +306,16 @@ import { db } from "@/firebase";
 let password = ref("");
 let isPwd = ref(true);
 
-const roomNameOptions = Array.from(roomsData, (element) => element.name);
+const roomPathNameOptions = Array.from(
+	roomsData,
+	(element) => element.pathName
+);
 const peopleQuantityOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 let calendar = ref([]);
 let calendarOptions = computed(() => {
 	return {
+		timeZone: "UTC",
 		plugins: [dayGridPlugin, interactionPlugin],
 		buttonIcons: false,
 		locale: frLocale,
@@ -313,6 +323,8 @@ let calendarOptions = computed(() => {
 		editable: true,
 		dateClick: handleDateClick,
 		eventClick: handleEventClick,
+		eventDrop: handleEventDropOrResize,
+		eventResize: handleEventDropOrResize,
 		events: calendar.value,
 	};
 });
@@ -355,12 +367,43 @@ function handleEventClick(info) {
 	displayEventEdit.value = true;
 }
 
+let eventDroppedData = ref();
+
+function handleEventDropOrResize(info) {
+	eventDroppedData.value = {
+		id: info.event.id,
+		title: info.event.title,
+		start: info.event.start,
+		end: info.event.end,
+		allDay: true,
+		room: info.event.extendedProps.room,
+		people: info.event.extendedProps.people,
+		borderColor: "white",
+	};
+	eventDroppedData.value.room = roomsData.find(
+		(object) => object.pathName === eventDroppedData.value.room
+	).pathName; // no need ?
+	eventDroppedData.value.backgroundColor = roomsData.find(
+		(object) => object.pathName === eventDroppedData.value.room
+	).color;
+
+	// update event
+	calendar.value.splice(
+		calendar.value.findIndex((event) => event.id === eventDroppedData.value.id),
+		1,
+		eventDroppedData.value
+	);
+
+	eventDroppedData.value = {};
+
+	calendarOptions.events = calendar.value;
+}
+
 function addNewEvent() {
 	if (1) {
 		// valid?
-		console.log(newEventData.value);
 		newEventData.value.room = roomsData.find(
-			(object) => object.name === newEventData.value.room
+			(object) => object.pathName === newEventData.value.room
 		).pathName;
 		newEventData.value.backgroundColor = roomsData.find(
 			(object) => object.pathName === newEventData.value.room
@@ -369,7 +412,6 @@ function addNewEvent() {
 		calendarOptions.events = calendar.value;
 		newEventData.value = {};
 
-		console.log(calendar.value);
 		// update DB
 	} else {
 		alert("Invalid date.");
@@ -378,16 +420,20 @@ function addNewEvent() {
 
 function editEvent() {
 	eventData.value.room = roomsData.find(
-		(object) => object.name === eventData.value.room
+		(object) => object.pathName === eventData.value.room
 	).pathName;
 	eventData.value.backgroundColor = roomsData.find(
 		(object) => object.pathName === eventData.value.room
 	).color;
+
+	// update event
 	calendar.value.splice(
 		calendar.value.findIndex((event) => event.id === eventData.value.id),
 		1,
 		eventData.value
 	);
+
+	eventData.value = {};
 	calendarOptions.events = calendar.value;
 }
 
@@ -396,10 +442,8 @@ function deleteEvent() {
 		calendar.value.findIndex((event) => event.id === eventData.value.id),
 		1
 	);
-	// bug : removing an event reset newly added events to their initial date (if moved after adding)
-	calendarOptions.events = calendar.value;
 
-	console.log(calendar.value);
+	calendarOptions.events = calendar.value;
 }
 
 // Get calendar data
@@ -431,7 +475,7 @@ onMounted(async () => {
 
 		calendarData.push(reservationEvent);
 	});
-	console.log(calendarData);
+
 	calendar.value = calendarData;
 });
 </script>
