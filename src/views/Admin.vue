@@ -78,16 +78,12 @@
 						<q-btn unelevated label="Télécharger l'agenda" color="blue" />
 					</p>
 					<p>
-						En cas de fausse manipulation sur cette page :<br />
-						<q-btn
-							unelevated
-							label="Annuler toutes les modifications"
-							color="black"
-						/>
+						En cas de fausse manipulation, annuler les changements en cours :<br />
+						<q-btn unelevated label="Annuler tout" color="black" />
 					</p>
 					<p>
-						Valider tous les changements et les envoyer au serveur :<br />
-						<q-btn unelevated label="Valider les modifications" color="green" />
+						Valider les changements en cours et les envoyer au serveur :<br />
+						<q-btn unelevated label="Valider tout" color="green" />
 					</p>
 					Récapitulatif des changements en cours :
 				</div>
@@ -300,7 +296,13 @@ import frLocale from "@fullcalendar/core/locales/fr";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 
-import { collection, getDocs } from "firebase/firestore";
+import {
+	collection,
+	getDocs,
+	doc,
+	setDoc,
+	deleteDoc,
+} from "firebase/firestore";
 import { db } from "@/firebase";
 
 let password = ref("");
@@ -331,12 +333,14 @@ let calendarOptions = computed(() => {
 
 let bookingSystemWorking = ref(true);
 
+/// EVENTS HANDLERS
 let displayNewEvent = ref(false);
 let newEventData = ref();
 
+// add new
 function handleDateClick(info) {
 	newEventData.value = {
-		id: Date.now(),
+		id: Date.now().toString(),
 		title: "",
 		start: info.date,
 		end: info.date,
@@ -352,6 +356,7 @@ function handleDateClick(info) {
 let displayEventEdit = ref(false);
 let eventData = ref();
 
+// modify
 function handleEventClick(info) {
 	eventData.value = {
 		id: info.event.id,
@@ -369,7 +374,8 @@ function handleEventClick(info) {
 
 let eventDroppedData = ref();
 
-function handleEventDropOrResize(info) {
+// modify date
+async function handleEventDropOrResize(info) {
 	eventDroppedData.value = {
 		id: info.event.id,
 		title: info.event.title,
@@ -394,31 +400,32 @@ function handleEventDropOrResize(info) {
 		eventDroppedData.value
 	);
 
+	await updateDB(eventDroppedData);
+
 	eventDroppedData.value = {};
 
 	calendarOptions.events = calendar.value;
 }
+/// EVENTS HANDLER - end
 
-function addNewEvent() {
-	if (1) {
-		// valid?
-		newEventData.value.room = roomsData.find(
-			(object) => object.pathName === newEventData.value.room
-		).pathName;
-		newEventData.value.backgroundColor = roomsData.find(
-			(object) => object.pathName === newEventData.value.room
-		).color;
-		calendar.value.push(newEventData.value);
-		calendarOptions.events = calendar.value;
-		newEventData.value = {};
+/// CRUD
+async function addNewEvent() {
+	newEventData.value.room = roomsData.find(
+		(object) => object.pathName === newEventData.value.room
+	).pathName;
+	newEventData.value.backgroundColor = roomsData.find(
+		(object) => object.pathName === newEventData.value.room
+	).color;
+	calendar.value.push(newEventData.value);
+	calendarOptions.events = calendar.value;
 
-		// update DB
-	} else {
-		alert("Invalid date.");
-	}
+	// update db
+	await updateDB(newEventData);
+
+	newEventData.value = {};
 }
 
-function editEvent() {
+async function editEvent() {
 	eventData.value.room = roomsData.find(
 		(object) => object.pathName === eventData.value.room
 	).pathName;
@@ -433,20 +440,38 @@ function editEvent() {
 		eventData.value
 	);
 
+	// update db
+	await updateDB(eventData);
+
 	eventData.value = {};
 	calendarOptions.events = calendar.value;
 }
 
-function deleteEvent() {
+async function deleteEvent() {
 	calendar.value.splice(
 		calendar.value.findIndex((event) => event.id === eventData.value.id),
 		1
 	);
 
+	await deleteDoc(doc(db, "calendar", eventData.value.id));
 	calendarOptions.events = calendar.value;
 }
 
-// Get calendar data
+// Add/update event to db
+async function updateDB(eventRef) {
+	let eventForDB = {
+		clientName: eventRef.value.title,
+		startDate: eventRef.value.start
+			? eventRef.value.start
+			: eventRef.value.dateStr,
+		endDate: eventRef.value.end ? eventRef.value.end : eventRef.value.start,
+		room: eventRef.value.room,
+		people: eventRef.value.people,
+	};
+	await setDoc(doc(db, "calendar", eventRef.value.id), eventForDB);
+}
+
+// Get calendar data from firebase
 onMounted(async () => {
 	const querySnapshot0 = await getDocs(collection(db, "settings"));
 	querySnapshot0.forEach((doc) => {
@@ -478,4 +503,5 @@ onMounted(async () => {
 
 	calendar.value = calendarData;
 });
+/// CRUD - end
 </script>
