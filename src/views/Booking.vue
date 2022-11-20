@@ -78,15 +78,16 @@
 							<template v-slot:control>
 								<q-date
 									v-model="reservationDate"
+									:disable="!datePickerDisabled"
+									:options="datesOptions"
+									mask='DD/MM/YYYY'
 									flat
 									square
 									color="orange"
 									class="q-mt-sm full-width"
-									mask='DD/MM/YYYY'
 									minimal
 									range
 									multiple
-									:options="datesOptions"
 								/>
 							</template>
 						</q-field>
@@ -107,6 +108,7 @@
 							dense-toggle
 						>
 							<q-card class="q-pa-md q-mx-md text-grey-8 ">
+								<p>Sélectionnez d'abord une chambre.</p>
 								<p>Une nuit : cliquez deux fois.</p>
 								<p>
 									Plusieurs nuits : cliquez sur la date de début, puis celle de
@@ -233,7 +235,7 @@
 
 <script setup>
 import { computed } from "@vue/reactivity";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 import CustomDivider from "../components/CustomDivider.vue";
 import roomsData from "../data/roomsData.json";
 import { collection, getDocs } from "firebase/firestore";
@@ -242,9 +244,9 @@ import { date } from 'quasar';
 
 let calendar = ref([]);
 
-let room = ref(null);
-let client = ref(null);
-let people = ref(null);
+let room = ref();
+let client = ref();
+let people = ref();
 let reservationDate = ref([]);
 let acceptConditions = ref(false);
 let displayConditions = ref(false);
@@ -255,6 +257,9 @@ let reservation = computed(() => {
 		people: people.value,
 		date: reservationDate.value,
 	};
+});
+let datePickerDisabled = computed(() => {
+	return roomNameOptions.includes(room.value)
 });
 
 const roomNameOptions = Array.from(roomsData, (element) => element.name);
@@ -282,27 +287,44 @@ function onReset() {
 	acceptConditions.value = false;
 }
 
-// Get calendar data
-onMounted(async () => {
-	const querySnapshot = await getDocs(collection(db, "calendar"));
+
+let querySnapshot;
+
+// Update date picker options (set available dates) when a room is selected
+watch(room, (newRoom) => {
+	let roomPathName = roomsData.find(
+				(object) => object.name === newRoom
+			).pathName
+	setRoomCalendar(roomPathName);
+})
+
+// Get room data when selecting room
+function setRoomCalendar(roomPathName) {
 	let calendarData = [];
 	querySnapshot.forEach((doc) => {
 		// doc.data() is never undefined for query doc snapshots
-		const reservation = {
-			id: doc.id,
-			clientName: doc.data().clientName,
-			startDate: doc.data().startDate,
-			endDate: doc.data().endDate,
-			room: roomsData.find(
-			(object) => object.pathName === doc.data().room
-		).name,
-		};
-		if(reservation.startDate.seconds === reservation.endDate.seconds) {
-			calendarData.push(date.formatDate(reservation.startDate.toDate(), 'YYYY/MM/DD')); // do not change mask 'YYYY/MM/DD'
+		if (doc.data().room === roomPathName) {
+			const reservation = {
+				id: doc.id,
+				clientName: doc.data().clientName,
+				startDate: doc.data().startDate,
+				endDate: doc.data().endDate,
+				room: roomsData.find(
+				(object) => object.pathName === doc.data().room
+			).name,
+			};
+			if(reservation.startDate.seconds === reservation.endDate.seconds) {
+				calendarData.push(date.formatDate(reservation.startDate.toDate(), 'YYYY/MM/DD')); // do not change mask 'YYYY/MM/DD'
+			}
 		}
 	});
-	console.log(calendarData);
+	// console.log(calendarData);
 	calendar.value = calendarData;
+}
+
+// Get calendar data from DB
+onMounted(async () => {
+	querySnapshot = await getDocs(collection(db, "calendar"));
 })
 </script>
 
