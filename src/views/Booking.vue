@@ -238,7 +238,7 @@ import { computed } from "@vue/reactivity";
 import { onMounted, ref, watch } from "vue";
 import CustomDivider from "../components/CustomDivider.vue";
 import roomsData from "../data/roomsData.json";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, doc, getDocs, setDoc, Timestamp } from "firebase/firestore";
 import { db } from "@/firebase";
 import { date } from 'quasar';
 
@@ -252,10 +252,11 @@ let acceptConditions = ref(false);
 let displayConditions = ref(false);
 let reservation = computed(() => {
 	return {
-		client: client.value,
+		clientName: client.value,
 		room: room.value,
 		people: people.value,
-		date: reservationDate.value,
+		startDate: reservationDate.value,
+		endDate: reservationDate.value,
 	};
 });
 let datePickerDisabled = computed(() => {
@@ -270,14 +271,20 @@ function datesOptions(dateElement) {
 	return !calendar.value.includes(dateElement);
 }
 
-function onSubmit() {
-	if (acceptConditions.value !== true) {
-		console.log("invalide");
-		console.log(reservation);
-	} else {
-		console.log("valide");
-		console.log(reservation);
-	}
+async function onSubmit() {
+	if (acceptConditions.value === true) {
+		
+		let eventForDB = { ...reservation.value};	
+		eventForDB.room = roomsData.find((object) => object.name === reservation.value.room).pathName;
+		let dateTemp = eventForDB.startDate[0].split("/");
+		eventForDB.startDate = Timestamp.fromDate(new Date(dateTemp[2], dateTemp[1] - 1, dateTemp[0])); // from "DD/MM/YYYY"
+		dateTemp = eventForDB.endDate[0].split("/");
+		eventForDB.endDate = Timestamp.fromDate(new Date(dateTemp[2], dateTemp[1] - 1, dateTemp[0])); // from "DD/MM/YYYY"
+		
+		console.log(eventForDB);
+
+		await setDoc(doc(db, "calendar", Date.now().toString()), eventForDB);
+	} 
 }
 
 function onReset() {
