@@ -470,7 +470,6 @@ let eventResizedData = ref();
 
 // modify date duration
 async function handleEventResize(info) {
-	console.log(info.event.end);
 	eventResizedData.value = {
 		id: info.event.id,
 		title: info.event.title,
@@ -556,12 +555,13 @@ async function deleteEvent() {
 
 // Add/update event to db
 async function updateDB(eventRef) {
+	let endDate = new Date(eventRef.value.end);
+	endDate.setDate(endDate.getDate() - 1);
+
 	let eventForDB = {
 		clientName: eventRef.value.title,
-		startDate: eventRef.value.start
-			? eventRef.value.start
-			: eventRef.value.dateStr,
-		endDate: eventRef.value.end ? eventRef.value.end : eventRef.value.start,
+		startDate: eventRef.value.start,
+		endDate: endDate,
 		room: eventRef.value.room,
 		people: eventRef.value.people,
 		mail: eventRef.value.mail,
