@@ -19,19 +19,36 @@
 		<div class="wrapper">
 			<div class="q-pa-sm form">
 				<h4 class="q-py-xl text-uppercase text-weight-light">Réserver</h4>
+
 				<q-form
 					@submit="onSubmit"
 					@reset="onReset"
 					class="q-gutter-y-md q-pb-xl"
 					greedy
 				>
-					<q-input filled rounded v-model="client" label="Nom"
+					<q-input filled rounded v-model="client" type="text" label="Nom"
 							lazy-rules="ondemand"
 								:rules="[
 									(val) =>
 										(val && val.length > 0) || 'Veuillez entrer votre nom complet',
 								]"
 								hide-bottom-space />
+
+					<q-input filled v-model="mail" type="email" label="Mail"
+				lazy-rules="ondemand"
+					:rules="[
+						(val) =>
+							(val && val.length > 0) || 'Veuillez entrer une adresse mail valide',
+					]"
+					hide-bottom-space />
+
+					<q-input filled v-model="phone" type="tel" maxlength="13" label="Téléphone"
+				lazy-rules="ondemand"
+					:rules="[
+						(val) =>
+							(val && val.length > 0) || 'Veuillez entrer un numéro valide',
+					]"
+					hide-bottom-space />
 
 					<q-select
 						filled
@@ -64,14 +81,14 @@
 					<div>
 						<q-field
 							filled
-							label="Durée"
+							label="Nuit(s)"
 							stack-label
 							color="orange"
 							v-model="reservationDate"
 							lazy-rules="ondemand"
 							:rules="[
 								(val) =>
-									(val && val.length > 0) || 'Veuillez sélectionner une durée',
+									(val && val.length > 0) || 'Veuillez sélectionner une nuit',
 							]"
 							hide-bottom-space
 						>
@@ -86,7 +103,6 @@
 									color="orange"
 									class="q-mt-sm full-width"
 									minimal
-									range
 									multiple
 								/>
 							</template>
@@ -109,13 +125,8 @@
 						>
 							<q-card class="q-pa-md q-mx-md text-grey-8 ">
 								<p>Sélectionnez d'abord une chambre.</p>
-								<p>Une nuit : cliquez deux fois.</p>
-								<p>
-									Plusieurs nuits : cliquez sur la date de début, puis celle de
-									fin.
-								</p>
+								<p>Puis sélectionnez une ou plusieurs nuits consécutives.</p>
 								<p class="q-mb-none text-italic">
-									Vous pouvez accumuler plusieurs nuits et/ou périodes. <br>
 									Si une date est désactivée, c'est qu'elle est déjà réservée.
 								</p>
 							</q-card>
@@ -246,6 +257,8 @@ let calendar = ref([]);
 
 let room = ref();
 let client = ref();
+let mail = ref();
+let phone = ref();
 let people = ref();
 let reservationDate = ref([]);
 let acceptConditions = ref(false);
@@ -253,10 +266,12 @@ let displayConditions = ref(false);
 let reservation = computed(() => {
 	return {
 		clientName: client.value,
+		mail: mail.value,
+		phone: phone.value, 
 		room: room.value,
 		people: people.value,
-		startDate: reservationDate.value,
-		endDate: reservationDate.value,
+		startDate: null,
+		endDate: null,
 	};
 });
 let datePickerDisabled = computed(() => {
@@ -273,15 +288,15 @@ function datesOptions(dateElement) {
 
 async function onSubmit() {
 	if (acceptConditions.value === true) {
-		
 		let eventForDB = { ...reservation.value};	
+
 		eventForDB.room = roomsData.find((object) => object.name === reservation.value.room).pathName;
-		let dateTemp = eventForDB.startDate[0].split("/");
+
+		console.log(reservationDate.value);
+		let dateTemp = reservationDate.value[0].split("/");
 		eventForDB.startDate = Timestamp.fromDate(new Date(dateTemp[2], dateTemp[1] - 1, dateTemp[0])); // from "DD/MM/YYYY"
-		dateTemp = eventForDB.endDate[0].split("/");
+		dateTemp = reservationDate.value[reservationDate.value.length - 1].split("/");
 		eventForDB.endDate = Timestamp.fromDate(new Date(dateTemp[2], dateTemp[1] - 1, dateTemp[0])); // from "DD/MM/YYYY"
-		
-		console.log(eventForDB);
 
 		await setDoc(doc(db, "calendar", Date.now().toString()), eventForDB);
 	} 
@@ -289,6 +304,9 @@ async function onSubmit() {
 
 function onReset() {
 	room.value = null;
+	clientName.value = null;
+	mail.value = null;
+	phone.value = null;
 	people.value = null;
 	reservationDate.value = null;
 	acceptConditions.value = false;
@@ -313,19 +331,32 @@ function setRoomCalendar(roomPathName) {
 		if (doc.data().room === roomPathName) {
 			const reservation = {
 				id: doc.id,
-				clientName: doc.data().clientName,
+				// clientName: doc.data().clientName,
+				// mail: doc.data().mail,
+				// phone: doc.data().phone,
 				startDate: doc.data().startDate,
 				endDate: doc.data().endDate,
 				room: roomsData.find(
 				(object) => object.pathName === doc.data().room
 			).name,
 			};
-			if(reservation.startDate.seconds === reservation.endDate.seconds) {
+
+			// if unique night
+			if(reservation.endDate.seconds - reservation.startDate.seconds < 24*60*60 ) {
 				calendarData.push(date.formatDate(reservation.startDate.toDate(), 'YYYY/MM/DD')); // do not change mask 'YYYY/MM/DD'
+			}
+			else {
+				let nextDate = new Date(doc.data().startDate.toDate());
+				let nights = (reservation.endDate.seconds - reservation.startDate.seconds) / (24*60*60);
+
+				for (let i = 0; i <= nights; i++) {
+					calendarData.push(date.formatDate(nextDate, 'YYYY/MM/DD')); // do not change mask 'YYYY/MM/DD'
+					nextDate.setDate(nextDate.getDate() + 1);
+				}
 			}
 		}
 	});
-	// console.log(calendarData);
+	console.log(calendarData);
 	calendar.value = calendarData;
 }
 

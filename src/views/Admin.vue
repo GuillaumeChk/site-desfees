@@ -114,6 +114,31 @@
 									hide-bottom-space
 								/>
 
+								<q-input
+									filled
+									v-model="newEventData.mail"
+									label="Adresse mail"
+									lazy-rules="ondemand"
+									:rules="[
+										(val) =>
+											(val && val.length > 0) || 'Veuillez entrer un mail',
+									]"
+									hide-bottom-space
+								/>
+
+								<q-input
+									filled
+									v-model="newEventData.phone"
+									label="Téléphone"
+									lazy-rules="ondemand"
+									:rules="[
+										(val) =>
+											(val && val.length > 0) ||
+											'Veuillez entrer un numéro de téléphone',
+									]"
+									hide-bottom-space
+								/>
+
 								<q-select
 									filled
 									color="orange"
@@ -146,7 +171,7 @@
 								<p v-if="newEventData.start">
 									Le
 									{{
-										newEventData.start.toLocaleDateString("fr-FR", {
+										newEventData.start.toLocaleDateString({
 											timeZone: "UTC",
 											weekday: "long",
 											year: "numeric",
@@ -199,6 +224,31 @@
 									hide-bottom-space
 								/>
 
+								<q-input
+									filled
+									v-model="eventData.mail"
+									label="Adresse mail"
+									lazy-rules="ondemand"
+									:rules="[
+										(val) =>
+											(val && val.length > 0) || 'Veuillez entrer un mail',
+									]"
+									hide-bottom-space
+								/>
+
+								<q-input
+									filled
+									v-model="eventData.phone"
+									label="Téléphone"
+									lazy-rules="ondemand"
+									:rules="[
+										(val) =>
+											(val && val.length > 0) ||
+											'Veuillez entrer un numéro de téléphone',
+									]"
+									hide-bottom-space
+								/>
+
 								<q-select
 									filled
 									color="orange"
@@ -231,7 +281,7 @@
 								<p v-if="eventData.start">
 									Le
 									{{
-										eventData.start.toLocaleDateString("fr-FR", {
+										eventData.start.toLocaleDateString({
 											timeZone: "UTC",
 											weekday: "long",
 											year: "numeric",
@@ -240,9 +290,9 @@
 										})
 									}}
 									<span v-if="eventData.end"
-										><br />jusqu'au <br />
+										><br />jusqu'au matin du
 										{{
-											eventData.end.toLocaleDateString("fr-FR", {
+											eventData.end.toLocaleDateString({
 												timeZone: "UTC",
 												weekday: "long",
 												year: "numeric",
@@ -317,7 +367,7 @@ const peopleQuantityOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 let calendar = ref([]);
 let calendarOptions = computed(() => {
 	return {
-		timeZone: "UTC",
+		// timeZone: "UTC",
 		plugins: [dayGridPlugin, interactionPlugin],
 		buttonIcons: false,
 		locale: frLocale,
@@ -325,8 +375,8 @@ let calendarOptions = computed(() => {
 		editable: true,
 		dateClick: handleDateClick,
 		eventClick: handleEventClick,
-		eventDrop: handleEventDropOrResize,
-		eventResize: handleEventDropOrResize,
+		eventDrop: handleEventDrop,
+		eventResize: handleEventResize,
 		events: calendar.value,
 	};
 });
@@ -339,12 +389,17 @@ let newEventData = ref();
 
 // add new
 function handleDateClick(info) {
+	// let endDate = new Date(info.date);
+	// endDate.setDate(endDate.getDate() + 1);
+
 	newEventData.value = {
 		id: Date.now().toString(),
 		title: "",
 		start: info.date,
 		end: info.date,
 		room: "",
+		mail: "",
+		phone: "",
 		people: 0,
 		allDay: true,
 		borderColor: "white",
@@ -366,6 +421,8 @@ function handleEventClick(info) {
 		allDay: true,
 		room: info.event.extendedProps.room,
 		people: info.event.extendedProps.people,
+		mail: info.event.extendedProps.mail,
+		phone: info.event.extendedProps.phone,
 		borderColor: "white",
 	};
 
@@ -375,7 +432,7 @@ function handleEventClick(info) {
 let eventDroppedData = ref();
 
 // modify date
-async function handleEventDropOrResize(info) {
+async function handleEventDrop(info) {
 	eventDroppedData.value = {
 		id: info.event.id,
 		title: info.event.title,
@@ -384,6 +441,8 @@ async function handleEventDropOrResize(info) {
 		allDay: true,
 		room: info.event.extendedProps.room,
 		people: info.event.extendedProps.people,
+		mail: info.event.extendedProps.mail,
+		phone: info.event.extendedProps.phone,
 		borderColor: "white",
 	};
 	eventDroppedData.value.room = roomsData.find(
@@ -403,6 +462,44 @@ async function handleEventDropOrResize(info) {
 	await updateDB(eventDroppedData);
 
 	eventDroppedData.value = {};
+
+	calendarOptions.events = calendar.value;
+}
+
+let eventResizedData = ref();
+
+// modify date duration
+async function handleEventResize(info) {
+	console.log(info.event.end);
+	eventResizedData.value = {
+		id: info.event.id,
+		title: info.event.title,
+		start: info.event.start,
+		end: info.event.end,
+		allDay: true,
+		room: info.event.extendedProps.room,
+		people: info.event.extendedProps.people,
+		mail: info.event.extendedProps.mail,
+		phone: info.event.extendedProps.phone,
+		borderColor: "white",
+	};
+	eventResizedData.value.room = roomsData.find(
+		(object) => object.pathName === eventResizedData.value.room
+	).pathName; // no need ?
+	eventResizedData.value.backgroundColor = roomsData.find(
+		(object) => object.pathName === eventResizedData.value.room
+	).color;
+
+	// update event
+	calendar.value.splice(
+		calendar.value.findIndex((event) => event.id === eventResizedData.value.id),
+		1,
+		eventResizedData.value
+	);
+
+	await updateDB(eventResizedData);
+
+	eventResizedData.value = {};
 
 	calendarOptions.events = calendar.value;
 }
@@ -467,7 +564,11 @@ async function updateDB(eventRef) {
 		endDate: eventRef.value.end ? eventRef.value.end : eventRef.value.start,
 		room: eventRef.value.room,
 		people: eventRef.value.people,
+		mail: eventRef.value.mail,
+		phone: eventRef.value.phone,
+		allDay: true,
 	};
+	console.log(eventForDB);
 	await setDoc(doc(db, "calendar", eventRef.value.id), eventForDB);
 }
 
@@ -486,7 +587,7 @@ onMounted(async () => {
 			id: doc.id,
 			title: doc.data().clientName,
 			start: new Date(doc.data().startDate.seconds * 1000), // millisecond time
-			end: new Date(doc.data().endDate.seconds * 1000),
+			end: new Date(doc.data().endDate.seconds * 1000 + 24 * 60 * 60 * 1000),
 			allDay: true,
 			backgroundColor: roomsData.find(
 				(object) => object.pathName === doc.data().room
@@ -495,12 +596,15 @@ onMounted(async () => {
 			extendedProps: {
 				room: doc.data().room,
 				people: doc.data().people,
+				mail: doc.data().mail,
+				phone: doc.data().phone,
 			},
 		};
 
 		calendarData.push(reservationEvent);
 	});
 
+	console.log(calendarData);
 	calendar.value = calendarData;
 });
 /// CRUD - end
