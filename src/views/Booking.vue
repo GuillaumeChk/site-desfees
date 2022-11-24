@@ -98,6 +98,8 @@
 									:disable="!datePickerDisabled"
 									:options="datesOptions"
 									:events="datesHighPrices"
+									navigation-min-year-month="2022/01"
+      								navigation-max-year-month="2032/12"
 									mask='DD/MM/YYYY'
 									flat
 									square
@@ -334,7 +336,7 @@ const peopleQuantityOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 // Disable already reserved dates in DatePicker
 function datesOptions(dateElement) {
-	return !calendar.value.includes(dateElement);
+	return !calendar.value.includes(dateElement) && (new Date(dateElement)) >= (new Date()).setDate((new Date()).getDate()-1); // + not in the past
 }
 
 // Highlight high price dates in DatePicker
