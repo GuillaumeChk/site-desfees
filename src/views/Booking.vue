@@ -250,25 +250,27 @@
 							<q-card-section class="q-pt-none">
 								<h5>Votre réservation</h5>
 								<p>
-									<q-icon name="person" /> {{client}} <br>
-									<q-icon name="email" /> {{mail}} <br>
-									<q-icon name="phone" /> {{phone}} <br>
-									<q-icon name="groups" /> {{people}} personnes <br>
-									<q-icon name="bed" /> Chambre {{room}} <br>
-									<q-icon name="date_range" /> Le {{reservationDate[0]}} à 17 h jusqu'au {{reservationDate[reservationDate.length - 1]}} à 11h du lendemain matin. <br>
-									<q-icon name="done" /> Vous avez acceptez nos conditions.</p>
-
+									<q-icon name="person" /> {{client}}<br>
+									<q-icon name="email" /> {{mail}}<br>
+									<q-icon name="phone" /> {{phone}}<br>
+									<q-icon name="groups" /> {{people}} personnes<br>
+									<q-icon name="bed" /> Chambre {{room}}<br>
+									<q-icon name="date_range" /> Le {{reservationDate[0]}} (à partir de 17 h) jusqu'au lendemain du {{reservationDate[reservationDate.length - 1]}} (avant 11h du lendemain matin).<br>
+									<q-icon name="done" /> Vous avez acceptez nos conditions.
+								</p>
 								<p>
-									Prix du séjour :
-									Chambre x €
-									Supplément par personnes
-									Remise
-
+									Prix du séjour :<br>
+									<span v-for="(priceElement, index) in price">
+										1 nuit {{ priceElement }} €<span v-if="index > 0"> (remise de 10%)</span><br>
+									</span> 
+									Supplément par personnes<br>
+									Prix total : {{ priceTotal }} €<br>
+									<br>
 									En cas d'anomalie ou de doute, veuillez nous contacter.
 								</p>
 								<p>
 
-									Vous allez être redirigé vers une page de paiement sécurisée. <br>
+									Vous allez être redirigé vers une page de paiement sécurisée.<br>
 									Une fois le paiement effectué, vous serez contacté pour vous confirmer la réservation, et échanger avec vos hôtes.
 								</p>
 								</q-card-section>
@@ -278,7 +280,7 @@
 								<q-btn
 									unelevated
 									label="Payer"
-									@click="deleteEvent"
+									
 									color="blue"
 									v-close-popup
 								/>
@@ -327,9 +329,23 @@ let reservation = computed(() => {
 let datePickerDisabled = computed(() => {
 	return roomNameOptions.includes(room.value)
 });
-let price = computed(() =>  {
-	return 
+const discount = 0.1;
+let price = computed(() => {
+	let priceArray = []
+
+	reservationDate.value.forEach((dateElement, index) => {
+		let dateTemp = dateElement.split("/");
+		let reservationDateTemp = dateTemp[2] + "/" + dateTemp[1]  + "/" + dateTemp[0]; // do not change mask 'YYYY/MM/DD'
+
+		let roomPrice = roomsData.find(roomElement => roomElement.name === room.value).tarifs[datesHighPrices(reservationDateTemp) ? 1 : 0]
+		priceArray.push(index > 0 ? roomPrice*(1-discount) : roomPrice)
+		
+	})
+	// console.log(priceArray)
+
+	return priceArray
 });
+let priceTotal = computed(() => { return price.value.reduce((accumulator, currentValue) => accumulator + currentValue, 0)})
 
 const roomNameOptions = Array.from(roomsData, (element) => element.name);
 const peopleQuantityOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -363,7 +379,7 @@ async function onSubmit() {
 
 		eventForDB.room = roomsData.find((object) => object.name === reservation.value.room).pathName;
 
-		console.log(reservationDate.value);
+		// console.log(reservationDate.value);
 		let dateTemp = reservationDate.value[0].split("/");
 		eventForDB.startDate = Timestamp.fromDate(new Date(dateTemp[2], dateTemp[1] - 1, dateTemp[0])); // from "DD/MM/YYYY"
 		dateTemp = reservationDate.value[reservationDate.value.length - 1].split("/");
