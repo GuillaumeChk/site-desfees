@@ -26,7 +26,7 @@
 					class="q-gutter-y-md q-pb-xl"
 					greedy
 				>
-					<q-input filled rounded v-model="client" type="text" label="Nom"
+					<q-input filled rounded color="orange" v-model="client" type="text" label="Nom"
 							lazy-rules="ondemand"
 								:rules="[
 									(val) =>
@@ -34,7 +34,7 @@
 								]"
 								hide-bottom-space />
 
-					<q-input filled v-model="mail" type="email" label="Mail"
+					<q-input filled color="orange" v-model="mail" type="email" label="Mail"
 				lazy-rules="ondemand"
 					:rules="[
 						(val) =>
@@ -42,7 +42,7 @@
 					]"
 					hide-bottom-space />
 
-					<q-input filled v-model="phone" type="tel" maxlength="13" label="Téléphone"
+					<q-input filled color="orange" v-model="phone" type="tel" maxlength="13" label="Téléphone"
 				lazy-rules="ondemand"
 					:rules="[
 						(val) =>
@@ -97,6 +97,7 @@
 									v-model="reservationDate"
 									:disable="!datePickerDisabled"
 									:options="datesOptions"
+									:events="datesHighPrices"
 									mask='DD/MM/YYYY'
 									flat
 									square
@@ -238,6 +239,51 @@
 					</div>
 				</q-form>
 
+				<q-dialog v-model="displayConfirmation">
+						<q-card  class="q-px-lg q-py-md">
+							<q-card-section>
+								<div class="text-h6 text-uppercase">Confirmation de réservation</div>
+							</q-card-section>
+
+							<q-card-section class="q-pt-none">
+								<h5>Votre réservation</h5>
+								<p>
+									<q-icon name="person" /> {{client}} <br>
+									<q-icon name="email" /> {{mail}} <br>
+									<q-icon name="phone" /> {{phone}} <br>
+									<q-icon name="groups" /> {{people}} personnes <br>
+									<q-icon name="bed" /> Chambre {{room}} <br>
+									<q-icon name="date_range" /> Le {{reservationDate[0]}} à 17 h jusqu'au {{reservationDate[reservationDate.length - 1]}} à 11h du lendemain matin. <br>
+									<q-icon name="done" /> Vous avez acceptez nos conditions.</p>
+
+								<p>
+									Prix du séjour :
+									Chambre x €
+									Supplément par personnes
+									Remise
+
+									En cas d'anomalie ou de doute, veuillez nous contacter.
+								</p>
+								<p>
+
+									Vous allez être redirigé vers une page de paiement sécurisée. <br>
+									Une fois le paiement effectué, vous serez contacté pour vous confirmer la réservation, et échanger avec vos hôtes.
+								</p>
+								</q-card-section>
+
+							<q-card-actions align="right">
+								<q-btn flat unelevated label="Annuler" v-close-popup />
+								<q-btn
+									unelevated
+									label="Payer"
+									@click="deleteEvent"
+									color="blue"
+									v-close-popup
+								/>
+							</q-card-actions>
+						</q-card>
+					</q-dialog>
+
 				<CustomDivider />
 			</div>
 		</div>
@@ -252,6 +298,7 @@ import roomsData from "../data/roomsData.json";
 import { collection, doc, getDocs, setDoc, Timestamp } from "firebase/firestore";
 import { db } from "@/firebase";
 import { date } from 'quasar';
+import holidaysTo2032 from "../data/holidaysTo2032.json"
 
 let calendar = ref([]);
 
@@ -263,6 +310,7 @@ let people = ref();
 let reservationDate = ref([]);
 let acceptConditions = ref(false);
 let displayConditions = ref(false);
+let displayConfirmation= ref(false);
 let reservation = computed(() => {
 	return {
 		clientName: client.value,
@@ -277,6 +325,9 @@ let reservation = computed(() => {
 let datePickerDisabled = computed(() => {
 	return roomNameOptions.includes(room.value)
 });
+let price = computed(() =>  {
+	return 
+});
 
 const roomNameOptions = Array.from(roomsData, (element) => element.name);
 const peopleQuantityOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -286,8 +337,26 @@ function datesOptions(dateElement) {
 	return !calendar.value.includes(dateElement);
 }
 
+// Highlight high price dates in DatePicker
+// do not change mask 'YYYY/MM/DD'
+let schoolHolidays = ref([]); // set in onMounted
+let datesHighPricesCalendar = ref([]);
+function datesHighPrices(dateElement) {
+	return datesHighPricesCalendar.value.includes(dateElement) || ((new Date(dateElement)).getDay() >= 5); // + week-ends
+}
+	
+// get all dates between 2 dates
+let getDaysArray = function(start, end) {
+    for(var arr=[], dt = new Date(start); dt <= new Date(end); dt.setDate(dt.getDate()+1)){
+        arr.push(new Date(dt));
+    }
+    return arr;
+};
+
 async function onSubmit() {
 	if (acceptConditions.value === true) {
+		displayConfirmation.value = true;
+
 		let eventForDB = { ...reservation.value};	
 
 		eventForDB.room = roomsData.find((object) => object.name === reservation.value.room).pathName;
@@ -312,9 +381,6 @@ function onReset() {
 	acceptConditions.value = false;
 }
 
-
-let querySnapshot;
-
 // Update date picker options (set available dates) when a room is selected
 watch(room, (newRoom) => {
 	let roomPathName = roomsData.find(
@@ -322,6 +388,8 @@ watch(room, (newRoom) => {
 			).pathName
 	setRoomCalendar(roomPathName);
 })
+
+let querySnapshot;
 
 // Get room data when selecting room
 function setRoomCalendar(roomPathName) {
@@ -356,13 +424,43 @@ function setRoomCalendar(roomPathName) {
 			}
 		}
 	});
-	console.log(calendarData);
+	// console.log(calendarData);
 	calendar.value = calendarData;
 }
 
-// Get calendar data from DB
+// Get calendar data from DB 
+// + school holidays from gouv.fr API
 onMounted(async () => {
 	querySnapshot = await getDocs(collection(db, "calendar"));
+
+	let schoolHolidaysPromise = await fetch("https://data.education.gouv.fr/api/records/1.0/search/?dataset=fr-en-calendrier-scolaire&q=&rows=6&sort=end_date&facet=description&facet=population&facet=start_date&facet=end_date&facet=location&facet=zones&facet=annee_scolaire&refine.location=Besan%C3%A7on&timezone=Europe%2FParis");
+
+	if (schoolHolidaysPromise.ok) { 
+		let response = await schoolHolidaysPromise.json();
+		schoolHolidays.value = response.records.map(record => {
+			return {
+				start: record.fields.start_date.slice(0,10),
+				end: record.fields.end_date.slice(0,10),
+			}
+		})
+
+		let holidays = holidaysTo2032.map(object => { 
+			// do not change mask 'YYYY/MM/DD'
+			let dateTemp = object.date.split("/")
+			return dateTemp[2] + "/" + dateTemp[1]  + "/" + dateTemp[0]
+		});
+
+		let schoolHolidaysDates = [];
+		schoolHolidays.value.forEach(object => {
+			schoolHolidaysDates = schoolHolidaysDates.concat(getDaysArray(new Date(object.start), new Date(object.end)))
+		});
+		schoolHolidaysDates = schoolHolidaysDates.map(dateObj => { return date.formatDate(dateObj, 'YYYY/MM/DD')});  // do not change mask 'YYYY/MM/DD'
+
+		datesHighPricesCalendar.value = schoolHolidaysDates.concat(holidays);
+
+		// console.log(datesHighPricesCalendar.value);
+	}
+
 })
 </script>
 

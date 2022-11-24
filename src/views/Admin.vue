@@ -77,7 +77,8 @@
 						Sauvegarder l'agenda en l'état :<br />
 						<q-btn unelevated label="Télécharger l'agenda" color="blue" />
 					</p>
-					<p>
+					<p>Attention, chaque modification est envoyée en temps réel.</p>
+					<!-- <p>
 						En cas de fausse manipulation, annuler les changements en cours :<br />
 						<q-btn unelevated label="Annuler tout" color="black" />
 					</p>
@@ -86,6 +87,7 @@
 						<q-btn unelevated label="Valider tout" color="green" />
 					</p>
 					Récapitulatif des changements en cours :
+					</p> -->
 				</div>
 
 				<FullCalendar :options="calendarOptions" />
