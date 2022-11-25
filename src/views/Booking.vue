@@ -98,6 +98,7 @@
 									:disable="!datePickerDisabled"
 									:options="datesOptions"
 									:events="datesHighPrices"
+									event-color="amber"
 									navigation-min-year-month="2022/01"
       								navigation-max-year-month="2032/12"
 									mask='DD/MM/YYYY'
@@ -110,6 +111,9 @@
 								/>
 							</template>
 						</q-field>
+						<div>
+							<span class="eventCaption q-mb-xs q-mr-xs"></span><span class="text-italic text-orange"> Tarif week-ends, vacances et jours feriés</span>
+						</div>
 						<div
 							class="q-pa-sm bg-orange-5 text-white"
 							v-if="reservationDate && reservationDate.length > 0"
@@ -259,17 +263,31 @@
 									<q-icon name="done" /> Vous avez acceptez nos conditions.
 								</p>
 								<p>
-									Prix du séjour :<br>
-									<span v-for="(priceElement, index) in price">
-										1 nuit {{ priceElement }} €<span v-if="index > 0"> (remise de 10%)</span><br>
-									</span> 
+									Coût du séjour<br>
+									<q-markup-table  
+					separator="horizontal" flat bordered
+					wrap-cells>
+										<tbody>
+											<tr  v-for="(priceElement, index) in price">
+				<td>
+					1 nuit {{ priceElement }} €<td v-if="index > 0"> Remise de 10%</td><td v-if="datesHighPrices(convertDateDDMMYYYYToYYYYMMDD(reservationDate[index])) === true"> Tarif week-ends, vacances ou jours feriés</td>
+				</td>							
+											</tr>
+											<tr>
+												<td>
+						<strong>Total : </strong> {{ priceTotal }} €							
+			</td>									
+				
+											</tr>
+										</tbody>
+										
+									</q-markup-table> 
 									Supplément par personnes<br>
-									Prix total : {{ priceTotal }} €<br>
+									
 									<br>
 									En cas d'anomalie ou de doute, veuillez nous contacter.
 								</p>
 								<p>
-
 									Vous allez être redirigé vers une page de paiement sécurisée.<br>
 									Une fois le paiement effectué, vous serez contacté pour vous confirmer la réservation, et échanger avec vos hôtes.
 								</p>
@@ -334,8 +352,7 @@ let price = computed(() => {
 	let priceArray = []
 
 	reservationDate.value.forEach((dateElement, index) => {
-		let dateTemp = dateElement.split("/");
-		let reservationDateTemp = dateTemp[2] + "/" + dateTemp[1]  + "/" + dateTemp[0]; // do not change mask 'YYYY/MM/DD'
+		let reservationDateTemp = convertDateDDMMYYYYToYYYYMMDD(dateElement)
 
 		let roomPrice = roomsData.find(roomElement => roomElement.name === room.value).tarifs[datesHighPrices(reservationDateTemp) ? 1 : 0]
 		priceArray.push(index > 0 ? roomPrice*(1-discount) : roomPrice)
@@ -346,6 +363,11 @@ let price = computed(() => {
 	return priceArray
 });
 let priceTotal = computed(() => { return price.value.reduce((accumulator, currentValue) => accumulator + currentValue, 0)})
+
+function convertDateDDMMYYYYToYYYYMMDD(dateElement) {
+	let dateTemp = dateElement.split("/");
+	return dateTemp[2] + "/" + dateTemp[1]  + "/" + dateTemp[0]; // do not change mask 'YYYY/MM/DD'
+}
 
 const roomNameOptions = Array.from(roomsData, (element) => element.name);
 const peopleQuantityOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -463,9 +485,7 @@ onMounted(async () => {
 		})
 
 		let holidays = holidaysTo2032.map(object => { 
-			// do not change mask 'YYYY/MM/DD'
-			let dateTemp = object.date.split("/")
-			return dateTemp[2] + "/" + dateTemp[1]  + "/" + dateTemp[0]
+			return convertDateDDMMYYYYToYYYYMMDD(object.date)
 		});
 
 		let schoolHolidaysDates = [];
@@ -493,5 +513,25 @@ onMounted(async () => {
 	background-color: #eeeeee;
 	border-bottom-left-radius: 30px;
 	border-bottom-right-radius: 30px;
+}
+
+.q-date__event {
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    height: 5px;
+    width: 8px;
+    border-radius: 5px;
+    background-color: amber;
+    transform: translate3d(-50%,0,0);
+}
+
+.eventCaption {
+	top: 50%;
+    height: 5px;
+    width: 8px;
+    border-radius: 5px;
+    background-color: #ffc107;
+	display: inline-block;
 }
 </style>
