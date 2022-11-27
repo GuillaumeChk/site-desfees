@@ -1,13 +1,5 @@
 <template>
-	<q-header
-		id="navbar"
-		:class="
-			route.name === 'home' || route.name === 'room'
-				? 'navbar-transparent'
-				: 'navbar-solid'
-		"
-		height-hint="98"
-	>
+	<q-header id="navbar" class="navbar-transparent" height-hint="98">
 		<q-toolbar
 			id="toolbar"
 			class="q-pa-sm"
@@ -170,7 +162,7 @@ import roomsData from "../data/roomsData.json";
 let route = useRoute();
 
 // Navbar — trantparent to solid
-let topTransparent = ref(true);
+let topTransparent = true;
 
 /// uncomment below to enable on specific pages only
 // let topTransparent = ref(false);

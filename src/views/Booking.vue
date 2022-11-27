@@ -252,25 +252,25 @@
 							</q-card-section>
 
 							<q-card-section class="q-pt-none">
-								<h5>Votre réservation</h5>
-								<p>
+								<h6>Votre réservation</h6>
+								<p class="q-pl-sm ">
 									<q-icon name="person" /> {{client}}<br>
 									<q-icon name="email" /> {{mail}}<br>
 									<q-icon name="phone" /> {{phone}}<br>
 									<q-icon name="groups" /> {{people}} personnes<br>
-									<q-icon name="bed" /> Chambre {{room}}<br>
+									<q-icon name="bed" /> {{room}}<br>
 									<q-icon name="date_range" /> Le {{reservationDate[0]}} (à partir de 17 h) jusqu'au lendemain du {{reservationDate[reservationDate.length - 1]}} (avant 11h du lendemain matin).<br>
-									<q-icon name="done" /> Vous avez acceptez nos conditions.
+									<q-icon name="done" /> Vous avez lu et accepté nos conditions.
 								</p>
 								<p>
-									Coût du séjour<br>
+									 <h6>Coût du séjour</h6>
 									<q-markup-table  
 					separator="horizontal" flat bordered
 					wrap-cells>
 										<tbody>
 											<tr  v-for="(priceElement, index) in price">
 				<td>
-					1 nuit {{ priceElement }} €<td v-if="index > 0"> Remise de 10%</td><td v-if="datesHighPrices(convertDateDDMMYYYYToYYYYMMDD(reservationDate[index])) === true"> Tarif week-ends, vacances ou jours feriés</td>
+					1 nuit {{ priceElement }} €<td v-if="datesHighPrices(convertDateDDMMYYYYToYYYYMMDD(reservationDate[index])) === true"> Tarif week-ends, vacances ou jours feriés</td><td v-if="index > 0"> Remise de 10%</td>
 				</td>							
 											</tr>
 											<tr>
