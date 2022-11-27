@@ -5,7 +5,9 @@
 			class="q-pa-sm"
 			:class="route.name === 'home' || route.name === 'room' ? 'gradient' : ''"
 		>
-			<q-btn flat round class="lt-md" icon="menu" @click="toggleLeftDrawer" />
+			<q-btn flat round class="lt-md" @click="toggleLeftDrawer">
+				<q-icon size="sm" name="menu"> </q-icon>
+			</q-btn>
 
 			<q-tabs class="gt-sm" align="left">
 				<q-route-tab class="tab" to="/" label="Accueil" />
@@ -215,5 +217,9 @@ function toggleLeftDrawer() {
 }
 .gradient {
 	background: linear-gradient(rgba(0, 0, 0, 0.664), 30%, transparent);
+}
+
+.menu-drawer {
+	font-size: 2em !important;
 }
 </style>

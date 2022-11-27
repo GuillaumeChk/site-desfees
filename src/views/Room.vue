@@ -18,7 +18,7 @@
 					{{ room.name }}
 				</h3>
 
-				<div class="row justify-between appear-left">
+				<div class="row justify-between q-gutter-md appear-left">
 					<router-link
 						v-if="previousRoom != undefined"
 						:to="{ name: 'room', params: { roomName: previousRoom.pathName } }"
@@ -38,7 +38,7 @@
 				>
 					{{ room.description }}
 				</p>
-				<div v-else class="q-pt-md appear-left" v-html="room.description"></div>
+				<div v-else class="q-pt-md" v-html="room.description"></div>
 			</div>
 		</section>
 
