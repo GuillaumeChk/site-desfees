@@ -75,7 +75,12 @@
 					</p>
 					<p>
 						Sauvegarder l'agenda en l'état :<br />
-						<q-btn unelevated label="Télécharger l'agenda" color="blue" />
+						<q-btn
+							unelevated
+							label="Télécharger l'agenda"
+							color="blue"
+							@click="downloadCalendar()"
+						/>
 					</p>
 					<p>Attention, chaque modification est envoyée en temps réel.</p>
 					<!-- <p>
@@ -348,6 +353,8 @@ import frLocale from "@fullcalendar/core/locales/fr";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 
+import { exportFile } from "quasar";
+
 import {
 	collection,
 	getDocs,
@@ -606,8 +613,23 @@ onMounted(async () => {
 		calendarData.push(reservationEvent);
 	});
 
-	console.log(calendarData);
+	// console.log(calendarData);
 	calendar.value = calendarData;
 });
 /// CRUD - end
+
+// Export Download
+function downloadCalendar() {
+	const status = exportFile(
+		"calendar_" + new Date().getTime() + ".txt",
+		JSON.stringify(calendar.value, null, "\t")
+	);
+
+	if (status === true) {
+		// browser allowed it
+	} else {
+		// browser denied it
+		console.log("Error: " + status);
+	}
+}
 </script>

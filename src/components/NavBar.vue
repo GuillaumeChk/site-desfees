@@ -218,8 +218,4 @@ function toggleLeftDrawer() {
 .gradient {
 	background: linear-gradient(rgba(0, 0, 0, 0.664), 30%, transparent);
 }
-
-.menu-drawer {
-	font-size: 2em !important;
-}
 </style>
