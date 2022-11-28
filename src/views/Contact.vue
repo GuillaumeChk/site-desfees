@@ -10,7 +10,7 @@
 						class="absolute-center bg-transparent text-h4 text-uppercase text-center text-weight-light"
 						style="letter-spacing: 4px"
 					>
-						Contact
+						{{ $t("contact.titre") }}
 					</div>
 				</q-img>
 			</div>
@@ -35,13 +35,12 @@
 							<q-btn round unelevated  color="orange-4" :icon="addressCopied ? 'assignment_turned_in' : 'content_copy' "  @click="copyAddress('2 Rue de la Chassignoles, 39110 Pretin, France')"   />
 							<q-btn round unelevated color="orange-4" icon="directions" href="https://goo.gl/maps/iQUQ581TETnRqAdb6"  target="_blank" />
 						</div>
-						<q-icon name="email" /> E-Mail :
+						<q-icon name="email" />{{ $t("contact.mail") }}
 						<a href="mailto:info@desfees.fr">info@desfees.fr</a><br />
-						<q-icon name="phone" /> Téléphone :
+						<q-icon name="phone" />{{ $t("contact.phone") }}
 						<a href="tel:+33384732636">+33 (0) 3 84 73 26 36</a><br />
-						<q-icon name="smartphone" /> Portable :
-						<a href="tel:+33637788843">+33 (0) 6 37 78 88 43</a> (pensez à
-						Whatsapp depuis l'étranger 🙂)<br />
+						<q-icon name="smartphone" />{{ $t("contact.portable") }}
+						<a href="tel:+33637788843">+33 (0) 6 37 78 88 43</a>{{ $t("contact.memento") }}<br />
 					</address>
 				</p>
 			</section>
@@ -49,7 +48,7 @@
 
 		<section class="q-mt-lg q-px-lg">
 			<div class="wrapper items-center q-pb-xl">
-				<h4 class="q-py-xl text-uppercase text-weight-light">Carte</h4>
+				<h4 class="q-py-xl text-uppercase text-weight-light">{{ $t("contact.carte") }}</h4>
 				<div class="map-container">
 					<iframe
 						class="responsive-iframe"

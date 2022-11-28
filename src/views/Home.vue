@@ -14,21 +14,22 @@
 				<h3
 					class="gt-sm absolute-bottom q-pb-lg text-h3 text-white text-center bg-transparent cursive"
 				>
-					Le Domaine des Fées vous souhaite la bienvenue
+					{{ $t("home.bienvenue") }}
 				</h3>
 			</div>
 		</section>
 
 		<section class="q-pa-lg q-py-xl q-my-lg text-grey-8 text-center">
 			<h2 class="cursive appear-left">
-				Le Domaine des Fées vous souhaite la bienvenue
+				{{ $t("home.bienvenue2") }}
 			</h2>
+
+			<p></p>
 
 			<CustomDivider class="appear-left" />
 
 			<p class="appear-right" style="width: 75%; margin: 0 auto">
-				Les Fées ont pris possession des lieux, au pied des monts du Jura et au
-				bord d’une petite rivière appelée... « La Vache ».
+				{{ $t("home.intro") }}
 			</p>
 		</section>
 
@@ -41,23 +42,16 @@
 				</q-img>
 				<div class="col-sm-7 col-lg-6 q-pa-xl appear-right">
 					<h5 class="text-uppercase text-brand-2 q-pb-lg">
-						Bienvenue dans cet écrin de nature
+						{{ $t("home.paragraphe1_titre") }}
 					</h5>
 					<p>
-						Les fées ont profité du temps consacré au travaux pour s’embellir et
-						permettre de réellement prendre possession des lieux avec un
-						<strong>parc zen</strong> où la magie de l’eau et de la lumière
-						sauront vous charmer dans ce <strong>cadre idyllique</strong>.
+						{{ $t("home.paragraphe1_texte") }}
 					</p>
 					<p>
-						Un écrin de nature ou l’hiver s’installe afin de permettre à la
-						nature de se ressourcer en compagnie des fées.
+						{{ $t("home.paragraphe1_texte2") }}
 					</p>
 					<p>
-						La féerie vous accompagnera durant votre séjour dans un
-						<strong>cadre de bien-être et cocooning</strong> pour vous relaxer
-						dans ce monde magique. Alors prenez la clef de ces voies
-						enchanteuses…
+						{{ $t("home.paragraphe1_texte3") }}
 					</p>
 				</div>
 			</div>
@@ -72,22 +66,13 @@
 
 				<div class="col-sm-7 col-lg-8 q-pa-xl appear-left">
 					<h5 class="text-uppercase text-brand q-pb-lg">
-						Véritable havre de paix
+						{{ $t("home.paragraphe2_titre") }}
 					</h5>
 					<p>
-						Au Domaine des Fées, quand le soleil rayonne et que le ciel devient
-						bleu, vous pouvez accéder à un monde merveilleux.
+						{{ $t("home.paragraphe2_texte") }}
 					</p>
 					<p>
-						La <strong class="text-brand">piscine chauffée</strong> plongeant
-						sur la vallée, avec son eau cristalline réputée magique dans le
-						<strong class="text-brand">Jura</strong>, ornée de reflets argentés
-						et d’une superbe
-						<strong class="text-brand">cascade scintillante</strong>, vous
-						offrira une possibilité de
-						<strong class="text-brand">nage à contre-courant</strong>, un
-						<strong class="text-brand">soin de réflexologie Kneippwalk</strong>
-						qui saura parfaire votre instant de détente et de bien-être…
+						{{ $t("home.paragraphe2_texte2") }}
 					</p>
 				</div>
 			</div>
@@ -98,7 +83,7 @@
 		<h4
 			class="wrapper q-pa-lg q-py-xl text-weight-light text-uppercase appear-left"
 		>
-			Nos chambres
+			{{ $t("home.nos_chambres") }}
 		</h4>
 		<section class="wrapper row rooms q-pb-lg">
 			<div
@@ -128,7 +113,7 @@
 		<section class="q-mt-xl q-px-lg">
 			<div class="wrapper items-center q-pb-xl">
 				<h4 class="q-py-xl text-uppercase text-weight-light appear-left">
-					Nos équipements
+					{{ $t("home.nos_equipements") }}
 				</h4>
 
 				<q-list separator class="appear-left bg-white">
@@ -151,7 +136,7 @@
 		<section class="q-mt-lg q-px-lg">
 			<div class="wrapper items-center q-pb-xl">
 				<h4 class="q-py-xl text-uppercase text-weight-light appear-left">
-					Carte
+					{{ $t("home.carte") }}
 				</h4>
 				<div class="map-container">
 					<iframe
@@ -177,6 +162,9 @@ import roomsData from "../data/roomsData.json";
 import equipmentsData from "../data/equipmentsData.json";
 import EquipmentCard from "../components/EquipmentCard.vue";
 import CustomDivider from "../components/CustomDivider.vue";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n(); // use as global scope
 
 function getImageUrl(subPath) {
 	return new URL(`../assets/${subPath}`, import.meta.url).href;

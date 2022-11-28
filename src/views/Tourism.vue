@@ -10,7 +10,7 @@
 						class="absolute-center bg-transparent text-h4 text-uppercase text-center text-weight-light"
 						style="letter-spacing: 4px"
 					>
-						Tourisme
+						{{ $t("tourism.titre") }}
 					</div>
 				</q-img>
 			</div>
@@ -18,11 +18,11 @@
 
 		<div class="wrapper">
 			<h4 class="q-pa-md q-pt-xl text-uppercase text-weight-light">
-				Les plaisirs de la table…
+				{{ $t("tourism.titre2") }}
 			</h4>
 
 			<section class="q-gutter-y-md">
-				<h5 class="text-brand-2 q-px-md">… côté vignoble, nos coups de ♥</h5>
+				<h5 class="text-brand-2 q-px-md">{{ $t("tourism.titre3") }}</h5>
 
 				<q-img
 					src="../assets/rooms/exterieur/_DSC6673_compressed60_039.jpg"
@@ -32,12 +32,7 @@
 
 				<div class="q-px-md">
 					<p>
-						Le Jura et ses célèbres cépages séduiront les amateurs par leur
-						diversité et leur typicité, n’oublier pas de déguster une des sept
-						merveilles bachiques de ce monde, le fameux Vin Jaune de préférence
-						avec un morceau de Comté en fin de repas. A visiter sans modération,
-						les vignobles d’Arbois, Pupillin, l’Etoile, Château-Chalon et Côtes
-						du Jura… Possibilités de dégustations.
+						{{ $t("tourism.paragraphe") }}
 					</p>
 
 					<h6>Domaine Raphaël Fumey et Adeline Chatelain</h6>
@@ -45,11 +40,15 @@
 
 					<h6>Daniel et Monique Dugois</h6>
 					<p>Les Arsures +33 (0)3 84 66 03 41</p>
-					<a href="https://www.vins-danieldugois.com/">Visiter le site web</a>
+					<a href="https://www.vins-danieldugois.com/">{{
+						$t("tourism.				visiter_le_site")
+					}}</a>
 
 					<h6>Fruitère vinicole Arbois</h6>
 					<p>Arbois +33 (0)3 84 66 21 84</p>
-					<a href="https://www.chateau-bethanie.com/">Visiter le site web</a>
+					<a href="https://www.chateau-bethanie.com/">{{
+						$t("tourism.				visiter_le_site")
+					}}</a>
 
 					<h6>Camille Loye (Millésime)</h6>
 					<p>Arbois +33 (0)3 84 66 04 93</p>
@@ -58,7 +57,7 @@
 
 			<section class="q-gutter-y-md">
 				<h5 class="text-brand q-pt-xl q-px-md">
-					… côté table et palais, nos coups de ♥
+					{{ $t("tourism.titre4") }}
 				</h5>
 
 				<q-img
@@ -68,12 +67,7 @@
 				</q-img>
 
 				<p class="q-px-md">
-					Le Jura et ses traditions culinaires reconnues séduiront les plus
-					exigeants épicuriens. La truite au Vin Jaune, les spécialités à base
-					de Comté, le coq au Vin Jaune et morilles, la cancoillotte, la
-					morbiflette et la gamme de restaurants avec un excellent rapport
-					qualité/prix est bien réelle, belle découverte…Toutes ces adresses se
-					trouvent entre 3-10 km des Fées…
+					{{ $t("tourism.paragraphe3") }}
 				</p>
 
 				<div class="column q-pa-md q-gutter-y-sm">
@@ -101,11 +95,11 @@
 				</div>
 				<br />
 
-				<p class="text-italic q-px-md">A deux pas...</p>
+				<p class="text-italic q-px-md">{{ $t("tourism.paragraphe4") }}</p>
 			</section>
 
 			<h4 class="q-pa-md q-pt-xl text-uppercase text-weight-light text-brand-2">
-				Un peu d’histoire...
+				{{ $t("tourism.titre5") }}
 			</h4>
 			<section class="q-gutter-y-md">
 				<q-img
@@ -116,12 +110,10 @@
 
 				<div class="q-px-md">
 					<p>
-						Comme toutes vacances ou week-end, une bonne préparation vous aidera
-						à planifier de façon optimale votre emploi du temps. Différents
-						sites et lieux sont à visiter dans la région :
+						{{ $t("tourism.paragraphe7") }}
 					</p>
 
-					<h5 class="text-brand-2">Découvrir les visites de Franche-Comté</h5>
+					<h5 class="text-brand-2">{{ $t("tourism.paragraphe8") }}</h5>
 					<a href="https://www.salinesdesalins.com" target="_blank"
 						>Site officiel de la Grande Saline à Salins les Bains (39110) - Jura
 						(39) - Franche Comté</a
@@ -143,7 +135,7 @@
 						>Besançon</a
 					><br />
 
-					<h5 class="text-brand-2">La route des vins et des lacs</h5>
+					<h5 class="text-brand-2">{{ $t("tourism.titre6") }}</h5>
 					<a href="https://www.montagnes-du-jura.fr" target="_blank"
 						>La route des vins du Jura | Montagnes de Jura</a
 					><br />
@@ -161,7 +153,7 @@
 			</section>
 
 			<h4 class="q-pa-md q-pt-xl text-uppercase text-weight-light text-brand">
-				Autour de chez nous...
+				{{ $t("tourism.titre7") }}
 			</h4>
 			<section class="q-gutter-y-md q-pb-lg">
 				<q-img
@@ -171,7 +163,7 @@
 				</q-img>
 
 				<div class="q-px-md">
-					<h5 class="text-brand">Activités annuelles</h5>
+					<h5 class="text-brand">{{ $t("tourism.titre8") }}</h5>
 					<a href="https://www.cascades-du-herisson.fr/" target="_blank"
 						>Cascades du Hérisson</a
 					><br />
@@ -188,7 +180,7 @@
 						franco-suisse</a
 					><br />
 
-					<h5 class="text-brand">Activités estivales</h5>
+					<h5 class="text-brand">{{ $t("tourism.titre9") }}</h5>
 					<a href="https://www.poupetvollibre.com/" target="_blank"
 						>Poupet vol libre</a
 					><br />
@@ -200,7 +192,7 @@
 						>Lac Jura, baignade et plages des Lacs du Jura - Jura Tourisme</a
 					><br />
 
-					<h5 class="text-brand">Activités hivernales</h5>
+					<h5 class="text-brand">{{ $t("tourism.titre10") }}</h5>
 					<a
 						href="https://www.jura-tourism.com/vivre-le-jura/pratiquer/ski-sports-hiver/domaines-skiables-du-jura/"
 						target="_blank"
