@@ -10,7 +10,7 @@
 						class="absolute-center bg-transparent text-h4 text-uppercase text-center text-weight-light"
 						style="letter-spacing: 4px"
 					>
-						Réservation
+					{{ $t("booking.titre") }}
 					</div>
 				</q-img>
 			</div>
@@ -18,7 +18,7 @@
 
 		<div class="wrapper">
 			<div class="q-pa-sm form">
-				<h4 class="q-py-xl text-uppercase text-weight-light">Réserver</h4>
+				<h4 class="q-py-xl text-uppercase text-weight-light">{{ $t("booking.titre2") }}</h4>
 
 				<q-form
 					@submit="onSubmit"
@@ -26,62 +26,81 @@
 					class="q-gutter-y-md q-pb-xl"
 					greedy
 				>
-					<q-input filled rounded color="orange" v-model="client" type="text" label="Nom"
+					<q-input label-slot filled rounded color="orange" v-model="client" type="text" 
 							lazy-rules="ondemand"
 								:rules="[
 									(val) =>
 										(val && val.length > 0) || 'Veuillez entrer votre nom complet',
 								]"
-								hide-bottom-space />
+								hide-bottom-space >
+							 <template v-slot:label>
+								{{ $t("booking.nom") }}
+							 </template>
+							</q-input>
 
-					<q-input filled color="orange" v-model="mail" type="email" label="Mail"
+					<q-input label-slot filled color="orange" v-model="mail" type="email" 
 				lazy-rules="ondemand"
 					:rules="[
 						(val) =>
 							(val && val.length > 0) || 'Veuillez entrer une adresse mail valide',
 					]"
-					hide-bottom-space />
+					hide-bottom-space >
+				 <template v-slot:label>
+					{{ $t("booking.mail") }}
+				 </template>
+				</q-input>
 
-					<q-input filled color="orange" v-model="phone" type="tel" maxlength="13" label="Téléphone"
+					<q-input label-slot filled color="orange" v-model="phone" type="tel" maxlength="13" 
 				lazy-rules="ondemand"
 					:rules="[
 						(val) =>
 							(val && val.length > 0) || 'Veuillez entrer un numéro valide',
 					]"
-					hide-bottom-space />
+					hide-bottom-space >
+				 <template v-slot:label>
+					{{ $t("booking.phone") }}
+				 </template></q-input>
 
 					<q-select
+				 label-slot
 						filled
 						color="orange"
 						v-model="room"
 						:options="roomNameOptions"
-						label="Chambre"
 						lazy-rules="ondemand"
 						:rules="[
 							(val) =>
 								(val && val.length > 0) || 'Veuillez choisir une chambre',
 						]"
 						hide-bottom-space
-					/>
+					>
+					<template v-slot:label>
+					{{ $t("booking.chambre") }}
+				 </template>
+				</q-select>
 
 					<q-select
+				 label-slot
 						filled
 						color="orange"
 						v-model="people"
 						:options="peopleQuantityOptions"
-						label="Occupants"
 						lazy-rules="ondemand"
 						:rules="[
 							(val) =>
 								(val && val > 0) || 'Veuillez saisir le nombre d’occupants',
 						]"
 						hide-bottom-space
-					/>
+					>
+					<template v-slot:label>
+					{{ $t("booking.people") }}
+				 </template>
+				</q-select>
 
 					<div>
 						<q-field
+						label-slot
 							filled
-							label="Nuit(s)"
 							stack-label
 							color="orange"
 							v-model="reservationDate"
@@ -92,6 +111,9 @@
 							]"
 							hide-bottom-space
 						>
+							<template v-slot:label>
+								{{ $t("booking.nuits") }}
+							</template>
 							<template v-slot:control>
 								<q-date
 									v-model="reservationDate"
@@ -112,7 +134,7 @@
 							</template>
 						</q-field>
 						<div>
-							<span class="eventCaption q-mb-xs q-mr-xs"></span><span class="text-italic text-orange"> Tarif week-ends, vacances et jours feriés</span>
+							<span class="eventCaption q-mb-xs q-mr-xs"></span><span class="text-italic text-orange">{{ $t("booking.legende") }}</span>
 						</div>
 						<div
 							class="q-pa-sm bg-orange-5 text-white"
@@ -120,21 +142,23 @@
 						>
 							<div v-for="day in reservationDate">
 								{{
-									day.from !== undefined ? `Du ${day.from} au ${day.to}` : day
+									day.from !== undefined ? `${day.from} 🠖 ${day.to}` : day
 								}}
 							</div>
 						</div>
 						<q-expansion-item
 							icon="help"
-							label="Comment sélectionner une durée ?"
 							header-class="text-info"
 							dense-toggle
 						>
+							<template v-slot:header>
+								{{ $t("booking.titre2") }}
+							</template>
 							<q-card class="q-pa-md q-mx-md text-grey-8 ">
-								<p>Sélectionnez d'abord une chambre.</p>
-								<p>Puis sélectionnez une ou plusieurs nuits consécutives.</p>
+								<p>{{ $t("booking.paragraphe") }}</p>
+								<p>{{ $t("booking.paragraphe2") }}</p>
 								<p class="q-mb-none text-italic">
-									Si une date est désactivée, c'est qu'elle est déjà réservée.
+									{{ $t("booking.paragraphe3") }}
 								</p>
 							</q-card>
 						</q-expansion-item>
@@ -153,70 +177,67 @@
 						hide-bottom-space
 					>
 						<q-checkbox v-model="acceptConditions" color="orange"
-							>J'ai lu et accepté les
+							>{{ $t("booking.accepter_conditions") }}
 							</q-checkbox>
 							<q-btn
-								label="conditions"
 								flat
 								class="text-lowercase q-pa-xs text-underline"
 								style="text-decoration: underline;"
 								@click="displayConditions = true"
-							/>
+								>
+						<div>
+							{{ $t("booking.conditions") }}
+						</div>
+					</q-btn>
 					</q-field>
 
 					<q-dialog v-model="displayConditions">
 						<q-card  class="q-px-lg q-py-md">
 							<q-card-section>
-								<div class="text-h6 text-uppercase">Conditions de vente et d'annulation</div>
+								<div class="text-h6 text-uppercase">{{ $t("booking.titre3") }}</div>
 							</q-card-section>
 
 							<q-card-section class="q-pt-none">
-								<p>Pour toute réservation définitive, nous demandons au client un acompte de 50 % ou de nous confier un numéro de carte bancaire
-								accompagné de sa date de validité… (aucun paiement ne sera effectué avant le séjour, il ne s'agit là, que d'une empreinte
-								bancaire en cas d'annulation ou de détérioration de la chambre durant le séjour).</p> 
+								<p>{{ $t("booking.paragraphe4bis") }}</p> 
 								
-								<p> Toute annulation doit être notifiée par lettre recommandée ou mail avec accusé de réception -> Domaine des fées, 39110 Pretin <br><br>
+								<p>{{ $t("booking.paragraphe4") }}<br><br>
 
-								<strong>a)</strong> Le client bénéficie d'une assurance - annulation : se reporter à la fiche assurance jointe au contrat. <br><br>
+								<strong>a)</strong>{{ $t("booking.paragraphe5") }}<br><br>
 
-								<strong>b)</strong> Le client ne bénéficie pas d’une assurance annulation : pour toute annulation du fait du client, la somme remboursée à ce dernier par l’Agence de Réservation Touristique, à l’exception des frais de dossier (si ceux-ci ont été perçus lors de la réservation) sera la suivante : 
+								<strong>b)</strong>{{ $t("booking.paragraphe6") }}
 								<ul>
-									<li>Annulation plus de 30 jours avant le début du séjour : il sera retenu 10% du montant du séjour ; </li>
-									<li>Annulation entre le 30<sup>e</sup> et le 21<sup>e</sup> jour inclus avant le début du séjour : il sera retenu 25% du prix du séjour ;</li>
-									<li>Annulation entre le 20<sup>e</sup> et le 8<sup>e</sup> jour inclus avant le début du séjour : il sera retenu 50% du prix du séjour ; </li>
-									<li>Annulation entre le 7<sup>e</sup> et le 2<sup>e</sup> jour inclus avant le début du séjour : il sera
-								retenu 75% du prix du séjour ; </li>
-									<li>Annulation à moins de 2 jours avant le début du séjour : il sera retenu 100% du prix du séjour ;</li>
+									<li>{{ $t("booking.list_item") }}</li>
+									<li>{{ $t("booking.list_item2") }}</li>
+									<li>{{ $t("booking.list_item4") }}</li>
+									<li>{{ $t("booking.list_item5") }}</li>
+									<li>{{ $t("booking.list_item6") }}</li>
 								</ul> 
 								
-								En cas de non-présentation du client : il ne sera procédé à aucun remboursement. </p>
+								{{ $t("booking.paragraphe7") }}</p>
 
-								<p> Nos hôtes sont accueillis le jour de leur
-								arrivée à partir de 17 heures. Les départs sont jusqu’à 11 heures. Afin de prolonger le séjour chez les Fées, il est possible de venir plus tôt ou partir plus tard moyennant un
-								supplément, merci de vous renseigner.</p> 
+								<p> {{ $t("booking.paragraphe8") }}</p> 
 
 								<p>
-									Les animaux sont bienvenus sous certaines conditions : Education parfaite, propre et toujours en compagnie de leur maître. 
+									{{ $t("booking.paragraphe9") }}
 								</p>
 
-									Tarif des chambres avec petits déjeuner régional : 
+								{{ $t("booking.paragraphe10") }}
 									<q-markup-table dense bordered flat class="q-my-sm">
 										<tbody>
 											<tr v-for="room in roomsData">
 												<td>{{room.name}}</td>
-												<td v-if="room.pathName !== 'gite'">de {{room.tarifs[0]}} € à {{room.tarifs[room.tarifs.length -1]}} €</td>
-												<td v-else>de {{room.tarifs[0][0][0]}} € à {{room.tarifs[room.tarifs.length -1][room.tarifs[room.tarifs.length -1].length -1]}} €</td>
+												<td v-if="room.pathName !== 'gite'">{{room.tarifs[0]}} € 🠖 {{room.tarifs[room.tarifs.length -1]}} €</td>
+												<td v-else>{{room.tarifs[0][0][0]}} € 🠖 {{room.tarifs[room.tarifs.length -1][room.tarifs[room.tarifs.length -1].length -1]}} €</td>
 											</tr>
 											<tr>
-												<td>Semaine/curiste</td>
-											<td>nous consulter</td>
+												<td>{{ $t("booking.paragraphe11") }}</td>
+											<td>{{ $t("booking.paragraphe12") }}</td>
 										</tr>
 										</tbody>
 									</q-markup-table>
 
 								<p>
-
-									Dès la seconde nuitée en chambre d'hôte, une remise de 10% est accordée. 
+									{{ $t("booking.paragraphe13") }}
 								</p>
 								</q-card-section>
 
@@ -230,78 +251,90 @@
 						<q-btn
 							rounded
 							unelevated
-							label="Réserver"
 							type="submit"
 							color="orange"
-						/>
+						>
+						<div>
+							{{ $t("booking.bouton") }}
+						</div>
+					</q-btn>
 						<q-btn
 							rounded
-							label="Rétablir"
 							type="reset"
 							color="orange"
 							flat
 							class="q-ml-sm"
-						/>
+						>
+						<div>
+							{{ $t("booking.bouton2") }}
+						</div>
+					</q-btn>
 					</div>
 				</q-form>
 
 				<q-dialog v-model="displayConfirmation">
 						<q-card  class="q-px-lg q-py-md">
 							<q-card-section>
-								<div class="text-h6 text-uppercase">Confirmation de réservation</div>
+								<div class="text-h6 text-uppercase">{{ $t("booking.titre4") }}</div>
 							</q-card-section>
 
 							<q-card-section class="q-pt-none">
-								<h6>Votre réservation</h6>
+								<h6>{{ $t("booking.titre5") }}</h6>
 								<p class="q-pl-sm ">
 									<q-icon name="person" /> {{client}}<br>
 									<q-icon name="email" /> {{mail}}<br>
 									<q-icon name="phone" /> {{phone}}<br>
-									<q-icon name="groups" /> {{people}} personnes<br>
+									<q-icon name="groups" /> {{people}} {{ $t("booking.people2") }}<br>
 									<q-icon name="bed" /> {{room}}<br>
-									<q-icon name="date_range" /> Le {{reservationDate[0]}} (à partir de 17 h) jusqu'au lendemain du {{reservationDate[reservationDate.length - 1]}} (avant 11h du lendemain matin).<br>
-									<q-icon name="done" /> Vous avez lu et accepté nos conditions.
+									<q-icon name="date_range" />{{reservationDate[0]}} {{ $t("booking.date") }} 🠖 {{ $t("booking.date2") }} {{reservationDate[reservationDate.length - 1]}} {{ $t("booking.date3") }}<br>
+									<q-icon name="done" />{{ $t("booking.conditions_acceptees") }}
 								</p>
 								<p>
-									 <h6>Coût du séjour</h6>
+									 <h6>{{ $t("booking.titre5") }}</h6>
 									<q-markup-table  
 					separator="horizontal" flat bordered
 					wrap-cells>
 										<tbody>
 											<tr  v-for="(priceElement, index) in price">
 				<td>
-					1 nuit {{ priceElement }} €<td v-if="datesHighPrices(convertDateDDMMYYYYToYYYYMMDD(reservationDate[index])) === true"> Tarif week-ends, vacances ou jours feriés</td><td v-if="index > 0"> Remise de 10%</td>
+					{{ $t("booking.titre5") }} {{ priceElement }} €<td v-if="datesHighPrices(convertDateDDMMYYYYToYYYYMMDD(reservationDate[index])) === true">{{ $t("booking.legende") }}</td><td v-if="index > 0">{{ $t("booking.remise") }}</td>
 				</td>							
 											</tr>
 											<tr>
 												<td>
-						<strong>Total : </strong> {{ priceTotal }} €							
+						<strong>{{ $t("booking.total") }}</strong> {{ priceTotal }} €							
 			</td>									
 				
 											</tr>
 										</tbody>
 										
 									</q-markup-table> 
-									Supplément par personnes<br>
+									{{ $t("booking.paragraphe14") }}<br>
 									
 									<br>
-									En cas d'anomalie ou de doute, veuillez nous contacter.
+									{{ $t("booking.paragraphe15") }}
 								</p>
 								<p>
-									Vous allez être redirigé vers une page de paiement sécurisée.<br>
-									Une fois le paiement effectué, vous serez contacté pour vous confirmer la réservation, et échanger avec vos hôtes.
+									{{ $t("booking.paragraphe16") }}<br>
+									{{ $t("booking.paragraphe17") }}
 								</p>
 								</q-card-section>
 
 							<q-card-actions align="right">
-								<q-btn flat unelevated label="Annuler" v-close-popup />
+								<q-btn flat unelevated  v-close-popup >
+						<div>
+							{{ $t("booking.bouton3") }}
+						</div>
+					</q-btn>
 								<q-btn
 									unelevated
-									label="Payer"
-									
 									color="blue"
 									v-close-popup
-								/>
+								>
+						<div>
+							{{ $t("booking.bouton4") }}
+						</div>
+					</q-btn>
 							</q-card-actions>
 						</q-card>
 					</q-dialog>

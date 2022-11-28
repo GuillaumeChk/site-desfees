@@ -116,6 +116,98 @@ const i18n = createI18n({
 				memento: " (pensez à Whatsapp depuis l'étranger 🙂)",
 				carte: "Carte",
 			},
+			navbar: {
+				accueil: "Accueil",
+				chambres: "Chambres",
+				tourisme: "Tourisme",
+				galerie: "Galerie",
+				contact: "Contact",
+				reserver: "Réserver",
+				prestations: "Prestations",
+				explorer: "Explorer",
+			},
+			equipments: {
+				equipe_dans: "Équipé dans :",
+			},
+			footer: {
+				droits_reserves: "Tous droits réservés.",
+			},
+			booking: {
+				titre: "Réservation",
+				titre2: "Réserver",
+				nom: "Nom",
+				veuillez_nom: "Veuillez entrer votre nom complet",
+				mail: "Mail",
+				veuillez_mail: "Veuillez entrer une adresse mail valide",
+				phone: "Téléphone",
+				veuillez_phone: "Veuillez entrer un numéro valide",
+				chambre: "Chambre",
+				veuillez_chambre: "Veuillez choisir une chambre",
+				people: "Occupants",
+				veuillez_people: "Veuillez saisir le nombre d’occupants",
+				nuits: "Nuit(s)",
+				veuillez_nuits: "Veuillez sélectionner une nuit",
+				legende: " Tarif week-ends, vacances et jours feriés",
+				titre2: "Comment sélectionner une durée ?",
+				paragraphe: "Sélectionnez d'abord une chambre.",
+				paragraphe2: "Puis sélectionnez une ou plusieurs nuits consécutives.",
+				paragraphe3:
+					"Si une date est désactivée, c'est qu'elle est déjà réservée.",
+				accepter_conditions: "J'ai lu et accepté les",
+				conditions: "conditions",
+				titre3: "Conditions de vente et d'annulation",
+				paragraphe4bis:
+					"Pour toute réservation définitive, nous demandons au client un acompte de 50 % ou de nous confier un numéro de carte bancaire accompagné de sa date de validité… (aucun paiement ne sera effectué avan séjour, il ne s'agit là, que d'une empreinte bancaire en cas d'annulation ou de détérioration de la chambre durant le séjour).",
+				paragraphe4:
+					"Toute annulation doit être notifiée par lettre recommandée ou mail avec accusé de réception -> Domaine des fées, 39110 Pretin ",
+				paragraphe5:
+					" Le client bénéficie d'une assurance - annulation : se reporter à la fiche assurance jointe au contrat. ",
+				paragraphe6:
+					" Le client ne bénéficie pas d’une assurance annulation : pour toute annulation du fait du client, la somme remboursée à ce dernier par l’Agence de Réservation Touristique, à l’exception des frais de dossier (si ceux-ci ont été perçus lors de la réservation) sera la suivante : ",
+				list_item:
+					"Annulation plus de 30 jours avant le début du séjour : il sera retenu 10% du montant du séjour ; ",
+				list_item2:
+					"Annulation entre le 30<sup>e</sup> et le 21<sup>e</sup> jour inclus avant le début du séjour : il sera retenu 25% du prix du séjour ;",
+				list_item4:
+					"Annulation entre le 20<sup>e</sup> et le 8<sup>e</sup> jour inclus avant le début du séjour : il sera retenu 50% du prix du séjour ; ",
+				list_item5:
+					"Annulation entre le 7<sup>e</sup> et le 2<sup>e</sup> jour inclus avant le début du séjour : il sera retenu 75% du prix du séjour ; ",
+				list_item6:
+					"Annulation à moins de 2 jours avant le début du séjour : il sera retenu 100% du prix du séjour ;",
+				paragraphe7:
+					"En cas de non-présentation du client : il ne sera procédé à aucun remboursement. ",
+				paragraphe8:
+					" Nos hôtes sont accueillis le jour de leur arrivée à partir de 17 heures. Les départs sont jusqu’à 11 heures. Afin prolonger le séjour chez les Fées, il est possible de venir plus tôt ou pa plus tard moyennant un supplément, merci de vous renseigner.",
+				paragraphe9:
+					"Les animaux sont bienvenus sous certaines conditions : Education parfaite, propre et toujours en compagnie de leur maître. ",
+				paragraphe10:
+					"Puis sélectionnez une ou plusieurs nuits consécutives.Tarif des chambres avec petits déjeuner régional : ",
+				paragraphe11: "Semaine/curiste",
+				paragraphe12: "nous consulter",
+				paragraphe13:
+					"Dès la seconde nuitée en chambre d'hôte, une remise de 10% est accordée. ",
+				bouton: "Réserver",
+				bouton2: "Rétablir",
+				titre4: "Confirmation de réservation",
+				titre5: "Votre réservation",
+				people2: "personnes",
+				conditions_acceptees: "J'ai lu et accepté les conditions",
+				titre6: "Coût du séjour",
+				remise: " Remise de 10%",
+				total: "Total : ",
+				paragraphe14: "Supplément par personnes",
+				paragraphe15: "En cas d'anomalie ou de doute, veuillez nous contacter.",
+				paragraphe16:
+					"Vous allez être redirigé vers une page de paiement sécurisée.",
+				paragraphe17:
+					"Une fois le paiement effectué, vous serez contacté pour vous confirmer la réservation, et échanger avec vos hôtes.",
+				bouton3: "Annuler",
+				bouton4: "Payer",
+				date: " (à partir de 17 h)",
+				date2: "lendemain du ",
+				date3: "(avant 11h du lendemain matin).",
+				nuit: "1 nuit",
+			},
 		},
 		en: {
 			hello: "hello!",

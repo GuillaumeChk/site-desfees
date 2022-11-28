@@ -104,7 +104,7 @@
 				<div class="q-pa-xs text-orange-7 text-center">
 					Copyright © 2022 – GuillaumeChk <br />
 					desfees.fr <br />
-					Tous droits réservés.
+					{{ $t("footer.droits_reserves") }}
 				</div>
 			</div>
 		</q-footer>

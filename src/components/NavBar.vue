@@ -10,8 +10,11 @@
 			</q-btn>
 
 			<q-tabs class="gt-sm" align="left">
-				<q-route-tab class="tab" to="/" label="Accueil" />
-				<q-btn stretch unelevated flat class="tab" label="Chambres">
+				<q-route-tab class="tab" to="/">{{ $t("navbar.accueil") }}</q-route-tab>
+				<q-btn stretch unelevated flat class="tab">
+					<div>
+						{{ $t("navbar.chambres") }}
+					</div>
 					<q-menu auto-close>
 						<q-list style="min-width: 100px">
 							<q-item
@@ -35,15 +38,17 @@
 					<q-menu auto-close>
 						<q-list style="min-width: 100px">
 							<q-item clickable v-close-popup to="/tourisme" exact>
-								<q-item-section>Tourisme</q-item-section>
+								<q-item-section>{{ $t("navbar.tourisme") }}</q-item-section>
 							</q-item>
 							<q-item clickable v-close-popup to="/galerie" exact>
-								<q-item-section>Galerie </q-item-section>
+								<q-item-section>{{ $t("navbar.galerie") }} </q-item-section>
 							</q-item>
 						</q-list>
 					</q-menu>
 				</q-btn>
-				<q-route-tab class="tab" to="/contact" label="Contact" />
+				<q-route-tab class="tab" to="/contact">
+					{{ $t("navbar.contact") }}
+				</q-route-tab>
 			</q-tabs>
 
 			<q-space />
@@ -53,9 +58,10 @@
 				class="q-mr-md brand text-white"
 				unelevated
 				rounded
-				label="Réserver"
 				to="/reservation"
-			></q-btn>
+			>
+				{{ $t("navbar.reserver") }}
+			</q-btn>
 
 			<q-btn class="no-padding" to="/" size="md" unelevated rounded>
 				<q-img width="45px" height="45px" fit="fill" src="logoGitedes.svg">
@@ -86,14 +92,18 @@
 
 		<q-list>
 			<q-item class="items-center" clickable to="/" exact :active="false">
-				<q-item-label class="text-center"> Accueil </q-item-label>
+				<q-item-label class="text-center">
+					{{ $t("navbar.accueil") }}
+				</q-item-label>
 			</q-item>
 			<q-expansion-item
 				expand-icon-class="text-orange-2"
 				icon=""
 				:content-inset-level="1"
-				label="Chambres"
 			>
+				<template v-slot:header>
+					{{ $t("navbar.chambres") }}
+				</template>
 				<q-item
 					v-for="room in roomsData"
 					:key="room.name"
@@ -116,14 +126,18 @@
 				exact
 				:active="false"
 			>
-				<q-item-label class="text-center"> Prestations </q-item-label>
+				<q-item-label class="text-center">
+					{{ $t("navbar.prestations") }}
+				</q-item-label>
 			</q-item>
 			<q-expansion-item
 				expand-icon-class="text-orange-2"
 				class="items-center"
 				:content-inset-level="1"
-				label="Explorer"
 			>
+				<template v-slot:header>
+					{{ $t("navbar.explorer") }}
+				</template>
 				<q-item
 					class="items-center"
 					clickable
@@ -131,7 +145,9 @@
 					exact
 					:active="false"
 				>
-					<q-item-label class="text-center"> Tourisme </q-item-label>
+					<q-item-label class="text-center">
+						{{ $t("navbar.tourisme") }}
+					</q-item-label>
 				</q-item>
 				<q-item
 					class="items-center"
@@ -140,7 +156,9 @@
 					exact
 					:active="false"
 				>
-					<q-item-label class="text-center"> Galerie </q-item-label>
+					<q-item-label class="text-center">
+						{{ $t("navbar.galerie") }}
+					</q-item-label>
 				</q-item>
 			</q-expansion-item>
 			<q-item
@@ -150,7 +168,9 @@
 				exact
 				:active="false"
 			>
-				<q-item-label class="text-center"> Contact </q-item-label>
+				<q-item-label class="text-center">
+					{{ $t("navbar.contact") }}
+				</q-item-label>
 			</q-item>
 		</q-list>
 	</q-drawer>

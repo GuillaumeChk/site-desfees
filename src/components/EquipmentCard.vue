@@ -24,7 +24,7 @@
 				</h6>
 
 				<div class="text-grey-9">
-					<span>Équipé dans :</span>
+					<span>{{ $t("equipments.equipe_dans") }}</span>
 
 					<q-list dense class="text-italic row warp justify-between">
 						<q-item
