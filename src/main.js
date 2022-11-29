@@ -14,7 +14,7 @@ import "@quasar/extras/material-icons/material-icons.css";
 import "quasar/dist/quasar.css";
 
 const i18n = createI18n({
-	locale: "fr",
+	locale: "en",
 	allowComposition: true, // you need to specify that!
 	messages: {
 		fr: {
@@ -157,7 +157,7 @@ const i18n = createI18n({
 				conditions: "conditions",
 				titre3: "Conditions de vente et d'annulation",
 				paragraphe4bis:
-					"Pour toute réservation définitive, nous demandons au client un acompte de 50 % ou de nous confier un numéro de carte bancaire accompagné de sa date de validité… (aucun paiement ne sera effectué avan séjour, il ne s'agit là, que d'une empreinte bancaire en cas d'annulation ou de détérioration de la chambre durant le séjour).",
+					"Pour toute réservation définitive sur place, nous demandons au client un acompte de 50 % ou de nous confier un numéro de carte bancaire accompagné de sa date de validité… (aucun paiement ne sera effectué avan séjour, il ne s'agit là, que d'une empreinte bancaire en cas d'annulation ou de détérioration de la chambre durant le séjour).",
 				paragraphe4:
 					"Toute annulation doit être notifiée par lettre recommandée ou mail avec accusé de réception -> Domaine des fées, 39110 Pretin ",
 				paragraphe5:
@@ -210,7 +210,195 @@ const i18n = createI18n({
 			},
 		},
 		en: {
-			hello: "hello!",
+			home: {
+				bienvenue: "The Domaine des Fées welcomes you",
+				bienvenue2: "The Domaine des Fées welcomes you",
+				intro:
+					"The Fairies have taken possession of the premises, at the foot of the Jura mountains and on the banks of a small river called... « La Vache. »",
+				paragraphe1_titre: "Welcome to this natural setting",
+				paragraphe1_texte:
+					"The fairies have taken the opportunity to beautify themselves and allow them to really take possession of the premises with a Zen park where the magic of water and light will charm you in this idyllic setting.",
+				paragraphe1_texte2:
+					"A natural setting where winter sets in to allow nature to recharge its batteries in the company of the fairies.",
+				paragraphe1_texte3:
+					"The magic will accompany you during your stay in a setting of well-being and cocooning to relax in this magical world. So take the key to these enchanting paths…",
+				paragraphe2_titre: "Véritable havre de paix",
+				paragraphe2_texte:
+					"At the Domaine des Fées, when the sun shines and the sky turns blue, you can enter a wonderful world.",
+				paragraphe2_texte2:
+					"The heated swimming pool (depth: 1.50m.) plunging into the valley, with its crystalline water reputed to be magical in the Jura, adorned with silvery reflections and a superb sparkling waterfall, will offer you the possibility of swimming against the current, a treatment Kneippwalk reflexology that will perfect your moment of relaxation and well-being.",
+				nos_chambres: "Our rooms",
+				nos_equipements: "Our equipments",
+				carte: "Map",
+			},
+			services: {
+				titre: "Services",
+				titre2: "Unique moments...",
+				titre3: "Unique moments...",
+				paragraphe:
+					"At the Domaine des Fées, when the sun shines and the sky turns blue, you can enter a wonderful world. The heated swimming pool (depth: 1.50m.) plunging into valley, with its crystalline water reputed to be magical the Jura, adorned with silvery reflections and a sparkling waterfall, will offer you the possibility swimming against the current, a treatment reflexology that will perfect your moment of relaxation well-being...",
+				paragraphe2:
+					"In this natural and still preserved setting, the hostess wanted to preserve the values ​​of past centuries while integrating current comfort to meet customer expectations. For 25 years, Isabelle has worked in the hospitality industry. By creating this place, his dream finally came true to welcome and pamper his own customers.",
+				paragraphe3:
+					"The guest rooms, the suite and the gîte offer air conditioning and very high speed WiFi in all rooms. The interiors of the Domaine des Fées are non-smoking.",
+				paragraphe4:
+					"The Fairies Lounge. Want to read a book or rather stroll in a cocooning environment where the crackling fireplace and the cut stone will keep the place cool, the fairies' lounge awaits you...",
+				paragraphe5: "A library and TV corner are at your disposal.",
+				paragraphe6:
+					"A gentle atmosphere and an environment of zen awaits you when you wake up in the morning in our room or on our terrace to enjoy a beneficial breakfast with exclusive regional products will give you energy near our waterfall and its basin they will know how to recharge your batteries and give you the energy to discover our magnificent Jura... On your return, a choice of regional or gourmet products carefully prepared by the house fairy will delight your taste buds, all in a pick nick basket ready to the job that you will have the opportunity to discover either in our park or rather at the water's edge or on the terrace or even upstairs and its patio... The possibilities are not lacking!",
+				paragraphe7:
+					"A vaulted cellar with a few bottles for an aperitif with friends.",
+				paragraphe8:
+					"Relaxation guaranteed on the way to well-being... The Kneippwalk. The Kneipp method is based on five pillars: hydrotherapy, phytotherapy, physical activity, dietetics and a healthy and balanced lifestyle. For more information",
+				texte8: "see the PDF",
+				paragraphe9:
+					"Baby cots can be lent on request, as well as a playpen, high chair and toys. For walks, a circuit of great hikes passes in front of the farm. Toboggans, pétanque balls are at your disposal, she can also organize you: Fishing trips in the river, horseback riding, mountain biking, hot air balloon flights, planes, paragliding, on order floral arrangements, bouquets of flowers, picnic baskets. picnics, different well-being massages and if you have other desires, tell us about them, we are committed to making you experience a unique moment!",
+			},
+			tourism: {
+				titre: "Tourism",
+				titre2: "The pleasures of the table…",
+				titre3: "…As for the vineyard, our favorites ♥",
+				titre4: "…As for the table and the palate, our favorites ♥",
+				paragraphe:
+					"The Jura and its famous grape varieties will seduce amateurs with their diversity and their typicality, do not forget to taste one of the seven bacchic wonders of this world, the famous Vin Jaune preferably with a piece of Comté at the end of the meal. To be visited without moderation, the vineyards of Arbois, Pupillin, l'Etoile, Château-Chalon and Côtes du Jura… Tasting possibilities.",
+				visiter_le_site: "Visit the website",
+				paragraphe3:
+					"The Jura and its recognized culinary traditions will seduce the most demanding epicureans. Trout in Vin Jaune, Comté-based specialties, Coq au Vin Jaune and morels, Cancoillotte, Morbiflette and the range of restaurants with an excellent quality/price ratio is very real, a great discovery… All these addresses can be found between 3-10 km from the Fairies…",
+				paragraphe4: "A stone's throw away...",
+				titre5: "A bit of history...",
+				paragraphe7:
+					"Like all holidays or weekends, good preparation will help you plan your schedule in the best possible way. Different sites and places are to be visited in the region:",
+				paragraphe8: "Discover the visits of Franche-Comté				",
+				titre6: "The wine and lake",
+				titre7: "Around us...",
+				titre8: "Annual activities",
+				titre9: "Summer activities",
+				titre10: "Winter activities",
+			},
+			gallery: {
+				titre: "Gallerie",
+				titre2: "On parle de nous",
+				titre3: "Les chambres d'hôtes féériques reçoivent leur 5ème épis.",
+				paragraphe:
+					"Unique moments in a magical setting... In this natural setting and still preserved by the madness of the current world, «the fairy of the house» wished to preserve the values of past centuries while integrating current comfort to meet the expectations of its guests. , even the most demanding. For 25 years, Isabelle has been working in the luxury hotel industry. By creating this place, his dream finally comes true to welcome and pamper his own customers .",
+				paragraphe2:
+					"The story started a few weeks ago. A life of trees that will continue in a fairy tale, for another decade or so. By From our correspondent, Jacques FAIVRE.",
+				paragraphe3:
+					"“I love nature so much. I wanted to pay tribute to these trees, for these years, by giving them a second life, explains Isabelle the sculptor. Each tree cut at mid-stem had a successor in harmony with the climate: sycamores, red and silver maples, tulip and coulommier, persimmon, Indian lilac, etc. Frédéric Godin, landscape gardener was our adviser. I wish the newcomers a beautiful and long growth. To go all the way, we allowed 14 of our patients to live again along a playful path along the river. » The domain of the fairies Myriam Eckert and Isabelle Gisler met. The conquered sculptor artist then entered the scene with her chainsaw. The construction has been underway for a few months. “In tune with Isabelle, I immediately wanted to come. This corresponds to my universe, the fantastic by the beings of nature. The site is magnificent, inspiring, promoting balance and there is a harmony between river and mountain. The theme given is the domain of the fairies, I could not forget them. So I created several. They already seem happy. This fantastic world leaves a lot of room for the imagination. I never do set figures. My characters always have their roots anchored in the ground. They draw energy from it. All trees contain small treasures. It is still necessary to detect them and bring them out. Let's not forget that plants are part of us. Above all, I want my sculptures to remain a message to humans and remind us that nature is alive, like them. » And each tree becomes a work according to the revelations of Myriam who tells. “Several fairies have emerged, the bird fairy, for example, has just welcomed into her arms the heron that has emerged from the river. As for the snail rider, I dreamed about it for 10 years, it appeared, I was able to bring it to life. The fairy man? I like the male female paradox. Why would there only be female fairies? They hold together a child in their arms. The feminine side of the masculine. The following ? It will reveal itself over time. Two trees are linked by their roots. I already imagine a couple of tree-men, a twisted couple, entwined along the river. The vagaries of life. » Myriam, a chainsaw poet, continues to weave, in the home of the fairies, on her dream canvas subjects that will appeal to the tourist for another decade or two.",
+				article_paru:
+					"Article from the Pays Dolois of March 25, 2021 (page 20 to 22)",
+				article_paru2: "Article from Progrès.fr of August 29, 2021",
+				article_paru3: "Article published on 16.02.2022",
+				voir_article: "See the article",
+				titre5:
+					"Le Domaine des Fées... Some sixty marriage proposals in 13 years... ",
+				titre6: "A swimming pool, an arboretum and various wellness facilities",
+				titre7:
+					"Myriam Eckert gives a second life to trees affected by ash disease.",
+				titre8: "Valentine's day",
+				titre9: "Photo gallery",
+				titre10: "Interior",
+				titre11: "Exterior",
+				titre12: "Jura",
+			},
+			contact: {
+				titre: "Contact",
+				mail: " E-Mail :",
+				phone: " Phone :",
+				portable: " Mobile :",
+				memento: " (think Whatsapp from abroad 🙂)",
+				carte: "Map",
+			},
+			navbar: {
+				accueil: "Home",
+				chambres: "Bedrooms",
+				tourisme: "Tourism",
+				galerie: "Gallery",
+				contact: "Contact",
+				reserver: "Reserve",
+				prestations: "Services",
+				explorer: "Explore",
+			},
+			equipments: {
+				equipe_dans: "Equipped in:",
+			},
+			footer: {
+				droits_reserves: "All rights reserved.",
+			},
+			booking: {
+				titre: "Booking",
+				titre2: "Reserve",
+				nom: "Name",
+				veuillez_nom: "Veuillez entrer votre nom complet",
+				mail: "Mail",
+				veuillez_mail: "Veuillez entrer une adresse mail valide",
+				phone: "Phone",
+				veuillez_phone: "Veuillez entrer un numéro valide",
+				chambre: "Bedroom",
+				veuillez_chambre: "Veuillez choisir une chambre",
+				people: "Pepole",
+				veuillez_people: "Veuillez saisir le nombre d’occupants",
+				nuits: "Night(s)",
+				veuillez_nuits: "Veuillez sélectionner une nuit",
+				legende: " Tariff weekends, holidays and public holidays",
+				titre2: "How to select a duration?",
+				paragraphe: "First select a room.",
+				paragraphe2: "Then select one or more consecutive nights.",
+				paragraphe3: "If a date is disabled, it is already reserved.",
+				accepter_conditions: "I have read and accept the",
+				conditions: "conditions",
+				titre3: "Conditions of sale and cancellation",
+				paragraphe4bis:
+					"For any final reservation on site, we ask the customer for a 50% deposit or to entrust us with a credit card number accompanied by its expiry date... (no payment will be made before the stay, this is only bank imprint in case of cancellation or deterioration of the room during the stay).",
+				paragraphe4:
+					"Any cancellation must be notified by registered letter or email with acknowledgment of receipt -> Domaine des Fées, 39110 Pretin",
+				paragraphe5:
+					" The customer benefits from insurance - cancellation: refer to the insurance sheet attached to the contract.",
+				paragraphe6:
+					" The customer does not benefit from cancellation insurance: for any cancellation caused by the customer, the sum reimbursed to the latter by the Tourist Reservation Agency, with the exception of the administration fees (if these were collected during of the reservation) will be as follows:",
+				list_item:
+					"Cancellation more than 30 days before the start of the stay: 10% of the amount of the stay will be retained;",
+				list_item2:
+					"Cancellation between the 30<sup>th</sup> and the 21<sup>th</sup> day inclusive before the start of the stay: 25% of the price of the stay will be retained;",
+				list_item4:
+					"Cancellation between the 20<sup>th</sup> and the 8<sup>th</sup> day inclusive before the start of the stay: 50% of the price of the stay will be retained;",
+				list_item5:
+					"Cancellation between the 7<sup>th</sup> and the 2<sup>th</sup> day inclusive before the start of the stay: 75% of the price of the stay will be retained;",
+				list_item6:
+					"Cancellation less than 2 days before the start of the stay: 100% of the price of the stay will be retained;",
+				paragraphe7:
+					"In case of no-show of the customer: there will be no refund.",
+				paragraphe8:
+					" Our guests are welcomed the day of their arrival from 5 p.m. Departures are until 11 am. In order to extend the stay at Les Fées, it is possible to come earlier or later for an additional fee, please inquire.",
+				paragraphe9:
+					"Animals are welcome under certain conditions: Perfect education, clean and always in the company of their master.",
+				paragraphe10:
+					"Then select one or more consecutive nights. Room rates with regional breakfast:",
+				paragraphe11: "Week/curist",
+				paragraphe12: "Consult us",
+				paragraphe13:
+					"From the second night in a guest room, a 10% discount is granted.",
+				bouton: "Reserve",
+				bouton2: "Reset",
+				titre4: "Confirmation de réservation",
+				titre5: "Votre réservation",
+				people2: "people",
+				conditions_acceptees: "I have read and accepted the conditions",
+				titre6: "Cost of stay",
+				remise: " 10% discount",
+				total: "Total : ",
+				paragraphe14: "Supplement per person",
+				paragraphe15: "In case of anomaly or doubt, please contact us.",
+				paragraphe16: "You will be redirected to a secure payment page.",
+				paragraphe17:
+					"Once the payment has been made, you will be contacted to confirm the reservation and discuss with your hosts.",
+				bouton3: "Cancel",
+				bouton4: "Pay",
+				date: " (starting at 17h)",
+				date2: "day after ",
+				date3: "(before 11 a.m. the next morning).",
+				nuit: "1 night",
+			},
 		},
 		ja: {
 			hello: "こんにちは！",
