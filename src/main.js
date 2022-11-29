@@ -14,7 +14,7 @@ import "@quasar/extras/material-icons/material-icons.css";
 import "quasar/dist/quasar.css";
 
 const i18n = createI18n({
-	locale: "en",
+	locale: "de",
 	allowComposition: true, // you need to specify that!
 	messages: {
 		fr: {
@@ -276,9 +276,9 @@ const i18n = createI18n({
 				titre10: "Winter activities",
 			},
 			gallery: {
-				titre: "Gallerie",
-				titre2: "On parle de nous",
-				titre3: "Les chambres d'hôtes féériques reçoivent leur 5ème épis.",
+				titre: "Gallery",
+				titre2: "We talk about us",
+				titre3: "The magical guest rooms receive their 5th ears of corn.",
 				paragraphe:
 					"Unique moments in a magical setting... In this natural setting and still preserved by the madness of the current world, «the fairy of the house» wished to preserve the values of past centuries while integrating current comfort to meet the expectations of its guests. , even the most demanding. For 25 years, Isabelle has been working in the luxury hotel industry. By creating this place, his dream finally comes true to welcome and pamper his own customers .",
 				paragraphe2:
@@ -400,8 +400,201 @@ const i18n = createI18n({
 				nuit: "1 night",
 			},
 		},
-		ja: {
-			hello: "こんにちは！",
+		de: {
+			home: {
+				bienvenue: "Die Domaine des Fées heißt Sie herzlich willkommen.",
+				bienvenue2: "Die Domaine des Fées heißt Sie herzlich willkommen.",
+				intro:
+					"Die Feen haben das Gelände am Fuße des Juragebirges und am Ufer eines kleinen Flusses namens ... « La Vache » in Besitz genommen.",
+				paragraphe1_titre: "Willkommen in dieser natürlichen Umgebung",
+				paragraphe1_texte:
+					"Die Feen nutzten die Zeit, die sie mit der Arbeit verbrachten, um sich zu verschönern und Ihnen zu ermöglichen, das Gelände mit einem <strong>Zen-Park</strong>, in dem Sie der Zauber von Wasser und Licht verzaubern wird, wirklich in Besitz zu nehmen <strong > idyllisch gelegen</strong>.",
+				paragraphe1_texte2:
+					"Eine natürliche Umgebung, in der der Winter einsetzt, damit die Natur in Gesellschaft der Feen neue Energie tanken kann.",
+				paragraphe1_texte3:
+					"Die Magie begleitet Sie während Ihres Aufenthaltes in einer <strong>Wellness- und Cocooning-Umgebung</strong>, um sich in dieser magischen Welt zu entspannen. Nehmen Sie also den Schlüssel zu diesen bezaubernden Pfaden …",
+				paragraphe2_titre: "Eine wahre Oase der Ruhe",
+				paragraphe2_texte:
+					"Wenn die Sonne scheint und der Himmel blau wird, können Sie auf der Domaine des Fées in eine wunderbare Welt eintauchen.",
+				paragraphe2_texte2:
+					'Das <strong class="text-brand">beheizte Schwimmbad</strong> mit Blick auf das Tal, mit seinem kristallklaren Wasser, das im <strong class="text-brand">Jura</strong> als magisch gilt, geschmückt mit Silberreflexionen und ein herrlicher <strong class="text-brand">glitzernder Wasserfall</strong> bieten Ihnen die Möglichkeit, <strong class="text-brand">gegen den Strom zu schwimmen</strong>, ein <strong class="text-brand">Kneippgang-Reflexzonenbehandlung</strong>, die Ihren Moment der Entspannung und des Wohlbefindens perfektioniert...',
+				nos_chambres: "Unsere Zimmer",
+				nos_equipements: "Unsere Ausrüstung",
+				carte: "Karte",
+			},
+			services: {
+				titre: "Vorteile",
+				titre2: "Einzigartige Momente...",
+				titre3: "Einzigartige Momente...",
+				paragraphe:
+					"Wenn die Sonne scheint und der Himmel blau wird, können Sie auf der Domaine des Fées in eine wunderbare Welt eintauchen.<br /> Das beheizte Schwimmbad (Tiefe: 1,50 m), das mit seinem kristallklaren Wasser ins Tal eintaucht, gilt als der Jura, geschmückt mit silbernen Reflexen und einem herrlich funkelnden Wasserfall, bietet Ihnen die Möglichkeit, gegen den Strom zu schwimmen, eine Kneipp-Reflexzonenbehandlung, die Ihren Moment der Entspannung und des Wohlbefindens perfektioniert...",
+				paragraphe2:
+					"In dieser natürlichen und noch erhaltenen Umgebung „wollte die Maitresse die Werte vergangener Jahrhunderte bewahren und gleichzeitig den aktuellen Komfort integrieren, um die Erwartungen der Kunden zu erfüllen. Isabelle ist seit 25 Jahren im Gastgewerbe tätig. Mit der Schaffung dieses Ortes wurde sein Traum endlich wahr, seine eigenen Kunden willkommen zu heißen und zu verwöhnen.",
+				paragraphe3:
+					"Die Gästezimmer, die Suite und das Cottage bieten Klimaanlage und sehr schnelles WLAN (Glasfaser) in allen Zimmern. Die Innenräume der Domaine des Fées sind rauchfrei.",
+				paragraphe4:
+					"Die Feenlounge. Möchten Sie ein Buch lesen oder lieber in einer Cocooning-Umgebung spazieren, wo der knisternde Kamin und der geschnittene Stein den Ort kühl halten, erwartet Sie die Feenlounge ...",
+				paragraphe5:
+					"Eine Bibliothek und eine TV-Ecke stehen Ihnen zur Verfügung.",
+				paragraphe6:
+					"Eine sanfte Atmosphäre und eine Umgebung des Zen erwartet Sie, wenn Sie morgens in unserem Zimmer oder auf unserer Terrasse aufwachen, um ein wohltuendes Frühstück mit exklusiven regionalen Produkten zu genießen. In der Nähe unseres Wasserfalls und seines Beckens werden Sie Energie tanken Energie tanken und Energie tanken, um unseren herrlichen Jura zu entdecken... Bei Ihrer Rückkehr verwöhnt Sie eine Auswahl an regionalen oder Gourmetprodukten, die von der Hausfee sorgfältig zubereitet werden, und das alles in einem Picknickkorb, der für Ihre Arbeit bereitsteht haben die Möglichkeit, entweder in unserem Park oder eher am Rand des Wassers oder auf der Terrasse oder sogar im Obergeschoss und seinem Patio zu entdecken ... An Möglichkeiten mangelt es nicht!",
+				paragraphe7:
+					"Ein Gewölbekeller mit ein paar Flaschen für einen Aperitif mit Freunden.",
+				paragraphe8:
+					"Entspannung garantiert auf dem Weg zum Wohlbefinden... Der Kneippgang. Die Kneipp-Methode basiert auf fünf Säulen: Hydrotherapie, Phytotherapie, körperliche Aktivität, Ernährungslehre und eine gesunde und ausgewogene Lebensweise. Mehr wissen",
+				texte8: "PDF ansehen",
+				paragraphe9:
+					"Babybetten können auf Anfrage ausgeliehen werden, ebenso Laufstall, Hochstuhl und Spielzeug. Für Spaziergänge führt ein Rundgang mit tollen Wanderungen direkt vor dem Hof ​​vorbei. Schlitten, Pétanque-Kugeln stehen zu Ihrer Verfügung, sie kann auch für Sie organisieren: Angeltouren im Fluss, Reiten, Mountainbiken, Heißluftballonfahrten, Flugzeuge, Paragliding, <strong>auf Bestellung</strong> Blumenarrangements, Blumensträuße von Blumen, Picknickkörbe, verschiedene Wohlfühlmassagen und wenn Sie andere Wünsche haben, teilen Sie uns diese mit, wir setzen uns dafür ein, dass Sie einen einzigartigen Moment erleben!",
+			},
+			tourism: {
+				titre: "Tourismus",
+				titre2: "Tafelfreuden…",
+				titre3: "… auf der Weingartenseite unsere Favoriten ♥",
+				titre4: "… auf der Tafel- und Gaumenseite unsere Lieblinge ♥",
+				paragraphe:
+					"Der Jura und seine berühmten Rebsorten werden Liebhaber mit ihrer Vielfalt und ihrer Typizität verführen, vergessen Sie nicht, eines der sieben Bacchic-Wunder dieser Welt zu probieren, den berühmten Vin Jaune, am besten mit einem Stück Comté-Käse am Ende des Essens. Ohne Mäßigung zu besuchen, die Weinberge von Arbois, Pupillin, l'Etoile, Château-Chalon und Côtes du Jura... Verkostungsmöglichkeiten.",
+				visiter_le_site: "Besuche die Website",
+				paragraphe3:
+					"Der Jura und seine anerkannten kulinarischen Traditionen werden die anspruchsvollsten Feinschmecker verführen. Forelle in Vin Jaune, Spezialitäten auf Comté-Basis, Coq au Vin Jaune und Morcheln, Cancoillotte, Morbiflette und die Auswahl an Restaurants mit einem hervorragenden Preis-Leistungs-Verhältnis ist sehr real, eine große Entdeckung… Alle diese Adressen finden Sie zwischen 3-10 km von den Feen…",
+				paragraphe4: "Zwei schritte...",
+				titre5: "Eine kleine Geschichte...",
+				paragraphe7:
+					"Wie bei jedem Urlaub oder Wochenende hilft Ihnen eine gute Vorbereitung, Ihren Zeitplan bestmöglich zu planen. Verschiedene Sehenswürdigkeiten und Orte in der Region sind zu besuchen:",
+				paragraphe8: "Entdecken Sie die Touren der Franche-Comté",
+				titre6: "Die Wein- und Seenstraße",
+				titre7: "Um uns herum...",
+				titre8: "Jährliche Aktivitäten",
+				titre9: "Sommeraktivitäten",
+				titre10: "Winteraktivitäten",
+			},
+			gallery: {
+				titre: "Galerie",
+				titre2: "Wir reden über uns",
+				titre3: "Die zauberhaften Gästezimmer erhalten ihre 5. Ähre.",
+				paragraphe:
+					"Einzigartige Momente in einer magischen Umgebung ... In dieser natürlichen Umgebung, die immer noch vom Wahnsinn der heutigen Welt bewahrt wird, wollte «die Fee des Hauses» die Werte vergangener Jahrhunderte bewahren und gleichzeitig den aktuellen Komfort integrieren, um die Erwartungen zu erfüllen von seine Gäste, auch die anspruchsvollsten. Seit 25 Jahren ist Isabelle in der Luxushotellerie tätig. Mit der Schaffung dieses Ortes wurde sein Traum endlich wahr, seine eigenen Kunden willkommen zu heißen und zu verwöhnen.",
+				paragraphe2:
+					"Die Geschichte begann vor ein paar Wochen. Ein Leben der Bäume, das sich märchenhaft fortsetzen wird, noch etwa ein Jahrzehnt. Von Von unserem Korrespondenten Jacques FAIVRE.",
+				paragraphe3:
+					"„Ich liebe die Natur so sehr. Ich wollte diesen Bäumen für diese Jahre Tribut zollen, indem ich ihnen ein zweites Leben gab, erklärt Isabelle, die Bildhauerin. Jeder Baum, der in der Mitte des Stammes gefällt wurde, hatte einen Nachfolger in Harmonie mit dem Klima: Platanen, Rot- und Silberahorn, Tulpe und Coulommier, Kaki, Indischer Flieder usw. Frédéric Godin, Landschaftsgärtner, war unser Berater. Ich wünsche den Neuankömmlingen ein schönes und langes Wachstum. Um den ganzen Weg zu gehen, haben wir 14 unserer Patienten erlaubt, wieder entlang eines spielerischen Pfades entlang des Flusses zu leben. » Die Domäne der Feen Myriam Eckert und Isabelle Gisler trafen sich. Die eroberte Bildhauerkünstlerin betrat dann mit ihrer Kettensäge die Szene. Die Bauarbeiten sind seit einigen Monaten im Gange. „In Phase mit Isabelle hatte ich von Anfang an den Wunsch zu kommen. Das entspricht meinem Universum, dem Phantastischen durch die Wesen der Natur. Der Ort ist großartig, inspirierend, fördert das Gleichgewicht und es herrscht eine Harmonie zwischen Fluss und Berg. Das gegebene Thema ist die Domäne der Feen, ich konnte sie nicht vergessen. Also habe ich mehrere erstellt. Sie scheinen bereits zufrieden zu sein. Diese fantastische Welt lässt viel Raum für die Fantasie. Ich setze nie Figuren. Meine Figuren haben ihre Wurzeln immer im Boden verankert. Daraus schöpfen sie Energie. Alle Bäume enthalten kleine Schätze. Es ist immer noch notwendig, sie zu erkennen und herauszubringen. Vergessen wir nicht, dass Pflanzen ein Teil von uns sind. Vor allem möchte ich, dass meine Skulpturen eine Botschaft an die Menschen bleiben und uns daran erinnern, dass die Natur genauso lebt wie sie. Und jeder Baum wird zu einem Werk gemäß den Offenbarungen von Myriam, die erzählt. „Einige Feen sind aufgetaucht, die Vogelfee zum Beispiel hat gerade den Reiher, der aus dem Fluss aufgetaucht ist, in ihre Arme aufgenommen. Was den Schneckenreiter betrifft, so hatte ich 10 Jahre lang davon geträumt, es schien, ich konnte ihn gebären. Der Feenmann? Ich mag das männlich-weibliche Paradoxon. Warum sollte es nur weibliche Feen geben? Sie halten zusammen ein Kind in ihren Armen. Die weibliche Seite des Männlichen. Folgende ? Es wird sich mit der Zeit zeigen. Zwei Bäume sind durch ihre Wurzeln verbunden. Ich stelle mir bereits ein paar Baummenschen vor, ein verdrehtes Paar, verschlungen entlang des Flusses. Die Launen des Lebens. Myriam, eine Kettensägen-Dichterin, webt weiterhin im Haus der Feen auf ihrer Traumleinwand Themen, die den Touristen noch ein oder zwei Jahrzehnte lang herausfordern werden.",
+				article_paru:
+					"Artikel aus dem Pays Dolois vom 25. März 2021 (Seite 20 bis 22)",
+				article_paru2: "Artikel von Progrès.fr vom 29. August 2021",
+				article_paru3: "Artikel veröffentlicht am 16.02.2022",
+				voir_article: "Siehe Artikel",
+				titre5:
+					"Die Domaine des Fées... Etwa sechzig Heiratsanträge in 13 Jahren...",
+				titre6:
+					"Ein Schwimmbad, ein Arboretum und verschiedene Wellnesseinrichtungen",
+				titre7:
+					"Ein Schwimmbad, ein Arboretum und verschiedene Wellnesseinrichtungen",
+				titre8: "Valentinstag",
+				titre9: "Fotogallerie",
+				titre10: "Innere",
+				titre11: "Außen",
+				titre12: "Jura",
+			},
+			contact: {
+				titre: "Kontakt",
+				mail: " Email :",
+				phone: " Telefon :",
+				portable: " Tragbar :",
+				memento: " (denken Sie an WhatsApp aus dem Ausland 🙂)",
+				carte: "Karte",
+			},
+			navbar: {
+				accueil: "Startseite",
+				chambres: "Schlafzimmer",
+				tourisme: "Tourismus",
+				galerie: "Galerie",
+				contact: "Kontact",
+				reserver: "Buchen",
+				prestations: "Vorteile",
+				explorer: "Erkunden",
+			},
+			equipments: {
+				equipe_dans: "Ausgestattet in:",
+			},
+			footer: {
+				droits_reserves: "Alle Rechte vorbehalten.",
+			},
+			booking: {
+				titre: "Reservierung",
+				titre2: "Buchen",
+				nom: "Name",
+				veuillez_nom: "Veuillez entrer votre nom complet",
+				mail: "Email",
+				veuillez_mail: "Veuillez entrer une adresse mail valide",
+				phone: "Telefon",
+				veuillez_phone: "Veuillez entrer un numéro valide",
+				chambre: "Schlafzimmer",
+				veuillez_chambre: "Veuillez choisir une chambre",
+				people: "Insassen",
+				veuillez_people: "Veuillez saisir le nombre d’occupants",
+				nuits: "Nacht(s)",
+				veuillez_nuits: "Veuillez sélectionner une nuit",
+				legende: " Tarif Wochenenden, Feiertage und Feiertage",
+				titre2: "Wie wähle ich eine Dauer aus?",
+				paragraphe: "Wählen Sie zunächst einen Raum aus.",
+				paragraphe2:
+					"Wählen Sie dann eine oder mehrere aufeinanderfolgende Nächte aus.",
+				paragraphe3: "Wenn ein Datum deaktiviert ist, ist es bereits gebucht.",
+				accepter_conditions: "Ich habe die gelesen und akzeptiere sie",
+				conditions: "bedingungen",
+				titre3: "Verkaufsbedingungen und Widerruf",
+				paragraphe4bis:
+					"Für jede endgültige Reservierung vor Ort bitten wir den Kunden um eine Anzahlung von 50% oder um die Angabe einer Kreditkartennummer mit Ablaufdatum... (es erfolgt keine Zahlung vor dem Aufenthalt, dies ist ggf. nur ein Bankabdruck). Stornierung oder Verschlechterung des Zimmers während des Aufenthaltes).",
+				paragraphe4:
+					"Jede Stornierung muss per Einschreiben oder E-Mail mit Rückschein erfolgen -> Domaine des Fées, 39110 Pretin",
+				paragraphe5:
+					" Der Kunde profitiert von der Versicherung - Storno: Siehe Versicherungsblatt, das dem Vertrag beigefügt ist. ",
+				paragraphe6:
+					" Der Kunde profitiert nicht von einer Reiserücktrittsversicherung: Für jede vom Kunden verursachte Stornierung wird der letztere Betrag von der Tourist Reservation Agency mit Ausnahme der Verwaltungsgebühren (falls diese während der Reservierung eingezogen wurden) wie folgt erstattet : ",
+				list_item:
+					"Stornierung mehr als 30 Tage vor Beginn des Aufenthalts: 10 % des Aufenthaltsbetrags werden einbehalten; ",
+				list_item2:
+					"Stornierung zwischen dem 30<sup>.</sup> und einschließlich dem 21<sup>.</sup> Tag vor Beginn des Aufenthalts: 25 % des Aufenthaltspreises werden einbehalten;",
+				list_item4:
+					"Stornierung zwischen dem 20<sup>.</sup> und einschließlich 8<sup>ten</sup> Tag vor Beginn des Aufenthalts: 50 % des Aufenthaltspreises werden einbehalten; ",
+				list_item5:
+					"Stornierung zwischen dem 7<sup>ten</sup> und dem 2<sup>ten</sup> Tag einschließlich vor Beginn des Aufenthalts: 75 % des Aufenthaltspreises werden einbehalten;",
+				list_item6:
+					"Stornierung weniger als 2 Tage vor Aufenthaltsbeginn: 100 % des Aufenthaltspreises werden einbehalten;",
+				paragraphe7:
+					"Bei Nichterscheinen des Kunden: Es erfolgt keine Rückerstattung. ",
+				paragraphe8:
+					" Unsere Gäste werden am Anreisetag ab 17.00 Uhr empfangen. Abreise bis 11 Uhr. Um den Aufenthalt in Les Fées zu verlängern, ist es möglich, gegen Aufpreis früher oder später zu kommen, bitte erkundigen Sie sich.",
+				paragraphe9:
+					"Tiere sind unter bestimmten Bedingungen willkommen: Perfekte Erziehung, sauber und immer in Gesellschaft ihres Herrchens. ",
+				paragraphe10:
+					"Dann wählen Sie eine oder mehrere aufeinanderfolgende Übernachtungen aus Zimmerpreise mit regionalem Frühstück: ",
+				paragraphe11: "Woche/kurist",
+				paragraphe12: "konsultieren Sie uns.",
+				paragraphe13:
+					"Ab der zweiten Übernachtung im Gästezimmer werden 10 % Rabatt gewährt. ",
+				bouton: "Buchen",
+				bouton2: "Zurücksetzen",
+				titre4: "Reservierungsbestätigung",
+				titre5: "Deine Reservierung",
+				people2: "personen",
+				conditions_acceptees: "Ich habe die Bedingungen gelesen und akzeptiert",
+				titre6: "Aufenthaltskosten",
+				remise: " 10% Rabatt",
+				total: "Gesamt : ",
+				paragraphe14: "Zuschlag pro Person",
+				paragraphe15:
+					"Im Falle von Anomalien oder Zweifeln kontaktieren Sie uns bitte.",
+				paragraphe16:
+					"Sie werden auf eine sichere Zahlungsseite weitergeleitet.",
+				paragraphe17:
+					"Sobald die Zahlung erfolgt ist, werden Sie kontaktiert, um die Reservierung zu bestätigen und mit Ihren Gastgebern zu besprechen.",
+				bouton3: "Abbrechen",
+				bouton4: "Zahlen",
+				date: " (ab 17 Uhr)",
+				date2: "tag danach ",
+				date3: "(vor 11 Uhr am nächsten Morgen).",
+				nuit: "1 nacht",
+			},
 		},
 	},
 });
