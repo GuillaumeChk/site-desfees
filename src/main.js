@@ -790,6 +790,199 @@ const i18n = createI18n({
 				nuit: "1 notte",
 			},
 		},
+		pt: {
+			home: {
+				bienvenue: "Le Domaine des Fées dá-lhe as boas-vindas",
+				bienvenue2: "Le Domaine des Fées dá-lhe as boas-vindas",
+				intro:
+					"As Fadas tomaram posse do local, no sopé das montanhas do Jura e à beira de um pequeno rio chamado...« La Vache ».",
+				paragraphe1_titre: "Bem-vindo a este ambiente natural",
+				paragraphe1_texte:
+					"As fadas aproveitaram o tempo dedicado ao trabalho para embelezar-se e permitir que você realmente tome posse do local com um <strong>parque zen</strong> onde a magia da água e da luz o encantará neste <strong >Parque Zen</strong> strong>cenário idílico</strong>.",
+				paragraphe1_texte2:
+					"Um cenário natural onde o inverno chega para permitir que a natureza recarregue suas energias na companhia das fadas.",
+				paragraphe1_texte3:
+					"A magia irá acompanhá-lo durante a sua estadia num <strong>ambiente de bem-estar e encasulo</strong> para relaxar neste mundo mágico. Então pegue a chave destes caminhos encantadores...",
+				paragraphe2_titre: "Verdadeiro refúgio de paz",
+				paragraphe2_texte:
+					"No Domaine des Fées, quando o sol brilha e o céu fica azul, você acessa um mundo maravilhoso.",
+				paragraphe2_texte2:
+					'A <strong class="text-brand">piscina aquecida</strong> mergulhando sobre o vale, com sua água cristalina considerada mágica no <strong class="text-brand">Jura</strong>, adornado com reflexos de cores prateadas e uma soberba <strong class="text-brand">cachoeira cintilante</strong>, oferecerá a você a possibilidade de <strong class="text-brand">nadar contra a corrente</strong>, um <strong class="text-brand">tratamento de reflexologia Kneippwalk</strong> que irá aperfeiçoar o seu momento de relaxamento e bem-estar...',
+				nos_chambres: "Nossos quartos",
+				nos_equipements: "Nosso equipamento",
+				carte: "Mapa",
+			},
+			services: {
+				titre: "Benefícios",
+				titre2: "Momentos únicos...",
+				titre3: "Momentos únicos...",
+				paragraphe:
+					"No Domaine des Fées, quando o sol brilha e o céu fica azul, acede-se a um mundo maravilhoso.<br /> A piscina climatizada (profundidade: 1,50m.) que mergulha no vale, cujas águas cristalinas dizem ser ser mágico no Jura, adornado com reflexos prateados e uma soberba cascata cintilante, oferece-lhe a possibilidade de nadar contra a corrente, um tratamento de reflexologia Kneippwalk que irá aperfeiçoar o seu momento de relaxamento e bem-estar...",
+				paragraphe2:
+					"Neste cenário natural e ainda preservado, « a dona do milho quis preservar os valores dos séculos passados, integrando o conforto atual para atender às expectativas do cliente. Há 25 anos, Isabelle trabalha na indústria hoteleira. criando este lugar, seu sonho finalmente se torna realidade para receber e mimar seus próprios clientes.",
+				paragraphe3:
+					"Os quartos, a suite e a casa de campo oferecem ar condicionado e Wi-Fi de alta velocidade (fibra ótica) em todos os quartos. Os interiores do Domaine des Fées são para não fumadores.",
+				paragraphe4:
+					"O salão das fadas. Quer ler um livro ou melhor passear num ambiente acolhedor onde o crepitar da lareira e a pedra talhada refrescarão o ambiente, o salão das fadas espera por si...",
+				paragraphe5: "Uma biblioteca e uma área de TV estão à sua disposição.",
+				paragraphe6:
+					"Uma atmosfera suave e um ambiente zen espera por você ao acordar de manhã em nosso quarto ou em nosso terraço para desfrutar de um café da manhã benéfico com produtos regionais exclusivos que lhe dará energia perto de nossa cachoeira e sua bacia. saberá como recarregar as suas baterias e dar-lhe energia para descobrir o nosso magnífico Jura... No regresso, uma escolha de produtos regionais ou gourmet cuidadosamente preparados pela fada da casa irão deliciar o seu paladar, tudo num cabaz pick nick pronto a usar que irá tenha a oportunidade de descobrir seja no nosso parque ou melhor à beira de água ou no terraço ou ainda no andar de cima e no seu pátio... Possibilidades não faltam!",
+				paragraphe7:
+					"Uma adega abobadada com algumas garrafas para um aperitivo com os amigos.",
+				paragraphe8:
+					"Relaxamento garantido a caminho do bem-estar... O Kneippwalk. O método Kneipp assenta em cinco pilares: hidroterapia, fitoterapia, actividade física, dietética e um estilo de vida saudável e equilibrado. Para saber mais",
+				texte8: "visualizar o PDF",
+				paragraphe9:
+					"Camas de bebê podem ser emprestadas a pedido, assim como um cercadinho, uma cadeira alta e brinquedos. Para caminhadas, um circuito de caminhadas de longa distância passa em frente à fazenda. Tobogãs, bolas de petanca estão à sua disposição , ela também pode organizar para você: Pescarias no rio, cavalgadas, mountain bike, passeios de balão, aviões, parapente, arranjos florais <strong>sob encomenda</strong>, buquês de flores, cestas de piquenique, diversas massagens de bem-estar e se você tem outros desejos, conte-nos sobre eles, estamos empenhados em fazer você viver um momento único!",
+			},
+			tourism: {
+				titre: "Turismo",
+				titre2: "Os prazeres da mesa…",
+				titre3: "… do lado da vinha, os nossos favoritos ♥",
+				titre4: "… do lado da mesa e do paladar, os nossos preferidos ♥",
+				paragraphe:
+					"O Jura e as suas famosas castas vão seduzir os amadores pela sua diversidade e tipicidade, não deixe de provar uma das sete maravilhas bacanais deste mundo, o famoso Vin Jaune de preferência com um pedaço de Comté no final da refeição. Para visitar sem moderação, os vinhedos de Arbois, Pupillin, l'Etoile, Château-Chalon e Côtes du Jura... Possibilidades de degustação.",
+				visiter_le_site: "Visite o site",
+				paragraphe3:
+					"O Jura e suas renomadas tradições culinárias seduzirão os epicuristas mais exigentes. Truta em Vin Jaune, especialidades à base de Comté, Coq au Vin Jaune e morels, cancoillotte, morbiflette e a variedade de restaurantes com excelente custo-benefício / preço é muito real , boa descoberta… Todos esses endereços estão entre 3-10 km de Les Fées…",
+				paragraphe4: "A um passo de distância...",
+				titre5: "Um pouco de história...",
+				paragraphe7:
+					"Como em todas as férias ou fim de semana, uma boa preparação ajudará você a planejar sua programação da maneira ideal. Vários locais e locais devem ser visitados na região:",
+				paragraphe8: "Descubra as visitas de Franche-Comté",
+				titre6: "A estrada dos vinhos e dos lagos",
+				titre7: "Ao nosso redor...",
+				titre8: "Atividades anuais",
+				titre9: "Atividades de verão",
+				titre10: "Atividades de inverno",
+			},
+			gallery: {
+				titre: "Galeria",
+				titre2: "Eles falam de nós",
+				titre3: "Os quartos mágicos recebem suas 5ª espigas de milho.",
+				paragraphe:
+					"Momentos únicos num cenário mágico... Neste cenário natural e ainda preservado pela loucura do mundo de hoje, «a fada da casa» quis preservar os valores dos séculos passados integrando o conforto atual para ir ao encontro das expetativas dos seus clientes, anfitriões, até os mais exigentes. Há 25 anos, Isabelle trabalha na indústria hoteleira de luxo. Ao criar este lugar, seu sonho finalmente se tornou realidade de receber e mimar seus próprios clientes.",
+				paragraphe2:
+					"A história começou há algumas semanas. Uma vida de árvores que continuará em um conto de fadas, por mais uma década ou mais. Por Do nosso correspondente, Jacques FAIVRE.",
+				paragraphe3:
+					"“Amo muito a natureza. Quis homenagear essas árvores, por esses anos, dando-lhes uma segunda vida, explica a escultora Isabelle. Cada árvore cortada no meio do caule teve uma sucessora em harmonia com o clima: sicômoros, bordos vermelhos e prateados, tulipa e coulommier, caqui, lilás indiano, etc. Frédéric Godin, paisagista, foi nosso conselheiro. Desejo aos recém-chegados um belo e longo crescimento. Para ir até ao fim, permitimos que 14 dos nossos pacientes voltassem a viver ao longo de um caminho lúdico ao longo do rio. » O domínio das fadas Myriam Eckert e Isabelle Gisler se conheceram. A artista escultora conquistada então entrou em cena com sua motosserra. A construção está em andamento há alguns meses. “Em fase com Isabelle, tive vontade de vir desde o início. Isso corresponde ao meu universo, o fantástico pelos seres da natureza. O local é magnífico, inspirador, promove o equilíbrio e existe uma harmonia entre o rio e a montanha. O tema apresentado é o domínio das fadas, não as poderia esquecer. Então criei vários. Eles já parecem felizes. Este mundo fantástico deixa muito espaço para a imaginação. Eu nunca estabeleço números. Meus personagens sempre têm suas raízes ancoradas no chão. Eles extraem energia disso. Todas as árvores contêm pequenos tesouros. Ainda é necessário detectá-los e trazê-los para fora. Não esqueçamos que as plantas fazem parte de nós. Acima de tudo, quero que minhas esculturas continuem sendo uma mensagem para os humanos e nos lembrem que a natureza está viva, como eles. E cada árvore se torna uma obra de acordo com as revelações de Myriam que conta. “Várias fadas surgiram, a fada dos pássaros, por exemplo, acaba de receber em seus braços a garça que emergiu do rio. Quanto ao cavaleiro do caracol, sonhei com ele por 10 anos, apareceu, consegui dar à luz. O homem das fadas? Eu gosto do paradoxo masculino feminino. Por que haveria apenas fadas femininas? Eles seguram uma criança nos braços. O lado feminino do masculino. A seguir ? Ele se revelará com o tempo. Duas árvores estão ligadas por suas raízes. Já imagino um casal de homens-árvore, um casal retorcido, entrelaçado ao longo do rio. Os caprichos da vida. Myriam, uma poetisa motosserra, continua tecendo, na casa das fadas, em sua tela de sonho, temas que vão desafiar o turista por mais uma ou duas décadas.",
+				article_paru:
+					"Artigo do Pays Dolois de 25 de março de 2021 (página 20 a 22)",
+				article_paru2: "Artigo de Progrès.fr de 29 de agosto de 2021",
+				article_paru3: "Artigo publicado em 16.02.2022",
+				voir_article: "Ver artigo",
+				titre5:
+					"Le Domaine des Fées... Uns sessenta pedidos de casamento em 13 anos...",
+				titre6: "Uma piscina, um arboreto e várias instalações de bem-estar",
+				titre7:
+					"Myriam Eckert dá uma segunda vida às árvores afetadas pela doença das cinzas.",
+				titre8: "Dia dos Namorados",
+				titre9: "Galeria de fotos",
+				titre10: "Interior",
+				titre11: "Exterior",
+				titre12: "Jura",
+			},
+			contact: {
+				titre: "Contato",
+				mail: " E-Mail :",
+				phone: " Telefone :",
+				portable: " Celular :",
+				memento: " (pense no Whatsapp do exterior 🙂)",
+				carte: "Mapa",
+			},
+			navbar: {
+				accueil: "Casa",
+				chambres: "Quartos",
+				tourisme: "Turismo",
+				galerie: "Galeria",
+				contact: "Contato",
+				reserver: "Livro",
+				prestations: "Benefícios",
+				explorer: "Explorar",
+			},
+			equipments: {
+				equipe_dans: "Equipado em :",
+			},
+			footer: {
+				droits_reserves: "Todos os direitos reservados.",
+			},
+			booking: {
+				titre: "Reserva",
+				titre2: "Livro",
+				nom: "Nome",
+				veuillez_nom: "Veuillez entrer votre nom complet",
+				mail: "Mail",
+				veuillez_mail: "Veuillez entrer une adresse mail valide",
+				phone: "Telefone",
+				veuillez_phone: "Veuillez entrer un numéro valide",
+				chambre: "Quarto",
+				veuillez_chambre: "Veuillez choisir une chambre",
+				people: "Ocupantes",
+				veuillez_people: "Veuillez saisir le nombre d’occupants",
+				nuits: "Noite(s)",
+				veuillez_nuits: "Veuillez sélectionner une nuit",
+				legende: " Tarifa para finais de semana, feriados e feriados",
+				titre2: "Como selecionar uma duração?",
+				paragraphe: "Selecione um quarto primeiro.",
+				paragraphe2: "Em seguida, selecione uma ou mais noites consecutivas.",
+				paragraphe3: "Se uma data estiver desativada, ela já está reservada.",
+				accepter_conditions: "Eu li e aceito o",
+				conditions: "condições",
+				titre3: "Condições de venda e cancelamento",
+				paragraphe4bis:
+					"Para qualquer reserva final no local, pedimos ao cliente um depósito de 50% ou que nos forneça um número de cartão de crédito acompanhado da data de validade... (não será feito pagamento antes da estadia, trata-se apenas de uma impressão bancária em caso de cancelamento ou deterioração do quarto durante a estadia).",
+				paragraphe4:
+					"Qualquer cancelamento deve ser comunicado por carta registrada ou e-mail com aviso de recebimento -> Domaine des Fées, 39110 Pretin",
+				paragraphe5:
+					" O cliente beneficia de seguro - cancelamento: consulte a ficha de seguro anexa ao contrato. ",
+				paragraphe6:
+					" O cliente não beneficia do seguro de cancelamento: por qualquer cancelamento devido ao cliente, o valor reembolsado a este pela Agência de Reservas Turísticas, com exceção dos custos administrativos (se estes tiverem sido cobrados no momento da reserva) será o seguinte : ",
+				list_item:
+					"Cancelamento mais de 30 dias antes do início da estadia: será retido 10% do valor da estadia; ",
+				list_item2:
+					"Cancelamento entre o 30<sup>th</sup> e o 21<sup>th</sup> dia inclusive antes do início da estadia: será retido 25% do preço da estadia;",
+				list_item4:
+					"Cancelamento entre o 20<sup>th</sup> e o 8<sup>th</sup> dia inclusive antes do início da estadia: será retido 50% do preço da estadia; ",
+				list_item5:
+					"Cancelamento entre o 7<sup>º</sup> e o 2<sup>º</sup> dia inclusive antes do início da estadia: será retido 75% do preço da estadia; ",
+				list_item6:
+					"Cancelamento menos de 2 dias antes do início da estadia: 100% do preço da estadia será retido;",
+				paragraphe7:
+					"Em caso de não comparecimento do cliente: não haverá reembolso. ",
+				paragraphe8:
+					" Nossos hóspedes são recebidos no dia de sua chegada a partir das 17h. As saídas são até as 11h. Para prolongar a estadia em Les Fées, é possível chegar mais cedo ou mais tarde por uma taxa adicional, informe.",
+				paragraphe9:
+					"Os animais são bem-vindos sob certas condições: Educação perfeita, limpa e sempre na companhia de seu dono. ",
+				paragraphe10:
+					"Então selecione uma ou mais noites consecutivas. Tarifa com café da manhã regional: ",
+				paragraphe11: "Semana/curista",
+				paragraphe12: "fale conosco",
+				paragraphe13:
+					"A partir da segunda noite em quarto de hóspede é concedido 10% de desconto. ",
+				bouton: "Reservar",
+				bouton2: "Restaurar",
+				titre4: "Confirmação de reserva",
+				titre5: "Sua reserva",
+				people2: "pessoas",
+				conditions_acceptees: "Li e aceito as condições",
+				titre6: "Custo da estadia",
+				remise: " Custo da estadia",
+				total: "Total : ",
+				paragraphe14: "Supplemento per persona",
+				paragraphe15:
+					"Em caso de anomalia ou dúvida, entre em contato conosco.",
+				paragraphe16:
+					"Você será redirecionado para uma página de pagamento segura.",
+				paragraphe17:
+					"Assim que o pagamento for efetuado, você será contatado para confirmar a reserva e discutir com seus anfitriões.",
+				bouton3: "Cancelar",
+				bouton4: "Pagar",
+				date: " (a partir das 17h)",
+				date2: "dia seguinte ",
+				date3: "(antes das 11h da manhã seguinte).",
+				nuit: "1 noite",
+			},
+		},
 	},
 });
 
