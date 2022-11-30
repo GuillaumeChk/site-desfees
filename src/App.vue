@@ -101,7 +101,58 @@
 						</q-img>
 					</a>
 				</div>
+
 				<div class="q-pa-xs text-orange-7 text-center">
+					<q-btn-dropdown
+						class="q-mb-sm"
+						menu-anchor="bottom middle"
+						menu-self="top middle"
+						dropdown-icon="translate"
+					>
+						<q-list>
+							<q-item clickable v-close-popup @click="$i18n.locale = 'fr'">
+								<q-item-section>
+									<q-item-label>français</q-item-label>
+								</q-item-section>
+							</q-item>
+
+							<q-item clickable v-close-popup @click="$i18n.locale = 'en'">
+								<q-item-section>
+									<q-item-label>english</q-item-label>
+								</q-item-section>
+							</q-item>
+
+							<q-item clickable v-close-popup @click="$i18n.locale = 'de'">
+								<q-item-section>
+									<q-item-label>deutsch</q-item-label>
+								</q-item-section>
+							</q-item>
+
+							<q-item clickable v-close-popup @click="$i18n.locale = 'it'">
+								<q-item-section>
+									<q-item-label>italiano</q-item-label>
+								</q-item-section>
+							</q-item>
+
+							<q-item clickable v-close-popup @click="$i18n.locale = 'pt'">
+								<q-item-section>
+									<q-item-label>português</q-item-label>
+								</q-item-section>
+							</q-item>
+
+							<q-item clickable v-close-popup @click="$i18n.locale = 'ru'">
+								<q-item-section>
+									<q-item-label>pусский</q-item-label>
+								</q-item-section>
+							</q-item>
+
+							<q-item clickable v-close-popup @click="$i18n.locale = 'es'">
+								<q-item-section>
+									<q-item-label>español</q-item-label>
+								</q-item-section>
+							</q-item>
+						</q-list> </q-btn-dropdown
+					><br />
 					Copyright © 2022 – GuillaumeChk <br />
 					desfees.fr <br />
 					{{ $t("footer.droits_reserves") }}

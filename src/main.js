@@ -18,6 +18,7 @@ const i18n = createI18n({
 	allowComposition: true, // you need to specify that!
 	messages: {
 		fr: {
+			lang: "français",
 			home: {
 				bienvenue: "Le Domaine des Fées vous souhaite la bienvenue",
 				bienvenue2: "Le Domaine des Fées vous souhaite la bienvenue",
@@ -210,6 +211,7 @@ const i18n = createI18n({
 			},
 		},
 		en: {
+			lang: "english",
 			home: {
 				bienvenue: "The Domaine des Fées welcomes you",
 				bienvenue2: "The Domaine des Fées welcomes you",
@@ -401,6 +403,7 @@ const i18n = createI18n({
 			},
 		},
 		de: {
+			lang: "deutsch",
 			home: {
 				bienvenue: "Die Domaine des Fées heißt Sie herzlich willkommen.",
 				bienvenue2: "Die Domaine des Fées heißt Sie herzlich willkommen.",
@@ -597,6 +600,7 @@ const i18n = createI18n({
 			},
 		},
 		it: {
+			lang: "italiano",
 			home: {
 				bienvenue: "Il Domaine des Fées vi dà il benvenuto",
 				bienvenue2: "Il Domaine des Fées vi dà il benvenuto",
@@ -791,6 +795,8 @@ const i18n = createI18n({
 			},
 		},
 		pt: {
+			lang: "Português",
+
 			home: {
 				bienvenue: "Le Domaine des Fées dá-lhe as boas-vindas",
 				bienvenue2: "Le Domaine des Fées dá-lhe as boas-vindas",
@@ -984,6 +990,7 @@ const i18n = createI18n({
 			},
 		},
 		ru: {
+			lang: "Русский",
 			home: {
 				bienvenue: "Domaine des Fées приветствует вас",
 				bienvenue2: "Domaine des Fées приветствует вас",
@@ -1177,6 +1184,7 @@ const i18n = createI18n({
 			},
 		},
 		es: {
+			lang: "español",
 			home: {
 				bienvenue: "Le Domaine des Fées le da la bienvenida",
 				bienvenue2: "Le Domaine des Fées le da la bienvenida",
