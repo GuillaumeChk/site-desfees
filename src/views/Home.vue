@@ -119,10 +119,10 @@
 				<q-list separator class="appear-left bg-white">
 					<q-expansion-item
 						v-for="equipment in equipmentsData"
-						:key="equipment.name"
+						:key="equipment.name[$i18n.locale]"
 						group="somegroup"
 						:icon="equipment.icon"
-						:label="equipment.name"
+						:label="equipment.name[$i18n.locale]"
 						header-class=" text-uppercase"
 					>
 						<EquipmentCard :equipment="equipment" :rooms="roomsData" />

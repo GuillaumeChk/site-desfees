@@ -1,91 +1,251 @@
 [
 	{
 		"index": 0,
-		"name": "Baignoire balnéo",
+		"name": {
+			"fr": "Baignoire balnéo",
+			"en": "Balneo bath",
+			"de": "Balneobad",
+			"it": "Bagno termale",
+			"pt": "banho balneo",
+			"rs": "Бальнеологическая ванна",
+			"es": "baño balneario"
+		},
 		"pathName": "balneo",
 		"icon": "hot_tub",
-		"description": "Installez vous confortablement à deux dans ce bain et laisser les jets et cascades s'occuper de vous relaxer.",
+		"description": {
+			"fr": "Installez vous confortablement à deux dans ce bain et laisser les jets et cascades s'occuper de vous relaxer.",
+			"en": "Make yourself comfortable for two in this bath and let the jets and waterfalls take care of your relaxation.",
+			"de": "Machen Sie es sich zu zweit in diesem Bad bequem und lassen Sie die Düsen und Wasserfälle für Ihre Entspannung sorgen.",
+			"it": "Mettiti comodo per due in questo bagno e lascia che i getti e le cascate si prendano cura del tuo relax.",
+			"pt": "Acomode-se a dois neste banho e deixe que os jatos e as cachoeiras cuidem do seu relaxamento.",
+			"rs": "Устройтесь поудобнее для двоих в этой ванне, а струи и водопады позаботятся о вашем отдыхе.",
+			"es": "Ponte cómodo para dos en este baño y deja que los chorros y las cascadas se encarguen de tu relajación."
+		},
 		"imageUrl": "equipments/baignoire.jpg",
 		"rooms": ["romantique", "melusine"]
 	},
 	{
 		"index": 1,
-		"name": "Ciel étoilé",
+		"name": {
+			"fr": "Ciel étoilé",
+			"en": "Starry sky",
+			"de": "Sternenklarer Himmel",
+			"it": "Cielo stellato",
+			"pt": "Céu estrelado",
+			"rs": "Звездное небо",
+			"es": "Cielo estrellado"
+		},
 		"pathName": "ciel",
 		"icon": "auto_awesome",
-		"description": "Un regard dans les étoiles scintillantes accompagné d’une chromothérapie vous assurera un instant de détente unique.",
+		"description": {
+			"fr": "Un regard dans les étoiles scintillantes accompagné d’une chromothérapie vous assurera un instant de détente unique.",
+			"en": "A look at the twinkling stars accompanied by chromotherapy will ensure you a unique moment of relaxation.",
+			"de": "Ein Blick auf die funkelnden Sterne, begleitet von einer Farbtherapie, garantiert Ihnen einen einzigartigen Moment der Entspannung.",
+			"it": "Uno sguardo alle stelle scintillanti accompagnato dalla cromoterapia vi assicurerà un momento di relax unico.",
+			"pt": "Um olhar para as estrelas cintilantes acompanhado de cromoterapia irá garantir-lhe um momento único de relaxamento.",
+			"rs": "Взгляд на мерцающие звезды в сопровождении хромотерапии обеспечит вам уникальный момент расслабления.",
+			"es": "Una mirada a las estrellas centelleantes acompañada de cromoterapia le asegurará un momento de relajación único."
+		},
 		"imageUrl": "equipments/ciel_etoile.jpg",
 		"rooms": ["etoiles", "melusine", "reves"]
 	},
 	{
 		"index": 2,
-		"name": "Douche hydro-massante",
+		"name": {
+			"fr": "Douche hydro-massante",
+			"en": "Hydro massage shower",
+			"de": "Hydromassage-Dusche",
+			"it": "Doccia idromassaggio",
+			"pt": "Chuveiro de hidromassagem",
+			"rs": "Гидромассажный душ",
+			"es": "Ducha de hidromasaje"
+		},
 		"pathName": "douche",
 		"icon": "bathtub",
-		"description": "Prenez le temps de vous détendre sous cette douche aux jets massants.",
+		"description": {
+			"fr": "Prenez le temps de vous détendre sous cette douche aux jets massants.",
+			"en": "Take the time to relax under this shower with massaging jets.",
+			"de": "Nehmen Sie sich die Zeit, sich unter dieser Dusche mit Massagedüsen zu entspannen.",
+			"it": "Prenditi il ​​tempo per rilassarti sotto questa doccia con getti massaggianti.",
+			"pt": "Aproveite para relaxar sob este duche com jactos de massagem.",
+			"rs": "Найдите время, чтобы расслабиться под этим душем с массажными струями.",
+			"es": "Tómese el tiempo para relajarse bajo esta ducha con chorros de masaje."
+		},
 		"imageUrl": "equipments/baignoire_balneo.jpg",
 		"rooms": ["melusine"]
 	},
 	{
 		"index": 3,
-		"name": "Garage",
+		"name": {
+			"fr": "Garage",
+			"en": "Garage",
+			"de": "Garage",
+			"it": "Box auto",
+			"pt": "Garagem",
+			"rs": "Гараж",
+			"es": "Garaje"
+		},
 		"pathName": "garage",
 		"icon": "garage",
-		"description": "Si vous vous inquiètez pour votre véhicule, demandez votre garage privatisé et sécurisé !",
+		"description": {
+			"fr": "Si vous vous inquiètez pour votre véhicule, demandez votre garage privatisé et sécurisé !",
+			"en": "If you are worried about your vehicle, ask for your privatized and secure garage!",
+			"de": "Wenn Sie sich Sorgen um Ihr Fahrzeug machen, fragen Sie nach Ihrer privatisierten und sicheren Garage!",
+			"it": "Se sei preoccupato per il tuo veicolo, chiedi il tuo garage privato e sicuro!",
+			"pt": "Se está preocupado com o seu veículo, peça a sua garagem privada e segura!",
+			"rs": "Если вы беспокоитесь о своем автомобиле, попросите приватизированный и охраняемый гараж!",
+			"es": "Si te preocupa tu vehículo, ¡pregunta por tu garaje privatizado y seguro!"
+		},
 		"imageUrl": "equipments/garage.jpg",
 		"rooms": ["salina", "etoiles", "romantique", "melusine", "reves", "gite"]
 	},
 	{
 		"index": 4,
-		"name": "Hammam",
+		"name": {
+			"fr": "Hammam",
+			"en": "Hammam",
+			"de": "Hamam",
+			"it": "Hammam",
+			"pt": "banho turco",
+			"rs": "Хаммам",
+			"es": "baño turco"
+		},
 		"pathName": "hammam",
 		"icon": "water_drop",
-		"description": "Laissez vous envoûter par le charme de notre hammam et sa vapeur bienfaisante aux arômes d’eucalyptus, le ciel étoilé saura combler les plus exigeants.",
+		"description": {
+			"fr": "Laissez vous envoûter par le charme de notre hammam et sa vapeur bienfaisante aux arômes d’eucalyptus, le ciel étoilé saura combler les plus exigeants.",
+			"en": "Let yourself be enchanted by the charm of our hammam and its beneficial steam with eucalyptus aromas, the starry sky will satisfy the most demanding.",
+			"de": "Lassen Sie sich vom Charme unseres Hammams und seinem wohltuenden Dampf mit Eukalyptus-Aromen verzaubern, der Sternenhimmel wird die anspruchsvollsten zufrieden stellen.",
+			"it": "Lasciati incantare dal fascino del nostro hammam e dal suo benefico vapore agli aromi di eucalipto, il cielo stellato soddisferà i più esigenti.",
+			"pt": "Deixe-se encantar pelo encanto do nosso hammam e pelo seu benéfico vapor com aromas a eucalipto, o céu estrelado irá satisfazer os mais exigentes.",
+			"rs": "Позвольте себе быть очарованным очарованием нашего хаммама и его благотворным паром с ароматами эвкалипта, звездное небо удовлетворит самых требовательных.",
+			"es": "Déjate hechizar por el encanto de nuestro hammam y su beneficioso vapor con aromas de eucalipto, el cielo estrellado satisfará a los más exigentes."
+		},
 		"imageUrl": "equipments/hammam.jpg",
 		"rooms": ["salina"]
 	},
 	{
 		"index": 5,
-		"name": "Jacuzzi",
+		"name": {
+			"fr": "Jacuzzi",
+			"en": "Jacuzzi",
+			"de": "Whirlpool",
+			"it": "vasca idromassaggio",
+			"pt": "Jacuzzi",
+			"rs": "Джакузи",
+			"es": "Jacuzzi"
+		},
 		"pathName": "jacuzzi",
 		"icon": "spa",
-		"description": "Laissez vous masser sous les flocons et le froid, la pluie ou sous un ciel bleu en profitant de ce jacuzzi à 35° équipé de chromothérapie.",
+		"description": {
+			"fr": "Laissez vous masser sous les flocons et le froid, la pluie ou sous un ciel bleu en profitant de ce jacuzzi à 35° équipé de chromothérapie.",
+			"en": "Let yourself be massaged under the snowflakes and the cold, the rain or under a blue sky while enjoying this 35° jacuzzi equipped with chromotherapy.",
+			"de": "Lassen Sie sich unter den Schneeflocken und der Kälte, dem Regen oder unter blauem Himmel massieren, während Sie diesen 35°-Whirlpool mit Farbtherapie genießen.",
+			"it": "Lasciati massaggiare sotto i fiocchi di neve e il freddo, la pioggia o sotto un cielo azzurro mentre ti godi questa vasca idromassaggio a 35° dotata di cromoterapia.",
+			"pt": "Deixe-se massagear sob os flocos de neve e o frio, a chuva ou o céu azul enquanto desfruta deste jacuzzi de 35° equipado com cromoterapia.",
+			"rs": "Позвольте себе массаж под снежинками и холодом, под дождем или под голубым небом, наслаждаясь этим 35-градусным джакузи, оснащенным хромотерапией.",
+			"es": "Déjate masajear bajo los copos de nieve y el frío, la lluvia o bajo un cielo azul mientras disfrutas de este jacuzzi de 35° equipado con cromoterapia."
+		},
 		"imageUrl": "equipments/jacuzzi.jpg",
 		"rooms": ["etoiles", "reves"]
 	},
 	{
 		"index": 6,
-		"name": "Kneipwalk",
+		"name": {
+			"fr": "Kneipp Walk",
+			"en": "Kneipp Walk",
+			"de": "Kneippgang",
+			"it": "Percorso Kneipp",
+			"pt": "Caminhada Kneipp",
+			"rs": "Прогулка Кнайпа",
+			"es": "Paseo Kneipp"
+		},
 		"pathName": "kneipwalk",
 		"icon": "solar_power",
-		"description": "La détente assurée sur le chemin du bien-être... Le Kneippwalk.",
+		"description": {
+			"fr": "La détente assurée sur le chemin du bien-être... Le Kneippwalk.",
+			"en": "Relaxation guaranteed on the way to well-being... The Kneippwalk.",
+			"de": "Entspannung garantiert auf dem Weg zum Wohlbefinden... Der Kneippgang.",
+			"it": "Relax garantito sulla via del benessere... La passeggiata Kneipp.",
+			"pt": "Relaxamento garantido a caminho do bem-estar... O Kneippwalk.",
+			"rs": "Расслабление гарантировано на пути к хорошему самочувствию... Прогулка по Кнайпу.",
+			"es": "Relajación garantizada en el camino hacia el bienestar... El Kneippwalk."
+		},
 		"imageUrl": "equipments/kneippwalk.jpg",
 		"rooms": ["salina", "etoiles", "romantique", "melusine", "reves", "gite"]
 	},
 	{
 		"index": 7,
-		"name": "Piscine",
+		"name": {
+			"fr": "Piscine",
+			"en": "Swimming pool",
+			"de": "Schwimmbad",
+			"it": "Piscina",
+			"pt": "Piscina",
+			"rs": "Бассейн",
+			"es": "Piscina"
+		},
 		"pathName": "piscine",
 		"icon": "pool",
-		"description": "Quand le soleil rayonne et que le ciel devient bleu, vous pouvez accéder à un monde merveilleux.",
+		"description": {
+			"fr": "Quand le soleil rayonne et que le ciel devient bleu, vous pouvez accéder à un monde merveilleux.",
+			"en": "When the sun shines and the sky turns blue, you can access a wonderful world.",
+			"de": "Wenn die Sonne scheint und der Himmel blau wird, haben Sie Zugang zu einer wunderbaren Welt.",
+			"it": "Quando il sole splende e il cielo diventa blu, puoi accedere a un mondo meraviglioso.",
+			"pt": "Quando o sol brilha e o céu fica azul, você pode acessar um mundo maravilhoso.",
+			"rs": "Когда светит солнце и небо становится голубым, вы можете получить доступ к чудесному миру.",
+			"es": "Cuando brilla el sol y el cielo se vuelve azul, puedes acceder a un mundo maravilloso."
+		},
 		"imageUrl": "equipments/piscine.jpg",
 		"rooms": ["salina", "etoiles", "romantique", "melusine", "reves", "gite"]
 	},
 	{
 		"index": 8,
-		"name": "Sauna",
+		"name": {
+			"fr": "Sauna",
+			"en": "Sauna",
+			"de": "Sauna",
+			"it": "Sauna",
+			"pt": "Sauna",
+			"rs": "Сауна",
+			"es": "Sauna"
+		},
 		"pathName": "sauna",
 		"icon": "local_fire_department",
-		"description": "Laissez transpirer vos idées grâce à notre sauna relaxant et anti-oxydant allier à une douche bien revigorante et profitez des invention bien faisantes des peuples du Nord.",
+		"description": {
+			"fr": "Laissez transpirer vos idées grâce à notre sauna relaxant et anti-oxydant allier à une douche bien revigorante et profitez des invention bien faisantes des peuples du Nord.",
+			"en": "Let your ideas sweat thanks to our relaxing and anti-oxidant sauna combine with a very invigorating shower and enjoy the beneficial inventions of the peoples of the North.",
+			"de": "Lassen Sie Ihre Ideen schwitzen dank unserer entspannenden und antioxidativen Sauna kombiniert mit einer sehr belebenden Dusche und genießen Sie die wohltuenden Erfindungen der Völker des Nordens.",
+			"it": "Lascia sudare le tue idee grazie alla nostra sauna rilassante e antiossidante abbinata a una doccia molto tonificante e goditi le benefiche invenzioni dei popoli del Nord.",
+			"pt": "Deixe as suas ideias suarem graças à nossa sauna relaxante e antioxidante, combine com um duche muito revigorante e desfrute das benéficas invenções dos povos do Norte.",
+			"rs": "Дайте волю своим идеям благодаря нашей расслабляющей и антиоксидантной сауне в сочетании с очень бодрящим душем и насладитесь полезными изобретениями народов Севера.",
+			"es": "Deja que tus ideas suden gracias a nuestra sauna relajante y antioxidante combinada con una ducha muy tonificante y disfruta de los inventos benéficos de los pueblos del Norte."
+		},
 		"imageUrl": "equipments/sauna.jpg",
 		"rooms": ["melusine", "reves"]
 	},
 	{
 		"index": 9,
-		"name": "Parking",
+		"name": {
+			"fr": "Parking",
+			"en": "Car park",
+			"de": "Parkplatz",
+			"it": "Parcheggio",
+			"pt": "Estacionamento",
+			"rs": "Автопарк",
+			"es": "Estacionamiento"
+		},
 		"pathName": "parking",
 		"icon": "local_parking",
-		"description": "7 places de parking réservées à notre clientelle.",
+		"description": {
+			"fr": "7 places de parking réservées à notre clientelle.",
+			"en": "7 parking spaces reserved for our customers.",
+			"de": "7 Parkplätze für unsere Kunden reserviert.",
+			"it": "7 posti auto riservati ai nostri clienti.",
+			"pt": "7 lugares de estacionamento reservados para os nossos clientes.",
+			"rs": "7 парковочных мест зарезервировано для наших клиентов.",
+			"es": "7 plazas de parking reservadas para nuestros clientes."
+		},
 		"imageUrl": "equipments/parking.jpg",
 		"rooms": ["salina", "etoiles", "romantique", "melusine", "reves", "gite"]
 	}

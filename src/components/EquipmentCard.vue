@@ -20,7 +20,7 @@
 				class="col-sm-8 q-py-xs column justify-between q-gutter-y-md"
 			>
 				<h6>
-					{{ equipment.description }}
+					{{ equipment.description[$i18n.locale] }}
 				</h6>
 
 				<div class="text-grey-9">
