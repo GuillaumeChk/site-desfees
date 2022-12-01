@@ -36,9 +36,9 @@
 					v-if="room.pathName !== 'gite'"
 					class="q-pt-md appear-left text-center"
 				>
-					{{ room.description }}
+					{{ room.description[$i18n.locale] }}
 				</p>
-				<div v-else class="q-pt-md" v-html="room.description"></div>
+				<div v-else class="q-pt-md" v-html="room.description[$i18n.locale]"></div>
 			</div>
 		</section>
 
@@ -247,10 +247,10 @@
 				<q-list separator class="appear-left">
 					<q-expansion-item
 						v-for="equipment in roomEquipments"
-						:key="equipment.name"
+						:key="equipment.name[$i18n.locale]"
 						group="somegroup"
 						:icon="equipment.icon"
-						:label="equipment.name"
+						:label="equipment.name[$i18n.locale]"
 						header-class="text-uppercase"
 					>
 						<EquipmentCard :equipment="equipment" :rooms="roomsData" />
