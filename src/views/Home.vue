@@ -44,15 +44,9 @@
 					<h5 class="text-uppercase text-brand-2 q-pb-lg">
 						{{ $t("home.paragraphe1_titre") }}
 					</h5>
-					<p>
-						{{ $t("home.paragraphe1_texte") }}
-					</p>
-					<p>
-						{{ $t("home.paragraphe1_texte2") }}
-					</p>
-					<p>
-						{{ $t("home.paragraphe1_texte3") }}
-					</p>
+					<p v-html="$t('home.paragraphe1_texte')"></p>
+					<p v-html="$t('home.paragraphe1_texte2')"></p>
+					<p v-html="$t('home.paragraphe1_texte3')"></p>
 				</div>
 			</div>
 		</section>
@@ -68,12 +62,8 @@
 					<h5 class="text-uppercase text-brand q-pb-lg">
 						{{ $t("home.paragraphe2_titre") }}
 					</h5>
-					<p>
-						{{ $t("home.paragraphe2_texte") }}
-					</p>
-					<p>
-						{{ $t("home.paragraphe2_texte2") }}
-					</p>
+					<p v-html="$t('home.paragraphe2_texte')"></p>
+					<p v-html="$t('home.paragraphe2_texte2')"></p>
 				</div>
 			</div>
 		</section>

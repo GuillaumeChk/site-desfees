@@ -10,7 +10,7 @@
 						class="absolute-center bg-transparent text-h4 text-uppercase text-center text-weight-light"
 						style="letter-spacing: 4px"
 					>
-						Administration
+						{{ $t("admin.titre") }}
 					</div>
 				</q-img>
 			</div>
@@ -20,15 +20,7 @@
 			<!-- <h4 class="q-pa-md q-pt-xl text-uppercase text-weight-light">Contact</h4> -->
 
 			<section class="q-pa-md q-pl-lg q-gutter-y-md">
-				<p>
-					Cette page est destinée à l'administration du site, à des fins
-					d'organisation. <br />
-					Elle ne donne accès à aucune donnée sensible.
-					<br />
-					<br />
-					Si vous êtes arrivé par hasard, vous pouvez revenir à l'accueil en
-					cliquant sur le bouton ci-dessous.
-				</p>
+				<p v-html="$t('admin.paragraphe')"></p>
 
 				<q-btn rounded unelevated label="Accueil" color="orange" to="/" />
 			</section>
@@ -36,7 +28,7 @@
 			<CustomDivider></CustomDivider>
 
 			<div class="q-px-md q-gutter-y-md q-py-xl">
-				<h5>Accès réservé à l'administration</h5>
+				<h5 v-html="$t('admin.titre2')"></h5>
 
 				<q-input
 					v-model="password"
@@ -93,12 +85,13 @@
 					</p>
 					Récapitulatif des changements en cours :
 					</p> -->
+
+					<FullCalendar :options="calendarOptions" />
+
+					Pour ajouter une réservation : cliquer sur une date de début, puis
+					remplir les infos. On peut déplacer et redimensionner toute
+					réservation.
 				</div>
-
-				<FullCalendar :options="calendarOptions" />
-
-				Pour ajouter une réservation : cliquer sur une date de début, puis
-				remplir les infos. On peut déplacer et redimensionner toute réservation.
 
 				<q-dialog v-model="displayNewEvent">
 					<q-card class="q-pa-sm">

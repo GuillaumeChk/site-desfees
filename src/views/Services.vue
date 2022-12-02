@@ -75,9 +75,7 @@
 					>.
 				</p>
 
-				<p class="q-px-md">
-					{{ $t("services.paragraphe9") }}
-				</p>
+				<p class="q-px-md" v-html="$t('services.paragraphe9')"></p>
 
 				<q-img
 					src="../assets/rooms/exterieur/Avec_Rocher_terrasse_compressed60_001.jpg"

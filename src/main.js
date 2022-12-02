@@ -180,7 +180,7 @@ const i18n = createI18n({
 				nuits: "Nuit(s)",
 				veuillez_nuits: "Veuillez sélectionner une nuit",
 				legende: " Tarif week-ends, vacances et jours feriés",
-				titre2: "Comment sélectionner une durée ?",
+				titre2bis: "Comment sélectionner une durée ?",
 				paragraphe: "Sélectionnez d'abord une chambre.",
 				paragraphe2: "Puis sélectionnez une ou plusieurs nuits consécutives.",
 				paragraphe3:
@@ -239,6 +239,12 @@ const i18n = createI18n({
 				date2: "lendemain du ",
 				date3: "(avant 11h du lendemain matin).",
 				nuit: "1 nuit",
+			},
+			admin: {
+				titre: "Administration",
+				paragraphe:
+					"Cette page est destinée à l'administration du site, à des fins d'organisation. <br /> Elle ne donne accès à aucune donnée sensible. <br /> <br /> Si vous êtes arrivé par hasard, vous pouvez revenir à l en cliquant sur le bouton ci-dessous.",
+				titre2: "Accès réservé à l'administration",
 			},
 		},
 		en: {
@@ -404,7 +410,7 @@ const i18n = createI18n({
 				nuits: "Night(s)",
 				veuillez_nuits: "Veuillez sélectionner une nuit",
 				legende: " Tariff weekends, holidays and public holidays",
-				titre2: "How to select a duration?",
+				titre2bis: "How to select a duration?",
 				paragraphe: "First select a room.",
 				paragraphe2: "Then select one or more consecutive nights.",
 				paragraphe3: "If a date is disabled, it is already reserved.",
@@ -461,6 +467,12 @@ const i18n = createI18n({
 				date2: "day after ",
 				date3: "(before 11 a.m. the next morning).",
 				nuit: "1 night",
+			},
+			admin: {
+				titre: "Administration",
+				paragraphe:
+					"This page is intended for the administration of the site, for organizational purposes. <br /> It does not give access to any sensitive data. <br /> <br /> If you arrived by chance, you can come back to l by clicking on the button below.",
+				titre2: "Access reserved for the administration",
 			},
 		},
 		de: {
@@ -628,7 +640,7 @@ const i18n = createI18n({
 				nuits: "Nacht(s)",
 				veuillez_nuits: "Veuillez sélectionner une nuit",
 				legende: " Tarif Wochenenden, Feiertage und Feiertage",
-				titre2: "Wie wähle ich eine Dauer aus?",
+				titre2bis: "Wie wähle ich eine Dauer aus?",
 				paragraphe: "Wählen Sie zunächst einen Raum aus.",
 				paragraphe2:
 					"Wählen Sie dann eine oder mehrere aufeinanderfolgende Nächte aus.",
@@ -688,6 +700,12 @@ const i18n = createI18n({
 				date2: "tag danach ",
 				date3: "(vor 11 Uhr am nächsten Morgen).",
 				nuit: "1 nacht",
+			},
+			admin: {
+				titre: "Verwaltung",
+				paragraphe:
+					"Diese Seite ist für die Verwaltung der Website und für organisatorische Zwecke bestimmt. <br /> Sie gewährt keinen Zugriff auf sensible Daten. <br /> <br /> Wenn Sie zufällig angekommen sind, können Sie zu l zurückkehren indem Sie auf die Schaltfläche unten klicken.",
+				titre2: "Zugriff für die Verwaltung reserviert",
 			},
 		},
 		it: {
@@ -855,7 +873,7 @@ const i18n = createI18n({
 				nuits: "Notti",
 				veuillez_nuits: "Veuillez sélectionner une nuit",
 				legende: " Tariffa fine settimana, festivi e festivi",
-				titre2: "Come selezionare una durata?",
+				titre2bis: "Come selezionare una durata?",
 				paragraphe: "Prima seleziona una stanza.",
 				paragraphe2: "Quindi seleziona una o più notti consecutive.",
 				paragraphe3: "Se una data è disabilitata, è già prenotata.",
@@ -913,6 +931,12 @@ const i18n = createI18n({
 				date2: "giorno dopo ",
 				date3: "(entro le 11:00 del mattino successivo).",
 				nuit: "1 notte",
+			},
+			admin: {
+				titre: "Amministrazione",
+				paragraphe:
+					"Questa pagina è destinata all'amministrazione del sito, per fini organizzativi. <br /> Non dà accesso ad alcun dato sensibile. <br /> <br /> Se sei arrivato per caso, puoi tornare a l facendo clic sul pulsante in basso.",
+				titre2: "Accesso riservato all'amministrazione",
 			},
 		},
 		pt: {
@@ -1079,7 +1103,7 @@ const i18n = createI18n({
 				nuits: "Noite(s)",
 				veuillez_nuits: "Veuillez sélectionner une nuit",
 				legende: " Tarifa para finais de semana, feriados e feriados",
-				titre2: "Como selecionar uma duração?",
+				titre2bis: "Como selecionar uma duração?",
 				paragraphe: "Selecione um quarto primeiro.",
 				paragraphe2: "Em seguida, selecione uma ou mais noites consecutivas.",
 				paragraphe3: "Se uma data estiver desativada, ela já está reservada.",
@@ -1138,6 +1162,12 @@ const i18n = createI18n({
 				date2: "dia seguinte ",
 				date3: "(antes das 11h da manhã seguinte).",
 				nuit: "1 noite",
+			},
+			admin: {
+				titre: "Administração",
+				paragraphe:
+					"Esta página destina-se à administração do site, para fins organizacionais. <br /> Não dá acesso a nenhum dado sensível. <br /> <br /> Se chegou por acaso, pode voltar a l clicando no botão abaixo.",
+				titre2: "Acesso reservado à administração",
 			},
 		},
 		ru: {
@@ -1304,7 +1334,7 @@ const i18n = createI18n({
 				nuits: "Ночь(и)",
 				veuillez_nuits: "Veuillez sélectionner une nuit",
 				legende: " Тариф на выходные, праздничные и праздничные дни",
-				titre2: "Как выбрать продолжительность?",
+				titre2bis: "Как выбрать продолжительность?",
 				paragraphe: "Сначала выберите комнату.",
 				paragraphe2: "Затем выберите одну или несколько ночей подряд.",
 				paragraphe3: "Если дата отключена, значит она уже забронирована.",
@@ -1363,6 +1393,12 @@ const i18n = createI18n({
 				date2: "день после ",
 				date3: "(до 11 утра следующего дня).",
 				nuit: "1 ночь",
+			},
+			admin: {
+				titre: "Администрация",
+				paragraphe:
+					"Эта страница предназначена для администрации сайта, в организационных целях. <br /> Она не дает доступа к каким-либо конфиденциальным данным. <br /> <br /> Если вы зашли случайно, вы можете вернуться на л нажав на кнопку ниже.",
+				titre2: "Доступ зарезервирован для администрации",
 			},
 		},
 		es: {
@@ -1528,7 +1564,7 @@ const i18n = createI18n({
 				nuits: "Noche(s)",
 				veuillez_nuits: "Veuillez sélectionner une nuit",
 				legende: " Tarifa para fines de semana, festivos y festivos",
-				titre2: "¿Cómo seleccionar una duración?",
+				titre2bis: "¿Cómo seleccionar una duración?",
 				paragraphe: "Seleccione una habitación primero.",
 				paragraphe2: "Entonces seleccione una o más noches consecutivas.",
 				paragraphe3: "Si una fecha está deshabilitada, ya está reservada.",
@@ -1586,6 +1622,12 @@ const i18n = createI18n({
 				date2: "día después ",
 				date3: "(antes de las 11 am de la mañana siguiente).",
 				nuit: "1 noche",
+			},
+			admin: {
+				titre: "Administración",
+				paragraphe:
+					"Esta página está destinada a la administración del sitio, con fines organizativos. <br /> No da acceso a ningún dato sensible. <br /> <br /> Si llegó por casualidad, puede volver a l haciendo clic en el botón de abajo.",
+				titre2: "Acceso reservado a la administración",
 			},
 		},
 	},

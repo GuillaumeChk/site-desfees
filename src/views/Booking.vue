@@ -152,7 +152,7 @@
 							dense-toggle
 						>
 							<template v-slot:header>
-								{{ $t("booking.titre2") }}
+								{{ $t("booking.titre2bis") }}
 							</template>
 							<q-card class="q-pa-md q-mx-md text-grey-8 ">
 								<p>{{ $t("booking.paragraphe") }}</p>
@@ -206,11 +206,11 @@
 
 								<strong>b)</strong>{{ $t("booking.paragraphe6") }}
 								<ul>
-									<li>{{ $t("booking.list_item") }}</li>
-									<li>{{ $t("booking.list_item2") }}</li>
-									<li>{{ $t("booking.list_item4") }}</li>
-									<li>{{ $t("booking.list_item5") }}</li>
-									<li>{{ $t("booking.list_item6") }}</li>
+									<li v-html="$t('booking.list_item')"></li>
+									<li v-html="$t('booking.list_item2')"></li>
+									<li v-html="$t('booking.list_item4')"></li>
+									<li v-html="$t('booking.list_item5')"></li>
+									<li v-html="$t('booking.list_item6')"></li>
 								</ul> 
 								
 								{{ $t("booking.paragraphe7") }}</p>
@@ -325,16 +325,16 @@
 						<div>
 							{{ $t("booking.bouton3") }}
 						</div>
-					</q-btn>
-								<q-btn
-									unelevated
-									color="blue"
-									v-close-popup
-								>
-						<div>
-							{{ $t("booking.bouton4") }}
-						</div>
-					</q-btn>
+						</q-btn>
+							<q-btn
+								unelevated
+								color="blue"
+								v-close-popup
+							>
+							<div>
+								{{ $t("booking.bouton4") }}
+							</div>
+						</q-btn>
 							</q-card-actions>
 						</q-card>
 					</q-dialog>
