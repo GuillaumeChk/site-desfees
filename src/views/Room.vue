@@ -22,13 +22,13 @@
 					<router-link
 						v-if="previousRoom != undefined"
 						:to="{ name: 'room', params: { roomName: previousRoom.pathName } }"
-						>🠔 Chambre précédente</router-link
+						>🠔 {{ $t("room.prec") }}</router-link
 					>
 					<q-space v-else></q-space>
 					<router-link
 						v-if="nextRoom != undefined"
 						:to="{ name: 'room', params: { roomName: nextRoom.pathName } }"
-						>Chambre suivante 🠖</router-link
+						>{{ $t("room.suiv") }} 🠖</router-link
 					>
 				</div>
 
@@ -38,7 +38,11 @@
 				>
 					{{ room.description[$i18n.locale] }}
 				</p>
-				<div v-else class="q-pt-md" v-html="room.description[$i18n.locale]"></div>
+				<div
+					v-else
+					class="q-pt-md"
+					v-html="room.description[$i18n.locale]"
+				></div>
 			</div>
 		</section>
 
@@ -85,14 +89,11 @@
 		</section>
 
 		<section class="q-pa-lg q-gutter-y-lg wrapper">
-			<h5 class="text-uppercase appear-left">Tarifs</h5>
+			<h5 class="text-uppercase appear-left" v-html="$t('room.titre')"></h5>
 
 			<p v-if="room.pathName !== 'gite'" class="appear-left">
-				Prix : à partir de <strong>{{ room.tarifs[0] }}€ / nuit</strong> avec
-				petit déjeuner régional pour 2 personnes.
-				<br />
-				Une <strong>remise de 10% sur la 2ème nuitée</strong> vous sera déduite
-				du paiement final.
+				{{ $t("room.paragraphe") }}<strong>{{ room.tarifs[0] }} €</strong>
+				<span v-html="$t('room.paragraphe_part2')"></span>
 			</p>
 
 			<div class="q-pt-none q-pb-md appear-left">
@@ -101,76 +102,63 @@
 					flat
 					separator="vertical"
 					wrap-cells
-					style="max-width: 800px;"
+					style="max-width: 800px"
 				>
 					<thead>
 						<tr class="q-tr--no-hover">
-							<th class="text-left">Période</th>
-							<th class="text-right">Tarif</th>
+							<th class="text-left" v-html="$t('room.table')"></th>
+							<th class="text-right" v-html="$t('room.table2')"></th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr class="q-tr--no-hover">
-							<td class="text-left">Du dimanche au vendredi</td>
+							<td class="text-left" v-html="$t('room.table3')"></td>
 							<td class="text-right text-no-wrap">{{ room.tarifs[0] }} €</td>
 						</tr>
 						<tr class="q-tr--no-hover">
-							<td class="text-left">
-								Du vendredi au dimanche, jours fériés, spéciaux, vacances
-								scolaire
-							</td>
+							<td class="text-left" v-html="$t('room.table4')"></td>
 							<td class="text-right text-no-wrap">{{ room.tarifs[1] }} €</td>
 						</tr>
 					</tbody>
 				</q-markup-table>
 
 				<div v-else class="q-py-xs q-gutter-y-lg">
-					<p>
-						<h6>Saison & période</h6>
-						<strong>Baisse saison </strong>: Période ou calme plat, hors
-						vacances, férié et animations régionales, météo peu favorable.
-						<br />
-						<strong>Moyenne saison </strong>: Période entre saison, mars-juin,
-						septembre-octobre sauf férié !
-						<br />
-						<strong>Haute saison </strong>: Période de vacances scolaires,
-						fériés et animations régionales.
-					</p>
+					<p v-html="$t('room.paragraphe2')"></p>
 
 					<q-markup-table
 						flat
 						separator="vertical"
 						wrap-cells
 						class="text-center"
-						style="max-width: 800px;"
+						style="max-width: 800px"
 					>
 						<thead>
 							<tr class="text-uppercase">
-								<th>Saison</th>
-								<th colspan="4">Le week-end*</th>
+								<th v-html="$t('room.tableau')"></th>
+								<th colspan="4" v-html="$t('room.tableau2')"></th>
 							</tr>
 							<tr>
 								<th></th>
-								<th>1 nuit</th>
-								<th>2 nuits</th>
-								<th>3 nuits</th>
+								<th v-html="$t('room.tableau2')"></th>
+								<th v-html="$t('room.tableau3')"></th>
+								<th v-html="$t('room.tableau4')"></th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>Basse</td>
+								<td v-html="$t('room.tableau5')"></td>
 								<td>{{ room.tarifs[0][0][0] }} €</td>
 								<td>{{ room.tarifs[0][0][1] }} €</td>
 								<td>{{ room.tarifs[0][0][2] }} €</td>
 							</tr>
 							<tr>
-								<td>Moyenne</td>
+								<td v-html="$t('room.tableau6')"></td>
 								<td>{{ room.tarifs[0][1][0] }} €</td>
 								<td>{{ room.tarifs[0][1][1] }} €</td>
 								<td>{{ room.tarifs[0][1][2] }} €</td>
 							</tr>
 							<tr>
-								<td>Haute</td>
+								<td v-html="$t('room.tableau7')"></td>
 								<td>{{ room.tarifs[0][2][0] }} €</td>
 								<td>{{ room.tarifs[0][2][1] }} €</td>
 								<td>{{ room.tarifs[0][2][2] }} €</td>
@@ -179,52 +167,34 @@
 						<thead>
 							<tr></tr>
 							<tr class="text-uppercase">
-								<th>Saison</th>
-								<th colspan="4">En semaine*</th>
+								<th v-html="$t('room.tableau11')"></th>
+								<th colspan="4" v-html="$t('room.tableau8')"></th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
-								<td>Basse</td>
+								<td v-html="$t('room.tableau5')"></td>
 								<td colspan="4">{{ room.tarifs[1][0] }} €</td>
 							</tr>
 							<tr>
-								<td>Moyenne</td>
+								<td v-html="$t('room.tableau6')"></td>
 								<td colspan="4">{{ room.tarifs[1][1] }} €</td>
 							</tr>
 							<tr>
-								<td>Haute</td>
+								<td v-html="$t('room.tableau7')"></td>
 								<td colspan="4">{{ room.tarifs[1][2] }} €</td>
 							</tr>
 							<tr class="text-italic text-grey-7">
-								<td>Spécial curiste</td>
-								<td colspan="4">Nous consulter</td>
+								<td v-html="$t('room.tableau9')"></td>
+								<td colspan="4" v-html="$t('room.tableau10')"></td>
 							</tr>
 						</tbody>
 					</q-markup-table>
-					
 
-					<p>
-						*Le week-end : <strong>supplément de 10 €</strong> par personnes et
-						par nuitées au-delà de 4 personnes (jusqu'à 9).
-					</p>
-					<p>
-						*En semaine (du samedi 17h au samedi 10h) :
-						<strong>supplément de 50 €</strong> par personnes et par nuitées
-						au-delà de 4 personnes (jusqu'à 9).
-					</p>
-					<p>Forfait nettoyage si souhaité : 80 €.</p>
-					<p>Une taxe de séjour 1,21 € par nuitée et par personne.</p>
+					<div v-html="$t('room.paragraphe3')"></div>
 				</div>
 			</div>
-			<p class="appear-left">
-				<strong>
-					Avec petit déjeuner régional pour 2 personnes. <br />
-					La taxe de séjour est incluse avec un accès à la piscine, kneippwalk
-					et wifi. <br />
-					Amis à 4 pattes bienvenus.</strong
-				>
-			</p>
+			<p class="appear-left" v-html="$t('room.paragraphe4')"></p>
 		</section>
 
 		<section class="wrapper text-center q-py-lg">
@@ -242,7 +212,7 @@
 
 		<section class="q-px-lg q-pb-xl q-pt-xs q-gutter-y-md items-center">
 			<div class="wrapper q-gutter-y-lg">
-				<h5 class="text-uppercase appear-left">Équipements inclus</h5>
+				<h5 class="text-uppercase appear-left" v-html="$t('room.titre2')"></h5>
 
 				<q-list separator class="appear-left">
 					<q-expansion-item

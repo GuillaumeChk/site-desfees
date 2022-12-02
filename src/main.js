@@ -14,7 +14,7 @@ import "@quasar/extras/material-icons/material-icons.css";
 import "quasar/dist/quasar.css";
 
 const i18n = createI18n({
-	locale: "de",
+	locale: "fr",
 	allowComposition: true, // you need to specify that!
 	messages: {
 		fr: {
@@ -39,6 +39,37 @@ const i18n = createI18n({
 				nos_chambres: "Nos chambres",
 				nos_equipements: "Nos équipements",
 				carte: "Carte",
+			},
+			room: {
+				prec: "Chambre précédente",
+				suiv: "Chambre suivante",
+				titre: "TARIFS",
+				paragraphe: "Prix : à partir de ",
+				paragraphe_part2:
+					" / nuit avec petit déjeuner régional pour 2 personnes. <br /> Une <strong>remise de 10% sur la 2ème nuitée</strong> vous déduite du paiement final.",
+				table: "Période",
+				table2: "Tarif",
+				table3: "Du dimanche au vendredi",
+				table4:
+					"Du vendredi au dimanche, jours fériés, spéciaux, vacances scolaire",
+				paragraphe2:
+					"<h6>Saison & période</h6> <strong>Baisse saison </strong>: Période ou calme plat, hors vacances, férié et animations régionales, météo peu favorable. <br /> <strong>Moyenne saison </strong>: Période entre saison, mars-juin, septembre-octobre sauf férié ! <br /> <strong>Haute saison </strong>: Période de vacances scolaires, fériés et animations régionales.",
+				tableau: "Le week-end*",
+				tableau2: "1 nuit",
+				tableau3: "2 nuits",
+				tableau4: "3 nuits",
+				tableau5: "Basse",
+				tableau6: "Moyenne",
+				tableau7: "Haute",
+				tableau11: "Saison",
+				tableau8: "En semaine*",
+				tableau9: "Spécial curiste",
+				tableau10: "Nous consulter",
+				paragraphe3:
+					"<p>	*Le week-end : <strong>supplément de 10 €</strong> par personnes et	par nuitées au-delà de 4 personnes (jusqu'à 9). </p><p>	*En semaine (du samedi 17h au samedi 10h) :	<strong>supplément de 50 €</strong> par personnes et par nuitées au-delà de 4 personnes (jusqu'à 9).</p><p>Forfait nettoyage si souhaité : 80 €.</p><p>Une taxe de séjour 1,21 € par nuitée et par personne.</p>",
+				paragraphe4:
+					"<strong> Avec petit déjeuner régional pour 2 personnes. <br />	La taxe de séjour est incluse avec un accès à la piscine, kneippwalk et wifi. <br /> Amis à 4 pattes bienvenus.</strong>",
+				titre2: "Équipements inclus",
 			},
 			services: {
 				titre: "Prestations",
@@ -233,6 +264,36 @@ const i18n = createI18n({
 				nos_equipements: "Our equipments",
 				carte: "Map",
 			},
+			room: {
+				prec: "Previous room",
+				suiv: "Next room",
+				titre: "TARIFFS",
+				paragraphe: "Price: from",
+				paragraphe_part2:
+					" / night with regional breakfast for 2 people. <br /> A <strong>10% discount on the 2nd night</strong> will be deducted from the final payment.",
+				table: "Period",
+				table2: "Tariff",
+				table3: "Sunday to Friday",
+				table4: "Friday to Sunday, holidays, specials, school holidays",
+				paragraphe2:
+					"<h6>Season & period</h6> <strong>Low season</strong>: Period or dead calm, excluding holidays, public holidays and regional events, unfavorable weather. <br /> <strong>Medium season </strong >: Period between season, March-June, September-October except public holidays!<br /> <strong>High season </strong>: Period of school holidays, public holidays and regional events.",
+				tableau: "The weekend*",
+				tableau2: "1 night",
+				tableau3: "2 nights",
+				tableau4: "3 nights",
+				tableau5: "Low",
+				tableau6: "Average",
+				tableau7: "High",
+				tableau11: "Season",
+				tableau8: "Weekdays*",
+				tableau9: "Special curist",
+				tableau10: "Consult us",
+				paragraphe3:
+					"<p> *Weekends: <strong>€10 supplement</strong> per person and per night for more than 4 people (up to 9). </p><p> *Weekdays ( from Saturday 5 p.m. to Saturday 10 a.m.): <strong>€50 supplement</strong> per person and per night for more than 4 people (up to 9).</p><p>Cleaning fee if desired: 80 €.</p><p>A tourist tax of €1.21 per night and per person.</p>",
+				paragraphe4:
+					"<strong> With regional breakfast for 2 people. <br /> The tourist tax is included with access to the swimming pool, kneippwalk and wifi. <br /> 4-legged friends welcome.</strong>",
+				titre2: "Equipment included",
+			},
 			services: {
 				titre: "Services",
 				titre2: "Unique moments...",
@@ -424,6 +485,36 @@ const i18n = createI18n({
 				nos_chambres: "Unsere Zimmer",
 				nos_equipements: "Unsere Ausrüstung",
 				carte: "Karte",
+			},
+			room: {
+				prec: "Vorheriger Raum",
+				suiv: "Nächster Raum",
+				titre: "TARIFE",
+				paragraphe: "Preis: ab ",
+				paragraphe_part2:
+					" / Nacht mit regionalem Frühstück für 2 Personen. <br /> <strong>10 % Rabatt auf die 2. Nacht</strong> werden von der Restzahlung abgezogen.",
+				table: "Zeitraum",
+				table2: "Preis",
+				table3: "Sonntag bis Freitag",
+				table4: "Freitag bis Sonntag, Feiertage, Sonderangebote, Schulferien",
+				paragraphe2:
+					"<h6>Saison & Zeitraum</h6> <strong>Nebensaison</strong>: Zeitraum oder Windstille, ausgenommen Feiertage, Feiertage und regionale Veranstaltungen, ungünstiges Wetter. <br /> <strong>Mittelsaison</strong >: Zwischensaison März-Juni, September-Oktober außer Feiertage!<br /> <strong>Hauptsaison</strong>: Schulferienzeit, Feiertage und regionale Veranstaltungen.",
+				tableau: "Das Wochenende*",
+				tableau2: "1 Nacht",
+				tableau3: "2 Nächte",
+				tableau4: "3 Nächte",
+				tableau5: "Niedrig",
+				tableau6: "Durchschnitt",
+				tableau7: "Hoch",
+				tableau11: "Saison",
+				tableau8: "Wochentage*",
+				tableau9: "Sonderkurist",
+				tableau10: "Fragen Sie uns",
+				paragraphe3:
+					"<p> *Wochenenden: <strong>10 € Zuschlag</strong> pro Person und Nacht für mehr als 4 Personen (bis zu 9). </p><p> *Wochentags ( von Samstag 17.00 Uhr bis Samstag 10 Uhr): <strong>50 € Zuschlag</strong> pro Person und Nacht bei mehr als 4 Personen (bis 9).</p><p>Reinigungspauschale auf Wunsch: 80 €.</p><p >Eine Kurtaxe von 1,21 € pro Nacht und pro Person.</p>",
+				paragraphe4:
+					"<strong> Mit regionalem Frühstück für 2 Personen. <br /> Die Kurtaxe ist bei der Nutzung von Schwimmbad, Kneippweg und WLAN inklusive. <br /> Vierbeiner willkommen.</strong>",
+				titre2: "Inklusive Ausrüstung",
 			},
 			services: {
 				titre: "Vorteile",
@@ -622,6 +713,36 @@ const i18n = createI18n({
 				nos_equipements: "La nostra attrezzatura",
 				carte: "Carta geografica",
 			},
+			room: {
+				prec: "Stanza precedente",
+				suiv: "Stanza accanto",
+				titre: "TARIFFE",
+				paragraphe: "Prezzo: da ",
+				paragraphe_part2:
+					" / notte con colazione regionale per 2 persone. <br /> Uno <strong>sconto del 10% sulla 2a notte</strong> verrà detratto dal pagamento finale.",
+				table: "Periodo",
+				table2: "Valutazione",
+				table3: "da domenica a venerdì",
+				table4: "Da venerdì a domenica, festivi, speciali, vacanze scolastiche",
+				paragraphe2:
+					"<h6>Stagione e periodo</h6> <strong>Bassa stagione</strong>: Periodo o bonaccia, esclusi festivi, feste nazionali ed eventi regionali, condizioni meteorologiche sfavorevoli. <br /> <strong>Media stagione </strong >: Periodo di mezza stagione, marzo-giugno, settembre-ottobre esclusi i giorni festivi!<br /> <strong>Alta stagione </strong>: Periodo di vacanze scolastiche, giorni festivi ed eventi regionali.",
+				tableau: "Il fine settimana*",
+				tableau2: "1 notte",
+				tableau3: "2 notti",
+				tableau4: "3 notti",
+				tableau5: "Basso",
+				tableau6: "Media",
+				tableau7: "Alto",
+				tableau11: "Stagione",
+				tableau8: "Giorni feriali*",
+				tableau9: "Curista speciale",
+				tableau10: "Consultaci",
+				paragraphe3:
+					"<p> *Fine settimana: <strong>supplemento di € 10</strong> a persona e a notte per più di 4 persone (fino a 9). </p><p> *Giorni feriali ( da sabato 17:00 a sabato 10:00 a.m.): <strong>supplemento di € 50</strong> a persona e a notte per più di 4 persone (fino a 9).</p><p>Spese pulizia se desiderate: 80 €.</p><p >Una tassa di soggiorno di € 1,21 per notte e per persona.</p>",
+				paragraphe4:
+					"<strong> Con colazione regionale per 2 persone. <br /> La tassa di soggiorno è inclusa con accesso alla piscina, percorso kneipp e wifi. <br /> Gli amici a 4 zampe sono i benvenuti.</strong>",
+				titre2: "Attrezzatura inclusa",
+			},
 			services: {
 				titre: "Benefici",
 				titre2: "Momenti unici...",
@@ -818,6 +939,36 @@ const i18n = createI18n({
 				nos_equipements: "Nosso equipamento",
 				carte: "Mapa",
 			},
+			room: {
+				prec: "Sala anterior",
+				suiv: "Próximo quarto",
+				titre: "TARIFAS",
+				paragraphe: "Preço: de ",
+				paragraphe_part2:
+					" / noite com pequeno-almoço regional para 2 pessoas. <br /> No valor final será deduzido <strong>10% de desconto na 2ª noite</strong>.",
+				table: "Período",
+				table2: "Taxa",
+				table3: "Domingo a Sexta",
+				table4: "Sexta a Domingo, Feriados, Especiais, Férias Escolares",
+				paragraphe2:
+					"<h6>Temporada e período</h6> <strong>Baixa temporada</strong>: Período ou calmaria, excluindo feriados, feriados e eventos regionais, clima desfavorável. <br /> <strong>Média temporada </strong >: Período entre temporada, março-junho, setembro-outubro, exceto feriados!<br /> <strong>Alta temporada </strong>: período de férias escolares, feriados e eventos regionais.",
+				tableau: "O fim de semana*",
+				tableau2: "1 noite",
+				tableau3: "2 noites",
+				tableau4: "3 noites",
+				tableau5: "Baixo",
+				tableau6: "Média",
+				tableau7: "Alta",
+				tableau11: "Temporada",
+				tableau8: "Dias da semana*",
+				tableau9: "Curista especial",
+				tableau10: "Consulte-nos",
+				paragraphe3:
+					"<p> *Finais de semana: <strong>suplemento de € 10</strong> por pessoa e por noite para mais de 4 pessoas (até 9). </p><p> *Dias de semana (de sábado 17h a sábado 10 a.m.): <strong>Suplemento de 50€</strong> por pessoa e por noite para mais de 4 pessoas (até 9).</p><p>Taxa de limpeza se desejar: 80€.</p><p >Taxa turística de 1,21€ por noite e por pessoa.</p>",
+				paragraphe4:
+					"<strong> Com pequeno-almoço regional para 2 pessoas. <br /> A taxa turística está incluída com acesso à piscina, kneippwalk e wi-fi. <br /> Amigos de 4 patas são bem-vindos.</strong>",
+				titre2: "Equipamento incluído",
+			},
 			services: {
 				titre: "Benefícios",
 				titre2: "Momentos únicos...",
@@ -1012,6 +1163,37 @@ const i18n = createI18n({
 				nos_equipements: "Наше оборудование",
 				carte: "Карта",
 			},
+			room: {
+				prec: "Предыдущая комната",
+				suiv: "Следующая комната",
+				titre: "ТАРИФЫ",
+				paragraphe: "Цена: от ",
+				paragraphe_part2:
+					"/ ночь с региональным завтраком для 2 человек. <br /> <strong>Скидка 10% на 2-ю ночь</strong> будет вычтена из окончательного платежа.",
+				table: "Период",
+				table2: "Ставка",
+				table3: "с воскресенья по пятницу",
+				table4:
+					"С пятницы по воскресенье, праздничные дни, специальные предложения, школьные каникулы",
+				paragraphe2:
+					"<h6>Сезон и период</h6> <strong>Низкий сезон</strong>: Период или полный штиль, за исключением праздничных дней, государственных праздников и региональных событий, неблагоприятной погоды. <br /> <strong>Средний сезон </strong> >: период между сезонами, март-июнь, сентябрь-октябрь, кроме государственных праздников!<br /> <strong>Высокий сезон </strong>: период школьных каникул, государственных праздников и региональных мероприятий.",
+				tableau: "Выходные*",
+				tableau2: "1 ночь",
+				tableau3: "2 ночи",
+				tableau4: "3 ночи",
+				tableau5: "Низкий",
+				tableau6: "Средняя",
+				tableau7: "Высокий",
+				tableau11: "Сезон",
+				tableau8: "Будни*",
+				tableau9: "Специальный курист",
+				tableau10: "Проконсультируйтесь с нами",
+				paragraphe3:
+					"<p> *Выходные: <strong>доплата 10 евро</strong> с человека за ночь для более 4 человек (до 9). </p><p> *Будние дни (с 17:00 субботы до 10:00 субботы). утра): <strong>доплата 50 евро</strong> с человека за ночь для более 4 человек (до 9).</p><p>Плата за уборку по желанию: 80 евро.</p><p >Туристический налог в размере 1,21 евро за ночь с человека.</p>",
+				paragraphe4:
+					"<strong> С региональным завтраком для 2 человек. <br /> Туристический налог включен в стоимость доступа к бассейну, пешеходной дорожке и Wi-Fi. <br /> Приветствуются четвероногие друзья.</strong>",
+				titre2: "Оборудование включено",
+			},
 			services: {
 				titre: "Преимущества",
 				titre2: "Уникальные моменты...",
@@ -1205,6 +1387,36 @@ const i18n = createI18n({
 				nos_chambres: "Nuestras habitaciones",
 				nos_equipements: "Nuestro equipo",
 				carte: "Mapa",
+			},
+			room: {
+				prec: "Habitación anterior",
+				suiv: "Habitación siguiente",
+				titre: "TARIFAS",
+				paragraphe: "Precio: desde ",
+				paragraphe_part2:
+					" / noche con desayuno regional para 2 personas. <br /> Se descontará del pago final un <strong>10% de descuento en la 2da noche</strong>.",
+				table: "Período",
+				table2: "Tasa",
+				table3: "Domingo a Viernes",
+				table4: "Viernes a domingo, festivos, especiales, vacaciones escolares",
+				paragraphe2:
+					"<h6>Temporada y período</h6> <strong>Temporada baja</strong>: Período o calma muerta, excepto festivos, festivos y eventos regionales, clima desfavorable. <br /> <strong>Temporada media </strong >: Periodo entre temporadas, marzo-junio, septiembre-octubre excepto festivos!<br /> <strong>Temporada alta </strong>: Periodo de vacaciones escolares, festivos y eventos regionales.",
+				tableau: "El fin de semana*",
+				tableau2: "1 noche",
+				tableau3: "2 noches",
+				tableau4: "3 noches",
+				tableau5: "Bajo",
+				tableau6: "Promedio",
+				tableau7: "Alto",
+				tableau11: "Temporada",
+				tableau8: "Días laborables*",
+				tableau9: "Curista especial",
+				tableau10: "Consultanos",
+				paragraphe3:
+					"<p> *Fines de semana: <strong>suplemento de 10€</strong> por persona y noche para más de 4 personas (hasta 9). </p><p> *Días laborables (desde el sábado 17 hasta el sábado 10 a.m.): <strong>Suplemento de 50 €</strong> por persona y noche para más de 4 personas (hasta 9).</p><p>Cobro de limpieza si se desea: 80 €.</p><p >Tasa turística de 1,21€ por noche y por persona.</p>",
+				paragraphe4:
+					"<strong> Con desayuno regional para 2 personas. <br /> La tasa turística está incluida con el acceso a la piscina, kneippwalk y wifi. <br /> Amigos de 4 patas bienvenidos.</strong>",
+				titre2: "Equipo incluido",
 			},
 			services: {
 				titre: "Beneficios",
