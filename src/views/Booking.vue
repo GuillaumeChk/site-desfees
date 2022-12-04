@@ -340,6 +340,8 @@
 					</q-dialog>
 
 				<CustomDivider />
+
+      			<button @click="checkout()">Checkout</button>
 			</div>
 		</div>
 	</q-page>
@@ -396,6 +398,15 @@ let price = computed(() => {
 	return priceArray
 });
 let priceTotal = computed(() => { return price.value.reduce((accumulator, currentValue) => accumulator + currentValue, 0)})
+
+async function checkout() {
+	await fetch(`http://localhost:3000/create-checkout-session`, {
+		method: 'POST',
+		// headers: {
+		// 	'Content-type': 'application/json',
+		// }
+	})
+}
 
 function convertDateDDMMYYYYToYYYYMMDD(dateElement) {
 	let dateTemp = dateElement.split("/");

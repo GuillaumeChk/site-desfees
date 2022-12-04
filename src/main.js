@@ -261,7 +261,7 @@ const i18n = createI18n({
 					"A natural setting where winter sets in to allow nature to recharge its batteries in the company of the fairies.",
 				paragraphe1_texte3:
 					"The magic will accompany you during your stay in a setting of well-being and cocooning to relax in this magical world. So take the key to these enchanting paths…",
-				paragraphe2_titre: "Véritable havre de paix",
+				paragraphe2_titre: "A true haven of peace",
 				paragraphe2_texte:
 					"At the Domaine des Fées, when the sun shines and the sky turns blue, you can enter a wonderful world.",
 				paragraphe2_texte2:
