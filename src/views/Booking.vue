@@ -400,16 +400,24 @@ let price = computed(() => {
 let priceTotal = computed(() => { return price.value.reduce((accumulator, currentValue) => accumulator + currentValue, 0)})
 
 async function checkout() {
-	const res = await fetch(`http://localhost:3000/create-checkout-session`, {
-		method: 'POST',
-		headers: {
-			'Content-type': 'application/json',
-		},
-	})
-	const stripeSession = await res.json()
+	if(reservation.value && priceTotal.value){
+		const dataToSend = {
+			productName: reservation.value.room,
+			totalPrice: priceTotal.value
+		}
 
-	if (res.ok) {
-		window.open(stripeSession.checkoutUrl)
+		const res = await fetch(`http://localhost:3000/create-checkout-session`, {
+			method: 'POST',
+			headers: {
+				'Content-type': 'application/json',
+			},
+			body: JSON.stringify(dataToSend)
+		});
+		const stripeSession = await res.json();
+
+		if (res.ok) {
+			window.open(stripeSession.checkoutUrl);
+		}
 	}
 }
 
