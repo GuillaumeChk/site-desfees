@@ -212,8 +212,7 @@ const i18n = createI18n({
 					" Nos hôtes sont accueillis le jour de leur arrivée à partir de 17 heures. Les départs sont jusqu’à 11 heures. Afin prolonger le séjour chez les Fées, il est possible de venir plus tôt ou pa plus tard moyennant un supplément, merci de vous renseigner.",
 				paragraphe9:
 					"Les animaux sont bienvenus sous certaines conditions : Education parfaite, propre et toujours en compagnie de leur maître. ",
-				paragraphe10:
-					"Puis sélectionnez une ou plusieurs nuits consécutives.Tarif des chambres avec petits déjeuner régional : ",
+				paragraphe10: "Tarif des chambres avec petits déjeuner régional : ",
 				paragraphe11: "Semaine/curiste",
 				paragraphe12: "nous consulter",
 				paragraphe13:
@@ -240,6 +239,7 @@ const i18n = createI18n({
 				date3: "(avant 11h du lendemain matin).",
 				nuit: "1 nuit",
 			},
+			terms: "Conditions",
 			admin: {
 				titre: "Administration",
 				paragraphe:
@@ -468,6 +468,7 @@ const i18n = createI18n({
 				date3: "(before 11 a.m. the next morning).",
 				nuit: "1 night",
 			},
+			terms: "Terms",
 			admin: {
 				titre: "Administration",
 				paragraphe:
@@ -701,6 +702,7 @@ const i18n = createI18n({
 				date3: "(vor 11 Uhr am nächsten Morgen).",
 				nuit: "1 nacht",
 			},
+			terms: "Bedingungen",
 			admin: {
 				titre: "Verwaltung",
 				paragraphe:
@@ -932,6 +934,7 @@ const i18n = createI18n({
 				date3: "(entro le 11:00 del mattino successivo).",
 				nuit: "1 notte",
 			},
+			terms: "Termini",
 			admin: {
 				titre: "Amministrazione",
 				paragraphe:
@@ -1163,6 +1166,7 @@ const i18n = createI18n({
 				date3: "(antes das 11h da manhã seguinte).",
 				nuit: "1 noite",
 			},
+			terms: "Termos",
 			admin: {
 				titre: "Administração",
 				paragraphe:
@@ -1394,6 +1398,7 @@ const i18n = createI18n({
 				date3: "(до 11 утра следующего дня).",
 				nuit: "1 ночь",
 			},
+			terms: "условия",
 			admin: {
 				titre: "Администрация",
 				paragraphe:
@@ -1623,6 +1628,7 @@ const i18n = createI18n({
 				date3: "(antes de las 11 am de la mañana siguiente).",
 				nuit: "1 noche",
 			},
+			terms: "Términos",
 			admin: {
 				titre: "Administración",
 				paragraphe:

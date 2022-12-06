@@ -48,6 +48,11 @@ const router = createRouter({
 			component: () => import("../views/Admin.vue"),
 		},
 		{
+			path: "/terms",
+			name: "terms",
+			component: () => import("../views/Terms.vue"),
+		},
+		{
 			path: "/:pathMatch(.*)*", // default
 			component: Home,
 		},

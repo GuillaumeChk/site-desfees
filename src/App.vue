@@ -154,7 +154,11 @@
 						</q-list> </q-btn-dropdown
 					><br />
 					Copyright © 2022 – GuillaumeChk <br />
-					desfees.fr <br />
+					desfees.fr •
+					<router-link class="text-orange-7" to="/terms">{{
+						$t("terms")
+					}}</router-link
+					><br />
 					{{ $t("footer.droits_reserves") }}
 				</div>
 			</div>
