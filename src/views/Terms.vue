@@ -20,7 +20,6 @@
 			<!-- <h4 class="q-pa-md q-pt-xl text-uppercase text-weight-light">Contact</h4> -->
 
 			<section class="q-pa-md q-pl-lg">
-				<q-card  class="q-px-lg q-py-md">
 							<q-card-section>
 								<div class="text-h6 text-uppercase">{{ $t("booking.titre3") }}</div>
 							</q-card-section>
@@ -68,7 +67,6 @@
 									{{ $t("booking.paragraphe13") }}
 								</p>
 								</q-card-section>
-						</q-card>
 			</section>
 		</div>
 	</q-page>

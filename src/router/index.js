@@ -48,9 +48,19 @@ const router = createRouter({
 			component: () => import("../views/Admin.vue"),
 		},
 		{
-			path: "/terms",
+			path: "/conditions",
 			name: "terms",
 			component: () => import("../views/Terms.vue"),
+		},
+		{
+			path: "/paiement-valide",
+			name: "payment-success",
+			component: () => import("../views/PaymentSuccess.vue"),
+		},
+		{
+			path: "/paiement-annulation",
+			name: "payment-cancel",
+			component: () => import("../views/PaymentCancel.vue"),
 		},
 		{
 			path: "/:pathMatch(.*)*", // default

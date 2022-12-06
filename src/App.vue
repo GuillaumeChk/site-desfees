@@ -155,7 +155,7 @@
 					><br />
 					Copyright © 2022 – GuillaumeChk <br />
 					desfees.fr •
-					<router-link class="text-orange-7" to="/terms">{{
+					<router-link class="text-orange-7" to="/conditions">{{
 						$t("terms")
 					}}</router-link
 					><br />
