@@ -153,7 +153,7 @@
 							</q-item>
 						</q-list> </q-btn-dropdown
 					><br />
-					Copyright © 2022 – GuillaumeChk <br />
+					Copyright © 2022 <br />
 					desfees.fr •
 					<router-link class="text-orange-7" to="/conditions">{{
 						$t("terms")

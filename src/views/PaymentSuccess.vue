@@ -10,7 +10,7 @@
 						class="absolute-center bg-transparent text-h4 text-uppercase text-center text-weight-light"
 						style="letter-spacing: 4px"
 					>
-						Paiement effectué
+						{{ $t("paymentSuccess.titre") }}
 					</div>
 				</q-img>
 			</div>
@@ -19,15 +19,12 @@
 		<div class="wrapper">
 			<div class="q-pa-md">
 				<h4 class="q-py-xl text-uppercase text-weight-light">
-					Merci pour votre réservation !
+					{{ $t("paymentSuccess.titre2") }}
 				</h4>
 
-				<p>
-					Votre paiement a bien été effectué. <br />
-					Nous allons vous contacter.
-				</p>
+				<p v-html="$t('paymentSuccess.texte')"></p>
 
-				<p>Si vous avez besion de nous contactez par vous-même :</p>
+				<p v-html="$t('paymentSuccess.texte2')"></p>
 				<q-btn
 					rounded
 					unelevated

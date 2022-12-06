@@ -10,7 +10,7 @@
 						class="absolute-center bg-transparent text-h4 text-uppercase text-center text-weight-light"
 						style="letter-spacing: 4px"
 					>
-						Paiement annulé
+						{{ $t("paymentCancel.titre") }}
 					</div>
 				</q-img>
 			</div>
@@ -18,13 +18,11 @@
 
 		<div class="wrapper">
 			<div class="q-pa-md">
-				<h4 class="q-py-xl text-uppercase text-weight-light">Annulation</h4>
+				<h4 class="q-py-xl text-uppercase text-weight-light">
+					{{ $t("paymentCancel.titre2") }}
+				</h4>
 
-				<p>
-					Aucun paiement n'a été effectué. <br />
-					Si vous pensez qu'il s'agit d'une erreur, n'essayez pas de réserver à
-					nouveau et contactez-nous.
-				</p>
+				<p v-html="$t('paymentCancel.texte')"></p>
 
 				<q-btn
 					rounded

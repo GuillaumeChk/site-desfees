@@ -246,6 +246,19 @@ const i18n = createI18n({
 					"Cette page est destinée à l'administration du site, à des fins d'organisation. <br /> Elle ne donne accès à aucune donnée sensible. <br /> <br /> Si vous êtes arrivé par hasard, vous pouvez revenir à l en cliquant sur le bouton ci-dessous.",
 				titre2: "Accès réservé à l'administration",
 			},
+			paymentSuccess: {
+				titre: "Paiement effectué",
+				titre2: "Merci pour votre réservation !",
+				texte:
+					"Votre paiement a bien été effectué. <br />Nous allons vous contacter.",
+				texte2: "Si vous avez besoin de nous contactez par vous-même :",
+			},
+			paymentCancel: {
+				titre: "Paiement annulé",
+				titre2: "Annulation",
+				texte:
+					"Aucun paiement n'a été effectué. <br /> Si vous pensez qu'il s'agit d'une erreur, n'essayez pas de réserver à nouveau et contactez-nous.",
+			},
 		},
 		en: {
 			lang: "english",
@@ -474,6 +487,18 @@ const i18n = createI18n({
 				paragraphe:
 					"This page is intended for the administration of the site, for organizational purposes. <br /> It does not give access to any sensitive data. <br /> <br /> If you arrived by chance, you can come back to l by clicking on the button below.",
 				titre2: "Access reserved for the administration",
+			},
+			paymentSuccess: {
+				titre: "Payment success",
+				titre2: "Thank you for your reservation!",
+				texte: "Your payment has been made. <br />We will contact you.",
+				texte2: "If you need to contact us by yourself:",
+			},
+			paymentCancel: {
+				titre: "Payment cancelled",
+				titre2: "Cancellation",
+				texte:
+					"No payment has been made. <br /> If you think this is an error, do not try to book again and contact us.",
 			},
 		},
 		de: {
@@ -709,6 +734,19 @@ const i18n = createI18n({
 					"Diese Seite ist für die Verwaltung der Website und für organisatorische Zwecke bestimmt. <br /> Sie gewährt keinen Zugriff auf sensible Daten. <br /> <br /> Wenn Sie zufällig angekommen sind, können Sie zu l zurückkehren indem Sie auf die Schaltfläche unten klicken.",
 				titre2: "Zugriff für die Verwaltung reserviert",
 			},
+			paymentSuccess: {
+				titre: "Zahlung erfolgt",
+				titre2: "Vielen Dank für Ihre Reservierung!",
+				texte:
+					"Ihre Zahlung wurde getätigt. <br />Wir werden Sie kontaktieren.",
+				texte2: "Wenn Sie uns selbst kontaktieren müssen:",
+			},
+			paymentCancel: {
+				titre: "Zahlung storniert",
+				titre2: "Stornierung",
+				texte:
+					"Es wurde keine Zahlung geleistet. <br /> Wenn Sie der Meinung sind, dass dies ein Fehler ist, versuchen Sie nicht, erneut zu buchen, und kontaktieren Sie uns.",
+			},
 		},
 		it: {
 			lang: "italiano",
@@ -940,6 +978,18 @@ const i18n = createI18n({
 				paragraphe:
 					"Questa pagina è destinata all'amministrazione del sito, per fini organizzativi. <br /> Non dà accesso ad alcun dato sensibile. <br /> <br /> Se sei arrivato per caso, puoi tornare a l facendo clic sul pulsante in basso.",
 				titre2: "Accesso riservato all'amministrazione",
+			},
+			paymentSuccess: {
+				titre: "Pagamento effettuato",
+				titre2: "Grazie per la tua prenotazione!",
+				texte: "Il tuo pagamento è stato effettuato. <br />Ti contatteremo.",
+				texte2: "Se hai bisogno di contattarci da solo:",
+			},
+			paymentCancel: {
+				titre: "Pagamento annullato",
+				titre2: "Annullamento",
+				texte:
+					"Nessun pagamento è stato effettuato. <br /> Se ritieni che si tratti di un errore, non riprovare a prenotare e contattaci.",
 			},
 		},
 		pt: {
@@ -1173,6 +1223,18 @@ const i18n = createI18n({
 					"Esta página destina-se à administração do site, para fins organizacionais. <br /> Não dá acesso a nenhum dado sensível. <br /> <br /> Se chegou por acaso, pode voltar a l clicando no botão abaixo.",
 				titre2: "Acesso reservado à administração",
 			},
+			paymentSuccess: {
+				titre: "Pagamento Efetuado",
+				titre2: "Obrigado por sua reserva!",
+				texte: "Seu pagamento foi efetuado. <br />Entraremos em contato.",
+				texte2: "Se você precisar entrar em contato conosco sozinho:",
+			},
+			paymentCancel: {
+				titre: "Pagamento cancelado",
+				titre2: "Cancelamento",
+				texte:
+					"Nenhum pagamento foi feito. <br /> Se você acha que isso é um erro, não tente reservar novamente e entre em contato conosco.",
+			},
 		},
 		ru: {
 			lang: "Русский",
@@ -1405,6 +1467,18 @@ const i18n = createI18n({
 					"Эта страница предназначена для администрации сайта, в организационных целях. <br /> Она не дает доступа к каким-либо конфиденциальным данным. <br /> <br /> Если вы зашли случайно, вы можете вернуться на л нажав на кнопку ниже.",
 				titre2: "Доступ зарезервирован для администрации",
 			},
+			paymentSuccess: {
+				titre: "Платеж произведен",
+				titre2: "Спасибо за бронирование!",
+				texte: "Ваш платеж произведен. <br />Мы свяжемся с вами.",
+				texte2: "Если вам нужно связаться с нами самостоятельно:",
+			},
+			paymentCancel: {
+				titre: "Платеж отменен",
+				titre2: "Отмена",
+				texte:
+					"Платеж не был произведен. <br /> Если вы считаете, что это ошибка, не пытайтесь забронировать снова и свяжитесь с нами.",
+			},
 		},
 		es: {
 			lang: "español",
@@ -1634,6 +1708,19 @@ const i18n = createI18n({
 				paragraphe:
 					"Esta página está destinada a la administración del sitio, con fines organizativos. <br /> No da acceso a ningún dato sensible. <br /> <br /> Si llegó por casualidad, puede volver a l haciendo clic en el botón de abajo.",
 				titre2: "Acceso reservado a la administración",
+			},
+			paymentSuccess: {
+				titre: "Pago realizado",
+				titre2: "¡Gracias por su reserva!",
+				texte:
+					"Su pago se ha realizado. <br />Nos pondremos en contacto con usted.",
+				texte2: "Si necesita contactarnos por su cuenta:",
+			},
+			paymentCancel: {
+				titre: "Pago cancelado",
+				titre2: "Cancelación",
+				texte:
+					"No se ha realizado ningún pago. <br /> Si cree que se trata de un error, no intente reservar de nuevo y póngase en contacto con nosotros.",
 			},
 		},
 	},
