@@ -297,7 +297,7 @@
 										<tbody>
 											<tr  v-for="(priceElement, index) in price">
 				<td>
-					{{ $t("booking.titre5") }} {{ priceElement }} €<td v-if="datesHighPrices(convertDateDDMMYYYYToYYYYMMDD(reservationDate[index])) === true">{{ $t("booking.legende") }}</td><td v-if="index > 0">{{ $t("booking.remise") }}</td>
+					{{ $t("booking.nuit") }} {{ priceElement }} €<td v-if="datesHighPrices(convertDateDDMMYYYYToYYYYMMDD(reservationDate[index])) === true">{{ $t("booking.legende") }}</td><td v-if="index > 0">{{ $t("booking.remise") }}</td>
 				</td>							
 											</tr>
 											<tr>
@@ -330,6 +330,7 @@
 								unelevated
 								color="blue"
 								v-close-popup
+								@click="checkout()"
 							>
 							<div>
 								{{ $t("booking.bouton4") }}
@@ -414,8 +415,19 @@ async function checkout() {
 			body: JSON.stringify(dataToSend)
 		});
 		const stripeSession = await res.json();
+		console.log(stripeSession);
 
 		if (res.ok) {
+			let eventForDB = { ...reservation.value, paid: false, stripeSessionID: stripeSession.id};	
+
+			eventForDB.room = roomsData.find((object) => object.name === reservation.value.room).pathName;
+			let dateTemp = reservationDate.value[0].split("/");
+			eventForDB.startDate = Timestamp.fromDate(new Date(dateTemp[2], dateTemp[1] - 1, dateTemp[0])); // from "DD/MM/YYYY"
+			dateTemp = reservationDate.value[reservationDate.value.length - 1].split("/");
+			eventForDB.endDate = Timestamp.fromDate(new Date(dateTemp[2], dateTemp[1] - 1, dateTemp[0])); // from "DD/MM/YYYY"
+
+			await setDoc(doc(db, "calendar", Date.now().toString()), eventForDB);
+
 			window.open(stripeSession.checkoutUrl);
 		}
 	}
@@ -450,21 +462,13 @@ let getDaysArray = function(start, end) {
     return arr;
 };
 
+
+
 async function onSubmit() {
 	if (acceptConditions.value === true) {
 		displayConfirmation.value = true;
 
-		let eventForDB = { ...reservation.value};	
-
-		eventForDB.room = roomsData.find((object) => object.name === reservation.value.room).pathName;
-
-		// console.log(reservationDate.value);
-		let dateTemp = reservationDate.value[0].split("/");
-		eventForDB.startDate = Timestamp.fromDate(new Date(dateTemp[2], dateTemp[1] - 1, dateTemp[0])); // from "DD/MM/YYYY"
-		dateTemp = reservationDate.value[reservationDate.value.length - 1].split("/");
-		eventForDB.endDate = Timestamp.fromDate(new Date(dateTemp[2], dateTemp[1] - 1, dateTemp[0])); // from "DD/MM/YYYY"
-
-		await setDoc(doc(db, "calendar", Date.now().toString()), eventForDB);
+		
 	} 
 }
 
@@ -488,12 +492,12 @@ watch(room, (newRoom) => {
 
 let querySnapshot;
 
-// Get room data when selecting room
+// Get room dates availabilities when selecting room
 function setRoomCalendar(roomPathName) {
 	let calendarData = [];
 	querySnapshot.forEach((doc) => {
 		// doc.data() is never undefined for query doc snapshots
-		if (doc.data().room === roomPathName) {
+		if (doc.data().room === roomPathName && doc.data().paid) {
 			const reservation = {
 				id: doc.id,
 				// clientName: doc.data().clientName,

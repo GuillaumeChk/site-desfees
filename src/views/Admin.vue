@@ -569,8 +569,9 @@ async function updateDB(eventRef) {
 		mail: eventRef.value.mail,
 		phone: eventRef.value.phone,
 		allDay: true,
+		paid: true,
 	};
-	console.log(eventForDB);
+	// console.log(eventForDB);
 	await setDoc(doc(db, "calendar", eventRef.value.id), eventForDB);
 }
 
@@ -585,25 +586,27 @@ onMounted(async () => {
 	let calendarData = [];
 	querySnapshot.forEach((doc) => {
 		// doc.data() is never undefined for query doc snapshots
-		const reservationEvent = {
-			id: doc.id,
-			title: doc.data().clientName,
-			start: new Date(doc.data().startDate.seconds * 1000), // millisecond time
-			end: new Date(doc.data().endDate.seconds * 1000 + 24 * 60 * 60 * 1000),
-			allDay: true,
-			backgroundColor: roomsData.find(
-				(object) => object.pathName === doc.data().room
-			).color,
-			borderColor: "white",
-			extendedProps: {
-				room: doc.data().room,
-				people: doc.data().people,
-				mail: doc.data().mail,
-				phone: doc.data().phone,
-			},
-		};
+		if (doc.data().paid) {
+			const reservationEvent = {
+				id: doc.id,
+				title: doc.data().clientName,
+				start: new Date(doc.data().startDate.seconds * 1000), // millisecond time
+				end: new Date(doc.data().endDate.seconds * 1000 + 24 * 60 * 60 * 1000),
+				allDay: true,
+				backgroundColor: roomsData.find(
+					(object) => object.pathName === doc.data().room
+				).color,
+				borderColor: "white",
+				extendedProps: {
+					room: doc.data().room,
+					people: doc.data().people,
+					mail: doc.data().mail,
+					phone: doc.data().phone,
+				},
+			};
 
-		calendarData.push(reservationEvent);
+			calendarData.push(reservationEvent);
+		}
 	});
 
 	// console.log(calendarData);

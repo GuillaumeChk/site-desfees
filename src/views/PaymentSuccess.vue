@@ -18,7 +18,7 @@
 
 		<div class="wrapper">
 			<div class="q-pa-md">
-				<h4 class="q-py-xl text-uppercase text-weight-light">
+				<h4 class="q-py-xl text-uppercase text-green text-weight-light">
 					{{ $t("paymentSuccess.titre2") }}
 				</h4>
 
@@ -41,4 +41,26 @@
 
 <script setup>
 import CustomDivider from "../components/CustomDivider.vue";
+import { collection, doc, getDocs, setDoc } from "firebase/firestore";
+import { db } from "@/firebase";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+
+const sessionID = route.query.session_id;
+
+if (sessionID) {
+	let eventID = "";
+
+	const querySnapshot = await getDocs(collection(db, "calendar"));
+	querySnapshot.forEach((doc) => {
+		if (doc.data().stripeSessionID === sessionID) {
+			eventID = doc.id;
+		}
+	});
+
+	await setDoc(doc(db, "calendar", eventID), { paid: true }, { merge: true });
+} else {
+	console.log("reservation is undefined");
+}
 </script>
