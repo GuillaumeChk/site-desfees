@@ -20,259 +20,260 @@
 			<div class="q-pa-sm form">
 				<h4 class="q-py-xl text-uppercase text-weight-light">{{ $t("booking.titre2") }}</h4>
 
-				<q-form
-					@submit="onSubmit"
-					@reset="onReset"
-					class="q-gutter-y-md q-pb-xl"
-					greedy
-				>
-					<q-input label-slot filled rounded color="orange" v-model="client" type="text" 
-							lazy-rules="ondemand"
-								:rules="[
-									(val) =>
-										(val && val.length > 0) || 'Veuillez entrer votre nom complet',
-								]"
-								hide-bottom-space >
-							 <template v-slot:label>
-								{{ $t("booking.nom") }}
-							 </template>
-							</q-input>
+				<template v-if="bookingSystemWorking">
+					<q-form
+						@submit="onSubmit"
+						@reset="onReset"
+						class="q-gutter-y-md q-pb-xl"
+						greedy
+					>
+						<q-input label-slot filled rounded color="orange" v-model="client" type="text" 
+								lazy-rules="ondemand"
+									:rules="[
+										(val) =>
+											(val && val.length > 0) || 'Veuillez entrer votre nom complet',
+									]"
+									hide-bottom-space >
+								<template v-slot:label>
+									{{ $t("booking.nom") }}
+								</template>
+								</q-input>
 
-					<q-input label-slot filled color="orange" v-model="mail" type="email" 
-				lazy-rules="ondemand"
-					:rules="[
-						(val) =>
-							(val && val.length > 0) || 'Veuillez entrer une adresse mail valide',
-					]"
-					hide-bottom-space >
-				 <template v-slot:label>
-					{{ $t("booking.mail") }}
-				 </template>
-				</q-input>
-
-					<q-input label-slot filled color="orange" v-model="phone" type="tel" maxlength="13" 
-				lazy-rules="ondemand"
-					:rules="[
-						(val) =>
-							(val && val.length > 0) || 'Veuillez entrer un numéro valide',
-					]"
-					hide-bottom-space >
-				 <template v-slot:label>
-					{{ $t("booking.phone") }}
-				 </template></q-input>
-
-					<q-select
-				 label-slot
-						filled
-						color="orange"
-						v-model="room"
-						:options="roomNameOptions"
-						lazy-rules="ondemand"
+						<q-input label-slot filled color="orange" v-model="mail" type="email" 
+					lazy-rules="ondemand"
 						:rules="[
 							(val) =>
-								(val && val.length > 0) || 'Veuillez choisir une chambre',
+								(val && val.length > 0) || 'Veuillez entrer une adresse mail valide',
 						]"
-						hide-bottom-space
-					>
+						hide-bottom-space >
 					<template v-slot:label>
-					{{ $t("booking.chambre") }}
-				 </template>
-				</q-select>
+						{{ $t("booking.mail") }}
+					</template>
+					</q-input>
 
-					<q-select
-				 label-slot
-						filled
-						color="orange"
-						v-model="people"
-						:options="peopleQuantityOptions"
-						lazy-rules="ondemand"
+						<q-input label-slot filled color="orange" v-model="phone" type="tel" maxlength="13" 
+					lazy-rules="ondemand"
 						:rules="[
 							(val) =>
-								(val && val > 0) || 'Veuillez saisir le nombre d’occupants',
+								(val && val.length > 0) || 'Veuillez entrer un numéro valide',
 						]"
-						hide-bottom-space
-					>
+						hide-bottom-space >
 					<template v-slot:label>
-					{{ $t("booking.people") }}
-				 </template>
-				</q-select>
+						{{ $t("booking.phone") }}
+					</template></q-input>
 
-					<div>
-						<q-field
-						label-slot
+						<q-select
+					label-slot
 							filled
-							stack-label
 							color="orange"
-							v-model="reservationDate"
+							v-model="room"
+							:options="roomNameOptions"
 							lazy-rules="ondemand"
 							:rules="[
 								(val) =>
-									(val && val.length > 0) || 'Veuillez sélectionner une nuit',
+									(val && val.length > 0) || 'Veuillez choisir une chambre',
 							]"
 							hide-bottom-space
 						>
-							<template v-slot:label>
-								{{ $t("booking.nuits") }}
-							</template>
-							<template v-slot:control>
-								<q-date
-									v-model="reservationDate"
-									:disable="!datePickerDisabled"
-									:options="datesOptions"
-									:events="datesHighPrices"
-									event-color="amber"
-									navigation-min-year-month="2022/01"
-      								navigation-max-year-month="2032/12"
-									mask='DD/MM/YYYY'
-									flat
-									square
-									color="orange"
-									class="q-mt-sm full-width"
-									minimal
-									multiple
-								/>
-							</template>
-						</q-field>
-						<div>
-							<span class="eventCaption q-mb-xs q-mr-xs"></span><span class="text-italic text-orange">{{ $t("booking.legende") }}</span>
-						</div>
-						<div
-							class="q-pa-sm bg-orange-5 text-white"
-							v-if="reservationDate && reservationDate.length > 0"
+						<template v-slot:label>
+						{{ $t("booking.chambre") }}
+					</template>
+					</q-select>
+
+						<q-select
+					label-slot
+							filled
+							color="orange"
+							v-model="people"
+							:options="peopleQuantityOptions"
+							lazy-rules="ondemand"
+							:rules="[
+								(val) =>
+									(val && val > 0) || 'Veuillez saisir le nombre d’occupants',
+							]"
+							hide-bottom-space
 						>
-							<div v-for="day in reservationDate">
-								{{
-									day.from !== undefined ? `${day.from} 🠖 ${day.to}` : day
-								}}
+						<template v-slot:label>
+						{{ $t("booking.people") }}
+					</template>
+					</q-select>
+
+						<div>
+							<q-field
+							label-slot
+								filled
+								stack-label
+								color="orange"
+								v-model="reservationDate"
+								lazy-rules="ondemand"
+								:rules="[
+									(val) =>
+										(val && val.length > 0) || 'Veuillez sélectionner une nuit',
+								]"
+								hide-bottom-space
+							>
+								<template v-slot:label>
+									{{ $t("booking.nuits") }}
+								</template>
+								<template v-slot:control>
+									<q-date
+										v-model="reservationDate"
+										:disable="!datePickerDisabled"
+										:options="datesOptions"
+										:events="datesHighPrices"
+										event-color="amber"
+										navigation-min-year-month="2022/01"
+										navigation-max-year-month="2032/12"
+										mask='DD/MM/YYYY'
+										flat
+										square
+										color="orange"
+										class="q-mt-sm full-width"
+										minimal
+										multiple
+									/>
+								</template>
+							</q-field>
+							<div>
+								<span class="eventCaption q-mb-xs q-mr-xs"></span><span class="text-italic text-orange">{{ $t("booking.legende") }}</span>
 							</div>
+							<div
+								class="q-pa-sm bg-orange-5 text-white"
+								v-if="reservationDate && reservationDate.length > 0"
+							>
+								<div v-for="day in reservationDate">
+									{{
+										day.from !== undefined ? `${day.from} 🠖 ${day.to}` : day
+									}}
+								</div>
+							</div>
+							<q-expansion-item
+								icon="help"
+								header-class="text-info"
+								dense-toggle
+							>
+								<template v-slot:header>
+									{{ $t("booking.titre2bis") }}
+								</template>
+								<q-card class="q-pa-md q-mx-md text-grey-8 ">
+									<p>{{ $t("booking.paragraphe") }}</p>
+									<p>{{ $t("booking.paragraphe2") }}</p>
+									<p class="q-mb-none text-italic">
+										{{ $t("booking.paragraphe3") }}
+									</p>
+								</q-card>
+							</q-expansion-item>
 						</div>
-						<q-expansion-item
-							icon="help"
-							header-class="text-info"
-							dense-toggle
+
+						<q-field
+							v-model="acceptConditions"
+							lazy-rules="ondemand"
+							:rules="[
+								(val) =>
+									(val && val === true) || 'Veuillez accepter les conditions',
+							]" 
+							color="grey-8"
+							class="last-rounded q-mb-lg"
+							borderless
+							hide-bottom-space
 						>
-							<template v-slot:header>
-								{{ $t("booking.titre2bis") }}
-							</template>
-							<q-card class="q-pa-md q-mx-md text-grey-8 ">
-								<p>{{ $t("booking.paragraphe") }}</p>
-								<p>{{ $t("booking.paragraphe2") }}</p>
-								<p class="q-mb-none text-italic">
-									{{ $t("booking.paragraphe3") }}
-								</p>
-							</q-card>
-						</q-expansion-item>
-					</div>
+							<q-checkbox v-model="acceptConditions" color="orange"
+								>{{ $t("booking.accepter_conditions") }}
+								</q-checkbox>
+								<q-btn
+									flat
+									class="text-lowercase q-pa-xs text-underline"
+									style="text-decoration: underline;"
+									@click="displayConditions = true"
+									>
+							<div>
+								{{ $t("booking.conditions") }}
+							</div>
+						</q-btn>
+						</q-field>
 
-					<q-field
-						v-model="acceptConditions"
-						lazy-rules="ondemand"
-						:rules="[
-							(val) =>
-								(val && val === true) || 'Veuillez accepter les conditions',
-						]" 
-						color="grey-8"
-						class="last-rounded q-mb-lg"
-						borderless
-						hide-bottom-space
-					>
-						<q-checkbox v-model="acceptConditions" color="orange"
-							>{{ $t("booking.accepter_conditions") }}
-							</q-checkbox>
-							<q-btn
-								flat
-								class="text-lowercase q-pa-xs text-underline"
-								style="text-decoration: underline;"
-								@click="displayConditions = true"
-								>
-						<div>
-							{{ $t("booking.conditions") }}
-						</div>
-					</q-btn>
-					</q-field>
-
-					<q-dialog v-model="displayConditions">
-						<q-card  class="q-px-lg q-py-md">
-							<q-card-section>
-								<div class="text-h6 text-uppercase">{{ $t("booking.titre3") }}</div>
-							</q-card-section>
-
-							<q-card-section class="q-pt-none">
-								<p>{{ $t("booking.paragraphe4bis") }}</p> 
-								
-								<p>{{ $t("booking.paragraphe4") }}<br><br>
-
-								<strong>a)</strong>{{ $t("booking.paragraphe5") }}<br><br>
-
-								<strong>b)</strong>{{ $t("booking.paragraphe6") }}
-								<ul>
-									<li v-html="$t('booking.list_item')"></li>
-									<li v-html="$t('booking.list_item2')"></li>
-									<li v-html="$t('booking.list_item4')"></li>
-									<li v-html="$t('booking.list_item5')"></li>
-									<li v-html="$t('booking.list_item6')"></li>
-								</ul> 
-								
-								{{ $t("booking.paragraphe7") }}</p>
-
-								<p> {{ $t("booking.paragraphe8") }}</p> 
-
-								<p>
-									{{ $t("booking.paragraphe9") }}
-								</p>
-
-								{{ $t("booking.paragraphe10") }}
-									<q-markup-table dense bordered flat class="q-my-sm">
-										<tbody>
-											<tr v-for="room in roomsData">
-												<td>{{room.name}}</td>
-												<td v-if="room.pathName !== 'gite'">{{room.tarifs[0]}} € 🠖 {{room.tarifs[room.tarifs.length -1]}} €</td>
-												<td v-else>{{room.tarifs[0][0][0]}} € 🠖 {{room.tarifs[room.tarifs.length -1][room.tarifs[room.tarifs.length -1].length -1]}} €</td>
-											</tr>
-											<tr>
-												<td>{{ $t("booking.paragraphe11") }}</td>
-											<td>{{ $t("booking.paragraphe12") }}</td>
-										</tr>
-										</tbody>
-									</q-markup-table>
-
-								<p>
-									{{ $t("booking.paragraphe13") }}
-								</p>
+						<q-dialog v-model="displayConditions">
+							<q-card  class="q-px-lg q-py-md">
+								<q-card-section>
+									<div class="text-h6 text-uppercase">{{ $t("booking.titre3") }}</div>
 								</q-card-section>
 
-							<q-card-actions align="right">
-								<q-btn icon="close" flat  dense v-close-popup />
-							</q-card-actions>
-						</q-card>
-					</q-dialog>
+								<q-card-section class="q-pt-none">
+									<p>{{ $t("booking.paragraphe4bis") }}</p> 
+									
+									<p>{{ $t("booking.paragraphe4") }}<br><br>
 
-					<div>
-						<q-btn
-							rounded
-							unelevated
-							type="submit"
-							color="orange"
-						>
-						<div>
-							{{ $t("booking.bouton") }}
-						</div>
-					</q-btn>
-						<q-btn
-							rounded
-							type="reset"
-							color="orange"
-							flat
-							class="q-ml-sm"
-						>
-						<div>
-							{{ $t("booking.bouton2") }}
-						</div>
-					</q-btn>
-					</div>
-				</q-form>
+									<strong>a)</strong>{{ $t("booking.paragraphe5") }}<br><br>
 
-				<q-dialog v-model="displayConfirmation">
+									<strong>b)</strong>{{ $t("booking.paragraphe6") }}
+									<ul>
+										<li v-html="$t('booking.list_item')"></li>
+										<li v-html="$t('booking.list_item2')"></li>
+										<li v-html="$t('booking.list_item4')"></li>
+										<li v-html="$t('booking.list_item5')"></li>
+										<li v-html="$t('booking.list_item6')"></li>
+									</ul> 
+									
+									{{ $t("booking.paragraphe7") }}</p>
+
+									<p> {{ $t("booking.paragraphe8") }}</p> 
+
+									<p>
+										{{ $t("booking.paragraphe9") }}
+									</p>
+
+									{{ $t("booking.paragraphe10") }}
+										<q-markup-table dense bordered flat class="q-my-sm">
+											<tbody>
+												<tr v-for="room in roomsData">
+													<td>{{room.name}}</td>
+													<td v-if="room.pathName !== 'gite'">{{room.tarifs[0]}} € 🠖 {{room.tarifs[room.tarifs.length -1]}} €</td>
+													<td v-else>{{room.tarifs[0][0][0]}} € 🠖 {{room.tarifs[room.tarifs.length -1][room.tarifs[room.tarifs.length -1].length -1]}} €</td>
+												</tr>
+												<tr>
+													<td>{{ $t("booking.paragraphe11") }}</td>
+												<td>{{ $t("booking.paragraphe12") }}</td>
+											</tr>
+											</tbody>
+										</q-markup-table>
+
+									<p>
+										{{ $t("booking.paragraphe13") }}
+									</p>
+									</q-card-section>
+
+								<q-card-actions align="right">
+									<q-btn icon="close" flat  dense v-close-popup />
+								</q-card-actions>
+							</q-card>
+						</q-dialog>
+
+						<div>
+							<q-btn
+								rounded
+								unelevated
+								type="submit"
+								color="orange"
+							>
+							<div>
+								{{ $t("booking.bouton") }}
+							</div>
+						</q-btn>
+							<q-btn
+								rounded
+								type="reset"
+								color="orange"
+								flat
+								class="q-ml-sm"
+							>
+							<div>
+								{{ $t("booking.bouton2") }}
+							</div>
+						</q-btn>
+						</div>
+					</q-form>
+
+					<q-dialog v-model="displayConfirmation">
 						<q-card  class="q-px-lg q-py-md">
 							<q-card-section>
 								<div class="text-h6 text-uppercase">{{ $t("booking.titre4") }}</div>
@@ -340,9 +341,21 @@
 						</q-card>
 					</q-dialog>
 
-				<CustomDivider />
+					<q-dialog v-model="displayPaymentRedirected">
+						<q-card  class="q-px-lg q-py-md">
+							<q-card-section>
+								<p>Vous allez être redirigé automatiquement vers la page de paiement. Si la page ne s'ouvre pas, veuillez autoriser votre navigateur vers la redirection si un message vous le propose. Vous pouvez fermer cette page ou continuer à naviguer sur notre site.</p>
 
-      			<button @click="checkout()">Checkout</button>
+<q-btn rounded unelevated label="Accueil" color="orange" to="/" />
+							</q-card-section>
+						</q-card>
+					</q-dialog>
+				</template>
+
+				<p v-else>Le réservation en ligne a été temporairement suspendue.
+					Vous pouvez reserver en nous contactant directement.
+				</p>
+				<CustomDivider />
 			</div>
 		</div>
 	</q-page>
@@ -353,10 +366,12 @@ import { computed } from "@vue/reactivity";
 import { onMounted, ref, watch } from "vue";
 import CustomDivider from "../components/CustomDivider.vue";
 import roomsData from "../data/roomsData.json";
-import { collection, doc, getDocs, setDoc, Timestamp } from "firebase/firestore";
+import { collection, doc, getDocs, getDoc, setDoc, Timestamp } from "firebase/firestore";
 import { db } from "@/firebase";
 import { date } from 'quasar';
 import holidaysTo2032 from "../data/holidaysTo2032.json"
+
+let bookingSystemWorking = ref();
 
 let calendar = ref([]);
 
@@ -368,7 +383,8 @@ let people = ref();
 let reservationDate = ref([]);
 let acceptConditions = ref(false);
 let displayConditions = ref(false);
-let displayConfirmation= ref(false);
+let displayConfirmation = ref(false);
+let displayPaymentRedirected = ref(false);
 let reservation = computed(() => {
 	return {
 		clientName: client.value,
@@ -402,6 +418,8 @@ let priceTotal = computed(() => { return price.value.reduce((accumulator, curren
 
 async function checkout() {
 	if(reservation.value && priceTotal.value){
+		displayPaymentRedirected.value = true;
+
 		const dataToSend = {
 			productName: reservation.value.room,
 			totalPrice: priceTotal.value
@@ -532,6 +550,9 @@ function setRoomCalendar(roomPathName) {
 // Get calendar data from DB 
 // + school holidays from gouv.fr API
 onMounted(async () => {
+	const docSnap = await getDoc(doc(db, "settings", "bookingStatus"));
+	bookingSystemWorking.value = docSnap.data().bookingSystemActive;
+
 	querySnapshot = await getDocs(collection(db, "calendar"));
 
 	let schoolHolidaysPromise = await fetch("https://data.education.gouv.fr/api/records/1.0/search/?dataset=fr-en-calendrier-scolaire&q=&rows=6&sort=end_date&facet=description&facet=population&facet=start_date&facet=end_date&facet=location&facet=zones&facet=annee_scolaire&refine.location=Besan%C3%A7on&timezone=Europe%2FParis");

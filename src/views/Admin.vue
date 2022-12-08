@@ -336,7 +336,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted, computed, watch } from "vue";
 import CustomDivider from "../components/CustomDivider.vue";
 import roomsData from "../data/roomsData.json";
 
@@ -351,6 +351,7 @@ import { exportFile } from "quasar";
 import {
 	collection,
 	getDocs,
+	getDoc,
 	doc,
 	setDoc,
 	deleteDoc,
@@ -383,7 +384,12 @@ let calendarOptions = computed(() => {
 	};
 });
 
-let bookingSystemWorking = ref(true);
+let bookingSystemWorking = ref();
+watch(bookingSystemWorking, async (newValue) => {
+	await setDoc(doc(db, "settings", "bookingStatus"), {
+		bookingSystemActive: newValue,
+	});
+});
 
 /// EVENTS HANDLERS
 let displayNewEvent = ref(false);
@@ -577,10 +583,8 @@ async function updateDB(eventRef) {
 
 // Get calendar data from firebase
 onMounted(async () => {
-	const querySnapshot0 = await getDocs(collection(db, "settings"));
-	querySnapshot0.forEach((doc) => {
-		bookingSystemWorking.value = doc.data().bookingSystemActive;
-	});
+	const docSnap = await getDoc(doc(db, "settings", "bookingStatus"));
+	bookingSystemWorking.value = docSnap.data().bookingSystemActive;
 
 	const querySnapshot = await getDocs(collection(db, "calendar"));
 	let calendarData = [];
