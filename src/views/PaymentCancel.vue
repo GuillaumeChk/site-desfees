@@ -44,22 +44,26 @@ import { collection, doc, getDocs, deleteDoc } from "firebase/firestore";
 import { db } from "@/firebase";
 import { useRoute } from "vue-router";
 
-const route = useRoute();
+import { onMounted } from "vue";
 
-const sessionID = route.query.session_id;
+onMounted(async () => {
+	const route = useRoute();
 
-if (sessionID) {
-	let eventID = "";
+	const sessionID = route.query.session_id;
 
-	const querySnapshot = await getDocs(collection(db, "calendar"));
-	querySnapshot.forEach((doc) => {
-		if (doc.data().stripeSessionID === sessionID) {
-			eventID = doc.id;
-		}
-	});
+	if (sessionID) {
+		let eventID = "";
 
-	await deleteDoc(doc(db, "calendar", eventID));
-} else {
-	console.log("reservation is undefined");
-}
+		const querySnapshot = await getDocs(collection(db, "calendar"));
+		querySnapshot.forEach((doc) => {
+			if (doc.data().stripeSessionID === sessionID) {
+				eventID = doc.id;
+			}
+		});
+
+		await deleteDoc(doc(db, "calendar", eventID));
+	} else {
+		console.log("reservation is undefined");
+	}
+});
 </script>

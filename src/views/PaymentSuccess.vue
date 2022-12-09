@@ -44,23 +44,26 @@ import CustomDivider from "../components/CustomDivider.vue";
 import { collection, doc, getDocs, setDoc } from "firebase/firestore";
 import { db } from "@/firebase";
 import { useRoute } from "vue-router";
+import { onMounted } from "vue";
 
-const route = useRoute();
+onMounted(async () => {
+	const route = useRoute();
 
-const sessionID = route.query.session_id;
+	const sessionID = route.query.session_id;
 
-if (sessionID) {
-	let eventID = "";
+	if (sessionID) {
+		let eventID = "";
 
-	const querySnapshot = await getDocs(collection(db, "calendar"));
-	querySnapshot.forEach((doc) => {
-		if (doc.data().stripeSessionID === sessionID) {
-			eventID = doc.id;
-		}
-	});
+		const querySnapshot = await getDocs(collection(db, "calendar"));
+		querySnapshot.forEach((doc) => {
+			if (doc.data().stripeSessionID === sessionID) {
+				eventID = doc.id;
+			}
+		});
 
-	await setDoc(doc(db, "calendar", eventID), { paid: true }, { merge: true });
-} else {
-	console.log("reservation is undefined");
-}
+		await setDoc(doc(db, "calendar", eventID), { paid: true }, { merge: true });
+	} else {
+		console.log("reservation is undefined");
+	}
+});
 </script>
