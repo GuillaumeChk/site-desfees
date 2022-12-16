@@ -24,10 +24,7 @@
 			<section class="q-gutter-y-md">
 				<h5 class="text-brand-2 q-px-md">{{ $t("tourism.titre3") }}</h5>
 
-				<q-img
-					src="../assets/rooms/exterieur/_DSC6673_compressed60_039.jpg"
-					:ratio="16 / 9"
-				>
+				<q-img src="../assets/rooms/exterieur/vignoble.jpg" :ratio="16 / 9">
 				</q-img>
 
 				<div class="q-px-md">
@@ -60,10 +57,7 @@
 					{{ $t("tourism.titre4") }}
 				</h5>
 
-				<q-img
-					src="../assets/rooms/exterieur/_DSC6071_compressed60_030.jpg"
-					:ratio="16 / 9"
-				>
+				<q-img src="../assets/rooms/exterieur/table.jpg" :ratio="16 / 9">
 				</q-img>
 
 				<p class="q-px-md">

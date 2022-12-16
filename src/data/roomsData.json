@@ -15,7 +15,7 @@
 		},
 		"imageUrl": "rooms/salina.jpg",
 		"equipments": ["garage", "hammam", "kneippwalk", "piscine"],
-		"tarifs": [190, 220]
+		"tarifs": [190, 240]
 	},
 	{
 		"index": 1,
@@ -33,7 +33,7 @@
 		},
 		"imageUrl": "rooms/etoiles.jpg",
 		"equipments": ["ciel", "garage", "jacuzzi", "kneippwalk", "piscine"],
-		"tarifs": [240, 280]
+		"tarifs": [260, 290]
 	},
 	{
 		"index": 4,
@@ -51,7 +51,7 @@
 		},
 		"imageUrl": "rooms/romantique.jpg",
 		"equipments": ["balneo", "garage", "kneippwalk", "piscine"],
-		"tarifs": [240, 280]
+		"tarifs": [260, 290]
 	},
 	{
 		"index": 2,
@@ -77,7 +77,7 @@
 			"piscine",
 			"sauna"
 		],
-		"tarifs": [380, 420]
+		"tarifs": [400, 440]
 	},
 	{
 		"index": 3,
@@ -102,7 +102,7 @@
 			"piscine",
 			"sauna"
 		],
-		"tarifs": [320, 360]
+		"tarifs": [340, 380]
 	},
 	{
 		"index": 6,

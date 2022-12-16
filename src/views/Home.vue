@@ -20,7 +20,7 @@
 		</section>
 
 		<section class="q-pa-lg q-py-xl q-my-lg text-grey-8 text-center">
-			<h2 class="cursive q-pb-lg appear-left">
+			<h2 class="cursive q-pb-xl appear-left">
 				{{ $t("home.bienvenue2") }}
 			</h2>
 

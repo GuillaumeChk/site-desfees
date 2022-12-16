@@ -46,7 +46,7 @@ const i18n = createI18n({
 				titre: "TARIFS",
 				paragraphe: "Prix : à partir de ",
 				paragraphe_part2:
-					" / nuit avec petit déjeuner régional pour 2 personnes. <br /> Une <strong>remise de 10% sur la 2ème nuitée</strong> vous déduite du paiement final.",
+					" / nuit avec petit déjeuner régional pour 2 personnes. <br /> Une <strong>remise de 10% dès la 2ème nuitée</strong> vous déduite du paiement final.",
 				table: "Période",
 				table2: "Tarif",
 				table3: "Du dimanche au vendredi",
@@ -239,11 +239,11 @@ const i18n = createI18n({
 				date3: "(avant 11h du lendemain matin).",
 				nuit: "1 nuit",
 			},
-			terms: "Conditions",
+			terms: "conditions",
 			admin: {
 				titre: "Administration",
 				paragraphe:
-					"Cette page est destinée à l'administration du site, à des fins d'organisation. <br /> Elle ne donne accès à aucune donnée sensible. <br /> <br /> Si vous êtes arrivé par hasard, vous pouvez revenir à l en cliquant sur le bouton ci-dessous.",
+					"Cette page est destinée à l'administration du site, à des fins d'organisation. <br /> Elle ne donne accès à aucune donnée sensible. <br /> <br /> Si vous êtes arrivé par hasard, vous pouvez revenir à l'accueil en cliquant sur le bouton ci-dessous.",
 				titre2: "Accès réservé à l'administration",
 			},
 			paymentSuccess: {
@@ -481,7 +481,7 @@ const i18n = createI18n({
 				date3: "(before 11 a.m. the next morning).",
 				nuit: "1 night",
 			},
-			terms: "Terms",
+			terms: "terms",
 			admin: {
 				titre: "Administration",
 				paragraphe:
@@ -727,7 +727,7 @@ const i18n = createI18n({
 				date3: "(vor 11 Uhr am nächsten Morgen).",
 				nuit: "1 nacht",
 			},
-			terms: "Bedingungen",
+			terms: "bedingungen",
 			admin: {
 				titre: "Verwaltung",
 				paragraphe:
@@ -972,7 +972,7 @@ const i18n = createI18n({
 				date3: "(entro le 11:00 del mattino successivo).",
 				nuit: "1 notte",
 			},
-			terms: "Termini",
+			terms: "termini",
 			admin: {
 				titre: "Amministrazione",
 				paragraphe:
@@ -1216,7 +1216,7 @@ const i18n = createI18n({
 				date3: "(antes das 11h da manhã seguinte).",
 				nuit: "1 noite",
 			},
-			terms: "Termos",
+			terms: "termos",
 			admin: {
 				titre: "Administração",
 				paragraphe:
@@ -1702,7 +1702,7 @@ const i18n = createI18n({
 				date3: "(antes de las 11 am de la mañana siguiente).",
 				nuit: "1 noche",
 			},
-			terms: "Términos",
+			terms: "términos",
 			admin: {
 				titre: "Administración",
 				paragraphe:

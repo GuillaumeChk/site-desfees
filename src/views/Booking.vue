@@ -23,83 +23,145 @@
 				<template v-if="bookingSystemWorking">
 					<q-form
 						@submit="onSubmit"
-						@reset="onReset"
 						class="q-gutter-y-md q-pb-xl"
 						greedy
 					>
-						<q-input label-slot filled rounded color="orange" v-model="client" type="text" 
+						<h6>Mes coordonnées</h6>
+
+						<!-- Nom -->
+						<q-input label-slot filled rounded color="orange" v-model="clientLastName" type="text" 
 								lazy-rules="ondemand"
 									:rules="[
 										(val) =>
-											(val && val.length > 0) || 'Veuillez entrer votre nom complet',
+											(val && val.length > 0) || 'Veuillez entrer votre nom de famille',
 									]"
 									hide-bottom-space >
 								<template v-slot:label>
 									{{ $t("booking.nom") }}
 								</template>
-								</q-input>
+						</q-input>
 
-						<q-input label-slot filled color="orange" v-model="mail" type="email" 
-					lazy-rules="ondemand"
-						:rules="[
-							(val) =>
-								(val && val.length > 0) || 'Veuillez entrer une adresse mail valide',
-						]"
-						hide-bottom-space >
-					<template v-slot:label>
-						{{ $t("booking.mail") }}
-					</template>
-					</q-input>
+						<!-- Prénom -->
+						<q-input label-slot filled  color="orange" v-model="clientFirstName" type="text" 
+						lazy-rules="ondemand"
+							:rules="[
+								(val) =>
+									(val && val.length > 0) || 'Veuillez entrer votre prénom',
+							]"
+							hide-bottom-space >
+						<template v-slot:label>
+							Prénom
+						</template>
+						</q-input>
 
-						<q-input label-slot filled color="orange" v-model="phone" type="tel" maxlength="13" 
-					lazy-rules="ondemand"
-						:rules="[
-							(val) =>
-								(val && val.length > 0) || 'Veuillez entrer un numéro valide',
-						]"
-						hide-bottom-space >
-					<template v-slot:label>
-						{{ $t("booking.phone") }}
-					</template></q-input>
+						<!-- Addresse -->
+						<q-input label-slot filled  color="orange" v-model="clientAddress" type="text" 
+						lazy-rules="ondemand"
+							:rules="[
+								(val) =>
+									(val && val.length > 0) || 'Veuillez entrer votre prénom',
+							]"
+							hide-bottom-space >
+						<template v-slot:label>
+							Addresse
+						</template>
+						</q-input>
 
-						<q-select
-					label-slot
-							filled
-							color="orange"
-							v-model="room"
-							:options="roomNameOptions"
+						<!-- Code postal -->
+						<q-input label-slot filled  color="orange" v-model="clientPostalCode" type="text" 
+						lazy-rules="ondemand"
+							:rules="[
+								(val) =>
+									(val && val.length > 0) || 'Veuillez entrer votre code postal',
+							]"
+							hide-bottom-space >
+						<template v-slot:label>
+							Code postal
+						</template>
+						</q-input>
+
+						<!-- Ville -->
+						<q-input label-slot filled  color="orange" v-model="clientCity" type="text" 
+						lazy-rules="ondemand"
+							:rules="[
+								(val) =>
+									(val && val.length > 0) || 'Veuillez entrer votre ville',
+							]"
+							hide-bottom-space >
+						<template v-slot:label>
+							Ville
+						</template>
+						</q-input>
+
+						<!-- Tel -->
+						<q-input label-slot filled color="orange" v-model="clientPhone" type="tel" maxlength="13" 
+						lazy-rules="ondemand"
+							:rules="[
+								(val) =>
+									(val && val.length > 0) || 'Veuillez entrer un numéro valide',
+							]"
+							hide-bottom-space >
+							<template v-slot:label>
+								{{ $t("booking.phone") }}
+							</template>
+						</q-input>
+
+						<!-- Mail -->
+						<q-input label-slot filled color="orange" v-model="clientMail" type="email" 
 							lazy-rules="ondemand"
 							:rules="[
 								(val) =>
-									(val && val.length > 0) || 'Veuillez choisir une chambre',
+									(val && val.length > 0) || 'Veuillez entrer une adresse mail valide',
 							]"
-							hide-bottom-space
-						>
+							hide-bottom-space >
 						<template v-slot:label>
-						{{ $t("booking.chambre") }}
-					</template>
-					</q-select>
+							{{ $t("booking.mail") }}
+						</template>
+						</q-input>
 
+						<h6>Ma réservation</h6>
+
+						<!-- Chambre -->
 						<q-select
-					label-slot
-							filled
-							color="orange"
-							v-model="people"
-							:options="peopleQuantityOptions"
-							lazy-rules="ondemand"
-							:rules="[
-								(val) =>
-									(val && val > 0) || 'Veuillez saisir le nombre d’occupants',
-							]"
-							hide-bottom-space
-						>
-						<template v-slot:label>
-						{{ $t("booking.people") }}
-					</template>
-					</q-select>
+							label-slot
+									filled
+									color="orange"
+									v-model="room"
+									:options="roomNameOptions"
+									lazy-rules="ondemand"
+									:rules="[
+										(val) =>
+											(val && val.length > 0) || 'Veuillez choisir une chambre',
+									]"
+									hide-bottom-space
+								>
+								<template v-slot:label>
+								{{ $t("booking.chambre") }}
+							</template>
+						</q-select>
 
+						<!-- Nombre d'occupants -->
+							<!-- <q-select
+						label-slot
+								filled
+								color="orange"
+								v-model="people"
+								:options="peopleQuantityOptions"
+								lazy-rules="ondemand"
+								:rules="[
+									(val) =>
+										(val && val > 0) || 'Veuillez saisir le nombre d’occupants',
+								]"
+								hide-bottom-space
+							>
+							<template v-slot:label>
+								{{ $t("booking.people") }}
+							</template>
+						</q-select> -->
+
+						<!-- Date -->
 						<div>
-							<q-field
+						<q-field
 							label-slot
 								filled
 								stack-label
@@ -165,6 +227,11 @@
 							</q-expansion-item>
 						</div>
 
+c un cado ? oui / non
+
+laisser un message
+
+						<!-- Accepter conditions -->
 						<q-field
 							v-model="acceptConditions"
 							lazy-rules="ondemand"
@@ -261,7 +328,7 @@
 						</q-btn>
 							<q-btn
 								rounded
-								type="reset"
+								@click="onReset()"
 								color="orange"
 								flat
 								class="q-ml-sm"
@@ -282,10 +349,11 @@
 							<q-card-section class="q-pt-none">
 								<h6>{{ $t("booking.titre5") }}</h6>
 								<p class="q-pl-sm ">
-									<q-icon name="person" /> {{client}}<br>
-									<q-icon name="email" /> {{mail}}<br>
-									<q-icon name="phone" /> {{phone}}<br>
-									<q-icon name="groups" /> {{people}} {{ $t("booking.people2") }}<br>
+									<q-icon name="person" /> {{clientFirstName}} {{clientLastName}}<br>
+									{{clientAddress}}, {{clientCity}} {{clientPostalCode}}
+									<br>
+									<q-icon name="email" /> {{clientMail}}<br>
+									<q-icon name="phone" /> {{clientPhone}}<br>
 									<q-icon name="bed" /> {{room}}<br>
 									<q-icon name="date_range" />{{reservationDate[0]}} {{ $t("booking.date") }} 🠖 {{ $t("booking.date2") }} {{reservationDate[reservationDate.length - 1]}} {{ $t("booking.date3") }}<br>
 									<q-icon name="done" />{{ $t("booking.conditions_acceptees") }}
@@ -310,7 +378,7 @@
 										</tbody>
 										
 									</q-markup-table> 
-									{{ $t("booking.paragraphe14") }}<br>
+									<!-- {{ $t("booking.paragraphe14") }}<br> -->
 									
 									<br>
 									{{ $t("booking.paragraphe15") }}
@@ -376,10 +444,13 @@ let bookingSystemWorking = ref();
 let calendar = ref([]);
 
 let room = ref();
-let client = ref();
-let mail = ref();
-let phone = ref();
-let people = ref();
+let clientFirstName = ref();
+let clientLastName = ref();
+let clientAddress = ref();
+let clientPostalCode = ref();
+let clientCity = ref();
+let clientMail = ref();
+let clientPhone = ref();
 let reservationDate = ref([]);
 let acceptConditions = ref(false);
 let displayConditions = ref(false);
@@ -387,11 +458,13 @@ let displayConfirmation = ref(false);
 let displayPaymentRedirected = ref(false);
 let reservation = computed(() => {
 	return {
-		clientName: client.value,
-		mail: mail.value,
-		phone: phone.value, 
+		clientName: clientFirstName.value +' '+ clientLastName,
+		clientAddress: clientAddress.value,
+		clientPostalCode: clientPostalCode.value,
+		clientCity: clientCity.value,
+		mail: clientMail.value,
+		phone: clientPhone.value, 
 		room: room.value,
-		people: people.value,
 		startDate: null,
 		endDate: null,
 	};
@@ -457,7 +530,8 @@ function convertDateDDMMYYYYToYYYYMMDD(dateElement) {
 }
 
 const roomNameOptions = Array.from(roomsData, (element) => element.name);
-const peopleQuantityOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+roomNameOptions.pop(); // remove gite
+// const peopleQuantityOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 // Disable already reserved dates in DatePicker
 function datesOptions(dateElement) {
@@ -480,32 +554,33 @@ let getDaysArray = function(start, end) {
     return arr;
 };
 
-
-
 async function onSubmit() {
 	if (acceptConditions.value === true) {
 		displayConfirmation.value = true;
-
-		
 	} 
 }
 
 function onReset() {
-	room.value = null;
-	clientName.value = null;
-	mail.value = null;
-	phone.value = null;
-	people.value = null;
+	room.value = "";
+	clientFirstName.value = null;
+	clientLastName.value = null;
+	clientAddress.value = null;
+	clientPostalCode.value = null;
+	clientCity.value = null;
+	clientMail.value = null;
+	clientPhone.value = null;
 	reservationDate.value = null;
 	acceptConditions.value = false;
 }
 
 // Update date picker options (set available dates) when a room is selected
 watch(room, (newRoom) => {
-	let roomPathName = roomsData.find(
-				(object) => object.name === newRoom
+	if(newRoom) {
+		let roomPathName = roomsData.find(
+			(object) => object.name === newRoom
 			).pathName
-	setRoomCalendar(roomPathName);
+			setRoomCalendar(roomPathName);
+		}
 })
 
 let querySnapshot;
