@@ -89,9 +89,12 @@
 					<a class="text-h6" href="https://www.legrapiot.com/fr/index.php"
 						>Le Grapiot à Pupillin</a
 					>
-					<a class="text-h6" href="https://www.chateaudegermigney.com/"
-						>Chateau de Germigney à Port Lesney</a
-					>
+					<a class="text-h6" href="https://www.facebook.com/lecomptoirkokague/"
+						>Le comptoir Kokagué
+					</a>
+					<a class="text-h6" href="https://le-bistronome-arbois.com/"
+						>Le Bistronôme
+					</a>
 				</div>
 				<br />
 

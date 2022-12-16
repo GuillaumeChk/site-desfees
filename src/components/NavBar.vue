@@ -64,7 +64,7 @@
 			</q-btn>
 
 			<q-btn class="no-padding" to="/" size="md" unelevated rounded>
-				<q-img width="45px" height="45px" fit="fill" src="logoGitedes.svg">
+				<q-img width="50px" height="50px" fit="fill" src="logoGitedes.svg">
 				</q-img>
 			</q-btn>
 

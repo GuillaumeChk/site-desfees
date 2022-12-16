@@ -11,26 +11,36 @@
 					width="1920"
 					height="1080"
 				/>
-				<h3
-					class="gt-sm absolute-bottom q-pb-lg text-h3 text-white text-center bg-transparent cursive"
+				<!-- <h1
+					class="gt-sm absolute-bottom q-pb-lg text-white text-center bg-transparent cursive"
 				>
 					{{ $t("home.bienvenue") }}
-				</h3>
+				</h1> -->
 			</div>
 		</section>
 
 		<section class="q-pa-lg q-py-xl q-my-lg text-grey-8 text-center">
-			<h2 class="cursive appear-left">
+			<h2 class="cursive q-pb-lg appear-left">
 				{{ $t("home.bienvenue2") }}
 			</h2>
 
-			<p></p>
+			<img
+				class="img-welcome"
+				src="../assets/icons/logoGitedes.svg"
+				height="220px"
+				width="220px"
+			/>
 
-			<CustomDivider class="appear-left" />
+			<div class="col q-pb-xl text-uppercase">
+				<h4>Domaine des fées</h4>
+				<h5>Chambres d'hôtes & gîte</h5>
+				<hr class="solid" />
+				<h6>SPA & Bien-être</h6>
+			</div>
 
-			<p class="appear-right" style="width: 75%; margin: 0 auto">
+			<h6 class="appear-right" style="width: 75%; margin: 0 auto">
 				{{ $t("home.intro") }}
-			</p>
+			</h6>
 		</section>
 
 		<section class="q-py-xl text-justify brand-3">
@@ -131,7 +141,7 @@
 				<div class="map-container">
 					<iframe
 						class="responsive-iframe"
-						src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1081.122387923357!2d5.8343491898577735!3d46.93698126326741!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x55665e5241251587!2sChambres%20d&#39;h%C3%B4tes%20et%20G%C3%AEte%20des%20F%C3%A9es!5e0!3m2!1sfr!2sfr!4v1665318607302!5m2!1sfr!2sfr"
+						src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6576.5190257184095!2d5.834772!3d46.93705!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x55665e5241251587!2sChambres%20d&#39;h%C3%B4tes%20et%20G%C3%AEte%20des%20F%C3%A9es!5e1!3m2!1sfr!2sfr!4v1671127402950!5m2!1sfr!2sfr"
 						width="100%"
 						height="100%"
 						style="border: 0"
@@ -159,6 +169,15 @@ function getImageUrl(subPath) {
 </script>
 
 <style lang="scss" scoped>
+.img-welcome {
+	width: 220px;
+	height: 220px;
+}
+hr.solid {
+	max-width: 350px;
+	border-top: 2px solid;
+	margin: 5px auto;
+}
 .map-container {
 	position: relative;
 	width: 100%;

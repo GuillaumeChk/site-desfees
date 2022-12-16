@@ -289,7 +289,7 @@ const i18n = createI18n({
 				titre: "TARIFFS",
 				paragraphe: "Price: from",
 				paragraphe_part2:
-					" / night with regional breakfast for 2 people. <br /> A <strong>10% discount on the 2nd night</strong> will be deducted from the final payment.",
+					" / night with regional breakfast for 2 people. <br /> A <strong>10% discount from the 2nd night</strong> will be deducted from the final payment.",
 				table: "Period",
 				table2: "Tariff",
 				table3: "Sunday to Friday",
@@ -530,7 +530,7 @@ const i18n = createI18n({
 				titre: "TARIFE",
 				paragraphe: "Preis: ab ",
 				paragraphe_part2:
-					" / Nacht mit regionalem Frühstück für 2 Personen. <br /> <strong>10 % Rabatt auf die 2. Nacht</strong> werden von der Restzahlung abgezogen.",
+					" / Nacht mit regionalem Frühstück für 2 Personen. <br /> Von der Restzahlung werden <strong>10% Rabatt ab der 2. Nacht</strong> abgezogen.",
 				table: "Zeitraum",
 				table2: "Preis",
 				table3: "Sonntag bis Freitag",
@@ -777,7 +777,7 @@ const i18n = createI18n({
 				titre: "TARIFFE",
 				paragraphe: "Prezzo: da ",
 				paragraphe_part2:
-					" / notte con colazione regionale per 2 persone. <br /> Uno <strong>sconto del 10% sulla 2a notte</strong> verrà detratto dal pagamento finale.",
+					" / notte con colazione regionale per 2 persone. <br /> Uno <strong>sconto del 10% dalla 2a notte</strong> verrà detratto dal pagamento finale.",
 				table: "Periodo",
 				table2: "Valutazione",
 				table3: "da domenica a venerdì",
@@ -1022,7 +1022,7 @@ const i18n = createI18n({
 				titre: "TARIFAS",
 				paragraphe: "Preço: de ",
 				paragraphe_part2:
-					" / noite com pequeno-almoço regional para 2 pessoas. <br /> No valor final será deduzido <strong>10% de desconto na 2ª noite</strong>.",
+					" / noite com pequeno-almoço regional para 2 pessoas. <br /> Um <strong>10% de desconto a partir da 2ª noite</strong> será deduzido do pagamento final.",
 				table: "Período",
 				table2: "Taxa",
 				table3: "Domingo a Sexta",
@@ -1265,7 +1265,7 @@ const i18n = createI18n({
 				titre: "ТАРИФЫ",
 				paragraphe: "Цена: от ",
 				paragraphe_part2:
-					"/ ночь с региональным завтраком для 2 человек. <br /> <strong>Скидка 10% на 2-ю ночь</strong> будет вычтена из окончательного платежа.",
+					"/ ночь с региональным завтраком для 2 человек. <br /> <strong>Скидка 10 % на вторую ночь</strong> будет вычтена из окончательного платежа.",
 				table: "Период",
 				table2: "Ставка",
 				table3: "с воскресенья по пятницу",
@@ -1509,7 +1509,7 @@ const i18n = createI18n({
 				titre: "TARIFAS",
 				paragraphe: "Precio: desde ",
 				paragraphe_part2:
-					" / noche con desayuno regional para 2 personas. <br /> Se descontará del pago final un <strong>10% de descuento en la 2da noche</strong>.",
+					" / noche con desayuno regional para 2 personas. <br /> Del pago final se descontará un <strong>10% de descuento a partir de la 2ª noche</strong>.",
 				table: "Período",
 				table2: "Tasa",
 				table3: "Domingo a Viernes",

@@ -28,9 +28,8 @@
 					>
 						<q-img
 							fit="contain"
-							height="60px"
-							width="60px"
-							src="./assets/icons/gites-de-france.svg"
+							width="80px"
+							src="./assets/icons/Nouveau_logo_Gîte_de_France_rogné_compressed.jpg"
 						>
 						</q-img>
 					</a>
@@ -42,7 +41,7 @@
 							fit="contain"
 							height="60px"
 							width="60px"
-							src="./assets/icons/vignobles-et-decouvertes.svg"
+							src="./assets/icons/LOGO_VIGNOBLESETDECOUVERTES_CONTOUR-BLANC-Web_compressed.jpg"
 						>
 						</q-img>
 					</a>
@@ -60,13 +59,13 @@
 					</a>
 
 					<a
-						href="https://www.chambresdhotesdecharme.com/chambre-hote/france/franche-comte/jura/pretin/1692-domaine-des-fees-chambres-dhotes-et-gite-spa-bien-etre.html"
+						href="https://www.charme-traditions.com/fr/chambres-d-hotes/395/jura/1"
 					>
 						<q-img
 							fit="contain"
 							height="60px"
 							width="60px"
-							src="./assets/icons/charme_compressed.jpg"
+							src="./assets/icons/selection-chambre-gite.png"
 						>
 						</q-img>
 					</a>
