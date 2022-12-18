@@ -30,7 +30,7 @@
 					Chez Isabelle<br />
 					<address class="address">
 						
-						<q-icon name="location_city" /> 2 Rue de la Chassignoles, 39110 Pretin <br> <span>46° 56' 13.892" N  5° 50' 5.219" E</span> 
+						<q-icon name="location_city" /> 2 Rue de la Chassignoles, 39110 Pretin <br> <span>Latitude / longitude : 46° 56' 13.892" N  5° 50' 5.219" E</span> 
 						<div class="q-pa-xs q-gutter-sm">
 							<q-btn round unelevated  color="orange-4" :icon="addressCopied ? 'assignment_turned_in' : 'content_copy' "  @click="copyAddress('2 Rue de la Chassignoles, 39110 Pretin, France')"   />
 							<q-btn round unelevated color="orange-4" icon="directions" href="https://goo.gl/maps/iQUQ581TETnRqAdb6"  target="_blank" />
@@ -44,6 +44,9 @@
 					</address>
 				</p>
 			</section>
+
+			<Gift />
+			<Sponsors />
 		</div>
 
 		<section class="q-mt-lg q-px-lg">
@@ -69,6 +72,8 @@
 <script setup>
 import { copyToClipboard } from 'quasar'
 import { ref } from 'vue';
+import Sponsors from '../components/Sponsors.vue';
+import Gift from '../components/Gift.vue';
 
 let addressCopied = ref(false);
 
@@ -87,7 +92,7 @@ function copyAddress(text) {
 }
 </script>
 
-<style>
+<style scoped>
 .map-container {
 	position: relative;
 	width: 100%;
@@ -108,5 +113,10 @@ function copyAddress(text) {
 
 .address{
 	font-style: normal;
+}
+
+a{
+	text-decoration: none;
+	color: #121212;
 }
 </style>

@@ -23,7 +23,7 @@
 				<template v-if="bookingSystemWorking">
 					<q-form
 						@submit="onSubmit"
-						class="q-gutter-y-md q-pb-xl"
+						class="q-gutter-y-sm q-pb-xl"
 						greedy
 					>
 						<h6>Mes coordonnées</h6>
@@ -227,9 +227,34 @@
 							</q-expansion-item>
 						</div>
 
-c un cado ? oui / non
+						<div class="row justify-between items-baseline">
+							<span>
+								Est-ce un cadeau ?
+							</span>
 
-laisser un message
+							<q-btn-toggle
+								v-model="isItGift"
+								class="my-custom-toggle"
+								rounded
+								unelevated
+								toggle-color="orange"
+								color="white"
+								text-color="orange"
+								:options="[
+									{ label: 'Non', value: false },
+									{ label: 'Oui', value: true },
+								]"
+							/>						
+						</div>
+
+						<!-- laisser un message -->
+						<q-input
+						v-model="clientMessage"
+						filled
+						placeholder="Laisser un message…"
+						autogrow
+						color="orange"
+						/>
 
 						<!-- Accepter conditions -->
 						<q-field
@@ -451,6 +476,8 @@ let clientPostalCode = ref();
 let clientCity = ref();
 let clientMail = ref();
 let clientPhone = ref();
+let isItGift = ref(false);
+let clientMessage = ref();
 let reservationDate = ref([]);
 let acceptConditions = ref(false);
 let displayConditions = ref(false);
@@ -458,13 +485,16 @@ let displayConfirmation = ref(false);
 let displayPaymentRedirected = ref(false);
 let reservation = computed(() => {
 	return {
-		clientName: clientFirstName.value +' '+ clientLastName,
+		clientFirstName: clientFirstName.value,
+		clientLastName: clientLastName.value,
 		clientAddress: clientAddress.value,
 		clientPostalCode: clientPostalCode.value,
 		clientCity: clientCity.value,
-		mail: clientMail.value,
-		phone: clientPhone.value, 
+		clientMail: clientMail.value,
+		clientPhone: clientPhone.value, 
 		room: room.value,
+		isItGift: isItGift.value,
+		clientMessage: clientMessage.value,
 		startDate: null,
 		endDate: null,
 	};
@@ -491,25 +521,8 @@ let priceTotal = computed(() => { return price.value.reduce((accumulator, curren
 
 async function checkout() {
 	if(reservation.value && priceTotal.value){
-		displayPaymentRedirected.value = true;
-
-		const dataToSend = {
-			productName: reservation.value.room,
-			totalPrice: priceTotal.value
-		}
-
-		const res = await fetch(`http://localhost:3000/create-checkout-session`, {
-			method: 'POST',
-			headers: {
-				'Content-type': 'application/json',
-			},
-			body: JSON.stringify(dataToSend)
-		});
-		const stripeSession = await res.json();
-		console.log(stripeSession);
-
-		if (res.ok) {
-			let eventForDB = { ...reservation.value, paid: false, stripeSessionID: stripeSession.id};	
+		// A EFFACER ET DÉCOMMENTER POUR FAIRE AVEC STRIPE
+		let eventForDB = { ...reservation.value, paid: true};
 
 			eventForDB.room = roomsData.find((object) => object.name === reservation.value.room).pathName;
 			let dateTemp = reservationDate.value[0].split("/");
@@ -519,8 +532,38 @@ async function checkout() {
 
 			await setDoc(doc(db, "calendar", Date.now().toString()), eventForDB);
 
-			window.open(stripeSession.checkoutUrl);
-		}
+			console.log(eventForDB)
+
+		// displayPaymentRedirected.value = true;
+
+		// const dataToSend = {
+		// 	productName: reservation.value.room,
+		// 	totalPrice: priceTotal.value
+		// }
+
+		// const res = await fetch(`http://localhost:3000/create-checkout-session`, {
+		// 	method: 'POST',
+		// 	headers: {
+		// 		'Content-type': 'application/json',
+		// 	},
+		// 	body: JSON.stringify(dataToSend)
+		// });
+		// const stripeSession = await res.json();
+		// console.log(stripeSession);
+
+		// if (res.ok) {
+		// 	let eventForDB = { ...reservation.value, paid: false, stripeSessionID: stripeSession.id};	
+
+		// 	eventForDB.room = roomsData.find((object) => object.name === reservation.value.room).pathName;
+		// 	let dateTemp = reservationDate.value[0].split("/");
+		// 	eventForDB.startDate = Timestamp.fromDate(new Date(dateTemp[2], dateTemp[1] - 1, dateTemp[0])); // from "DD/MM/YYYY"
+		// 	dateTemp = reservationDate.value[reservationDate.value.length - 1].split("/");
+		// 	eventForDB.endDate = Timestamp.fromDate(new Date(dateTemp[2], dateTemp[1] - 1, dateTemp[0])); // from "DD/MM/YYYY"
+
+		// 	await setDoc(doc(db, "calendar", Date.now().toString()), eventForDB);
+
+		// 	window.open(stripeSession.checkoutUrl);
+		// }
 	}
 }
 
@@ -561,7 +604,6 @@ async function onSubmit() {
 }
 
 function onReset() {
-	room.value = "";
 	clientFirstName.value = null;
 	clientLastName.value = null;
 	clientAddress.value = null;
@@ -569,8 +611,11 @@ function onReset() {
 	clientCity.value = null;
 	clientMail.value = null;
 	clientPhone.value = null;
+	room.value = "";
+	clientMessage.value = "";
 	reservationDate.value = null;
 	acceptConditions.value = false;
+	isItGift.value = false;
 }
 
 // Update date picker options (set available dates) when a room is selected
@@ -593,9 +638,6 @@ function setRoomCalendar(roomPathName) {
 		if (doc.data().room === roomPathName && doc.data().paid) {
 			const reservation = {
 				id: doc.id,
-				// clientName: doc.data().clientName,
-				// mail: doc.data().mail,
-				// phone: doc.data().phone,
 				startDate: doc.data().startDate,
 				endDate: doc.data().endDate,
 				room: roomsData.find(

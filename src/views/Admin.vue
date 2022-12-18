@@ -99,24 +99,75 @@
 							<div class="text-h6 text-uppercase">Nouvelle réservation</div>
 						</q-card-section>
 						<q-form @submit="addNewEvent" greedy>
-							<q-card-section class="q-gutter-y-md">
+							<q-card-section class="q-gutter-y-sm">
 								<q-input
 									rounded
 									filled
-									v-model="newEventData.title"
-									label="Nom du client"
+									v-model="newEventData.clientFirstName"
+									label="Prénom du client"
 									lazy-rules="ondemand"
 									:rules="[
 										(val) =>
-											(val && val.length > 0) ||
-											'Veuillez entrer votre nom complet',
+											(val && val.length > 0) || 'Veuillez entrer le prénom',
 									]"
 									hide-bottom-space
 								/>
 
 								<q-input
 									filled
-									v-model="newEventData.mail"
+									v-model="newEventData.clientLastName"
+									label="Nom du client"
+									lazy-rules="ondemand"
+									:rules="[
+										(val) =>
+											(val && val.length > 0) ||
+											'Veuillez entrer le nom de famille',
+									]"
+									hide-bottom-space
+								/>
+
+								<q-input
+									filled
+									v-model="newEventData.clientAddress"
+									label="Addresse du client"
+									lazy-rules="ondemand"
+									:rules="[
+										(val) =>
+											(val && val.length > 0) ||
+											'Veuillez entrer une addresse complète',
+									]"
+									hide-bottom-space
+								/>
+
+								<q-input
+									filled
+									v-model="newEventData.clientPostalCode"
+									label="Code postal du client"
+									lazy-rules="ondemand"
+									:rules="[
+										(val) =>
+											(val && val.length > 0) ||
+											'Veuillez entrer une addresse complète',
+									]"
+									hide-bottom-space
+								/>
+
+								<q-input
+									filled
+									v-model="newEventData.clientCity"
+									label="Ville du client"
+									lazy-rules="ondemand"
+									:rules="[
+										(val) =>
+											(val && val.length > 0) ||
+											'Veuillez entrer une addresse complète',
+									]"
+									hide-bottom-space
+								/>
+
+								<q-input
+									filled
+									v-model="newEventData.clientMail"
 									label="Adresse mail"
 									lazy-rules="ondemand"
 									:rules="[
@@ -128,7 +179,7 @@
 
 								<q-input
 									filled
-									v-model="newEventData.phone"
+									v-model="newEventData.clientPhone"
 									label="Téléphone"
 									lazy-rules="ondemand"
 									:rules="[
@@ -159,14 +210,25 @@
 									v-model="newEventData.people"
 									:options="peopleQuantityOptions"
 									label="Occupants"
-									lazy-rules="ondemand"
-									:rules="[
-										(val) =>
-											(val && val > 0) ||
-											'Veuillez saisir le nombre d’occupants',
-									]"
-									hide-bottom-space
 								/>
+
+								<div class="row justify-between items-baseline">
+									<span> Est-ce un cadeau ? </span>
+
+									<q-btn-toggle
+										v-model="newEventData.isItGift"
+										class="my-custom-toggle"
+										rounded
+										unelevated
+										toggle-color="orange"
+										color="white"
+										text-color="orange"
+										:options="[
+											{ label: 'Non', value: false },
+											{ label: 'Oui', value: true },
+										]"
+									/>
+								</div>
 
 								<p v-if="newEventData.start">
 									Le
@@ -181,7 +243,15 @@
 									}}.
 								</p>
 
-								<p class="text-italic">
+								<q-input
+									v-model="newEventData.clientMessage"
+									filled
+									placeholder="Message du client ou note"
+									autogrow
+									color="orange"
+								/>
+
+								<p class="text-italic text-grey-6">
 									Pour modifier la date : simplement cliquer/glisser la
 									réservation. <br />
 									Pour modifier la durée : redimensionner la réservation.
@@ -209,24 +279,75 @@
 						</q-card-section>
 
 						<q-form @submit="editEvent" greedy>
-							<q-card-section class="q-gutter-y-md">
+							<q-card-section class="q-gutter-y-sm">
 								<q-input
 									rounded
 									filled
-									v-model="eventData.title"
-									label="Nom du client"
+									v-model="eventData.clientFirstName"
+									label="Prénom du client"
 									lazy-rules="ondemand"
 									:rules="[
 										(val) =>
-											(val && val.length > 0) ||
-											'Veuillez entrer votre nom complet',
+											(val && val.length > 0) || 'Veuillez entrer le prénom',
 									]"
 									hide-bottom-space
 								/>
 
 								<q-input
 									filled
-									v-model="eventData.mail"
+									v-model="eventData.clientLastName"
+									label="Nom du client"
+									lazy-rules="ondemand"
+									:rules="[
+										(val) =>
+											(val && val.length > 0) ||
+											'Veuillez entrer le nom de famille',
+									]"
+									hide-bottom-space
+								/>
+
+								<q-input
+									filled
+									v-model="eventData.clientAddress"
+									label="Addresse du client"
+									lazy-rules="ondemand"
+									:rules="[
+										(val) =>
+											(val && val.length > 0) ||
+											'Veuillez entrer une addresse complète',
+									]"
+									hide-bottom-space
+								/>
+
+								<q-input
+									filled
+									v-model="eventData.clientPostalCode"
+									label="Code postal du client"
+									lazy-rules="ondemand"
+									:rules="[
+										(val) =>
+											(val && val.length > 0) ||
+											'Veuillez entrer une addresse complète',
+									]"
+									hide-bottom-space
+								/>
+
+								<q-input
+									filled
+									v-model="eventData.clientCity"
+									label="Ville du client"
+									lazy-rules="ondemand"
+									:rules="[
+										(val) =>
+											(val && val.length > 0) ||
+											'Veuillez entrer une addresse complète',
+									]"
+									hide-bottom-space
+								/>
+
+								<q-input
+									filled
+									v-model="eventData.clientMail"
 									label="Adresse mail"
 									lazy-rules="ondemand"
 									:rules="[
@@ -238,7 +359,7 @@
 
 								<q-input
 									filled
-									v-model="eventData.phone"
+									v-model="eventData.clientPhone"
 									label="Téléphone"
 									lazy-rules="ondemand"
 									:rules="[
@@ -269,13 +390,6 @@
 									v-model="eventData.people"
 									:options="peopleQuantityOptions"
 									label="Occupants"
-									lazy-rules="ondemand"
-									:rules="[
-										(val) =>
-											(val && val > 0) ||
-											'Veuillez saisir le nombre d’occupants',
-									]"
-									hide-bottom-space
 								/>
 
 								<p v-if="eventData.start">
@@ -302,6 +416,32 @@
 										}}. </span
 									><br />
 								</p>
+
+								<div class="row justify-between items-baseline">
+									<span> Est-ce un cadeau ? </span>
+
+									<q-btn-toggle
+										v-model="eventData.isItGift"
+										class="my-custom-toggle"
+										rounded
+										unelevated
+										toggle-color="orange"
+										color="white"
+										text-color="orange"
+										:options="[
+											{ label: 'Non', value: false },
+											{ label: 'Oui', value: true },
+										]"
+									/>
+								</div>
+
+								<q-input
+									v-model="eventData.clientMessage"
+									filled
+									placeholder="Message du client ou note"
+									autogrow
+									color="orange"
+								/>
 
 								<p class="text-italic">
 									Pour modifier la date : simplement cliquer/glisser la
@@ -406,8 +546,15 @@ function handleDateClick(info) {
 		start: info.date,
 		end: info.date,
 		room: "",
-		mail: "",
-		phone: "",
+		clientMessage: "",
+		isItGift: false,
+		clientFirstName: "",
+		clientLastName: "",
+		clientMail: "",
+		clientAddress: "",
+		clientPostalCode: "",
+		clientCity: "",
+		clientPhone: "",
 		people: 0,
 		allDay: true,
 		borderColor: "white",
@@ -423,14 +570,24 @@ let eventData = ref();
 function handleEventClick(info) {
 	eventData.value = {
 		id: info.event.id,
-		title: info.event.title,
+		title:
+			info.event.extendedProps.clientFirstName +
+			" " +
+			info.event.extendedProps.clientLastName,
 		start: info.event.start,
 		end: info.event.end,
 		allDay: true,
 		room: info.event.extendedProps.room,
 		people: info.event.extendedProps.people,
-		mail: info.event.extendedProps.mail,
-		phone: info.event.extendedProps.phone,
+		clientFirstName: info.event.extendedProps.clientFirstName,
+		clientLastName: info.event.extendedProps.clientLastName,
+		clientMail: info.event.extendedProps.clientMail,
+		clientPhone: info.event.extendedProps.clientPhone,
+		isItGift: info.event.extendedProps.isItGift,
+		clientMessage: info.event.extendedProps.clientMessage,
+		clientAddress: info.event.extendedProps.clientAddress,
+		clientPostalCode: info.event.extendedProps.clientPostalCode,
+		clientCity: info.event.extendedProps.clientCity,
 		borderColor: "white",
 	};
 
@@ -449,8 +606,15 @@ async function handleEventDrop(info) {
 		allDay: true,
 		room: info.event.extendedProps.room,
 		people: info.event.extendedProps.people,
-		mail: info.event.extendedProps.mail,
-		phone: info.event.extendedProps.phone,
+		clientFirstName: info.event.extendedProps.clientFirstName,
+		clientLastName: info.event.extendedProps.clientLastName,
+		clientMail: info.event.extendedProps.clientMail,
+		clientPhone: info.event.extendedProps.clientPhone,
+		isItGift: info.event.extendedProps.isItGift,
+		clientMessage: info.event.extendedProps.clientMessage,
+		clientAddress: info.event.extendedProps.clientAddress,
+		clientPostalCode: info.event.extendedProps.clientPostalCode,
+		clientCity: info.event.extendedProps.clientCity,
 		borderColor: "white",
 	};
 	eventDroppedData.value.room = roomsData.find(
@@ -486,8 +650,15 @@ async function handleEventResize(info) {
 		allDay: true,
 		room: info.event.extendedProps.room,
 		people: info.event.extendedProps.people,
-		mail: info.event.extendedProps.mail,
-		phone: info.event.extendedProps.phone,
+		clientFirstName: info.event.extendedProps.clientFirstName,
+		clientLastName: info.event.extendedProps.clientLastName,
+		clientMail: info.event.extendedProps.clientMail,
+		clientPhone: info.event.extendedProps.clientPhone,
+		isItGift: info.event.extendedProps.isItGift,
+		clientMessage: info.event.extendedProps.clientMessage,
+		clientAddress: info.event.extendedProps.clientAddress,
+		clientPostalCode: info.event.extendedProps.clientPostalCode,
+		clientCity: info.event.extendedProps.clientCity,
 		borderColor: "white",
 	};
 	eventResizedData.value.room = roomsData.find(
@@ -520,7 +691,13 @@ async function addNewEvent() {
 	newEventData.value.backgroundColor = roomsData.find(
 		(object) => object.pathName === newEventData.value.room
 	).color;
-	calendar.value.push(newEventData.value);
+	calendar.value.push({
+		...newEventData.value,
+		title:
+			newEventData.value.clientFirstName +
+			" " +
+			newEventData.value.clientLastName,
+	});
 	calendarOptions.events = calendar.value;
 
 	// update db
@@ -572,8 +749,15 @@ async function updateDB(eventRef) {
 		endDate: endDate,
 		room: eventRef.value.room,
 		people: eventRef.value.people,
-		mail: eventRef.value.mail,
-		phone: eventRef.value.phone,
+		clientFirstName: eventRef.value.clientFirstName,
+		clientLastName: eventRef.value.clientLastName,
+		clientMail: eventRef.value.clientMail,
+		clientPhone: eventRef.value.clientPhone,
+		isItGift: eventRef.value.isItGift,
+		clientMessage: eventRef.value.clientMessage,
+		clientAddress: eventRef.value.clientAddress,
+		clientPostalCode: eventRef.value.clientPostalCode,
+		clientCity: eventRef.value.clientCity,
 		allDay: true,
 		paid: true,
 	};
@@ -593,7 +777,7 @@ onMounted(async () => {
 		if (doc.data().paid) {
 			const reservationEvent = {
 				id: doc.id,
-				title: doc.data().clientName,
+				title: doc.data().clientFirstName + " " + doc.data().clientLastName,
 				start: new Date(doc.data().startDate.seconds * 1000), // millisecond time
 				end: new Date(doc.data().endDate.seconds * 1000 + 24 * 60 * 60 * 1000),
 				allDay: true,
@@ -603,9 +787,16 @@ onMounted(async () => {
 				borderColor: "white",
 				extendedProps: {
 					room: doc.data().room,
-					people: doc.data().people,
-					mail: doc.data().mail,
-					phone: doc.data().phone,
+					clientFirstName: doc.data().clientFirstName,
+					clientLastName: doc.data().clientLastName,
+					people: doc.data().people ? doc.data().people : null,
+					clientMail: doc.data().clientMail,
+					clientPhone: doc.data().clientPhone,
+					isItGift: doc.data().isItGift,
+					clientMessage: doc.data().clientMessage,
+					clientAddress: doc.data().clientAddress,
+					clientPostalCode: doc.data().clientPostalCode,
+					clientCity: doc.data().clientCity,
 				},
 			};
 

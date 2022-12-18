@@ -25,13 +25,13 @@
 			</h2>
 
 			<img
-				class="img-welcome"
+				class="img-welcome appear-bottom"
 				src="../assets/icons/logoGitedes.svg"
 				height="220px"
 				width="220px"
 			/>
 
-			<div class="col q-pb-xl text-uppercase">
+			<div class="col q-pb-xl text-uppercase appear-bottom">
 				<h4>Domaine des fées</h4>
 				<h5>Chambres d'hôtes & gîte</h5>
 				<hr class="solid" />
