@@ -26,6 +26,121 @@
 						class="q-gutter-y-sm q-pb-xl"
 						greedy
 					>
+						<div class="row justify-between items-baseline">
+							<span>
+								Est-ce un cadeau ? <q-avatar icon="card_giftcard"></q-avatar>
+							</span>
+
+							<q-btn-toggle
+								v-model="isItGift"
+								class="my-custom-toggle"
+								rounded
+								unelevated
+								toggle-color="orange"
+								color="white"
+								text-color="orange"
+								:options="[
+									{ label: 'Non', value: false },
+									{ label: 'Oui', value: true },
+								]"
+							/>						
+						</div>
+
+						<template v-if="isItGift">
+							<h6>Coordonnées du bénéficiaire <q-avatar icon="card_giftcard"></q-avatar></h6>
+							
+							<!-- Nom -->
+							<q-input label-slot filled rounded color="orange" v-model="beneficiaryLastName" type="text" 
+									lazy-rules="ondemand"
+										:rules="[
+											(val) =>
+												(val && val.length > 0) || 'Veuillez entrer votre nom de famille',
+										]"
+										hide-bottom-space >
+									<template v-slot:label>
+										{{ $t("booking.nom") }}
+									</template>
+							</q-input>
+
+							<!-- Prénom -->
+							<q-input label-slot filled  color="orange" v-model="beneficiaryFirstName" type="text" 
+							lazy-rules="ondemand"
+								:rules="[
+									(val) =>
+										(val && val.length > 0) || 'Veuillez entrer votre prénom',
+								]"
+								hide-bottom-space >
+							<template v-slot:label>
+								Prénom
+							</template>
+							</q-input>
+
+							<!-- Addresse -->
+							<q-input label-slot filled  color="orange" v-model="beneficiaryAddress" type="text" 
+							lazy-rules="ondemand"
+								:rules="[
+									(val) =>
+										(val && val.length > 0) || 'Veuillez entrer votre prénom',
+								]"
+								hide-bottom-space >
+							<template v-slot:label>
+								Addresse
+							</template>
+							</q-input>
+
+							<!-- Code postal -->
+							<q-input label-slot filled  color="orange" v-model="beneficiaryPostalCode" type="text" 
+							lazy-rules="ondemand"
+								:rules="[
+									(val) =>
+										(val && val.length > 0) || 'Veuillez entrer votre code postal',
+								]"
+								hide-bottom-space >
+							<template v-slot:label>
+								Code postal
+							</template>
+							</q-input>
+
+							<!-- Ville -->
+							<q-input label-slot filled  color="orange" v-model="beneficiaryCity" type="text" 
+							lazy-rules="ondemand"
+								:rules="[
+									(val) =>
+										(val && val.length > 0) || 'Veuillez entrer votre ville',
+								]"
+								hide-bottom-space >
+							<template v-slot:label>
+								Ville
+							</template>
+							</q-input>
+
+							<!-- Tel -->
+							<q-input label-slot filled color="orange" v-model="beneficiaryPhone" type="tel" maxlength="13" 
+							lazy-rules="ondemand"
+								:rules="[
+									(val) =>
+										(val && val.length > 0) || 'Veuillez entrer un numéro valide',
+								]"
+								hide-bottom-space >
+								<template v-slot:label>
+									{{ $t("booking.phone") }}
+								</template>
+							</q-input>
+
+							<!-- Mail -->
+							<q-input label-slot filled color="orange" v-model="beneficiaryMail" type="email" 
+								lazy-rules="ondemand"
+								:rules="[
+									(val) =>
+										(val && val.length > 0) || 'Veuillez entrer une adresse mail valide',
+								]"
+								hide-bottom-space >
+							<template v-slot:label>
+								{{ $t("booking.mail") }}
+							</template>
+							</q-input>
+						</template>
+
 						<h6>Mes coordonnées</h6>
 
 						<!-- Nom -->
@@ -225,26 +340,6 @@
 									</p>
 								</q-card>
 							</q-expansion-item>
-						</div>
-
-						<div class="row justify-between items-baseline">
-							<span>
-								Est-ce un cadeau ?
-							</span>
-
-							<q-btn-toggle
-								v-model="isItGift"
-								class="my-custom-toggle"
-								rounded
-								unelevated
-								toggle-color="orange"
-								color="white"
-								text-color="orange"
-								:options="[
-									{ label: 'Non', value: false },
-									{ label: 'Oui', value: true },
-								]"
-							/>						
 						</div>
 
 						<!-- laisser un message -->
@@ -477,6 +572,13 @@ let clientCity = ref();
 let clientMail = ref();
 let clientPhone = ref();
 let isItGift = ref(false);
+let beneficiaryFirstName = ref();
+let beneficiaryLastName = ref();
+let beneficiaryAddress = ref();
+let beneficiaryPostalCode = ref();
+let beneficiaryCity = ref();
+let beneficiaryMail = ref();
+let beneficiaryPhone = ref();
 let clientMessage = ref();
 let reservationDate = ref([]);
 let acceptConditions = ref(false);
@@ -611,6 +713,13 @@ function onReset() {
 	clientCity.value = null;
 	clientMail.value = null;
 	clientPhone.value = null;
+	beneficiaryFirstName.value = null;
+	beneficiaryLastName.value = null;
+	beneficiaryAddress.value = null;
+	beneficiaryPostalCode.value = null;
+	beneficiaryCity.value = null;
+	beneficiaryMail.value = null;
+	beneficiaryPhone.value = null;
 	room.value = "";
 	clientMessage.value = "";
 	reservationDate.value = null;

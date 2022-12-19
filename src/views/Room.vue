@@ -208,6 +208,8 @@
 			></q-btn>
 		</section>
 
+		<Gift />
+		<Sponsors />
 		<CustomDivider class="appear-left" />
 
 		<section class="q-px-lg q-pb-xl q-pt-xs q-gutter-y-md items-center">
@@ -239,6 +241,8 @@ import equipmentsData from "../data/equipmentsData.json";
 import EquipmentCard from "../components/EquipmentCard.vue";
 import CustomDivider from "../components/CustomDivider.vue";
 import { computed } from "@vue/reactivity";
+import Sponsors from "../components/Sponsors.vue";
+import Gift from "../components/Gift.vue";
 
 let route = useRoute();
 

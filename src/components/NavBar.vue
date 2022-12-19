@@ -173,6 +173,8 @@
 				</q-item-label>
 			</q-item>
 		</q-list>
+
+		<CustomDivider />
 	</q-drawer>
 </template>
 
@@ -180,6 +182,7 @@
 import { ref, watch, computed } from "vue";
 import { useRoute } from "vue-router";
 import roomsData from "../data/roomsData.json";
+import CustomDivider from "./CustomDivider.vue";
 
 let route = useRoute();
 

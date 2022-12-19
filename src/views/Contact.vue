@@ -19,10 +19,13 @@
 		<div class="wrapper">
 			<!-- <h4 class="q-pa-md q-pt-xl text-uppercase text-weight-light">Contact</h4> -->
 
+			
+
 			<section class="q-pa-md q-pt-xl q-pl-lg">
 				<h4>
 					Domaine des Fées 
 				</h4>
+				<q-img src="src/assets/fairy.svg" width="50px"></q-img>
 				<h5>
 					Chambres d'hôtes et Gîte 
 				</h5>

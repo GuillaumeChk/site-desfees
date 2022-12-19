@@ -94,7 +94,7 @@
 				<router-link
 					:to="{ name: 'room', params: { roomName: room.pathName } }"
 				>
-					<q-img class="" :ratio="16 / 9" :src="getImageUrl(room.imageUrl)">
+					<q-img class="" :ratio="16 / 16" :src="getImageUrl(room.imageUrl)">
 						<h3
 							class="q-pa-md text-white cursive absolute-bottom-left"
 							style="
@@ -107,6 +107,9 @@
 				</router-link>
 			</div>
 		</section>
+
+		<Gift class="q-mt-xl" />
+		<Sponsors />
 
 		<CustomDivider class="appear-left" />
 
@@ -162,6 +165,8 @@ import roomsData from "../data/roomsData.json";
 import equipmentsData from "../data/equipmentsData.json";
 import EquipmentCard from "../components/EquipmentCard.vue";
 import CustomDivider from "../components/CustomDivider.vue";
+import Sponsors from "../components/Sponsors.vue";
+import Gift from "../components/Gift.vue";
 
 function getImageUrl(subPath) {
 	return new URL(`../assets/${subPath}`, import.meta.url).href;
