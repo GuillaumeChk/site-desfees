@@ -203,9 +203,9 @@
 				unelevated
 				rounded
 				size="lg"
-				label="Réserver cette chambre"
-				to="/reservation"
-			></q-btn>
+				:to="{ name: 'booking', query: { room: room.pathName } }"
+				>Réserver cette chambre</q-btn
+			>
 		</section>
 
 		<Gift />
@@ -240,7 +240,6 @@ import roomsData from "../data/roomsData.json";
 import equipmentsData from "../data/equipmentsData.json";
 import EquipmentCard from "../components/EquipmentCard.vue";
 import CustomDivider from "../components/CustomDivider.vue";
-import { computed } from "@vue/reactivity";
 import Sponsors from "../components/Sponsors.vue";
 import Gift from "../components/Gift.vue";
 
@@ -318,9 +317,6 @@ function fillRoomImages(roomName) {
 	}
 }
 
-let roomName = computed(() => {
-	return route.params.roomName;
-});
 let room = ref();
 let nextRoom = ref();
 let previousRoom = ref();

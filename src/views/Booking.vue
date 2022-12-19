@@ -27,9 +27,10 @@
 						greedy
 					>
 						<div class="row justify-between items-baseline">
-							<span>
-								Est-ce un cadeau ? <q-avatar icon="card_giftcard"></q-avatar>
-							</span>
+							<div>
+								<span>Est-ce un cadeau ?</span>
+								<q-avatar icon="card_giftcard"></q-avatar>
+							</div>
 
 							<q-btn-toggle
 								v-model="isItGift"
@@ -552,6 +553,7 @@
 <script setup>
 import { computed } from "@vue/reactivity";
 import { onMounted, ref, watch } from "vue";
+import { useRoute } from "vue-router";
 import CustomDivider from "../components/CustomDivider.vue";
 import roomsData from "../data/roomsData.json";
 import { collection, doc, getDocs, getDoc, setDoc, Timestamp } from "firebase/firestore";
@@ -559,11 +561,16 @@ import { db } from "@/firebase";
 import { date } from 'quasar';
 import holidaysTo2032 from "../data/holidaysTo2032.json"
 
+let route = useRoute();
+
 let bookingSystemWorking = ref();
 
 let calendar = ref([]);
 
-let room = ref();
+let room = ref(route.query.room
+			 ? roomsData.find(
+			(object) => object.pathName === route.query.room
+			).name : "");
 let clientFirstName = ref();
 let clientLastName = ref();
 let clientAddress = ref();
@@ -571,7 +578,7 @@ let clientPostalCode = ref();
 let clientCity = ref();
 let clientMail = ref();
 let clientPhone = ref();
-let isItGift = ref(false);
+let isItGift = ref(route.query.gift == 1 ? true : false);
 let beneficiaryFirstName = ref();
 let beneficiaryLastName = ref();
 let beneficiaryAddress = ref();
