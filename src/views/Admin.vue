@@ -50,7 +50,7 @@
 					<h6 class="text-uppercase">Calendrier des réservations</h6>
 
 					<p>
-						Mettre en pause le système de réservation :<br />
+						État du système de réservation :<br />
 						<q-btn-toggle
 							v-model="bookingSystemWorking"
 							class="my-custom-toggle"
@@ -100,6 +100,120 @@
 						</q-card-section>
 						<q-form @submit="addNewEvent" greedy>
 							<q-card-section class="q-gutter-y-sm">
+								<div class="row justify-between items-baseline">
+									<span> Est-ce un cadeau ? </span>
+
+									<q-btn-toggle
+										v-model="newEventData.isItGift"
+										class="my-custom-toggle"
+										rounded
+										unelevated
+										toggle-color="orange"
+										color="white"
+										text-color="orange"
+										:options="[
+											{ label: 'Non', value: false },
+											{ label: 'Oui', value: true },
+										]"
+									/>
+								</div>
+
+								<template v-if="newEventData.isItGift">
+									<p>Bénéficiaire</p>
+
+									<q-input
+										rounded
+										filled
+										v-model="newEventData.beneficiaryFirstName"
+										label="Prénom du beneficiary"
+										lazy-rules="ondemand"
+										:rules="[
+											(val) =>
+												(val && val.length > 0) || 'Veuillez entrer le prénom',
+										]"
+										hide-bottom-space
+									/>
+
+									<q-input
+										filled
+										v-model="newEventData.beneficiaryLastName"
+										label="Nom du beneficiary"
+										lazy-rules="ondemand"
+										:rules="[
+											(val) =>
+												(val && val.length > 0) ||
+												'Veuillez entrer le nom de famille',
+										]"
+										hide-bottom-space
+									/>
+
+									<q-input
+										filled
+										v-model="newEventData.beneficiaryAddress"
+										label="Addresse du beneficiary"
+										lazy-rules="ondemand"
+										:rules="[
+											(val) =>
+												(val && val.length > 0) ||
+												'Veuillez entrer une addresse complète',
+										]"
+										hide-bottom-space
+									/>
+
+									<q-input
+										filled
+										v-model="newEventData.beneficiaryPostalCode"
+										label="Code postal du beneficiary"
+										lazy-rules="ondemand"
+										:rules="[
+											(val) =>
+												(val && val.length > 0) ||
+												'Veuillez entrer une addresse complète',
+										]"
+										hide-bottom-space
+									/>
+
+									<q-input
+										filled
+										v-model="newEventData.beneficiaryCity"
+										label="Ville du beneficiary"
+										lazy-rules="ondemand"
+										:rules="[
+											(val) =>
+												(val && val.length > 0) ||
+												'Veuillez entrer une addresse complète',
+										]"
+										hide-bottom-space
+									/>
+
+									<q-input
+										filled
+										v-model="newEventData.beneficiaryMail"
+										label="Adresse mail"
+										lazy-rules="ondemand"
+										:rules="[
+											(val) =>
+												(val && val.length > 0) || 'Veuillez entrer un mail',
+										]"
+										hide-bottom-space
+									/>
+
+									<q-input
+										filled
+										v-model="newEventData.beneficiaryPhone"
+										label="Téléphone"
+										lazy-rules="ondemand"
+										:rules="[
+											(val) =>
+												(val && val.length > 0) ||
+												'Veuillez entrer un numéro de téléphone',
+										]"
+										hide-bottom-space
+									/>
+								</template>
+
+								<p>Client</p>
+
 								<q-input
 									rounded
 									filled
@@ -212,24 +326,6 @@
 									label="Occupants"
 								/>
 
-								<div class="row justify-between items-baseline">
-									<span> Est-ce un cadeau ? </span>
-
-									<q-btn-toggle
-										v-model="newEventData.isItGift"
-										class="my-custom-toggle"
-										rounded
-										unelevated
-										toggle-color="orange"
-										color="white"
-										text-color="orange"
-										:options="[
-											{ label: 'Non', value: false },
-											{ label: 'Oui', value: true },
-										]"
-									/>
-								</div>
-
 								<p v-if="newEventData.start">
 									Le
 									{{
@@ -280,6 +376,120 @@
 
 						<q-form @submit="editEvent" greedy>
 							<q-card-section class="q-gutter-y-sm">
+								<div class="row justify-between items-baseline">
+									<span> Est-ce un cadeau ? </span>
+
+									<q-btn-toggle
+										v-model="eventData.isItGift"
+										class="my-custom-toggle"
+										rounded
+										unelevated
+										toggle-color="orange"
+										color="white"
+										text-color="orange"
+										:options="[
+											{ label: 'Non', value: false },
+											{ label: 'Oui', value: true },
+										]"
+									/>
+								</div>
+
+								<template v-if="eventData.isItGift">
+									<p>Bénéficiaire</p>
+
+									<q-input
+										rounded
+										filled
+										v-model="eventData.beneficiaryFirstName"
+										label="Prénom du beneficiary"
+										lazy-rules="ondemand"
+										:rules="[
+											(val) =>
+												(val && val.length > 0) || 'Veuillez entrer le prénom',
+										]"
+										hide-bottom-space
+									/>
+
+									<q-input
+										filled
+										v-model="eventData.beneficiaryLastName"
+										label="Nom du beneficiary"
+										lazy-rules="ondemand"
+										:rules="[
+											(val) =>
+												(val && val.length > 0) ||
+												'Veuillez entrer le nom de famille',
+										]"
+										hide-bottom-space
+									/>
+
+									<q-input
+										filled
+										v-model="eventData.beneficiaryAddress"
+										label="Addresse du beneficiary"
+										lazy-rules="ondemand"
+										:rules="[
+											(val) =>
+												(val && val.length > 0) ||
+												'Veuillez entrer une addresse complète',
+										]"
+										hide-bottom-space
+									/>
+
+									<q-input
+										filled
+										v-model="eventData.beneficiaryPostalCode"
+										label="Code postal du beneficiary"
+										lazy-rules="ondemand"
+										:rules="[
+											(val) =>
+												(val && val.length > 0) ||
+												'Veuillez entrer une addresse complète',
+										]"
+										hide-bottom-space
+									/>
+
+									<q-input
+										filled
+										v-model="eventData.beneficiaryCity"
+										label="Ville du beneficiary"
+										lazy-rules="ondemand"
+										:rules="[
+											(val) =>
+												(val && val.length > 0) ||
+												'Veuillez entrer une addresse complète',
+										]"
+										hide-bottom-space
+									/>
+
+									<q-input
+										filled
+										v-model="eventData.beneficiaryMail"
+										label="Adresse mail"
+										lazy-rules="ondemand"
+										:rules="[
+											(val) =>
+												(val && val.length > 0) || 'Veuillez entrer un mail',
+										]"
+										hide-bottom-space
+									/>
+
+									<q-input
+										filled
+										v-model="eventData.beneficiaryPhone"
+										label="Téléphone"
+										lazy-rules="ondemand"
+										:rules="[
+											(val) =>
+												(val && val.length > 0) ||
+												'Veuillez entrer un numéro de téléphone',
+										]"
+										hide-bottom-space
+									/>
+								</template>
+
+								<p>Client</p>
+
 								<q-input
 									rounded
 									filled
@@ -417,23 +627,7 @@
 									><br />
 								</p>
 
-								<div class="row justify-between items-baseline">
-									<span> Est-ce un cadeau ? </span>
-
-									<q-btn-toggle
-										v-model="eventData.isItGift"
-										class="my-custom-toggle"
-										rounded
-										unelevated
-										toggle-color="orange"
-										color="white"
-										text-color="orange"
-										:options="[
-											{ label: 'Non', value: false },
-											{ label: 'Oui', value: true },
-										]"
-									/>
-								</div>
+								<p>Message ou note</p>
 
 								<q-input
 									v-model="eventData.clientMessage"
@@ -555,6 +749,13 @@ function handleDateClick(info) {
 		clientPostalCode: "",
 		clientCity: "",
 		clientPhone: "",
+		beneficiaryFirstName: "",
+		beneficiaryLastName: "",
+		beneficiaryMail: "",
+		beneficiaryAddress: "",
+		beneficiaryPostalCode: "",
+		beneficiaryCity: "",
+		beneficiaryPhone: "",
 		people: 0,
 		allDay: true,
 		borderColor: "white",
@@ -579,15 +780,22 @@ function handleEventClick(info) {
 		allDay: true,
 		room: info.event.extendedProps.room,
 		people: info.event.extendedProps.people,
+		isItGift: info.event.extendedProps.isItGift,
+		clientMessage: info.event.extendedProps.clientMessage,
 		clientFirstName: info.event.extendedProps.clientFirstName,
 		clientLastName: info.event.extendedProps.clientLastName,
 		clientMail: info.event.extendedProps.clientMail,
 		clientPhone: info.event.extendedProps.clientPhone,
-		isItGift: info.event.extendedProps.isItGift,
-		clientMessage: info.event.extendedProps.clientMessage,
 		clientAddress: info.event.extendedProps.clientAddress,
 		clientPostalCode: info.event.extendedProps.clientPostalCode,
 		clientCity: info.event.extendedProps.clientCity,
+		beneficiaryFirstName: info.event.extendedProps.beneficiaryFirstName,
+		beneficiaryLastName: info.event.extendedProps.beneficiaryLastName,
+		beneficiaryMail: info.event.extendedProps.beneficiaryMail,
+		beneficiaryPhone: info.event.extendedProps.beneficiaryPhone,
+		beneficiaryAddress: info.event.extendedProps.beneficiaryAddress,
+		beneficiaryPostalCode: info.event.extendedProps.beneficiaryPostalCode,
+		beneficiaryCity: info.event.extendedProps.beneficiaryCity,
 		borderColor: "white",
 	};
 
@@ -606,15 +814,22 @@ async function handleEventDrop(info) {
 		allDay: true,
 		room: info.event.extendedProps.room,
 		people: info.event.extendedProps.people,
+		isItGift: info.event.extendedProps.isItGift,
+		clientMessage: info.event.extendedProps.clientMessage,
 		clientFirstName: info.event.extendedProps.clientFirstName,
 		clientLastName: info.event.extendedProps.clientLastName,
 		clientMail: info.event.extendedProps.clientMail,
 		clientPhone: info.event.extendedProps.clientPhone,
-		isItGift: info.event.extendedProps.isItGift,
-		clientMessage: info.event.extendedProps.clientMessage,
 		clientAddress: info.event.extendedProps.clientAddress,
 		clientPostalCode: info.event.extendedProps.clientPostalCode,
 		clientCity: info.event.extendedProps.clientCity,
+		beneficiaryFirstName: info.event.extendedProps.beneficiaryFirstName,
+		beneficiaryLastName: info.event.extendedProps.beneficiaryLastName,
+		beneficiaryMail: info.event.extendedProps.beneficiaryMail,
+		beneficiaryPhone: info.event.extendedProps.beneficiaryPhone,
+		beneficiaryAddress: info.event.extendedProps.beneficiaryAddress,
+		beneficiaryPostalCode: info.event.extendedProps.beneficiaryPostalCode,
+		beneficiaryCity: info.event.extendedProps.beneficiaryCity,
 		borderColor: "white",
 	};
 	eventDroppedData.value.room = roomsData.find(
@@ -650,15 +865,22 @@ async function handleEventResize(info) {
 		allDay: true,
 		room: info.event.extendedProps.room,
 		people: info.event.extendedProps.people,
+		isItGift: info.event.extendedProps.isItGift,
+		clientMessage: info.event.extendedProps.clientMessage,
 		clientFirstName: info.event.extendedProps.clientFirstName,
 		clientLastName: info.event.extendedProps.clientLastName,
 		clientMail: info.event.extendedProps.clientMail,
 		clientPhone: info.event.extendedProps.clientPhone,
-		isItGift: info.event.extendedProps.isItGift,
-		clientMessage: info.event.extendedProps.clientMessage,
 		clientAddress: info.event.extendedProps.clientAddress,
 		clientPostalCode: info.event.extendedProps.clientPostalCode,
 		clientCity: info.event.extendedProps.clientCity,
+		beneficiaryFirstName: info.event.extendedProps.beneficiaryFirstName,
+		beneficiaryLastName: info.event.extendedProps.beneficiaryLastName,
+		beneficiaryMail: info.event.extendedProps.beneficiaryMail,
+		beneficiaryPhone: info.event.extendedProps.beneficiaryPhone,
+		beneficiaryAddress: info.event.extendedProps.beneficiaryAddress,
+		beneficiaryPostalCode: info.event.extendedProps.beneficiaryPostalCode,
+		beneficiaryCity: info.event.extendedProps.beneficiaryCity,
 		borderColor: "white",
 	};
 	eventResizedData.value.room = roomsData.find(
@@ -749,15 +971,22 @@ async function updateDB(eventRef) {
 		endDate: endDate,
 		room: eventRef.value.room,
 		people: eventRef.value.people,
+		isItGift: eventRef.value.isItGift,
+		clientMessage: eventRef.value.clientMessage,
 		clientFirstName: eventRef.value.clientFirstName,
 		clientLastName: eventRef.value.clientLastName,
 		clientMail: eventRef.value.clientMail,
 		clientPhone: eventRef.value.clientPhone,
-		isItGift: eventRef.value.isItGift,
-		clientMessage: eventRef.value.clientMessage,
 		clientAddress: eventRef.value.clientAddress,
 		clientPostalCode: eventRef.value.clientPostalCode,
 		clientCity: eventRef.value.clientCity,
+		beneficiaryFirstName: eventRef.value.beneficiaryFirstName,
+		beneficiaryLastName: eventRef.value.beneficiaryLastName,
+		beneficiaryMail: eventRef.value.beneficiaryMail,
+		beneficiaryPhone: eventRef.value.beneficiaryPhone,
+		beneficiaryAddress: eventRef.value.beneficiaryAddress,
+		beneficiaryPostalCode: eventRef.value.beneficiaryPostalCode,
+		beneficiaryCity: eventRef.value.beneficiaryCity,
 		allDay: true,
 		paid: true,
 	};
@@ -787,16 +1016,23 @@ onMounted(async () => {
 				borderColor: "white",
 				extendedProps: {
 					room: doc.data().room,
-					clientFirstName: doc.data().clientFirstName,
-					clientLastName: doc.data().clientLastName,
 					people: doc.data().people ? doc.data().people : null,
-					clientMail: doc.data().clientMail,
-					clientPhone: doc.data().clientPhone,
 					isItGift: doc.data().isItGift,
 					clientMessage: doc.data().clientMessage,
+					clientFirstName: doc.data().clientFirstName,
+					clientLastName: doc.data().clientLastName,
+					clientMail: doc.data().clientMail,
+					clientPhone: doc.data().clientPhone,
 					clientAddress: doc.data().clientAddress,
 					clientPostalCode: doc.data().clientPostalCode,
 					clientCity: doc.data().clientCity,
+					beneficiaryFirstName: doc.data().beneficiaryFirstName,
+					beneficiaryLastName: doc.data().beneficiaryLastName,
+					beneficiaryMail: doc.data().beneficiaryMail,
+					beneficiaryPhone: doc.data().beneficiaryPhone,
+					beneficiaryAddress: doc.data().beneficiaryAddress,
+					beneficiaryPostalCode: doc.data().beneficiaryPostalCode,
+					beneficiaryCity: doc.data().beneficiaryCity,
 				},
 			};
 
