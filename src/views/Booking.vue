@@ -513,6 +513,8 @@
 									<q-icon name="email" /> {{beneficiaryMail}}<br>
 									<q-icon name="phone" /> {{beneficiaryPhone}}<br>
 								</div>
+								<span v-if="beneficiaryVouchersQuantity">{{ beneficiaryVouchersQuantity }} bons. </span>
+								<span v-if="beneficiaryVoucherValue">Valeur d'un bon : {{ beneficiaryVoucherValue }}</span>
 								<p v-if="sendGiftToBeneficiary">Le bon lui sera directement envoyer. ✓</p>
 								<p v-if="toWriteAmount">Le montant sera écrit sur le bon. ✓</p>
 							</div>
