@@ -140,6 +140,37 @@
 								{{ $t("booking.mail") }}
 							</template>
 							</q-input>
+
+							<q-input
+								filled
+								v-model="beneficiaryVouchersQuantity"
+								label="Nombre de bons"
+								lazy-rules="ondemand"
+								:rules="[
+									(val) =>
+										(val && val.length > 0) ||
+										'Veuillez entrer le nombre de bons',
+								]"
+								hide-bottom-space
+							/>
+
+							<q-input
+								filled
+								v-model="beneficiaryVoucherValue"
+								label="Valeur par bon"
+							/>
+
+							<q-checkbox
+								v-model="toWriteAmount"
+								color="orange"
+								label="Inscrire le montant offert sur le bon."
+							/>
+
+							<q-checkbox
+								v-model="sendGiftToBeneficiary"
+								color="orange"
+								label="Envoyer directement le bon au bénéficiaire."
+							/>
 						</template>
 
 						<h6>Mes coordonnées</h6>
@@ -470,11 +501,33 @@
 							<q-card-section class="q-pt-none">
 								<h6>{{ $t("booking.titre5") }}</h6>
 								<p class="q-pl-sm ">
-									<q-icon name="person" /> {{clientFirstName}} {{clientLastName}}<br>
-									{{clientAddress}}, {{clientCity}} {{clientPostalCode}}
+									<div v-if="isItGift">
+
+										<p>C'est un cadeau. ✓</p>
+										<h6>Le bénéficiaire</h6>
+									<div class="q-pl-md">
+
+										<q-icon name="person" /> {{beneficiaryFirstName}} {{beneficiaryLastName}}<br>
+									{{beneficiaryAddress}}, {{beneficiaryCity}} {{beneficiaryPostalCode}}
 									<br>
-									<q-icon name="email" /> {{clientMail}}<br>
-									<q-icon name="phone" /> {{clientPhone}}<br>
+									<q-icon name="email" /> {{beneficiaryMail}}<br>
+									<q-icon name="phone" /> {{beneficiaryPhone}}<br>
+								</div>
+								<p v-if="sendGiftToBeneficiary">Le bon lui sera directement envoyer. ✓</p>
+								<p v-if="toWriteAmount">Le montant sera écrit sur le bon. ✓</p>
+							</div>
+								
+								<h6>Vos coordonnées</h6>
+									<div class="q-pl-md">
+										<q-icon name="person" /> {{clientFirstName}} {{clientLastName}}<br>
+										{{clientAddress}}, {{clientCity}} {{clientPostalCode}}
+										<br>
+										<q-icon name="email" /> {{clientMail}}<br>
+										<q-icon name="phone" /> {{clientPhone}}<br>
+									</div>
+
+									<br>
+
 									<q-icon name="bed" /> {{room}}<br>
 									<q-icon name="date_range" />{{reservationDate[0]}} {{ $t("booking.date") }} 🠖 {{ $t("booking.date2") }} {{reservationDate[reservationDate.length - 1]}} {{ $t("booking.date3") }}<br>
 									<q-icon name="done" />{{ $t("booking.conditions_acceptees") }}
@@ -516,14 +569,16 @@
 							{{ $t("booking.bouton3") }}
 						</div>
 						</q-btn>
-							<q-btn
+
+						<q-btn
 								unelevated
 								color="blue"
 								v-close-popup
 								@click="checkout()"
 							>
 							<div>
-								{{ $t("booking.bouton4") }}
+								<!-- {{ $t("booking.bouton4") }} -->
+								Valider
 							</div>
 						</q-btn>
 							</q-card-actions>
@@ -533,7 +588,9 @@
 					<q-dialog v-model="displayPaymentRedirected">
 						<q-card  class="q-px-lg q-py-md">
 							<q-card-section>
-								<p>Vous allez être redirigé automatiquement vers la page de paiement. Si la page ne s'ouvre pas, veuillez autoriser votre navigateur vers la redirection si un message vous le propose. Vous pouvez fermer cette page ou continuer à naviguer sur notre site.</p>
+								<!-- <p>Vous allez être redirigé automatiquement vers la page de paiement. Si la page ne s'ouvre pas, veuillez autoriser votre navigateur vers la redirection si un message vous le propose. Vous pouvez fermer cette page ou continuer à naviguer sur notre site.</p> -->
+
+								Votre réservation a bien été prise en compte. Nous allons bientôt vous contacter.
 
 <q-btn rounded unelevated label="Accueil" color="orange" to="/" />
 							</q-card-section>
@@ -586,6 +643,10 @@ let beneficiaryPostalCode = ref();
 let beneficiaryCity = ref();
 let beneficiaryMail = ref();
 let beneficiaryPhone = ref();
+let toWriteAmount = ref();
+let sendGiftToBeneficiary = ref();
+let beneficiaryVouchersQuantity = ref();
+let beneficiaryVoucherValue = ref();
 let clientMessage = ref();
 let reservationDate = ref([]);
 let acceptConditions = ref(false);
@@ -608,6 +669,11 @@ let reservation = computed(() => {
 		beneficiaryCity: beneficiaryCity.value,
 		beneficiaryMail: beneficiaryMail.value,
 		beneficiaryPhone: beneficiaryPhone.value, 
+		toWriteAmount: toWriteAmount.value,
+		sendGiftToBeneficiary: sendGiftToBeneficiary.value,
+		beneficiaryVouchersQuantity:
+			beneficiaryVouchersQuantity.value,
+		beneficiaryVoucherValue: beneficiaryVoucherValue.value,
 		room: room.value,
 		isItGift: isItGift.value,
 		clientMessage: clientMessage.value,
@@ -734,6 +800,10 @@ function onReset() {
 	beneficiaryCity.value = null;
 	beneficiaryMail.value = null;
 	beneficiaryPhone.value = null;
+	toWriteAmount.value = false,
+	sendGiftToBeneficiary.value = false,
+	beneficiaryVouchersQuantity.value = null,
+	beneficiaryVoucherValue.value = null,
 	room.value = "";
 	clientMessage.value = "";
 	reservationDate.value = null;

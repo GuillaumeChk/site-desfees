@@ -210,6 +210,37 @@
 										]"
 										hide-bottom-space
 									/>
+
+									<q-input
+										filled
+										v-model="newEventData.beneficiaryVouchersQuantity"
+										label="Nombre de bons"
+										lazy-rules="ondemand"
+										:rules="[
+											(val) =>
+												(val && val.length > 0) ||
+												'Veuillez entrer le nombre de bons',
+										]"
+										hide-bottom-space
+									/>
+
+									<q-input
+										filled
+										v-model="newEventData.beneficiaryVoucherValue"
+										label="Valeur par bon"
+									/>
+
+									<q-checkbox
+										v-model="newEventData.toWriteAmount"
+										label="Inscrire le montant offert sur le bon."
+										color="orange"
+									/>
+
+									<q-checkbox
+										v-model="newEventData.sendGiftToBeneficiary"
+										label="Envoyer directement le bon au bénéficiaire."
+										color="orange"
+									/>
 								</template>
 
 								<p>Client</p>
@@ -303,6 +334,8 @@
 									]"
 									hide-bottom-space
 								/>
+
+								<p>Réservation</p>
 
 								<q-select
 									filled
@@ -486,6 +519,37 @@
 										]"
 										hide-bottom-space
 									/>
+
+									<q-input
+										filled
+										v-model="eventData.beneficiaryVouchersQuantity"
+										label="Nombre de bons"
+										lazy-rules="ondemand"
+										:rules="[
+											(val) =>
+												(val && val.length > 0) ||
+												'Veuillez entrer le nombre de bons',
+										]"
+										hide-bottom-space
+									/>
+
+									<q-input
+										filled
+										v-model="eventData.beneficiaryVouchersQuantity"
+										label="Valeur par bon"
+									/>
+
+									<q-checkbox
+										v-model="eventData.toWriteAmount"
+										label="Inscrire le montant offert sur le bon."
+										color="orange"
+									/>
+
+									<q-checkbox
+										v-model="eventData.sendGiftToBeneficiary"
+										label="Envoyer directement le bon au bénéficiaire."
+										color="orange"
+									/>
 								</template>
 
 								<p>Client</p>
@@ -579,6 +643,8 @@
 									]"
 									hide-bottom-space
 								/>
+
+								<p>Réservation</p>
 
 								<q-select
 									filled
@@ -742,6 +808,10 @@ function handleDateClick(info) {
 		room: "",
 		clientMessage: "",
 		isItGift: false,
+		toWriteAmount: false,
+		sendGiftToBeneficiary: false,
+		beneficiaryVouchersQuantity: null,
+		beneficiaryVoucherValue: null,
 		clientFirstName: "",
 		clientLastName: "",
 		clientMail: "",
@@ -778,6 +848,11 @@ function handleEventClick(info) {
 		start: info.event.start,
 		end: info.event.end,
 		allDay: true,
+		toWriteAmount: info.event.extendedProps.toWriteAmount,
+		sendGiftToBeneficiary: info.event.extendedProps.sendGiftToBeneficiary,
+		beneficiaryVouchersQuantity:
+			info.event.extendedProps.beneficiaryVouchersQuantity,
+		beneficiaryVoucherValue: info.event.extendedProps.beneficiaryVoucherValue,
 		room: info.event.extendedProps.room,
 		people: info.event.extendedProps.people,
 		isItGift: info.event.extendedProps.isItGift,
@@ -812,6 +887,11 @@ async function handleEventDrop(info) {
 		start: info.event.start,
 		end: info.event.end,
 		allDay: true,
+		toWriteAmount: info.event.extendedProps.toWriteAmount,
+		sendGiftToBeneficiary: info.event.extendedProps.sendGiftToBeneficiary,
+		beneficiaryVouchersQuantity:
+			info.event.extendedProps.beneficiaryVouchersQuantity,
+		beneficiaryVoucherValue: info.event.extendedProps.beneficiaryVoucherValue,
 		room: info.event.extendedProps.room,
 		people: info.event.extendedProps.people,
 		isItGift: info.event.extendedProps.isItGift,
@@ -863,6 +943,11 @@ async function handleEventResize(info) {
 		start: info.event.start,
 		end: info.event.end,
 		allDay: true,
+		toWriteAmount: info.event.extendedProps.toWriteAmount,
+		sendGiftToBeneficiary: info.event.extendedProps.sendGiftToBeneficiary,
+		beneficiaryVouchersQuantity:
+			info.event.extendedProps.beneficiaryVouchersQuantity,
+		beneficiaryVoucherValue: info.event.extendedProps.beneficiaryVoucherValue,
 		room: info.event.extendedProps.room,
 		people: info.event.extendedProps.people,
 		isItGift: info.event.extendedProps.isItGift,
@@ -972,6 +1057,10 @@ async function updateDB(eventRef) {
 		room: eventRef.value.room,
 		people: eventRef.value.people,
 		isItGift: eventRef.value.isItGift,
+		toWriteAmount: eventRef.value.toWriteAmount,
+		sendGiftToBeneficiary: eventRef.value.sendGiftToBeneficiary,
+		beneficiaryVouchersQuantity: eventRef.value.beneficiaryVouchersQuantity,
+		beneficiaryVoucherValue: eventRef.value.beneficiaryVoucherValue,
 		clientMessage: eventRef.value.clientMessage,
 		clientFirstName: eventRef.value.clientFirstName,
 		clientLastName: eventRef.value.clientLastName,
@@ -1033,6 +1122,10 @@ onMounted(async () => {
 					beneficiaryAddress: doc.data().beneficiaryAddress,
 					beneficiaryPostalCode: doc.data().beneficiaryPostalCode,
 					beneficiaryCity: doc.data().beneficiaryCity,
+					toWriteAmount: doc.data().toWriteAmount,
+					sendGiftToBeneficiary: doc.data().sendGiftToBeneficiary,
+					beneficiaryVouchersQuantity: doc.data().beneficiaryVouchersQuantity,
+					beneficiaryVoucherValue: doc.data().beneficiaryVoucherValue,
 				},
 			};
 
