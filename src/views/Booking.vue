@@ -638,18 +638,18 @@ let clientCity = ref();
 let clientMail = ref();
 let clientPhone = ref();
 let isItGift = ref(route.query.gift == 1 ? true : false);
-let beneficiaryFirstName = ref();
-let beneficiaryLastName = ref();
-let beneficiaryAddress = ref();
-let beneficiaryPostalCode = ref();
-let beneficiaryCity = ref();
-let beneficiaryMail = ref();
-let beneficiaryPhone = ref();
-let toWriteAmount = ref();
-let sendGiftToBeneficiary = ref();
-let beneficiaryVouchersQuantity = ref();
-let beneficiaryVoucherValue = ref();
-let clientMessage = ref();
+let beneficiaryFirstName = ref("");
+let beneficiaryLastName = ref("");
+let beneficiaryAddress = ref("");
+let beneficiaryPostalCode = ref("");
+let beneficiaryCity = ref("");
+let beneficiaryMail = ref("");
+let beneficiaryPhone = ref("");
+let toWriteAmount = ref(null);
+let sendGiftToBeneficiary = ref(null);
+let beneficiaryVouchersQuantity = ref(null);
+let beneficiaryVoucherValue = ref(null);
+let clientMessage = ref("");
 let reservationDate = ref([]);
 let acceptConditions = ref(false);
 let displayConditions = ref(false);
@@ -705,19 +705,20 @@ let priceTotal = computed(() => { return price.value.reduce((accumulator, curren
 
 async function checkout() {
 	if(reservation.value && priceTotal.value){
-		// A EFFACER ET DÉCOMMENTER POUR FAIRE AVEC STRIPE
+		/// A COMMENTER POUR FAIRE AVEC STRIPE
 		let eventForDB = { ...reservation.value, paid: true};
 
-			eventForDB.room = roomsData.find((object) => object.name === reservation.value.room).pathName;
-			let dateTemp = reservationDate.value[0].split("/");
-			eventForDB.startDate = Timestamp.fromDate(new Date(dateTemp[2], dateTemp[1] - 1, dateTemp[0])); // from "DD/MM/YYYY"
-			dateTemp = reservationDate.value[reservationDate.value.length - 1].split("/");
-			eventForDB.endDate = Timestamp.fromDate(new Date(dateTemp[2], dateTemp[1] - 1, dateTemp[0])); // from "DD/MM/YYYY"
+		eventForDB.room = roomsData.find((object) => object.name === reservation.value.room).pathName;
+		let dateTemp = reservationDate.value[0].split("/");
+		eventForDB.startDate = Timestamp.fromDate(new Date(dateTemp[2], dateTemp[1] - 1, dateTemp[0])); // from "DD/MM/YYYY"
+		dateTemp = reservationDate.value[reservationDate.value.length - 1].split("/");
+		eventForDB.endDate = Timestamp.fromDate(new Date(dateTemp[2], dateTemp[1] - 1, dateTemp[0])); // from "DD/MM/YYYY"
 
-			await setDoc(doc(db, "calendar", Date.now().toString()), eventForDB);
+		await setDoc(doc(db, "calendar", Date.now().toString()), eventForDB);
 
-			console.log(eventForDB)
+		console.log(eventForDB)
 
+		/// A DÉCOMMENTER POUR FAIRE AVEC STRIPE
 		// displayPaymentRedirected.value = true;
 
 		// const dataToSend = {
