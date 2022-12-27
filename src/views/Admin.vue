@@ -46,7 +46,7 @@
 					</template>
 				</q-input>
 
-				<div v-if="password === 'mdp'" class="q-mt-xl q-gutter-y-md">
+				<div v-if="password === pwdEnvVariable" class="q-mt-xl q-gutter-y-md">
 					<h6 class="text-uppercase">Calendrier des réservations</h6>
 
 					<p>
@@ -757,6 +757,8 @@ import {
 	deleteDoc,
 } from "firebase/firestore";
 import { db } from "@/firebase";
+
+const pwdEnvVariable = import.meta.env.VITE_ADMIN_BOOKING_PASSWORD;
 
 let password = ref("");
 let isPwd = ref(true);
