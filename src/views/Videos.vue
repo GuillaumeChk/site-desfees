@@ -10,7 +10,7 @@
 						class="absolute-center bg-transparent text-h4 text-uppercase text-center text-weight-light"
 						style="letter-spacing: 4px"
 					>
-						{{ $t("gallery.titre") }}
+						{{ $t("navbar.videos") }}
 					</div>
 				</q-img>
 				<div class="gt-md absolute-bottom text-center q-pb-lg">
@@ -20,9 +20,9 @@
 		</section>
 
 		<div class="wrapper">
-			<h4 class="q-pa-md q-pt-xl text-uppercase text-weight-light">
+			<!-- <h4 class="q-pa-md q-pt-xl text-uppercase text-weight-light">
 				{{ $t("gallery.titre9") }}
-			</h4>
+			</h4> -->
 
 			<section class="q-gutter-y-md">
 				<h5 class="q-px-md q-pt-md">{{ $t("gallery.titre10") }}</h5>
