@@ -89,6 +89,9 @@
 					<a class="text-h6" href="https://le-bistronome-arbois.com/"
 						>Le Bistronôme
 					</a>
+					<a class="text-h6" href="https://www.restaurant-lesarcades39.fr/"
+						>Restaurant des Arcades
+					</a>
 				</div>
 				<br />
 
@@ -225,10 +228,5 @@
 <style lang="scss" scoped>
 a {
 	color: #212121;
-	text-decoration: none;
-
-	&:hover {
-		text-decoration: underline;
-	}
 }
 </style>

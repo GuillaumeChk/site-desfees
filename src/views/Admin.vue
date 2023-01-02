@@ -150,12 +150,12 @@
 									<q-input
 										filled
 										v-model="newEventData.beneficiaryAddress"
-										label="Addresse du beneficiary"
+										label="Adresse du beneficiary"
 										lazy-rules="ondemand"
 										:rules="[
 											(val) =>
 												(val && val.length > 0) ||
-												'Veuillez entrer une addresse complète',
+												'Veuillez entrer une Adresse complète',
 										]"
 										hide-bottom-space
 									/>
@@ -168,7 +168,7 @@
 										:rules="[
 											(val) =>
 												(val && val.length > 0) ||
-												'Veuillez entrer une addresse complète',
+												'Veuillez entrer une Adresse complète',
 										]"
 										hide-bottom-space
 									/>
@@ -181,7 +181,7 @@
 										:rules="[
 											(val) =>
 												(val && val.length > 0) ||
-												'Veuillez entrer une addresse complète',
+												'Veuillez entrer une Adresse complète',
 										]"
 										hide-bottom-space
 									/>
@@ -274,12 +274,12 @@
 								<q-input
 									filled
 									v-model="newEventData.clientAddress"
-									label="Addresse du client"
+									label="Adresse du client"
 									lazy-rules="ondemand"
 									:rules="[
 										(val) =>
 											(val && val.length > 0) ||
-											'Veuillez entrer une addresse complète',
+											'Veuillez entrer une Adresse complète',
 									]"
 									hide-bottom-space
 								/>
@@ -292,7 +292,7 @@
 									:rules="[
 										(val) =>
 											(val && val.length > 0) ||
-											'Veuillez entrer une addresse complète',
+											'Veuillez entrer une Adresse complète',
 									]"
 									hide-bottom-space
 								/>
@@ -305,7 +305,7 @@
 									:rules="[
 										(val) =>
 											(val && val.length > 0) ||
-											'Veuillez entrer une addresse complète',
+											'Veuillez entrer une Adresse complète',
 									]"
 									hide-bottom-space
 								/>
@@ -459,12 +459,12 @@
 									<q-input
 										filled
 										v-model="eventData.beneficiaryAddress"
-										label="Addresse du beneficiary"
+										label="Adresse du beneficiary"
 										lazy-rules="ondemand"
 										:rules="[
 											(val) =>
 												(val && val.length > 0) ||
-												'Veuillez entrer une addresse complète',
+												'Veuillez entrer une Adresse complète',
 										]"
 										hide-bottom-space
 									/>
@@ -477,7 +477,7 @@
 										:rules="[
 											(val) =>
 												(val && val.length > 0) ||
-												'Veuillez entrer une addresse complète',
+												'Veuillez entrer une Adresse complète',
 										]"
 										hide-bottom-space
 									/>
@@ -490,7 +490,7 @@
 										:rules="[
 											(val) =>
 												(val && val.length > 0) ||
-												'Veuillez entrer une addresse complète',
+												'Veuillez entrer une Adresse complète',
 										]"
 										hide-bottom-space
 									/>
@@ -583,12 +583,12 @@
 								<q-input
 									filled
 									v-model="eventData.clientAddress"
-									label="Addresse du client"
+									label="Adresse du client"
 									lazy-rules="ondemand"
 									:rules="[
 										(val) =>
 											(val && val.length > 0) ||
-											'Veuillez entrer une addresse complète',
+											'Veuillez entrer une Adresse complète',
 									]"
 									hide-bottom-space
 								/>
@@ -601,7 +601,7 @@
 									:rules="[
 										(val) =>
 											(val && val.length > 0) ||
-											'Veuillez entrer une addresse complète',
+											'Veuillez entrer une Adresse complète',
 									]"
 									hide-bottom-space
 								/>
@@ -614,7 +614,7 @@
 									:rules="[
 										(val) =>
 											(val && val.length > 0) ||
-											'Veuillez entrer une addresse complète',
+											'Veuillez entrer une Adresse complète',
 									]"
 									hide-bottom-space
 								/>

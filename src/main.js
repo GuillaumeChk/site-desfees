@@ -116,7 +116,7 @@ const i18n = createI18n({
 				titre10: "Activités hivernales",
 			},
 			gallery: {
-				titre: "Gallerie",
+				titre: "Galerie",
 				titre2: "On parle de nous",
 				titre3: "Les chambres d'hôtes féériques reçoivent leur 5ème épis.",
 				paragraphe:
@@ -135,7 +135,7 @@ const i18n = createI18n({
 				titre7:
 					"Myriam Eckert redonne une seconde vie aux arbres touchés par la maladie des frênes.",
 				titre8: "Saint Valentin",
-				titre9: "Gallerie photo",
+				titre9: "Galerie photo",
 				titre10: "Intérieur",
 				titre11: "Extérieur",
 				titre12: "Jura",

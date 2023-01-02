@@ -77,24 +77,24 @@
 	{
 		"index": 3,
 		"name": {
-			"fr": "Garage",
-			"en": "Garage",
-			"de": "Garage",
-			"it": "Box auto",
-			"pt": "Garagem",
-			"rs": "Гараж",
-			"es": "Garaje"
+			"fr": "Garage & parking",
+			"en": "Garage and car park",
+			"de": "Garage und Parkplatz",
+			"it": "Garage e parcheggio",
+			"pt": "Garagem e estacionamento",
+			"rs": "Гараж и парковка",
+			"es": "Garaje y parking"
 		},
 		"pathName": "garage",
 		"icon": "garage",
 		"description": {
-			"fr": "Si vous vous inquiètez pour votre véhicule, demandez votre garage privatisé et sécurisé !",
-			"en": "If you are worried about your vehicle, ask for your privatized and secure garage!",
-			"de": "Wenn Sie sich Sorgen um Ihr Fahrzeug machen, fragen Sie nach Ihrer privatisierten und sicheren Garage!",
-			"it": "Se sei preoccupato per il tuo veicolo, chiedi il tuo garage privato e sicuro!",
-			"pt": "Se está preocupado com o seu veículo, peça a sua garagem privada e segura!",
-			"rs": "Если вы беспокоитесь о своем автомобиле, попросите приватизированный и охраняемый гараж!",
-			"es": "Si te preocupa tu vehículo, ¡pregunta por tu garaje privatizado y seguro!"
+			"fr": "Un garage et des places de parking sont à votre disposition. Le garage est équipé d'un chargeur électrique (15 €).",
+			"en": "A garage and parking spaces are available. The garage is equipped with an electric charger (15 €).",
+			"de": "Eine Garage und Stellplätze sind vorhanden. Die Garage ist mit einem Elektroladegerät (15 €) ausgestattet.",
+			"it": "Sono disponibili garage e posti auto. Il garage è dotato di un caricabatterie elettrico (15 €).",
+			"pt": "Uma garagem e lugares de estacionamento estão disponíveis. A garagem está equipada com carregador elétrico (15€).",
+			"rs": "Имеется гараж и парковочные места. Гараж оборудован электрическим зарядным устройством (15 €).",
+			"es": "Un garaje y plazas de aparcamiento están disponibles. El garaje está equipado con un cargador eléctrico (15 €)."
 		},
 		"imageUrl": "equipments/garage.jpg",
 		"rooms": ["salina", "etoiles", "romantique", "melusine", "reves", "gite"]
@@ -223,30 +223,5 @@
 		},
 		"imageUrl": "equipments/sauna.jpg",
 		"rooms": ["melusine", "reves"]
-	},
-	{
-		"index": 9,
-		"name": {
-			"fr": "Parking",
-			"en": "Car park",
-			"de": "Parkplatz",
-			"it": "Parcheggio",
-			"pt": "Estacionamento",
-			"rs": "Автопарк",
-			"es": "Estacionamiento"
-		},
-		"pathName": "parking",
-		"icon": "local_parking",
-		"description": {
-			"fr": "7 places de parking réservées à notre clientelle.",
-			"en": "7 parking spaces reserved for our customers.",
-			"de": "7 Parkplätze für unsere Kunden reserviert.",
-			"it": "7 posti auto riservati ai nostri clienti.",
-			"pt": "7 lugares de estacionamento reservados para os nossos clientes.",
-			"rs": "7 парковочных мест зарезервировано для наших клиентов.",
-			"es": "7 plazas de parking reservadas para nuestros clientes."
-		},
-		"imageUrl": "equipments/parking.jpg",
-		"rooms": ["salina", "etoiles", "romantique", "melusine", "reves", "gite"]
 	}
 ]

@@ -76,7 +76,7 @@
 							</template>
 							</q-input>
 
-							<!-- Addresse -->
+							<!-- Adresse -->
 							<q-input label-slot filled  color="orange" v-model="beneficiaryAddress" type="text" 
 							lazy-rules="ondemand"
 								:rules="[
@@ -85,7 +85,7 @@
 								]"
 								hide-bottom-space >
 							<template v-slot:label>
-								Addresse
+								Adresse
 							</template>
 							</q-input>
 
@@ -201,7 +201,7 @@
 						</template>
 						</q-input>
 
-						<!-- Addresse -->
+						<!-- Adresse -->
 						<q-input label-slot filled  color="orange" v-model="clientAddress" type="text" 
 						lazy-rules="ondemand"
 							:rules="[
@@ -210,7 +210,7 @@
 							]"
 							hide-bottom-space >
 						<template v-slot:label>
-							Addresse
+							Adresse
 						</template>
 						</q-input>
 
