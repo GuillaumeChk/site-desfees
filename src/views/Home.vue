@@ -11,11 +11,9 @@
 					width="1920"
 					height="1080"
 				/>
-				<!-- <h1
-					class="gt-sm absolute-bottom q-pb-lg text-white text-center bg-transparent cursive"
-				>
-					{{ $t("home.bienvenue") }}
-				</h1> -->
+				<div class="gt-md absolute-bottom text-center q-pb-lg">
+					<q-img src="src/assets/chevron_bas.svg" width="50px"></q-img>
+				</div>
 			</div>
 		</section>
 
