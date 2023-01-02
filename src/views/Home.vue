@@ -12,7 +12,7 @@
 					height="1080"
 				/>
 				<div class="gt-md absolute-bottom text-center q-pb-lg">
-					<q-img src="src/assets/chevron_bas.svg" width="50px"></q-img>
+					<q-img src="../assets/chevron_bas.svg" width="50px"></q-img>
 				</div>
 			</div>
 		</section>

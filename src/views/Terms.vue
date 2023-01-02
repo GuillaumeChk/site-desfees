@@ -13,6 +13,9 @@
 					{{ $t("terms") }}
 					</div>
 				</q-img>
+				<div class="gt-md absolute-bottom text-center q-pb-lg">
+					<q-img src="../assets/chevron_bas.svg" width="50px"></q-img>
+				</div>
 			</div>
 		</section>
 

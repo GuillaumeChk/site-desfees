@@ -4,11 +4,16 @@
 			<div class="video-container">
 				<q-img class="carousel bg-white" :src="getImageUrl(room.imageUrl)">
 				</q-img>
-				<h3
-					class="gt-sm absolute-bottom q-pb-lg text-h3 text-white text-center bg-transparent cursive"
-				>
-					{{ room.name }}
-				</h3>
+				<div class="gt-sm absolute-bottom text-center q-pb-lg">
+					<h3 class="gt-sm q-pb-lg text-h3 text-white bg-transparent cursive">
+						{{ room.name }}
+					</h3>
+					<q-img
+						class="gt-md"
+						src="../assets/chevron_bas.svg"
+						width="50px"
+					></q-img>
+				</div>
 			</div>
 		</section>
 

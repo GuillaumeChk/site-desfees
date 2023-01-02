@@ -40,7 +40,13 @@
 							<q-item clickable v-close-popup to="/tourisme" exact>
 								<q-item-section>{{ $t("navbar.tourisme") }}</q-item-section>
 							</q-item>
-							<q-item clickable v-close-popup to="/galerie" exact>
+							<q-item clickable v-close-popup to="/presse" exact>
+								<q-item-section>{{ $t("navbar.galerie") }} </q-item-section>
+							</q-item>
+							<q-item clickable v-close-popup to="/photos" exact>
+								<q-item-section>{{ $t("navbar.galerie") }} </q-item-section>
+							</q-item>
+							<q-item clickable v-close-popup to="/videos" exact>
 								<q-item-section>{{ $t("navbar.galerie") }} </q-item-section>
 							</q-item>
 						</q-list>
@@ -152,7 +158,29 @@
 				<q-item
 					class="items-center"
 					clickable
-					to="/galerie"
+					to="/presse"
+					exact
+					:active="false"
+				>
+					<q-item-label class="text-center">
+						{{ $t("navbar.galerie") }}
+					</q-item-label>
+				</q-item>
+				<q-item
+					class="items-center"
+					clickable
+					to="/photos"
+					exact
+					:active="false"
+				>
+					<q-item-label class="text-center">
+						{{ $t("navbar.galerie") }}
+					</q-item-label>
+				</q-item>
+				<q-item
+					class="items-center"
+					clickable
+					to="/videos"
 					exact
 					:active="false"
 				>
