@@ -69,10 +69,12 @@
 				{{ $t("navbar.reserver") }}
 			</q-btn>
 
-			<q-btn class="no-padding" to="/" size="md" unelevated rounded>
+			<!-- <q-btn class="no-padding" to="/" size="md" unelevated rounded>
 				<q-img width="50px" height="50px" fit="fill" src="logoGitedes.svg">
 				</q-img>
-			</q-btn>
+			</q-btn> -->
+
+			<LanguageSwitch />
 
 			<q-btn class="gt-xs q-ml-xs" no-caps to="/" unelevated rounded>
 				<q-toolbar-title class="cursive text-h4">
@@ -211,6 +213,7 @@ import { ref, watch, computed } from "vue";
 import { useRoute } from "vue-router";
 import roomsData from "../data/roomsData.json";
 import CustomDivider from "./CustomDivider.vue";
+import LanguageSwitch from "./LanguageSwitch.vue";
 
 let route = useRoute();
 
