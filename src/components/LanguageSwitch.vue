@@ -10,8 +10,8 @@
 			<div class="row items-center no-wrap">
 				<q-img
 					fit="contain"
-					height="50px"
-					width="50px"
+					height="45px"
+					width="45px"
 					src="../assets/lang.svg"
 				>
 				</q-img>

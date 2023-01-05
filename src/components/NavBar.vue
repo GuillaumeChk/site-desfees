@@ -11,12 +11,23 @@
 
 			<q-tabs class="gt-sm" align="left">
 				<q-route-tab class="tab" to="/">{{ $t("navbar.accueil") }}</q-route-tab>
-				<q-btn stretch unelevated flat class="tab">
+				<q-btn
+					stretch
+					unelevated
+					flat
+					class="tab"
+					@mouseover.native="menuOver = true"
+					@mouseout.native="menuOver = false"
+				>
 					<div>
 						{{ $t("navbar.chambres") }}
 					</div>
-					<q-menu auto-close>
-						<q-list style="min-width: 100px">
+					<q-menu auto-close v-model="navbarMenuTab1">
+						<q-list
+							@mouseover.native="listOver = true"
+							@mouseout.native="listOver = false"
+							style="min-width: 100px"
+						>
 							<q-item
 								v-for="room in roomsData"
 								:key="room.name"
@@ -34,9 +45,22 @@
 					</q-menu>
 				</q-btn>
 				<q-route-tab class="tab" to="/prestations" label="Prestations" />
-				<q-btn stretch unelevated flat rounded class="tab" label="Explorer">
-					<q-menu auto-close>
-						<q-list style="min-width: 100px">
+				<q-btn
+					stretch
+					unelevated
+					flat
+					rounded
+					class="tab"
+					@mouseover.native="menuOver2 = true"
+					@mouseout.native="menuOver2 = false"
+					label="Explorer"
+				>
+					<q-menu auto-close v-model="navbarMenuTab2">
+						<q-list
+							@mouseover.native="listOver2 = true"
+							@mouseout.native="listOver2 = false"
+							style="min-width: 100px"
+						>
 							<q-item clickable v-close-popup to="/tourisme" exact>
 								<q-item-section>{{ $t("navbar.tourisme") }}</q-item-section>
 							</q-item>
@@ -214,12 +238,42 @@ import { useRoute } from "vue-router";
 import roomsData from "../data/roomsData.json";
 import CustomDivider from "./CustomDivider.vue";
 import LanguageSwitch from "./LanguageSwitch.vue";
+import { debounce } from "quasar";
 
 let route = useRoute();
 
+// Navbar tabs open when hovering it
+let navbarMenuTab1 = ref(false);
+let navbarMenuTab2 = ref(false);
+let menuOver = ref(false);
+let menuOver2 = ref(false);
+let listOver = ref(false);
+let listOver2 = ref(false);
+const handleMenuHover1 = debounce(function () {
+	console.log("menu");
+
+	if (menuOver.value || listOver.value) {
+		navbarMenuTab1.value = true;
+	} else {
+		navbarMenuTab1.value = false;
+	}
+}, 100 /*ms to wait*/);
+watch(menuOver, () => handleMenuHover1());
+watch(listOver, () => handleMenuHover1());
+const handleMenuHover2 = debounce(function () {
+	console.log("menu");
+
+	if (menuOver2.value || listOver2.value) {
+		navbarMenuTab2.value = true;
+	} else {
+		navbarMenuTab2.value = false;
+	}
+}, 100 /*ms to wait*/);
+watch(menuOver2, () => handleMenuHover2());
+watch(listOver2, () => handleMenuHover2());
+
 // Navbar — trantparent to solid
 let topTransparent = true;
-
 /// uncomment below to enable on specific pages only
 // let topTransparent = ref(false);
 // watch(
