@@ -97,8 +97,8 @@ const i18n = createI18n({
 			tourism: {
 				titre: "Tourisme",
 				titre2: "Les plaisirs de la table…",
-				titre3: "… côté vignoble, nos coups de ♥",
-				titre4: "… côté table et palais, nos coups de ♥",
+				titre3: "… côté vignoble, nos coups de ",
+				titre4: "… côté table et palais, nos coups de ",
 				paragraphe:
 					"Le Jura et ses célèbres cépages séduiront les amateurs par leur diversité et leur typicité, n’oublier pas de déguster une des sept merveilles bachiques de ce monde, le fameux Vin Jaune de préférence avec un morceau de Comté en fin de repas. A visiter sans modération, les vignobles d’Arbois, Pupillin, l’Etoile, Château-Chalon et Côtes du Jura… Possibilités de dégustations.",
 				visiter_le_site: "Visiter le site web",
@@ -341,8 +341,8 @@ const i18n = createI18n({
 			tourism: {
 				titre: "Tourism",
 				titre2: "The pleasures of the table…",
-				titre3: "…As for the vineyard, our favorites ♥",
-				titre4: "…As for the table and the palate, our favorites ♥",
+				titre3: "…As for the vineyard, our favorites ",
+				titre4: "…As for the table and the palate, our favorites ",
 				paragraphe:
 					"The Jura and its famous grape varieties will seduce amateurs with their diversity and their typicality, do not forget to taste one of the seven bacchic wonders of this world, the famous Vin Jaune preferably with a piece of Comté at the end of the meal. To be visited without moderation, the vineyards of Arbois, Pupillin, l'Etoile, Château-Chalon and Côtes du Jura… Tasting possibilities.",
 				visiter_le_site: "Visit the website",
@@ -585,8 +585,8 @@ const i18n = createI18n({
 			tourism: {
 				titre: "Tourismus",
 				titre2: "Tafelfreuden…",
-				titre3: "… auf der Weingartenseite unsere Favoriten ♥",
-				titre4: "… auf der Tafel- und Gaumenseite unsere Lieblinge ♥",
+				titre3: "… auf der Weingartenseite unsere Favoriten ",
+				titre4: "… auf der Tafel- und Gaumenseite unsere Lieblinge ",
 				paragraphe:
 					"Der Jura und seine berühmten Rebsorten werden Liebhaber mit ihrer Vielfalt und ihrer Typizität verführen, vergessen Sie nicht, eines der sieben Bacchic-Wunder dieser Welt zu probieren, den berühmten Vin Jaune, am besten mit einem Stück Comté-Käse am Ende des Essens. Ohne Mäßigung zu besuchen, die Weinberge von Arbois, Pupillin, l'Etoile, Château-Chalon und Côtes du Jura... Verkostungsmöglichkeiten.",
 				visiter_le_site: "Besuche die Website",
@@ -834,8 +834,8 @@ const i18n = createI18n({
 			tourism: {
 				titre: "Turismo",
 				titre2: "I piaceri della tavola...",
-				titre3: "… lato vigneto, i nostri preferiti ♥",
-				titre4: "… in tavola e al palato, i nostri preferiti ♥",
+				titre3: "… lato vigneto, i nostri preferiti ",
+				titre4: "… in tavola e al palato, i nostri preferiti ",
 				paragraphe:
 					"Il Giura e i suoi famosi vitigni sedurranno i dilettanti con la loro diversità e tipicità, non dimenticate di assaggiare una delle sette meraviglie bacchiche di questo mondo, il famoso Vin Jaune preferibilmente con un pezzo di formaggio Comté a fine pasto. Da visitare senza moderazione, i vigneti di Arbois, Pupillin, l'Etoile, Château-Chalon e Côtes du Jura... Possibilità di degustazione.",
 				visiter_le_site: "Visita il sito web",
@@ -1080,8 +1080,8 @@ const i18n = createI18n({
 			tourism: {
 				titre: "Turismo",
 				titre2: "Os prazeres da mesa…",
-				titre3: "… do lado da vinha, os nossos favoritos ♥",
-				titre4: "… do lado da mesa e do paladar, os nossos preferidos ♥",
+				titre3: "… do lado da vinha, os nossos favoritos ",
+				titre4: "… do lado da mesa e do paladar, os nossos preferidos ",
 				paragraphe:
 					"O Jura e as suas famosas castas vão seduzir os amadores pela sua diversidade e tipicidade, não deixe de provar uma das sete maravilhas bacanais deste mundo, o famoso Vin Jaune de preferência com um pedaço de Comté no final da refeição. Para visitar sem moderação, os vinhedos de Arbois, Pupillin, l'Etoile, Château-Chalon e Côtes du Jura... Possibilidades de degustação.",
 				visiter_le_site: "Visite o site",
@@ -1326,8 +1326,8 @@ const i18n = createI18n({
 			tourism: {
 				titre: "Туризм",
 				titre2: "Удовольствия за столом...",
-				titre3: "… на винограднике, наши любимые ♥",
-				titre4: "… со стороны стола и неба, наши любимые ♥",
+				titre3: "… на винограднике, наши любимые ",
+				titre4: "… со стороны стола и неба, наши любимые ",
 				paragraphe:
 					"Юра и его знаменитые сорта винограда соблазнят любителей своим разнообразием и типичностью, не забудьте попробовать одно из семи вакханальных чудес света, знаменитое желтое вино, желательно с кусочком Конте в конце трапезы. Чтобы посетить без модерации виноградники Арбуа, Пюпиллен, Л'Этуаль, Шато-Шалон и Кот-дю-Жура... Возможности дегустации.",
 				visiter_le_site: "Посетить сайт",
@@ -1571,8 +1571,8 @@ const i18n = createI18n({
 			tourism: {
 				titre: "Turismo",
 				titre2: "Los placeres de la mesa...",
-				titre3: "... del lado del viñedo, nuestros favoritos ♥",
-				titre4: "... del lado de la mesa y del paladar, nuestros favoritos ♥",
+				titre3: "... del lado del viñedo, nuestros favoritos ",
+				titre4: "... del lado de la mesa y del paladar, nuestros favoritos ",
 				paragraphe:
 					"El Jura y sus famosas variedades de uva seducirán a los aficionados con su diversidad y tipicidad, no olvides probar una de las siete maravillas bacanales de este mundo, el famoso Vin Jaune, preferiblemente con un trozo de Comté al final de la comida. Para visitar sin moderación, los viñedos de Arbois, Pupillin, l'Etoile, Château-Chalon y Côtes du Jura... Posibilidades de degustación.",
 				visiter_le_site: "Visita el sitio web",

@@ -10,12 +10,11 @@
 			</q-btn>
 
 			<q-tabs class="gt-sm" align="left">
-				<q-route-tab class="tab" to="/">{{ $t("navbar.accueil") }}</q-route-tab>
+				<q-route-tab to="/">{{ $t("navbar.accueil") }}</q-route-tab>
 				<q-btn
 					stretch
 					unelevated
 					flat
-					class="tab"
 					@mouseover.native="menuOver = true"
 					@mouseout.native="menuOver = false"
 				>
@@ -44,13 +43,14 @@
 						</q-list>
 					</q-menu>
 				</q-btn>
-				<q-route-tab class="tab" to="/prestations" label="Prestations" />
+				<q-route-tab to="/prestations">
+					{{ $t("navbar.prestations") }}
+				</q-route-tab>
 				<q-btn
 					stretch
 					unelevated
 					flat
 					rounded
-					class="tab"
 					@mouseover.native="menuOver2 = true"
 					@mouseout.native="menuOver2 = false"
 					label="Explorer"
@@ -76,7 +76,7 @@
 						</q-list>
 					</q-menu>
 				</q-btn>
-				<q-route-tab class="tab" to="/contact">
+				<q-route-tab to="/contact">
 					{{ $t("navbar.contact") }}
 				</q-route-tab>
 			</q-tabs>
@@ -250,25 +250,21 @@ let menuOver2 = ref(false);
 let listOver = ref(false);
 let listOver2 = ref(false);
 const handleMenuHover1 = debounce(function () {
-	console.log("menu");
-
 	if (menuOver.value || listOver.value) {
 		navbarMenuTab1.value = true;
 	} else {
 		navbarMenuTab1.value = false;
 	}
-}, 100 /*ms to wait*/);
+}, 150 /*ms to wait*/);
 watch(menuOver, () => handleMenuHover1());
 watch(listOver, () => handleMenuHover1());
 const handleMenuHover2 = debounce(function () {
-	console.log("menu");
-
 	if (menuOver2.value || listOver2.value) {
 		navbarMenuTab2.value = true;
 	} else {
 		navbarMenuTab2.value = false;
 	}
-}, 100 /*ms to wait*/);
+}, 150 /*ms to wait*/);
 watch(menuOver2, () => handleMenuHover2());
 watch(listOver2, () => handleMenuHover2());
 

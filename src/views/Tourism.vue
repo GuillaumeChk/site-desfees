@@ -25,7 +25,12 @@
 			</h4>
 
 			<section class="q-gutter-y-md">
-				<h5 class="text-brand-2 q-px-md">{{ $t("tourism.titre3") }}</h5>
+				<h5 class="text-brand-2 q-px-md">
+					{{ $t("tourism.titre3") }}
+					<div class="heart-container">
+						<div class="heart">♥</div>
+					</div>
+				</h5>
 
 				<q-img src="../assets/rooms/exterieur/vignoble.jpg" :ratio="16 / 9">
 				</q-img>
@@ -58,6 +63,9 @@
 			<section class="q-gutter-y-md">
 				<h5 class="text-brand q-pt-xl q-px-md">
 					{{ $t("tourism.titre4") }}
+					<div class="heart-container">
+						<div class="heart">♥</div>
+					</div>
 				</h5>
 
 				<q-img src="../assets/rooms/exterieur/table.jpg" :ratio="16 / 9">
@@ -231,5 +239,33 @@
 <style lang="scss" scoped>
 a {
 	color: #212121;
+}
+
+/* CSS */
+.heart-container {
+	display: inline-block;
+	position: relative;
+	width: 40px;
+	height: 40px;
+}
+
+.heart {
+	position: absolute;
+	top: 50%;
+	left: 15%;
+	animation: pulse 1s infinite;
+	color: #e74c3c;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(1.7);
+	}
+	30% {
+		transform: scale(2);
+	}
+	100% {
+		transform: scale(1.7);
+	}
 }
 </style>

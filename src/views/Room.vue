@@ -23,7 +23,7 @@
 					{{ room.name }}
 				</h3>
 
-				<div class="row justify-between q-gutter-md appear-left">
+				<div class="row justify-between q-gutter-md appear-left text-uppercase">
 					<router-link
 						v-if="previousRoom != undefined"
 						:to="{ name: 'room', params: { roomName: previousRoom.pathName } }"
