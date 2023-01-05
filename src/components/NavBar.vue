@@ -73,6 +73,9 @@
 							<q-item clickable v-close-popup to="/videos" exact>
 								<q-item-section>{{ $t("navbar.videos") }} </q-item-section>
 							</q-item>
+							<q-item clickable v-close-popup to="/reviews" exact>
+								<q-item-section>{{ $t("navbar.reviews") }} </q-item-section>
+							</q-item>
 						</q-list>
 					</q-menu>
 				</q-btn>
@@ -212,6 +215,11 @@
 				>
 					<q-item-label class="text-center">
 						{{ $t("navbar.videos") }}
+					</q-item-label>
+				</q-item>
+				<q-item class="items-center" clickable to="/avis" exact :active="false">
+					<q-item-label class="text-center">
+						{{ $t("navbar.reviews") }}
 					</q-item-label>
 				</q-item>
 			</q-expansion-item>
