@@ -3,7 +3,7 @@
 		<section class="section-video">
 			<div class="video-container">
 				<q-img
-					src="../assets/rooms/cocooning/_DSC6074_compressed.jpg"
+					src="../assets/rooms/cocooning/DSC6074_compressed.jpg"
 					class="carousel"
 				>
 					<div
@@ -55,7 +55,7 @@
 				<q-img
 					src="../assets/rooms/cocooning/Accueil_New_compressed.jpg"
 				></q-img>
-				<q-img src="../assets/rooms/cocooning/_DSC7884_compressed.jpg"></q-img>
+				<q-img src="../assets/rooms/cocooning/DSC7884_compressed.jpg"></q-img>
 				<p class="q-px-md">
 					{{ $t("services.paragraphe5") }}
 				</p>
@@ -68,7 +68,7 @@
 					src="../assets/rooms/cocooning/New_salle_1_compressed.jpg"
 				></q-img>
 				<q-img
-					src="../assets/rooms/exterieur/_DSC6624-Modifier_compressed60_035.jpg"
+					src="../assets/rooms/exterieur/DSC6624-Modifier_compressed60_035.jpg"
 				></q-img>
 				<q-img
 					src="../assets/rooms/cocooning/Terrasse_1er_(2)_compressed.jpg"
