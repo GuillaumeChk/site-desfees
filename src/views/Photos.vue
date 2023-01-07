@@ -40,7 +40,6 @@
 						v-model="slide"
 						v-model:fullscreen="fullscreen"
 						class="uncropped-image"
-						control-color="black"
 					>
 						<q-carousel-slide
 							v-for="(slide, key, index) in imagesInterieur"
@@ -78,7 +77,6 @@
 						v-model="slide2"
 						v-model:fullscreen="fullscreen2"
 						class="uncropped-image"
-						control-color="black"
 					>
 						<q-carousel-slide
 							v-for="(slide2, key, index) in imagesExterieur"
@@ -116,7 +114,6 @@
 						v-model="slide3"
 						v-model:fullscreen="fullscreen3"
 						class="uncropped-image"
-						control-color="black"
 					>
 						<q-carousel-slide
 							v-for="(slide3, key, index) in imagesJura"

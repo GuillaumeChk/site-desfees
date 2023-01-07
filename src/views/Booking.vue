@@ -377,11 +377,47 @@
 							</q-expansion-item>
 						</div>
 
+						<!-- Heure d'arrivée -->
+						<q-input class="no-padding" label-slot filled v-model="timeArrival" mask="time" :rules="['time']" color="orange">
+							<template v-slot:append>
+								<q-icon name="access_time" class="cursor-pointer">
+									<q-popup-proxy cover transition-show="scale" transition-hide="scale">
+										<q-time v-model="timeArrival" color="orange" :options="optionsArrivalTime">
+											<div class="row items-center justify-end">
+												<q-btn v-close-popup label="X" color="orange" flat />
+											</div>
+										</q-time>
+									</q-popup-proxy>
+								</q-icon>
+							</template>
+							<template v-slot:label>
+								Heure d'arrivée
+							</template>
+						</q-input>
+
+						<!-- Heure de départ -->
+						<q-input class="no-padding" label-slot filled v-model="timeDeparture" mask="time" :rules="['time']" color="orange">
+							<template v-slot:append>
+								<q-icon name="access_time" class="cursor-pointer">
+									<q-popup-proxy cover transition-show="scale" transition-hide="scale">
+										<q-time v-model="timeDeparture" color="orange" :options="optionsDepartureTime">
+											<div class="row items-center justify-end">
+												<q-btn v-close-popup label="X" color="orange" flat />
+											</div>
+										</q-time>
+									</q-popup-proxy>
+								</q-icon>
+							</template>
+							<template v-slot:label>
+								Heure de départ
+							</template>
+						</q-input>
+
 						<!-- laisser un message -->
 						<q-input
 						v-model="clientMessage"
 						filled
-						placeholder="Laisser un message…"
+						placeholder="Laisser un message… 🖉"
 						autogrow
 						color="orange"
 						/>
@@ -534,7 +570,7 @@
 									<br>
 
 									<q-icon name="bed" /> {{room}}<br>
-									<q-icon name="date_range" />{{reservationDate[0]}} {{ $t("booking.date") }} 🠖 {{ $t("booking.date2") }} {{reservationDate[reservationDate.length - 1]}} {{ $t("booking.date3") }}<br>
+									<q-icon name="date_range" />{{reservationDate[0]}} {{ $t("booking.date") }} {{ timeArrival }} 🠖 {{ $t("booking.date2") }} {{reservationDate[reservationDate.length - 1]}} {{ timeDeparture }} {{ $t("booking.date3") }}<br>
 									<q-icon name="done" />{{ $t("booking.conditions_acceptees") }}
 								</p>
 								<p>
@@ -634,6 +670,8 @@ let room = ref(route.query.room
 			(object) => object.pathName === route.query.room
 			).name : "");
 let clientFirstName = ref();
+let timeArrival = ref();
+let timeDeparture = ref();
 let clientLastName = ref();
 let clientAddress = ref();
 let clientPostalCode = ref();
@@ -684,11 +722,28 @@ let reservation = computed(() => {
 		clientMessage: clientMessage.value,
 		startDate: null,
 		endDate: null,
+		timeArrival: timeArrival.value,
+		timeDeparture: timeDeparture.value,
 	};
 });
 let datePickerDisabled = computed(() => {
 	return roomNameOptions.includes(room.value)
 });
+
+function optionsArrivalTime(hr) {
+	if (hr < 17 || hr > 23 ) {
+          return false
+        }
+		return true
+}
+
+function optionsDepartureTime(hr) {
+	if (hr < 8 || hr > 11 ) {
+          return false
+        }
+		return true
+}
+
 const discount = 0.1;
 let price = computed(() => {
 	let priceArray = []
@@ -813,6 +868,8 @@ function onReset() {
 	room.value = "";
 	clientMessage.value = "";
 	reservationDate.value = null;
+	timeArrival.value = null,
+	timeDeparture.value = null,
 	acceptConditions.value = false;
 	isItGift.value = false;
 }
@@ -901,7 +958,7 @@ onMounted(async () => {
 			}))
 		});
 		
-		console.log(schoolHolidays.value)
+		// console.log(schoolHolidays.value)
 		
 		let holidays = holidaysTo2032.map(object => { 
 			return convertDateDDMMYYYYToYYYYMMDD(object.date)

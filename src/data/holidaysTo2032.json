@@ -435,5 +435,87 @@
 	{
 		"date": "17/05/2032",
 		"reason": "Lundi de Pentecôte"
+	},
+
+	{
+		"date": "14/02/2023",
+		"reason": "Saint Valentin"
+	},
+	{
+		"date": "14/02/2024",
+		"reason": "Saint Valentin"
+	},
+	{
+		"date": "14/02/2025",
+		"reason": "Saint Valentin"
+	},
+	{
+		"date": "14/02/2026",
+		"reason": "Saint Valentin"
+	},
+	{
+		"date": "14/02/2027",
+		"reason": "Saint Valentin"
+	},
+	{
+		"date": "14/02/2028",
+		"reason": "Saint Valentin"
+	},
+	{
+		"date": "14/02/2029",
+		"reason": "Saint Valentin"
+	},
+	{
+		"date": "14/02/2030",
+		"reason": "Saint Valentin"
+	},
+	{
+		"date": "14/02/2031",
+		"reason": "Saint Valentin"
+	},
+	{
+		"date": "14/02/2032",
+		"reason": "Saint Valentin"
+	},
+
+	{
+		"date": "04/06/2023",
+		"reason": "Fête des Mères"
+	},
+	{
+		"date": "26/05/2024",
+		"reason": "Fête des Mères"
+	},
+	{
+		"date": "25/05/2025",
+		"reason": "Fête des Mères"
+	},
+	{
+		"date": "31/05/2026",
+		"reason": "Fête des Mères"
+	},
+	{
+		"date": "30/05/2027",
+		"reason": "Fête des Mères"
+	},
+	{
+		"date": "28/05/2028",
+		"reason": "Fête des Mères"
+	},
+	{
+		"date": "27/05/2029",
+		"reason": "Fête des Mères"
+	},
+	{
+		"date": "26/05/2030",
+		"reason": "Fête des Mères"
+	},
+	{
+		"date": "25/05/2031",
+		"reason": "Fête des Mères"
+	},
+	{
+		"date": "30/05/2032",
+		"reason": "Fête des Mères"
 	}
 ]

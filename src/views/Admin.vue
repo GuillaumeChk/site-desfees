@@ -122,7 +122,7 @@
 								</div>
 
 								<template v-if="newEventData.isItGift">
-									<p>Bénéficiaire</p>
+									<h6>Bénéficiaire</h6>
 
 									<q-input
 										rounded
@@ -246,7 +246,7 @@
 									/>
 								</template>
 
-								<p>Client</p>
+								<h6 class="q-pt-md">Client</h6>
 
 								<q-input
 									rounded
@@ -338,7 +338,7 @@
 									hide-bottom-space
 								/>
 
-								<p>Réservation</p>
+								<h6 class="q-pt-md">Réservation</h6>
 
 								<q-select
 									filled
@@ -374,6 +374,84 @@
 										})
 									}}.
 								</p>
+								<p class="text-italic text-grey-6">
+									Pour modifier la date : cliquer/glisser la réservation. <br />
+									Pour modifier la durée : redimensionner la réservation.
+								</p>
+
+								<!-- Heure d'arrivée -->
+								<q-input
+									class="no-padding"
+									label-slot
+									filled
+									v-model="newEventData.timeArrival"
+									mask="time"
+									:rules="['time']"
+									color="orange"
+								>
+									<template v-slot:append>
+										<q-icon name="access_time" class="cursor-pointer">
+											<q-popup-proxy
+												cover
+												transition-show="scale"
+												transition-hide="scale"
+											>
+												<q-time
+													v-model="newEventData.timeArrival"
+													color="orange"
+													:options="optionsArrivalTime"
+												>
+													<div class="row items-center justify-end">
+														<q-btn
+															v-close-popup
+															label="X"
+															color="orange"
+															flat
+														/>
+													</div>
+												</q-time>
+											</q-popup-proxy>
+										</q-icon>
+									</template>
+									<template v-slot:label> Heure d'arrivée </template>
+								</q-input>
+
+								<!-- Heure de départ -->
+								<q-input
+									class="no-padding"
+									label-slot
+									filled
+									v-model="newEventData.timeDeparture"
+									mask="time"
+									:rules="['time']"
+									color="orange"
+								>
+									<template v-slot:append>
+										<q-icon name="access_time" class="cursor-pointer">
+											<q-popup-proxy
+												cover
+												transition-show="scale"
+												transition-hide="scale"
+											>
+												<q-time
+													v-model="newEventData.timeDeparture"
+													color="orange"
+													:options="optionsDepartureTime"
+												>
+													<div class="row items-center justify-end">
+														<q-btn
+															v-close-popup
+															label="X"
+															color="orange"
+															flat
+														/>
+													</div>
+												</q-time>
+											</q-popup-proxy>
+										</q-icon>
+									</template>
+									<template v-slot:label> Heure de départ </template>
+								</q-input>
 
 								<q-input
 									v-model="newEventData.clientMessage"
@@ -382,15 +460,9 @@
 									autogrow
 									color="orange"
 								/>
-
-								<p class="text-italic text-grey-6">
-									Pour modifier la date : simplement cliquer/glisser la
-									réservation. <br />
-									Pour modifier la durée : redimensionner la réservation.
-								</p>
 							</q-card-section>
 
-							<q-card-actions align="right">
+							<q-card-actions align="right" class="q-py-lg">
 								<q-btn flat unelevated label="Annuler" v-close-popup />
 								<q-btn
 									unelevated
@@ -431,7 +503,7 @@
 								</div>
 
 								<template v-if="eventData.isItGift">
-									<p>Bénéficiaire</p>
+									<h6>Bénéficiaire</h6>
 
 									<q-input
 										rounded
@@ -555,7 +627,7 @@
 									/>
 								</template>
 
-								<p>Client</p>
+								<h6 class="q-pt-md">Client</h6>
 
 								<q-input
 									rounded
@@ -647,7 +719,7 @@
 									hide-bottom-space
 								/>
 
-								<p>Réservation</p>
+								<h6 class="q-pt-md">Réservation</h6>
 
 								<q-select
 									filled
@@ -695,8 +767,86 @@
 										}}. </span
 									><br />
 								</p>
+								<p class="text-italic text-grey-6">
+									Pour modifier la date : cliquer/glisser la réservation. <br />
+									Pour modifier la durée : redimensionner la réservation.
+								</p>
 
-								<p>Message ou note</p>
+								<!-- Heure d'arrivée -->
+								<q-input
+									class="no-padding"
+									label-slot
+									filled
+									v-model="eventData.timeArrival"
+									mask="time"
+									:rules="['time']"
+									color="orange"
+								>
+									<template v-slot:append>
+										<q-icon name="access_time" class="cursor-pointer">
+											<q-popup-proxy
+												cover
+												transition-show="scale"
+												transition-hide="scale"
+											>
+												<q-time
+													v-model="eventData.timeArrival"
+													color="orange"
+													:options="optionsArrivalTime"
+												>
+													<div class="row items-center justify-end">
+														<q-btn
+															v-close-popup
+															label="X"
+															color="orange"
+															flat
+														/>
+													</div>
+												</q-time>
+											</q-popup-proxy>
+										</q-icon>
+									</template>
+									<template v-slot:label> Heure d'arrivée </template>
+								</q-input>
+
+								<!-- Heure de départ -->
+								<q-input
+									class="no-padding"
+									label-slot
+									filled
+									v-model="eventData.timeDeparture"
+									mask="time"
+									:rules="['time']"
+									color="orange"
+								>
+									<template v-slot:append>
+										<q-icon name="access_time" class="cursor-pointer">
+											<q-popup-proxy
+												cover
+												transition-show="scale"
+												transition-hide="scale"
+											>
+												<q-time
+													v-model="eventData.timeDeparture"
+													color="orange"
+													:options="optionsDepartureTime"
+												>
+													<div class="row items-center justify-end">
+														<q-btn
+															v-close-popup
+															label="X"
+															color="orange"
+															flat
+														/>
+													</div>
+												</q-time>
+											</q-popup-proxy>
+										</q-icon>
+									</template>
+									<template v-slot:label> Heure de départ </template>
+								</q-input>
+
+								<h6 class="q-pt-md">Message ou note</h6>
 
 								<q-input
 									v-model="eventData.clientMessage"
@@ -705,15 +855,9 @@
 									autogrow
 									color="orange"
 								/>
-
-								<p class="text-italic">
-									Pour modifier la date : simplement cliquer/glisser la
-									réservation. <br />
-									Pour modifier la durée : redimensionner la réservation.
-								</p>
 							</q-card-section>
 
-							<q-card-actions align="right">
+							<q-card-actions align="right" class="q-py-lg">
 								<q-btn flat unelevated label="Annuler" v-close-popup />
 								<q-btn
 									unelevated
@@ -810,6 +954,8 @@ function handleDateClick(info) {
 		title: "",
 		start: info.date,
 		end: info.date,
+		timeArrival: "",
+		timeDeparture: "",
 		room: "",
 		clientMessage: "",
 		isItGift: false,
@@ -852,6 +998,8 @@ function handleEventClick(info) {
 			info.event.extendedProps.clientLastName,
 		start: info.event.start,
 		end: info.event.end,
+		timeArrival: info.event.extendedProps.timeArrival,
+		timeDeparture: info.event.extendedProps.timeDeparture,
 		allDay: true,
 		toWriteAmount: info.event.extendedProps.toWriteAmount,
 		sendGiftToBeneficiary: info.event.extendedProps.sendGiftToBeneficiary,
@@ -891,6 +1039,8 @@ async function handleEventDrop(info) {
 		title: info.event.title,
 		start: info.event.start,
 		end: info.event.end,
+		timeArrival: info.event.extendedProps.timeArrival,
+		timeDeparture: info.event.extendedProps.timeDeparture,
 		allDay: true,
 		toWriteAmount: info.event.extendedProps.toWriteAmount,
 		sendGiftToBeneficiary: info.event.extendedProps.sendGiftToBeneficiary,
@@ -946,6 +1096,8 @@ async function handleEventResize(info) {
 		id: info.event.id,
 		title: info.event.title,
 		start: info.event.start,
+		timeArrival: info.event.extendedProps.timeArrival,
+		timeDeparture: info.event.extendedProps.timeDeparture,
 		end: info.event.end,
 		allDay: true,
 		toWriteAmount: info.event.extendedProps.toWriteAmount,
@@ -1059,6 +1211,8 @@ async function updateDB(eventRef) {
 		clientName: eventRef.value.title,
 		startDate: eventRef.value.start,
 		endDate: endDate,
+		timeArrival: eventRef.value.timeArrival,
+		timeDeparture: eventRef.value.timeDeparture,
 		room: eventRef.value.room,
 		people: eventRef.value.people,
 		isItGift: eventRef.value.isItGift,
@@ -1110,6 +1264,8 @@ onMounted(async () => {
 				borderColor: "white",
 				extendedProps: {
 					room: doc.data().room,
+					timeArrival: doc.data().timeArrival,
+					timeDeparture: doc.data().timeDeparture,
 					people: doc.data().people ? doc.data().people : null,
 					isItGift: doc.data().isItGift,
 					clientMessage: doc.data().clientMessage,
