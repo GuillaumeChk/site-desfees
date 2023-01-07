@@ -1,5 +1,5 @@
 <template>
-	<q-page>
+	<q-page class="bg-grey-10 text-grey-5">
 		<section class="section-video">
 			<div class="video-container">
 				<q-img
@@ -28,7 +28,7 @@
 				<q-btn rounded unelevated label="Accueil" color="orange" to="/" />
 			</section>
 
-			<CustomDivider></CustomDivider>
+			<!-- <CustomDivider></CustomDivider> -->
 
 			<div class="q-px-md q-gutter-y-md q-py-xl">
 				<h5 v-html="$t('admin.titre2')"></h5>
@@ -36,6 +36,8 @@
 				<q-input
 					v-model="password"
 					filled
+					bg-color="grey-5"
+					label-color="grey-10"
 					:type="isPwd ? 'password' : 'text'"
 					color="orange"
 					style="max-width: 500px"
@@ -58,9 +60,10 @@
 							v-model="bookingSystemWorking"
 							class="my-custom-toggle"
 							rounded
+							dark
 							unelevated
 							toggle-color="orange"
-							color="white"
+							color="grey-4"
 							text-color="orange"
 							:options="[
 								{ label: 'ON', value: true },
@@ -97,7 +100,7 @@
 				</div>
 
 				<q-dialog v-model="displayNewEvent">
-					<q-card class="q-pa-sm">
+					<q-card class="q-pa-sm bg-grey-10 text-grey-5">
 						<q-card-section>
 							<div class="text-h6 text-uppercase">Nouvelle réservation</div>
 						</q-card-section>
@@ -112,7 +115,7 @@
 										rounded
 										unelevated
 										toggle-color="orange"
-										color="white"
+										color="grey-4"
 										text-color="orange"
 										:options="[
 											{ label: 'Non', value: false },
@@ -127,6 +130,8 @@
 									<q-input
 										rounded
 										filled
+										bg-color="grey-5"
+										label-color="grey-10"
 										v-model="newEventData.beneficiaryFirstName"
 										label="Prénom du beneficiary"
 										lazy-rules="ondemand"
@@ -139,6 +144,8 @@
 
 									<q-input
 										filled
+										bg-color="grey-5"
+										label-color="grey-10"
 										v-model="newEventData.beneficiaryLastName"
 										label="Nom du beneficiary"
 										lazy-rules="ondemand"
@@ -152,6 +159,8 @@
 
 									<q-input
 										filled
+										bg-color="grey-5"
+										label-color="grey-10"
 										v-model="newEventData.beneficiaryAddress"
 										label="Adresse du beneficiary"
 										lazy-rules="ondemand"
@@ -165,6 +174,8 @@
 
 									<q-input
 										filled
+										bg-color="grey-5"
+										label-color="grey-10"
 										v-model="newEventData.beneficiaryPostalCode"
 										label="Code postal du beneficiary"
 										lazy-rules="ondemand"
@@ -178,6 +189,8 @@
 
 									<q-input
 										filled
+										bg-color="grey-5"
+										label-color="grey-10"
 										v-model="newEventData.beneficiaryCity"
 										label="Ville du beneficiary"
 										lazy-rules="ondemand"
@@ -191,6 +204,8 @@
 
 									<q-input
 										filled
+										bg-color="grey-5"
+										label-color="grey-10"
 										v-model="newEventData.beneficiaryMail"
 										label="Adresse mail"
 										lazy-rules="ondemand"
@@ -203,6 +218,8 @@
 
 									<q-input
 										filled
+										bg-color="grey-5"
+										label-color="grey-10"
 										v-model="newEventData.beneficiaryPhone"
 										label="Téléphone"
 										lazy-rules="ondemand"
@@ -216,6 +233,8 @@
 
 									<q-input
 										filled
+										bg-color="grey-5"
+										label-color="grey-10"
 										v-model="newEventData.beneficiaryVouchersQuantity"
 										label="Nombre de bons"
 										lazy-rules="ondemand"
@@ -229,6 +248,8 @@
 
 									<q-input
 										filled
+										bg-color="grey-5"
+										label-color="grey-10"
 										v-model="newEventData.beneficiaryVoucherValue"
 										label="Valeur par bon"
 									/>
@@ -251,6 +272,8 @@
 								<q-input
 									rounded
 									filled
+									bg-color="grey-5"
+									label-color="grey-10"
 									v-model="newEventData.clientFirstName"
 									label="Prénom du client"
 									lazy-rules="ondemand"
@@ -263,6 +286,8 @@
 
 								<q-input
 									filled
+									bg-color="grey-5"
+									label-color="grey-10"
 									v-model="newEventData.clientLastName"
 									label="Nom du client"
 									lazy-rules="ondemand"
@@ -276,6 +301,8 @@
 
 								<q-input
 									filled
+									bg-color="grey-5"
+									label-color="grey-10"
 									v-model="newEventData.clientAddress"
 									label="Adresse du client"
 									lazy-rules="ondemand"
@@ -289,6 +316,8 @@
 
 								<q-input
 									filled
+									bg-color="grey-5"
+									label-color="grey-10"
 									v-model="newEventData.clientPostalCode"
 									label="Code postal du client"
 									lazy-rules="ondemand"
@@ -302,6 +331,8 @@
 
 								<q-input
 									filled
+									bg-color="grey-5"
+									label-color="grey-10"
 									v-model="newEventData.clientCity"
 									label="Ville du client"
 									lazy-rules="ondemand"
@@ -315,6 +346,8 @@
 
 								<q-input
 									filled
+									bg-color="grey-5"
+									label-color="grey-10"
 									v-model="newEventData.clientMail"
 									label="Adresse mail"
 									lazy-rules="ondemand"
@@ -327,6 +360,8 @@
 
 								<q-input
 									filled
+									bg-color="grey-5"
+									label-color="grey-10"
 									v-model="newEventData.clientPhone"
 									label="Téléphone"
 									lazy-rules="ondemand"
@@ -342,6 +377,8 @@
 
 								<q-select
 									filled
+									bg-color="grey-5"
+									label-color="grey-10"
 									color="orange"
 									v-model="newEventData.room"
 									:options="roomPathNameOptions"
@@ -356,6 +393,8 @@
 
 								<q-select
 									filled
+									bg-color="grey-5"
+									label-color="grey-10"
 									color="orange"
 									v-model="newEventData.people"
 									:options="peopleQuantityOptions"
@@ -384,6 +423,8 @@
 									class="no-padding"
 									label-slot
 									filled
+									bg-color="grey-5"
+									label-color="grey-10"
 									v-model="newEventData.timeArrival"
 									mask="time"
 									:rules="['time']"
@@ -421,6 +462,8 @@
 									class="no-padding"
 									label-slot
 									filled
+									bg-color="grey-5"
+									label-color="grey-10"
 									v-model="newEventData.timeDeparture"
 									mask="time"
 									:rules="['time']"
@@ -456,6 +499,8 @@
 								<q-input
 									v-model="newEventData.clientMessage"
 									filled
+									bg-color="grey-5"
+									label-color="grey-10"
 									placeholder="Message du client ou note"
 									autogrow
 									color="orange"
@@ -477,7 +522,7 @@
 				</q-dialog>
 
 				<q-dialog v-model="displayEventEdit">
-					<q-card class="q-px-lg q-py-md">
+					<q-card class="q-px-lg q-py-md bg-grey-10 text-grey-5">
 						<q-card-section>
 							<div class="text-h6 text-uppercase">Modifier une réservation</div>
 						</q-card-section>
@@ -493,7 +538,7 @@
 										rounded
 										unelevated
 										toggle-color="orange"
-										color="white"
+										color="grey-4"
 										text-color="orange"
 										:options="[
 											{ label: 'Non', value: false },
@@ -508,6 +553,8 @@
 									<q-input
 										rounded
 										filled
+										bg-color="grey-5"
+										label-color="grey-10"
 										v-model="eventData.beneficiaryFirstName"
 										label="Prénom du beneficiary"
 										lazy-rules="ondemand"
@@ -520,6 +567,8 @@
 
 									<q-input
 										filled
+										bg-color="grey-5"
+										label-color="grey-10"
 										v-model="eventData.beneficiaryLastName"
 										label="Nom du beneficiary"
 										lazy-rules="ondemand"
@@ -533,6 +582,8 @@
 
 									<q-input
 										filled
+										bg-color="grey-5"
+										label-color="grey-10"
 										v-model="eventData.beneficiaryAddress"
 										label="Adresse du beneficiary"
 										lazy-rules="ondemand"
@@ -546,6 +597,8 @@
 
 									<q-input
 										filled
+										bg-color="grey-5"
+										label-color="grey-10"
 										v-model="eventData.beneficiaryPostalCode"
 										label="Code postal du beneficiary"
 										lazy-rules="ondemand"
@@ -559,6 +612,8 @@
 
 									<q-input
 										filled
+										bg-color="grey-5"
+										label-color="grey-10"
 										v-model="eventData.beneficiaryCity"
 										label="Ville du beneficiary"
 										lazy-rules="ondemand"
@@ -572,6 +627,8 @@
 
 									<q-input
 										filled
+										bg-color="grey-5"
+										label-color="grey-10"
 										v-model="eventData.beneficiaryMail"
 										label="Adresse mail"
 										lazy-rules="ondemand"
@@ -584,6 +641,8 @@
 
 									<q-input
 										filled
+										bg-color="grey-5"
+										label-color="grey-10"
 										v-model="eventData.beneficiaryPhone"
 										label="Téléphone"
 										lazy-rules="ondemand"
@@ -597,6 +656,8 @@
 
 									<q-input
 										filled
+										bg-color="grey-5"
+										label-color="grey-10"
 										v-model="eventData.beneficiaryVouchersQuantity"
 										label="Nombre de bons"
 										lazy-rules="ondemand"
@@ -610,6 +671,8 @@
 
 									<q-input
 										filled
+										bg-color="grey-5"
+										label-color="grey-10"
 										v-model="eventData.beneficiaryVouchersQuantity"
 										label="Valeur par bon"
 									/>
@@ -632,6 +695,8 @@
 								<q-input
 									rounded
 									filled
+									bg-color="grey-5"
+									label-color="grey-10"
 									v-model="eventData.clientFirstName"
 									label="Prénom du client"
 									lazy-rules="ondemand"
@@ -644,6 +709,8 @@
 
 								<q-input
 									filled
+									bg-color="grey-5"
+									label-color="grey-10"
 									v-model="eventData.clientLastName"
 									label="Nom du client"
 									lazy-rules="ondemand"
@@ -657,6 +724,8 @@
 
 								<q-input
 									filled
+									bg-color="grey-5"
+									label-color="grey-10"
 									v-model="eventData.clientAddress"
 									label="Adresse du client"
 									lazy-rules="ondemand"
@@ -670,6 +739,8 @@
 
 								<q-input
 									filled
+									bg-color="grey-5"
+									label-color="grey-10"
 									v-model="eventData.clientPostalCode"
 									label="Code postal du client"
 									lazy-rules="ondemand"
@@ -683,6 +754,8 @@
 
 								<q-input
 									filled
+									bg-color="grey-5"
+									label-color="grey-10"
 									v-model="eventData.clientCity"
 									label="Ville du client"
 									lazy-rules="ondemand"
@@ -696,6 +769,8 @@
 
 								<q-input
 									filled
+									bg-color="grey-5"
+									label-color="grey-10"
 									v-model="eventData.clientMail"
 									label="Adresse mail"
 									lazy-rules="ondemand"
@@ -708,6 +783,8 @@
 
 								<q-input
 									filled
+									bg-color="grey-5"
+									label-color="grey-10"
 									v-model="eventData.clientPhone"
 									label="Téléphone"
 									lazy-rules="ondemand"
@@ -723,6 +800,8 @@
 
 								<q-select
 									filled
+									bg-color="grey-5"
+									label-color="grey-10"
 									color="orange"
 									v-model="eventData.room"
 									:options="roomPathNameOptions"
@@ -737,6 +816,8 @@
 
 								<q-select
 									filled
+									bg-color="grey-5"
+									label-color="grey-10"
 									color="orange"
 									v-model="eventData.people"
 									:options="peopleQuantityOptions"
@@ -777,6 +858,8 @@
 									class="no-padding"
 									label-slot
 									filled
+									bg-color="grey-5"
+									label-color="grey-10"
 									v-model="eventData.timeArrival"
 									mask="time"
 									:rules="['time']"
@@ -814,6 +897,8 @@
 									class="no-padding"
 									label-slot
 									filled
+									bg-color="grey-5"
+									label-color="grey-10"
 									v-model="eventData.timeDeparture"
 									mask="time"
 									:rules="['time']"
@@ -851,6 +936,8 @@
 								<q-input
 									v-model="eventData.clientMessage"
 									filled
+									bg-color="grey-5"
+									label-color="grey-10"
 									placeholder="Message du client ou note"
 									autogrow
 									color="orange"
@@ -884,7 +971,7 @@
 
 <script setup>
 import { ref, onMounted, computed, watch } from "vue";
-import CustomDivider from "../components/CustomDivider.vue";
+// import CustomDivider from "../components/CustomDivider.vue";
 import roomsData from "../data/roomsData.json";
 
 import "@fullcalendar/core/vdom"; // solves problem with Vite
@@ -914,7 +1001,7 @@ const roomPathNameOptions = Array.from(
 	roomsData,
 	(element) => element.pathName
 );
-const peopleQuantityOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const peopleQuantityOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 let calendar = ref([]);
 let calendarOptions = computed(() => {
@@ -979,7 +1066,7 @@ function handleDateClick(info) {
 		beneficiaryPhone: "",
 		people: 0,
 		allDay: true,
-		borderColor: "white",
+		borderColor: "grey-4",
 	};
 
 	displayNewEvent.value = true;
@@ -1024,7 +1111,7 @@ function handleEventClick(info) {
 		beneficiaryAddress: info.event.extendedProps.beneficiaryAddress,
 		beneficiaryPostalCode: info.event.extendedProps.beneficiaryPostalCode,
 		beneficiaryCity: info.event.extendedProps.beneficiaryCity,
-		borderColor: "white",
+		borderColor: "grey-4",
 	};
 
 	displayEventEdit.value = true;
@@ -1065,7 +1152,7 @@ async function handleEventDrop(info) {
 		beneficiaryAddress: info.event.extendedProps.beneficiaryAddress,
 		beneficiaryPostalCode: info.event.extendedProps.beneficiaryPostalCode,
 		beneficiaryCity: info.event.extendedProps.beneficiaryCity,
-		borderColor: "white",
+		borderColor: "grey-4",
 	};
 	eventDroppedData.value.room = roomsData.find(
 		(object) => object.pathName === eventDroppedData.value.room
@@ -1123,7 +1210,7 @@ async function handleEventResize(info) {
 		beneficiaryAddress: info.event.extendedProps.beneficiaryAddress,
 		beneficiaryPostalCode: info.event.extendedProps.beneficiaryPostalCode,
 		beneficiaryCity: info.event.extendedProps.beneficiaryCity,
-		borderColor: "white",
+		borderColor: "grey-4",
 	};
 	eventResizedData.value.room = roomsData.find(
 		(object) => object.pathName === eventResizedData.value.room
@@ -1261,12 +1348,12 @@ onMounted(async () => {
 				backgroundColor: roomsData.find(
 					(object) => object.pathName === doc.data().room
 				).color,
-				borderColor: "white",
+				borderColor: "grey-4",
 				extendedProps: {
 					room: doc.data().room,
 					timeArrival: doc.data().timeArrival,
 					timeDeparture: doc.data().timeDeparture,
-					people: doc.data().people ? doc.data().people : null,
+					people: doc.data().people,
 					isItGift: doc.data().isItGift,
 					clientMessage: doc.data().clientMessage,
 					clientFirstName: doc.data().clientFirstName,

@@ -302,7 +302,7 @@
 						</q-select>
 
 						<!-- Nombre d'occupants -->
-							<!-- <q-select
+							<q-select
 						label-slot
 								filled
 								color="orange"
@@ -318,7 +318,7 @@
 							<template v-slot:label>
 								{{ $t("booking.people") }}
 							</template>
-						</q-select> -->
+						</q-select>
 
 						<!-- Date -->
 						<div>
@@ -703,6 +703,7 @@ let beneficiaryVouchersQuantity = ref(null);
 let beneficiaryVoucherValue = ref(null);
 let clientMessage = ref("");
 let reservationDate = ref([]);
+let people = ref();
 let acceptConditions = ref(false);
 let displayConditions = ref(false);
 let displayConfirmation = ref(false);
@@ -729,6 +730,7 @@ let reservation = computed(() => {
 			beneficiaryVouchersQuantity.value,
 		beneficiaryVoucherValue: beneficiaryVoucherValue.value,
 		room: room.value,
+		people: people.value,
 		isItGift: isItGift.value,
 		clientMessage: clientMessage.value,
 		startDate: null,
@@ -828,7 +830,7 @@ function convertDateDDMMYYYYToYYYYMMDD(dateElement) {
 
 const roomNameOptions = Array.from(roomsData, (element) => element.name);
 roomNameOptions.pop(); // remove gite
-// const peopleQuantityOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const peopleQuantityOptions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 // Disable already reserved dates in DatePicker
 function datesOptions(dateElement) {
