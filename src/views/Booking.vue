@@ -52,7 +52,7 @@
 
 						<Transition>
 						<template v-if="isItGift">
-							<div>
+							<div class="q-gutter-y-sm" >
 							<h6>Coordonnées du bénéficiaire <q-avatar icon="card_giftcard"></q-avatar></h6>
 						
 							<!-- Nom -->
@@ -95,7 +95,7 @@
 							</q-input>
 
 							<!-- Code postal -->
-							<q-input label-slot filled  color="orange" v-model="beneficiaryPostalCode" type="text" 
+							<q-input label-slot filled  color="orange" v-model="beneficiaryPostalCode" type="text" maxlength="10"
 							lazy-rules="ondemand"
 								:rules="[
 									(val) =>
@@ -121,7 +121,7 @@
 							</q-input>
 
 							<!-- Tel -->
-							<q-input label-slot filled color="orange" v-model="beneficiaryPhone" type="tel" maxlength="13" 
+							<q-input label-slot filled color="orange" v-model="beneficiaryPhone" type="tel" maxlength="13" mask="##############"
 							lazy-rules="ondemand"
 								:rules="[
 									(val) =>
@@ -150,6 +150,10 @@
 								filled
 								v-model="beneficiaryVouchersQuantity"
 								label="Nombre de bons"
+								
+								mask="#####"
+
+								color="orange"
 								lazy-rules="ondemand"
 								:rules="[
 									(val) =>
@@ -162,11 +166,14 @@
 							<q-input
 								filled
 								v-model="beneficiaryVoucherValue"
+								mask="#####"
 								label="Valeur par bon"
+								color="orange"
 							/>
 
 							<q-checkbox
 								v-model="toWriteAmount"
+								
 								color="orange"
 								label="Inscrire le montant offert sur le bon."
 							/>
@@ -180,7 +187,7 @@
 						</template>
 						</Transition>
 
-						<h6>Mes coordonnées</h6>
+						<h6 class="q-pt-md q-pb-xs">Mes coordonnées</h6>
 
 						<!-- Nom -->
 						<q-input label-slot filled rounded color="orange" v-model="clientLastName" type="text" 
@@ -222,7 +229,7 @@
 						</q-input>
 
 						<!-- Code postal -->
-						<q-input label-slot filled  color="orange" v-model="clientPostalCode" type="text" 
+						<q-input label-slot filled  color="orange" v-model="clientPostalCode" type="text" maxlength="10"
 						lazy-rules="ondemand"
 							:rules="[
 								(val) =>
@@ -248,7 +255,7 @@
 						</q-input>
 
 						<!-- Tel -->
-						<q-input label-slot filled color="orange" v-model="clientPhone" type="tel" maxlength="13" 
+						<q-input label-slot filled color="orange" v-model="clientPhone" type="tel" maxlength="13" mask="##############" 
 						lazy-rules="ondemand"
 							:rules="[
 								(val) =>
@@ -273,7 +280,7 @@
 						</template>
 						</q-input>
 
-						<h6>Ma réservation</h6>
+						<h6 class="q-pt-md q-pb-xs">Ma réservation</h6>
 
 						<!-- Chambre -->
 						<q-select
