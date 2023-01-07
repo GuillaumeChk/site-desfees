@@ -50,9 +50,11 @@
 							/>						
 						</div>
 
+						<Transition>
 						<template v-if="isItGift">
+							<div>
 							<h6>Coordonnées du bénéficiaire <q-avatar icon="card_giftcard"></q-avatar></h6>
-							
+						
 							<!-- Nom -->
 							<q-input label-slot filled rounded color="orange" v-model="beneficiaryLastName" type="text" 
 									lazy-rules="ondemand"
@@ -174,7 +176,9 @@
 								color="orange"
 								label="Envoyer directement le bon au bénéficiaire."
 							/>
+						</div>
 						</template>
+						</Transition>
 
 						<h6>Mes coordonnées</h6>
 
@@ -1013,4 +1017,18 @@ onMounted(async () => {
     background-color: #ffc107;
 	display: inline-block;
 }
+
+/* Transition */
+.v-enter-active,
+.v-leave-active {
+	transform-origin: 50% 0%;
+	transform: scaleY(1);
+  transition: transform 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+	transform: scaleY(0);
+}
+
 </style>
