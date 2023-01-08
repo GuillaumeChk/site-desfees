@@ -107,6 +107,24 @@
 						<q-form @submit="addNewEvent" greedy>
 							<q-card-section class="q-gutter-y-sm">
 								<div class="row justify-between items-baseline">
+									<span> Désactiver toutes les chambres ? </span>
+
+									<q-btn-toggle
+										v-model="newEventData.allRoomsClosed"
+										class="my-custom-toggle"
+										rounded
+										unelevated
+										toggle-color="orange"
+										color="grey-4"
+										text-color="orange"
+										:options="[
+											{ label: 'Non', value: false },
+											{ label: 'Oui', value: true },
+										]"
+									/>
+								</div>
+
+								<div class="row justify-between items-baseline">
 									<span> Est-ce un cadeau ? </span>
 
 									<q-btn-toggle
@@ -529,6 +547,24 @@
 
 						<q-form @submit="editEvent" greedy>
 							<q-card-section class="q-gutter-y-sm">
+								<div class="row justify-between items-baseline">
+									<span> Désactiver toutes les chambres ? </span>
+
+									<q-btn-toggle
+										v-model="eventData.allRoomsClosed"
+										class="my-custom-toggle"
+										rounded
+										unelevated
+										toggle-color="orange"
+										color="grey-4"
+										text-color="orange"
+										:options="[
+											{ label: 'Non', value: false },
+											{ label: 'Oui', value: true },
+										]"
+									/>
+								</div>
+
 								<div class="row justify-between items-baseline">
 									<span> Est-ce un cadeau ? </span>
 
@@ -1066,7 +1102,8 @@ function handleDateClick(info) {
 		beneficiaryPhone: "",
 		people: 0,
 		allDay: true,
-		borderColor: "grey-4",
+		borderColor: "white",
+		allRoomsClosed: false,
 	};
 
 	displayNewEvent.value = true;
@@ -1111,7 +1148,8 @@ function handleEventClick(info) {
 		beneficiaryAddress: info.event.extendedProps.beneficiaryAddress,
 		beneficiaryPostalCode: info.event.extendedProps.beneficiaryPostalCode,
 		beneficiaryCity: info.event.extendedProps.beneficiaryCity,
-		borderColor: "grey-4",
+		borderColor: "white",
+		allRoomsClosed: info.event.extendedProps.allRoomsClosed,
 	};
 
 	displayEventEdit.value = true;
@@ -1152,14 +1190,17 @@ async function handleEventDrop(info) {
 		beneficiaryAddress: info.event.extendedProps.beneficiaryAddress,
 		beneficiaryPostalCode: info.event.extendedProps.beneficiaryPostalCode,
 		beneficiaryCity: info.event.extendedProps.beneficiaryCity,
-		borderColor: "grey-4",
+		borderColor: "white",
+		allRoomsClosed: info.event.extendedProps.allRoomsClosed,
 	};
 	eventDroppedData.value.room = roomsData.find(
 		(object) => object.pathName === eventDroppedData.value.room
 	).pathName; // no need ?
-	eventDroppedData.value.backgroundColor = roomsData.find(
-		(object) => object.pathName === eventDroppedData.value.room
-	).color;
+	eventDroppedData.value.backgroundColor = eventDroppedData.value.allRoomsClosed
+		? "black"
+		: roomsData.find(
+				(object) => object.pathName === eventDroppedData.value.room
+		  ).color;
 
 	// update event
 	calendar.value.splice(
@@ -1210,14 +1251,17 @@ async function handleEventResize(info) {
 		beneficiaryAddress: info.event.extendedProps.beneficiaryAddress,
 		beneficiaryPostalCode: info.event.extendedProps.beneficiaryPostalCode,
 		beneficiaryCity: info.event.extendedProps.beneficiaryCity,
-		borderColor: "grey-4",
+		borderColor: "white",
+		allRoomsClosed: info.event.extendedProps.allRoomsClosed,
 	};
 	eventResizedData.value.room = roomsData.find(
 		(object) => object.pathName === eventResizedData.value.room
 	).pathName; // no need ?
-	eventResizedData.value.backgroundColor = roomsData.find(
-		(object) => object.pathName === eventResizedData.value.room
-	).color;
+	eventResizedData.value.backgroundColor = eventResizedData.value.allRoomsClosed
+		? "black"
+		: roomsData.find(
+				(object) => object.pathName === eventResizedData.value.room
+		  ).color;
 
 	// update event
 	calendar.value.splice(
@@ -1239,9 +1283,10 @@ async function addNewEvent() {
 	newEventData.value.room = roomsData.find(
 		(object) => object.pathName === newEventData.value.room
 	).pathName;
-	newEventData.value.backgroundColor = roomsData.find(
-		(object) => object.pathName === newEventData.value.room
-	).color;
+	newEventData.value.backgroundColor = newEventData.value.allRoomsClosed
+		? "black"
+		: roomsData.find((object) => object.pathName === newEventData.value.room)
+				.color;
 	calendar.value.push({
 		...newEventData.value,
 		title:
@@ -1261,9 +1306,10 @@ async function editEvent() {
 	eventData.value.room = roomsData.find(
 		(object) => object.pathName === eventData.value.room
 	).pathName;
-	eventData.value.backgroundColor = roomsData.find(
-		(object) => object.pathName === eventData.value.room
-	).color;
+	eventData.value.backgroundColor = eventData.value.allRoomsClosed
+		? "black"
+		: roomsData.find((object) => object.pathName === eventData.value.room)
+				.color;
 
 	// update event
 	calendar.value.splice(
@@ -1324,6 +1370,7 @@ async function updateDB(eventRef) {
 		beneficiaryCity: eventRef.value.beneficiaryCity,
 		allDay: true,
 		paid: true,
+		allRoomsClosed: eventRef.value.allRoomsClosed,
 	};
 	// console.log(eventForDB);
 	await setDoc(doc(db, "calendar", eventRef.value.id), eventForDB);
@@ -1345,10 +1392,11 @@ onMounted(async () => {
 				start: new Date(doc.data().startDate.seconds * 1000), // millisecond time
 				end: new Date(doc.data().endDate.seconds * 1000 + 24 * 60 * 60 * 1000),
 				allDay: true,
-				backgroundColor: roomsData.find(
-					(object) => object.pathName === doc.data().room
-				).color,
-				borderColor: "grey-4",
+				backgroundColor: doc.data().allRoomsClosed
+					? "black"
+					: roomsData.find((object) => object.pathName === doc.data().room)
+							.color,
+				borderColor: "white",
 				extendedProps: {
 					room: doc.data().room,
 					timeArrival: doc.data().timeArrival,
@@ -1374,6 +1422,7 @@ onMounted(async () => {
 					sendGiftToBeneficiary: doc.data().sendGiftToBeneficiary,
 					beneficiaryVouchersQuantity: doc.data().beneficiaryVouchersQuantity,
 					beneficiaryVoucherValue: doc.data().beneficiaryVoucherValue,
+					allRoomsClosed: doc.data().allRoomsClosed,
 				},
 			};
 

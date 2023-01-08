@@ -928,6 +928,16 @@ function setRoomCalendar(roomPathName) {
 				}
 			}
 		}
+		// Désactiver toutes les chambres pour une période, vacances isa
+		if (doc.data().allRoomsClosed === true) {
+			let nextDate = new Date(doc.data().startDate.toDate());
+			let nights = (doc.data().endDate.seconds - doc.data().startDate.seconds) / (24*60*60);
+
+			for (let i = 0; i <= nights; i++) {
+				calendarData.push(date.formatDate(nextDate, 'YYYY/MM/DD')); // do not change mask 'YYYY/MM/DD'
+				nextDate.setDate(nextDate.getDate() + 1);
+			}
+		}
 	});
 	// console.log(calendarData);
 	calendar.value = calendarData;
