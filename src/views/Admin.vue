@@ -458,7 +458,6 @@
 												<q-time
 													v-model="newEventData.timeArrival"
 													color="orange"
-													:options="optionsArrivalTime"
 												>
 													<div class="row items-center justify-end">
 														<q-btn
@@ -908,11 +907,7 @@
 												transition-show="scale"
 												transition-hide="scale"
 											>
-												<q-time
-													v-model="eventData.timeArrival"
-													color="orange"
-													:options="optionsArrivalTime"
-												>
+												<q-time v-model="eventData.timeArrival" color="orange">
 													<div class="row items-center justify-end">
 														<q-btn
 															v-close-popup
@@ -1117,9 +1112,11 @@ function handleEventClick(info) {
 	eventData.value = {
 		id: info.event.id,
 		title:
-			info.event.extendedProps.clientFirstName +
+			info.event.extendedProps.clientTimeArrival +
 			" " +
-			info.event.extendedProps.clientLastName,
+			info.event.extendedProps.clientLastName +
+			" " +
+			info.event.extendedProps.clientFirstName,
 		start: info.event.start,
 		end: info.event.end,
 		timeArrival: info.event.extendedProps.timeArrival,
@@ -1290,9 +1287,11 @@ async function addNewEvent() {
 	calendar.value.push({
 		...newEventData.value,
 		title:
-			newEventData.value.clientFirstName +
+			newEventData.value.clientTimeArrival +
 			" " +
-			newEventData.value.clientLastName,
+			newEventData.value.clientLastName +
+			" " +
+			newEventData.value.clientFirstName,
 	});
 	calendarOptions.events = calendar.value;
 
@@ -1388,7 +1387,12 @@ onMounted(async () => {
 		if (doc.data().paid) {
 			const reservationEvent = {
 				id: doc.id,
-				title: doc.data().clientFirstName + " " + doc.data().clientLastName,
+				title:
+					doc.data().timeArrival +
+					" " +
+					doc.data().clientLastName +
+					" " +
+					doc.data().clientFirstName,
 				start: new Date(doc.data().startDate.seconds * 1000), // millisecond time
 				end: new Date(doc.data().endDate.seconds * 1000 + 24 * 60 * 60 * 1000),
 				allDay: true,
@@ -1450,3 +1454,17 @@ function downloadCalendar() {
 	}
 }
 </script>
+
+<style>
+.fc-event-title {
+	font-size: 14px;
+	color: #eeeeee;
+}
+
+.fc-theme-standard td,
+.fc-theme-standard th,
+.fc-theme-standard .fc-scrollgrid {
+	border-color: grey;
+	border-radius: 5px;
+}
+</style>

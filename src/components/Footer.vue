@@ -93,7 +93,7 @@
 			</div>
 
 			<div class="q-pa-xs text-orange-7 text-center">
-				Copyright © 2022 <br />
+				Copyright © {{ currentYear }} <br />
 				desfees.fr •
 				<router-link class="text-orange-7" to="/conditions">{{
 					$t("terms")
@@ -104,3 +104,7 @@
 		</div>
 	</q-footer>
 </template>
+
+<script setup>
+const currentYear = new Date().getFullYear();
+</script>
