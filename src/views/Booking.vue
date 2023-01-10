@@ -951,6 +951,8 @@ onMounted(async () => {
 
 	querySnapshot = await getDocs(collection(db, "calendar"));
 
+	// Holidays, specials dates...
+
 	let currentYear = new Date().getFullYear()-1 +"-"+ new Date().getFullYear(); // 2022-2023
 	let nextYear = new Date().getFullYear() +"-"+ (new Date().getFullYear()+1); //2023-2024
 

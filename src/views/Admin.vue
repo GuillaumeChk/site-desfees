@@ -1048,8 +1048,11 @@ let calendarOptions = computed(() => {
 		eventDrop: handleEventDrop,
 		eventResize: handleEventResize,
 		events: calendar.value,
+		eventOrder: "order",
 	};
 });
+
+let schoolHolidays = ref([]); // set in onMounted
 
 let bookingSystemWorking = ref();
 watch(bookingSystemWorking, async (newValue) => {
@@ -1388,6 +1391,7 @@ onMounted(async () => {
 			const reservationEvent = {
 				id: doc.id,
 				title:
+					(doc.data().clientMessage ? "✱" : "") +
 					doc.data().timeArrival +
 					" " +
 					doc.data().clientLastName +
@@ -1400,8 +1404,12 @@ onMounted(async () => {
 					? "black"
 					: roomsData.find((object) => object.pathName === doc.data().room)
 							.color,
-				borderColor: "white",
+				borderColor: roomsData.find(
+					(object) => object.pathName === doc.data().room
+				).color,
 				extendedProps: {
+					order: roomsData.find((object) => object.pathName === doc.data().room)
+						.index,
 					room: doc.data().room,
 					timeArrival: doc.data().timeArrival,
 					timeDeparture: doc.data().timeDeparture,
@@ -1435,7 +1443,82 @@ onMounted(async () => {
 	});
 
 	// console.log(calendarData);
-	calendar.value = calendarData;
+	// calendar.value = calendarData;
+
+	// Holidays, specials dates...
+
+	let currentYear =
+		new Date().getFullYear() - 1 + "-" + new Date().getFullYear(); // 2022-2023
+	let nextYear =
+		new Date().getFullYear() + "-" + (new Date().getFullYear() + 1); //2023-2024
+
+	// Zones A + B + C et 2022-2023 + 2023-2024
+	let schoolHolidaysPromise_BesanconZoneA = await fetch(
+		`https://data.education.gouv.fr/api/records/1.0/search/?dataset=fr-en-calendrier-scolaire&q=&sort=-end_date&refine.location=Besan%C3%A7on&refine.annee_scolaire=${currentYear}&timezone=Europe%2FParis`
+	);
+	let schoolHolidaysPromise_AixMarseilleZoneB = await fetch(
+		`https://data.education.gouv.fr/api/records/1.0/search/?dataset=fr-en-calendrier-scolaire&q=&sort=-end_date&refine.annee_scolaire=${currentYear}&refine.location=Aix-Marseille&timezone=Europe%2FParis`
+	);
+	let schoolHolidaysPromise_CreteilZoneC = await fetch(
+		`https://data.education.gouv.fr/api/records/1.0/search/?dataset=fr-en-calendrier-scolaire&q=&sort=-end_date&refine.annee_scolaire=${currentYear}&refine.location=Cr%C3%A9teil&timezone=Europe%2FParis`
+	);
+	let schoolHolidaysPromise_BesanconZoneA2 = await fetch(
+		`https://data.education.gouv.fr/api/records/1.0/search/?dataset=fr-en-calendrier-scolaire&q=&sort=-end_date&refine.location=Besan%C3%A7on&refine.annee_scolaire=${nextYear}&timezone=Europe%2FParis`
+	);
+	let schoolHolidaysPromise_AixMarseilleZoneB2 = await fetch(
+		`https://data.education.gouv.fr/api/records/1.0/search/?dataset=fr-en-calendrier-scolaire&q=&sort=-end_date&refine.annee_scolaire=${nextYear}&refine.location=Aix-Marseille&timezone=Europe%2FParis`
+	);
+	let schoolHolidaysPromise_CreteilZoneC2 = await fetch(
+		`https://data.education.gouv.fr/api/records/1.0/search/?dataset=fr-en-calendrier-scolaire&q=&sort=-end_date&refine.annee_scolaire=${nextYear}&refine.location=Cr%C3%A9teil&timezone=Europe%2FParis`
+	);
+
+	if (schoolHolidaysPromise_BesanconZoneA.ok) {
+		let responseA = await schoolHolidaysPromise_BesanconZoneA.json();
+		let responseB = await schoolHolidaysPromise_AixMarseilleZoneB.json();
+		let responseC = await schoolHolidaysPromise_CreteilZoneC.json();
+		let responseA2 = await schoolHolidaysPromise_BesanconZoneA2.json();
+		let responseB2 = await schoolHolidaysPromise_AixMarseilleZoneB2.json();
+		let responseC2 = await schoolHolidaysPromise_CreteilZoneC2.json();
+		let responses = [
+			responseA,
+			responseB,
+			responseC,
+			responseA2,
+			responseB2,
+			responseC2,
+		];
+
+		responses.forEach((response) => {
+			schoolHolidays.value = schoolHolidays.value.concat(
+				response.records.map((record) => {
+					return {
+						id: record.fields.start_date,
+						start: new Date(record.fields.start_date),
+						end: new Date(record.fields.end_date),
+						display: "background",
+						allDay: true,
+					};
+				})
+			);
+		});
+
+		calendarData.push({
+			start: "2023-01-24",
+			end: "2023-01-28",
+			overlap: false,
+			display: "background",
+		});
+
+		calendar.value = calendarData.concat(schoolHolidays.value);
+
+		console.log(calendar.value);
+
+		// let holidays = holidaysTo2032.map((object) => {
+		// 	return convertDateDDMMYYYYToYYYYMMDD(object.date);
+		// });
+	} else {
+		console.log("api gouv holidays ERROR");
+	}
 });
 /// CRUD - end
 
