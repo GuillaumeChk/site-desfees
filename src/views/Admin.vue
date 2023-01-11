@@ -1386,12 +1386,6 @@ onMounted(async () => {
 	const querySnapshot = await getDocs(collection(db, "calendar"));
 	let calendarData = [];
 
-	calendarData.push({
-		start: "2023-01-13",
-		end: "2023-01-15",
-		display: "background",
-	});
-
 	querySnapshot.forEach((doc) => {
 		// doc.data() is never undefined for query doc snapshots
 		if (doc.data().paid) {
