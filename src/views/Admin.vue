@@ -1005,7 +1005,7 @@ import { ref, onMounted, computed, watch } from "vue";
 // import CustomDivider from "../components/CustomDivider.vue";
 import roomsData from "../data/roomsData.json";
 
-import "@fullcalendar/core/vdom"; // solves problem with Vite
+// import "@fullcalendar/core/vdom"; // solves problem with Vite
 import FullCalendar from "@fullcalendar/vue3";
 import frLocale from "@fullcalendar/core/locales/fr";
 import dayGridPlugin from "@fullcalendar/daygrid";
@@ -1385,6 +1385,13 @@ onMounted(async () => {
 
 	const querySnapshot = await getDocs(collection(db, "calendar"));
 	let calendarData = [];
+
+	calendarData.push({
+		start: "2023-01-13",
+		end: "2023-01-15",
+		display: "background",
+	});
+
 	querySnapshot.forEach((doc) => {
 		// doc.data() is never undefined for query doc snapshots
 		if (doc.data().paid) {
@@ -1492,7 +1499,6 @@ onMounted(async () => {
 			schoolHolidays.value = schoolHolidays.value.concat(
 				response.records.map((record) => {
 					return {
-						id: record.fields.start_date,
 						start: new Date(record.fields.start_date),
 						end: new Date(record.fields.end_date),
 						display: "background",
@@ -1500,13 +1506,6 @@ onMounted(async () => {
 					};
 				})
 			);
-		});
-
-		calendarData.push({
-			start: "2023-01-24",
-			end: "2023-01-28",
-			overlap: false,
-			display: "background",
 		});
 
 		calendar.value = calendarData.concat(schoolHolidays.value);
